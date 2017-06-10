@@ -2,9 +2,19 @@
 
 <script src="jspdf.debug.js"></script>
 <script src="jquery.js"></script>
+<script src="jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
 
 <h2>Test PDF</h2>
+<div>
+<input id='year' value='2012' placeholder="Year"> </input><button onclick="showAll()">Show All Events</button>
+</div>
 
+
+<table id=allListTable border="1">
+
+</table>
+<br><br>
 <input id='name' placeholder="Name"> </input>
 <br>
 <input id='date' type='date'> </input>
@@ -15,7 +25,7 @@
   <option value="night">Night</option>
 </select>
 <br>
-<input id='place' placeholder="Location"> </input>
+	<input id='place' placeholder="Location"> </input>
 
 <br>
 
@@ -33,6 +43,8 @@
 <br>
 <select id='FASize'>
 	<option value="day">Family Album Size</option> 
+	<option value="12*23">12*23</option> 
+	<option value="40*30">40*30</option> 
 </select>
 <input id='FAPages' placeholder="Family Album Pages"> </input>
 <select id='FAQuality'>
@@ -54,19 +66,37 @@
 <br>
 <input id='homeThankCardCount' placeholder="Homecoming Thanking Cards"> </input>
 
-
-
-
-
-
 <div>
-
-
-<button onclick="myFunction()">Click me</button>
+<button onclick="myFunction()">SAVE</button>
 </div>
 
 <script>
-
+function deleteWedding(event) {
+   	
+	$.post('http://localhost/pdf/deleteWedding.php', { 
+			ID: event.id	
+		}, 
+		function(returnedData){
+			console.log(returnedData); 
+		}).fail(function(){
+			  console.log("error");
+	});
+}
+function showAll() {
+   	$( "#allListTable" ).empty();
+	$.post('http://localhost/pdf/showAll.php', { 
+			year: $('#year').val()	
+		}, 
+		function(returnedData){
+			var allArr = JSON.parse(returnedData);
+			for (var i = 0; i < allArr.length; i++) {
+				$( "#allListTable" ).append( "<tr><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+"</td></tr>" );
+			}
+			console.log(returnedData); 
+		}).fail(function(){
+			  console.log("error");
+	});
+}
 function myFunction() {
    	
 	$.post('http://localhost/pdf/addWedding.php', { 
