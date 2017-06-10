@@ -1,9 +1,9 @@
 <html>
 
-<script src="jspdf.debug.js"></script>
-<script src="jquery.js"></script>
-<script src="jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+<script src="js/jspdf.debug.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
 
 <h2>Test PDF</h2>
 <div>
