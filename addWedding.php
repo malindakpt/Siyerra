@@ -24,30 +24,11 @@ $thankCardSize = $_POST['thankCardSize'];
 $thankCardQuality = $_POST['thankCardQuality'];
 $wedThankCardCount = $_POST['wedThankCardCount'];
 $homeThankCardCount = $_POST['homeThankCardCount'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
 
-$sql = "INSERT INTO booking (name, date, time,	place, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount) 
-VALUES ('$name', '$date' , '$time','$place','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount')";
-
-//VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-
-$name = 'ASD';
-$date = '2012/12/12';
-$time = 2;
-$place = 'Wahumuwa';
-$CASize = '12';
-$CAPages = 123;
-$CAQuality = 'good';
-$FASize = '123';
-$FAPages = 12;
-$FAQuality  = '123';
-$thankCardSize = '123';
-$thankCardQuality = 'goog';
-$wedThankCardCount =123;
-$homeThankCardCount = 32;
-
-//$stmt->bind_param($name, $date, $time, $place, $CASize, $CAPages, $CAQuality, $FASize, $FAPages, $FAQuality, $thankCardSize, $thankCardQuality, $wedThankCardCount, $homeThankCardCount);
-
-
+$sql = "INSERT INTO booking (name, date, time,	place, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount, email, phone) 
+VALUES ('$name', '$date' , '$time','$place','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', '$phone')";
 
 
 if ($conn->query($sql) === TRUE) {
