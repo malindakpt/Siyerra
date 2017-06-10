@@ -7,25 +7,28 @@
 
 <input id='name' placeholder="Name"> </input>
 <br>
-<input type='date'> </input>
+<input id='date' type='date'> </input>
 <br>
 <select id='time'>
 <option value="day">Time</option>
   <option value="day">Day</option>
-  <option value="saab">Night</option>
+  <option value="night">Night</option>
 </select>
 <br>
-<input id='location' placeholder="Location"> </input>
+<input id='place' placeholder="Location"> </input>
 
 <br>
 
 <select id='CASize'>
 	<option value="day">Couple Album Size</option> 
+	<option value="12*23">12*23</option> 
+	<option value="40*30">40*30</option> 
 </select>
 <input id='CAPages' placeholder="Couple Album Pages"> </input>
 <select id='CAQuality'>
-	<option value="day">Couple Album Quality</option> 
-	<option value="day">12_23</option> 
+	<option value="N/A">Couple Album Quality</option> 
+	<option value="12*23">12*23</option> 
+	<option value="40*30">40*30</option> 
 </select>
 <br>
 <select id='FASize'>
@@ -33,23 +36,23 @@
 </select>
 <input id='FAPages' placeholder="Family Album Pages"> </input>
 <select id='FAQuality'>
-	<option value="day">Family Album Quality</option> 
-	<option value="day">12_23</option> 
+	<option value="N/A">Family Album Quality</option> 
+	<option value="Story Book">Story Book</option> 
 </select>
 <br>
 <select id='thankCardSize'>
-	<option value="day">Thanking Card Size</option> 
-	<option value="day">12_23</option> 
+	<option value="N/A">Thanking Card Size</option> 
+	<option value="12R">12R</option> 
 </select>
 <br>
 <select id='thankCardQuality'>
-	<option value="day">Thanking Card Quality</option> 
-	<option value="day">12_23</option> 
+	<option value="N/A">Thanking Card Quality</option> 
+	<option value="Dark">Dark</option> 
 </select>
 <br>
-<input id='' placeholder="Wedding Thanking Cards"> </input>
+<input id='homeThankCardCount' placeholder="Wedding Thanking Cards"> </input>
 <br>
-<input id='' placeholder="Homecoming Thanking Cards"> </input>
+<input id='homeThankCardCount' placeholder="Homecoming Thanking Cards"> </input>
 
 
 
@@ -65,27 +68,26 @@
 <script>
 
 function myFunction() {
-   
-   
-	
+   	
 	$.post('http://localhost/pdf/addWedding.php', { 
-		name: "Malinda", 
-		date : "2012/01/12",
-		time: "0", 
-		place: "rtrtrtrtrtda", 
-		CASize: "Malin3123123da", 
-		CAPages: "323", 
-		CAQuality: "NG", 
-		FASize: "3123123", 
-		FAPages: "21", 
-		FAQuality: "Bad rt", 
-		thankCardSize: "123123", 
-		thankCardQuality: "Bad", 
-		wedThankCardCount: "32", 
-		homeThankCardCount: "32"
-		}, 
+		name: $('#name').val(), 
+		date : $('#date').val(),
+		time: $('#time').val(), 
+		place: $('#place').val(),
+		CASize: $('#CASize').val(),
+		CAPages: $('#CAPages').val(), 
+		CAQuality: $('#CAQuality').val(), 
+		FASize: $('#FASize').val(), 
+		FAPages: $('#FAPages').val(), 
+		FAQuality: $('#FAQuality').val(), 
+		thankCardSize: $('#thankCardSize').val(),
+		thankCardQuality: $('#thankCardQuality').val(), 
+		wedThankCardCount: $('#homeThankCardCount').val(), 
+		homeThankCardCount: $('#homeThankCardCount').val()
+	}, 
     function(returnedData){
          console.log(returnedData);
+		 alert($('#CAQuality').val());
 	}).fail(function(){
 		  console.log("error");
 	});
