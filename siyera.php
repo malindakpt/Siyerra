@@ -22,11 +22,31 @@
 
     </div>
 	<div class="col-6 col-m-9">
-		<div>
-			<input id='year' class="w3-input" value='2017' placeholder="Year"> 
-			</input><button onclick="showAll()">Show All Events</button>
-			</input><button onclick="hideAll()">Hide All Events</button>
+		<div >
+			<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:30%; float:left; margin:5px"> 
+			<select id='months'  class="w3-select" style="width:50% ;	 float:left;  margin:5px" >
+				<option value="N/A">All Months</option>
+				<option value="1">January</option>
+				<option value="2">February</option>
+				<option value="3">March</option>
+				<option value="4">April</option>
+				<option value="5">May</option>
+				<option value="6">June</option>
+				<option value="7">July</option>
+				<option value="8">August</option>
+				<option value="9">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+			</select>
 		</div>
+		 
+		<div >
+		
+			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Show All Events</button>
+			 <button onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
+		</div>
+		
 
 		<table id=allListTable class="w3-table-all w3-centered">
 
@@ -121,12 +141,15 @@
 			<input id='homeThankCardCount'  class="w3-input" > </input>
 		</div>
 		<div>
-			<textarea name="textarea" style="width:100%;height:150px;"></textarea>
+			<textarea name="textarea" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
 			<input id='homeThankCardCount' placeholder="Total Price" class="w3-input" > </input>
 		</div>
 		<div>
 		<br>
-			    <button class="w3-btn w3-green" onclick="myFunction()" style="width:50%">Save </button>
+			    <button class="w3-btn w3-green" onclick="myFunction()" >Save Changes</button>
+				<button class="w3-btn w3-green" onclick="savePDF()" >Download PDF</button>
+				<br><br>
+				<button class="w3-btn w3-blue w3-padding-small" onclick="myFunction()" >Send Email</button>
 		</div>
 	</div> 
 	<div class="col-3 col-m-12">
@@ -186,18 +209,19 @@ function deleteWedding(event) {
 	});
 }
 function showAll() {
-   	$( "#allListTable" ).empty();
+   	$( "#allListTable" ).empty()
 	$.post('http://localhost/pdf/showAll.php', { 
-			year: $('#year').val()	
+			year: $('#year').val(),
+			month: $('#months').val()
 		}, 
 		function(returnedData){
-			 
+			 console.log(returnedData); 
 			var allArr = JSON.parse(returnedData);
 			for (var i = 0; i < allArr.length; i++) {
 				$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='View' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
 			
 			}
-			console.log(returnedData); 
+			
 		}).fail(function(){
 			  console.log("error");
 	});
@@ -246,8 +270,27 @@ doc.text(100, 20, 'This is a title');
 
 doc.setFontSize(16);
 doc.text(20, 30, 'This is some normal sized text underneath.');
-
+function savePDF(){
+	 
+	var canvas = document.createElement("canvas");
+	context = canvas.getContext('2d');
+	make_base();
+	
+	var pngUrl = canvas.toDataURL(); 
+	console.log(pngUrl);
+	
+	var doc = new jsPDF();
+	doc.addImage(pngUrl, 'PNG', 15, 40, 180, 180);
+;
+}
 //doc.save('Test.pdf');
-
+function make_base()
+{
+  base_image = new Image();
+  base_image.src = 'img/header.png';
+  base_image.onload = function(){
+    context.drawImage(base_image, 100, 100);
+  }
+}
 </script>
 </html>

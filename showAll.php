@@ -11,8 +11,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $year = $_POST['year'];
-$sql1 = "select * from booking where year(dateW) = '$year' ";
-$sql2 = "select * from booking where year(dateH) = '$year' ";
+$month = $_POST['month'];
+if(!is_numeric($month)){ 
+	$sql1 = "select * from booking where year(dateW) = '$year' ";
+	$sql2 = "select * from booking where year(dateH) = '$year' ";
+}else{
+	$sql1 = "select * from booking where year(dateW) = '$year' AND month(dateW) = '$month' ";
+	$sql2 = "select * from booking where year(dateH) = '$year' AND month(dateH) = '$month' ";
+}
 $result1 = $conn->query($sql1);
 $result2 = $conn->query($sql2);
 $allList =  array();
