@@ -18,8 +18,10 @@ if ($result->num_rows > 0) {
     // output data of each row
 	//name, date, time,	place, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount)
     while($row = $result->fetch_assoc()) {
-		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 'date' => $row["date"], 'time' => $row["time"],
-		'place' => $row["place"], 'CASize' => $row["CASize"], 'CAPages' => $row["CAPages"], 
+		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 
+		'dateW' => $row["dateW"], 'timeW' => $row["timeW"],'placeW' => $row["placeW"], 
+		'dateH' => $row["dateH"], 'timeH' => $row["timeH"],'placeH' => $row["placeH"], 
+		'CASize' => $row["CASize"], 'CAPages' => $row["CAPages"], 
 		'CAQuality' => $row["CAQuality"], 'FASize' => $row["FASize"], 'FAPages' => $row["FAPages"],
 		'FAQuality' => $row["FAQuality"], 'thankCardSize' => $row["thankCardSize"],
 		'thankCardQuality' => $row["thankCardQuality"], 'wedThankCardCount' => $row["wedThankCardCount"], 'homeThankCardCount' => $row["homeThankCardCount"],

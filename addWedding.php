@@ -11,9 +11,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $name = $_POST['name'];
-$date = $_POST['date'];
-$time = $_POST['time'];
-$place = $_POST['place'];
+$dateW = $_POST['dateW'];
+$timeW = $_POST['timeW'];
+$placeW = $_POST['placeW'];
 $CASize = $_POST['CASize'];
 $CAPages = $_POST['CAPages'];
 $CAQuality = $_POST['CAQuality'];
@@ -26,9 +26,12 @@ $wedThankCardCount = $_POST['wedThankCardCount'];
 $homeThankCardCount = $_POST['homeThankCardCount'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
+$dateH = $_POST['dateH'];
+$timeH = $_POST['timeH'];
+$placeH = $_POST['placeH'];
 
-$sql = "INSERT INTO booking (name, date, time,	place, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount, email, phone) 
-VALUES ('$name', '$date' , '$time','$place','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', '$phone')";
+$sql = "INSERT INTO booking (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount, email, phone, dateH, timeH, placeH) 
+VALUES ('$name', '$dateW' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', '$phone' , '$dateH' , '$timeH','$placeH')";
 
 
 if ($conn->query($sql) === TRUE) {
