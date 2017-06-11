@@ -11,91 +11,99 @@
 <body>
 <div class="header">
     <span class="inlineMenu"><img class="logo" src="img/logo1.png"/></span>
-    <span class="topic">docvisit   </span>
-    <span class="topic2">.lk</span>
+    <span class="topic">Siyerra Studio  </span>
+ 
 
+</div> 
+<div class="row">
+	<div class="hideInMobile col-3 col-m-3">
+
+        <div class=" aside">
+         
+        </div>
+
+    </div>
+	<div class="col-6 col-m-9">
+		<div>
+			<input id='year' class="w3-input" value='2017' placeholder="Year"> </input><button onclick="showAll()">Show All Events</button>
+		</div>
+
+		<table id=allListTable class="w3-table-all w3-centered">
+
+		</table>
+		<br>
+		<input id='name' class="w3-input" placeholder="Name"> </input>
+		<br>
+		<input id='email' class="w3-input" placeholder="Email"> </input>
+		<br>
+		<input id='phone'  class="w3-input" placeholder="Phone"> </input>
+
+		<input id='date'  class="w3-input"  class="w3-input" type='date'> </input>
+		<br>
+		<select id='time'  class="w3-select" >
+			<option value="N/A" >Time</option>
+			<option value="Day">Day</option>
+			<option value="Night">Night</option>
+		</select>
+		<br>
+		<input id='place' placeholder="Location"  class="w3-input" > </input>
+		<br>
+		<select id='CASize'  class="w3-select" >
+			<option value="N/A">Couple Album Size</option> 
+			<option value="12*23">12*23</option> 
+			<option value="40*30">40*30</option> 
+		</select>
+		<input id='CAPages' placeholder="Couple Album Pages"  class="w3-input" > </input>
+		<br>
+		<select id='CAQuality'  class="w3-select" >
+		<option value="N/A">Couple Album Quality</option> 
+		<option value="12*23">12*23</option> 
+		<option value="40*30">40*30</option> 
+	</select>
+		<br>
+		<select id='FASize'  class="w3-select" >
+			<option value="day">Family Album Size</option> 
+			<option value="12*23">12*23</option> 
+			<option value="40*30">40*30</option> 
+		</select>
+		<br>
+		<input id='FAPages' placeholder="Family Album Pages"  class="w3-input" > </input>
+		<br>
+		<select id='FAQuality'  class="w3-select" >
+			<option value="N/A">Family Album Quality</option> 
+			<option value="Story Book">Story Book</option> 
+			<option value="Magazine Book">Magazine Book</option>
+		</select>
+		<br>
+		<select id='thankCardSize'  class="w3-select" >
+			<option value="N/A">Thanking Card Size</option> 
+			<option value="12R">12R</option> 
+			<option value="4R">4R</option> 
+		</select>
+		<br>
+		<select id='thankCardQuality'  class="w3-select" >
+			<option value="N/A">Thanking Card Quality</option> 
+			<option value="Dark">Dark</option> 
+			<option value="Light">Light</option> 
+		</select>
+		<br>
+		<input id='wedThankCardCount'  class="w3-input"  placeholder="Wedding Thanking Cards"> </input>
+		<br>
+		<input id='homeThankCardCount'  class="w3-input"   placeholder="Homecoming Thanking Cards"> </input>
+		<div>
+			<button onclick="myFunction()">SAVE</button>
+		</div>
+	</div>
+	<div class="col-3 col-m-12">
+        <div class="hideInMobile aside">
+        </div>
+    </div>
 </div>
-<h2>Test PDF</h2>
-<div>
-<input id='year' class="w3-input" value='2017' placeholder="Year"> </input><button onclick="showAll()">Show All Events</button>
+
+<div class="footer">
+    <p>Powered by MSOFT Software Solutions 2017</p>
 </div>
-
-<table id=allListTable class="w3-table-all w3-centered">
-
-</table>
-<br><br>
-<input id='name' class="w3-input" placeholder="Name"> </input>
-<br>
-<br>
-<input id='email' class="w3-input" placeholder="Email"> </input>
-<br>
-<input id='phone'  class="w3-input" placeholder="Phone"> </input>
-
-<input id='date'  class="w3-input"  class="w3-input" type='date'> </input>
-<br>
-<select id='time'  class="w3-select" >
-	<option value="N/A" >Time</option>
-	<option value="Day">Day</option>
-	<option value="Night">Night</option>
-</select>
-<br>
-<input id='place' placeholder="Location"  class="w3-input" > </input>
-
-<br>
-
-<select id='CASize'  class="w3-select" >
-	<option value="N/A">Couple Album Size</option> 
-	<option value="12*23">12*23</option> 
-	<option value="40*30">40*30</option> 
-</select>
-<input id='CAPages' placeholder="Couple Album Pages"  class="w3-input" > </input>
-<br>
-<br>
-<select id='CAQuality'  class="w3-select" >
-	<option value="N/A">Couple Album Quality</option> 
-	<option value="12*23">12*23</option> 
-	<option value="40*30">40*30</option> 
-</select>
-<br>
-<br>
-<select id='FASize'  class="w3-select" >
-	<option value="day">Family Album Size</option> 
-	<option value="12*23">12*23</option> 
-	<option value="40*30">40*30</option> 
-</select>
-<br>
-<br>
-<input id='FAPages' placeholder="Family Album Pages"  class="w3-input" > </input>
-<br>
-<br>
-<select id='FAQuality'  class="w3-select" >
-	<option value="N/A">Family Album Quality</option> 
-	<option value="Story Book">Story Book</option> 
-	<option value="Magazine Book">Magazine Book</option>
-</select>
-<br>
-<br>
-<select id='thankCardSize'  class="w3-select" >
-	<option value="N/A">Thanking Card Size</option> 
-	<option value="12R">12R</option> 
-	<option value="4R">4R</option> 
-</select>
-<br>
-<br>
-<select id='thankCardQuality'  class="w3-select" >
-	<option value="N/A">Thanking Card Quality</option> 
-	<option value="Dark">Dark</option> 
-	<option value="Light">Light</option> 
-</select>
-<br>
-<input id='wedThankCardCount'  class="w3-input"  placeholder="Wedding Thanking Cards"> </input>
-<br>
-<input id='homeThankCardCount'  class="w3-input"   placeholder="Homecoming Thanking Cards"> </input>
-
-<div>
-<button onclick="myFunction()">SAVE</button>
-</div>
-
+</body>
 <script>
 function getWedding(event) {
    	
@@ -185,16 +193,6 @@ function myFunction() {
 }
 
 </script>
-
-
-
-
-
-
-
-
-
-
 <script>
 var doc = new jsPDF();
 doc.setFontSize(22);
@@ -206,9 +204,4 @@ doc.text(20, 30, 'This is some normal sized text underneath.');
 //doc.save('Test.pdf');
 
 </script>
-<div class="footer">
-    <p>Powered by MSOFT Software Solutions 2016</p>
-</div>
-</body>
-
 </html>
