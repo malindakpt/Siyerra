@@ -133,7 +133,11 @@
 			<input id='PSPages' class="w3-input" value="60"> </input>
 			
 		</div>
-		<br><br>
+		<br> 
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-yellow">
+		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
+		</div>
+		<br>
 		<label><b>Thanking Card Details</b></label>
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
@@ -176,11 +180,11 @@
 		</div>
 		<div>
 			<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
-			<input id='Advance1' placeholder="Advance1" class="w3-input" > </input>
-			<input id='Advance2' placeholder="Advance2" class="w3-input" > </input>
-			<input id='Advance3' placeholder="Advance3" class="w3-input" > </input>
-			<label>Total Price</label>
-			<input id='Total'  class="w3-input" > </input>
+			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
+			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
+			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()"> </input>
+			<label id="totalPrice">Total Price       </label>
+			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 		</div>
 		<div>
 		<br>
@@ -208,7 +212,7 @@ function getWedding(event) {
 			ID: event.id	
 		}, 
 		function(returnedData){
-			
+			console.log(returnedData);
 			var obj = JSON.parse(returnedData);
 			$('#name').val(obj.name);
 			$('#dateW').val(obj.dateW);
@@ -241,8 +245,11 @@ function getWedding(event) {
 			$('#Advance3').val(obj.Advance3);
 			$('#Total').val(obj.Total);
 			$('#Comments').val(obj.Comments);			
+			
+			$('#IncludeFA').prop('checked', Boolean.valueOf(obj.includeFA)); 	
 		 
-			console.log(returnedData); 
+			showRemainingBal();
+			 
 		}).fail(function(){
 			  console.log("error");
 	});
@@ -311,7 +318,8 @@ function myFunction() {
 		Advance1: $('#Advance1').val(),
 		Advance2: $('#Advance2').val(), 
 		Advance3: $('#Advance3').val(), 
-		Total: $('#Total').val()
+		Total: $('#Total').val(),
+		IncludeFA: $('#IncludeFA').is(":checked")
 	}, 
     function(returnedData){
          console.log(returnedData);
@@ -325,6 +333,17 @@ function myFunction() {
 
 </script>
 <script>
+
+function showRemainingBal(){
+	 
+	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
+	var adv2 = parseInt($('#Advance2').val())?parseInt($('#Advance2').val()):0; 
+	var adv3 = parseInt($('#Advance3').val())?parseInt($('#Advance3').val()):0; 
+	var Total = parseInt($('#Total').val())?parseInt($('#Total').val()):0; 
+	var bal = Total-adv1-adv2-adv3;
+  
+	document.getElementById('totalPrice').innerHTML = "Total Price        (To be paid="+bal+")";
+}
 var doc = new jsPDF();
 doc.setFontSize(22);
 doc.text(100, 20, 'This is a title');
