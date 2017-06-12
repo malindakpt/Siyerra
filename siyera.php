@@ -69,7 +69,7 @@
 				<option value="Night">Night</option>
 			</select>
 		
-			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" > </input>
+			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="Colombo" > </input>
 			
 			<br><br>
 			<label><b>Select Homecoming Date</b></label>
@@ -79,44 +79,59 @@
 				<option value="Day">Day</option>
 				<option value="Night">Night</option>
 			</select>	
-			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" > </input>
-			<br>
-			 
+			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value="Kirindawa"> </input>
+			<br>			 
 		</div>
-		<label>CoupleCouple Album Size</label>
-		<select id='CASize'  class="w3-select" > 
-			<option value="12*23">12*23</option> 
-			<option value="40*30">40*30</option> 
-		</select>
-		<br><br>
-		<label>CoupleCouple Pages Count</label>
-		<input id='CAPages'  class="w3-input" > </input>
-		<br>
-		<label>Couple Album Quality</label>
+		<label><b>Main/Wedding Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="12*23">12*23</option> 
 			<option value="40*30">40*30</option> 
 		</select>
+		<label>Main/Wedding Album Size</label>
+		<select id='CASize'  class="w3-select" > 
+			<option value="12*23">12*23</option> 
+			<option value="40*30">40*30</option> 
+		</select>
+		<br>
+		<label>Main/Wedding Pages Count</label>
+		<input id='CAPages'  class="w3-input" value="50"> </input>
+		
 		<br>
 		<br>
 	  <div class="XXX">
 			<br>
-			<label>Family Album Size</label>
-			<select id='FASize'  class="w3-select" > 
-				<option value="12*23">12*23</option> 
-				<option value="40*30">40*30</option> 
-			</select>
-			<br>
-			<br>
-			<label>Family Album Pages Count</label>
-			<input id='FAPages' class="w3-input" > </input>
-			<br>
-			<label>Family Album Quality</label>
+			<label><b>Homecoming Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
 				<option value="Story Book">Story Book</option> 
 				<option value="Magazine Book">Magazine Book</option>
 			</select>
+			<label>Homecoming Album Size</label>
+			<select id='FASize'  class="w3-select" > 
+				<option value="12*23">12*23</option> 
+				<option value="40*30">40*30</option> 
+			</select>
+			<br> 
+			<label>Homecoming Album Pages Count</label>
+			<input id='FAPages' class="w3-input" value="40"> </input>
+			<br>		
 			<br>
+		</div> 
+		 <div class="XXX">
+			<br>
+			<label><b>Preshoot Album Quality</b></label>
+			<select id='PSQuality'  class="w3-select" > 
+				<option value="Story Book">Story Book</option> 
+				<option value="Magazine Book">Magazine Book</option>
+			</select>
+			<label>Preshoot Album Size</label>
+			<select id='PSSize'  class="w3-select" > 
+				<option value="12*23">12*23</option> 
+				<option value="40*30">40*30</option> 
+			</select>
+			<br> 
+			<label>Preshoot Album Pages Count</label>
+			<input id='PSPages' class="w3-input" value="60"> </input>
+			
 		</div>
 		<br><br>
 		<label><b>Thanking Card Details</b></label>
@@ -135,14 +150,37 @@
 			</select>
 			<br>
 			<label>Wedding Thank Cards Count</label>
-			<input id='wedThankCardCount'  class="w3-input" > </input>
+			<input id='wedThankCardCount'  class="w3-input" value="100"> </input>
 			
-			<label>Homecoming Thank Count</label>
-			<input id='homeThankCardCount'  class="w3-input" > </input>
+			<label>Homecoming Thank Cards Count</label>
+			<input id='homeThankCardCount'  class="w3-input" value="100"> </input>
+		</div>
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-red">
+			<label><b>Video Quality</b></label>
+			<select id='VidQuality'  class="w3-select" > 
+				<option value="blueray">Blueray</option> 
+				<option value="hd">HD</option> 
+			</select>
+			<br>
+			<label>No of cameras</label>
+			<input id='VidNoOfCam'  class="w3-input" value="3"> </input>
+			<br>
+			<label>Video Type</label>
+			<select id='VidType'  class="w3-select" > 
+				<option value="wed">Wedding</option> 
+				<option value="wedHome">Wedding and Homecoming</option> 
+				<option value="pre">Preshoot</option> 
+				<option value="preWed">Preshoot and Wedding</option> 
+			</select>
+			
 		</div>
 		<div>
-			<textarea name="textarea" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
-			<input id='homeThankCardCount' placeholder="Total Price" class="w3-input" > </input>
+			<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
+			<input id='Advance1' placeholder="Advance1" class="w3-input" > </input>
+			<input id='Advance2' placeholder="Advance2" class="w3-input" > </input>
+			<input id='Advance3' placeholder="Advance3" class="w3-input" > </input>
+			<label>Total Price</label>
+			<input id='Total'  class="w3-input" > </input>
 		</div>
 		<div>
 		<br>
@@ -191,6 +229,18 @@ function getWedding(event) {
 			$('#dateH').val(obj.dateH);
 			$('#timeH').val(obj.timeH); 
 			$('#placeH').val(obj.placeH);
+			$('#PSSize').val(obj.PSSize);
+			$('#PSPages').val(obj.PSPages); 
+			$('#PSQuality').val(obj.PSQuality);
+			$('#VidQuality').val(obj.VidQuality);
+			$('#VidNoOfCam').val(obj.VidNoOfCam);
+			$('#VidType').val(obj.VidType);	
+			
+			$('#Advance1').val(obj.Advance1);	
+			$('#Advance2').val(obj.Advance2);	
+			$('#Advance3').val(obj.Advance3);
+			$('#Total').val(obj.Total);
+			$('#Comments').val(obj.Comments);			
 		 
 			console.log(returnedData); 
 		}).fail(function(){
@@ -219,7 +269,6 @@ function showAll() {
 			var allArr = JSON.parse(returnedData);
 			for (var i = 0; i < allArr.length; i++) {
 				$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='View' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
-			
 			}
 			
 		}).fail(function(){
@@ -250,13 +299,25 @@ function myFunction() {
 		phone: $('#phone').val(),
 		dateH : $('#dateH').val(),
 		timeH: $('#timeH').val(), 
-		placeH: $('#placeH').val()
+		placeH: $('#placeH').val(),
+		PSSize: $('#PSSize').val(), 
+		PSPages: $('#PSPages').val(), 
+		PSQuality: $('#PSQuality').val(),
+		VidQuality: $('#VidQuality').val(), 
+		VidNoOfCam: $('#VidNoOfCam').val(), 
+		VidType: $('#VidType').val(),
+		
+		Comments: $('#Comments').val(),
+		Advance1: $('#Advance1').val(),
+		Advance2: $('#Advance2').val(), 
+		Advance3: $('#Advance3').val(), 
+		Total: $('#Total').val()
 	}, 
     function(returnedData){
          console.log(returnedData);
-		 alert($('#CAQuality').val());
-	}).fail(function(){
-		  console.log("error");
+		 alert("Done" + returnedData);
+	}).fail(function(returnedData){
+		  console.log("error "  + returnedData);
 	});
 
 

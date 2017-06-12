@@ -25,7 +25,9 @@ if ($result->num_rows > 0) {
 		'CAQuality' => $row["CAQuality"], 'FASize' => $row["FASize"], 'FAPages' => $row["FAPages"],
 		'FAQuality' => $row["FAQuality"], 'thankCardSize' => $row["thankCardSize"],
 		'thankCardQuality' => $row["thankCardQuality"], 'wedThankCardCount' => $row["wedThankCardCount"], 'homeThankCardCount' => $row["homeThankCardCount"],
-		'email' => $row["email"], 'phone' => $row["phone"]);
+		'email' => $row["email"], 'phone' => $row["phone"]),
+		'PSSize' => $row["PSSize"], 'PSPages' => $row["PSPages"],'PSQuality' => $row["PSQuality"],
+		'VidQuality' => $row["VidQuality"], 'VidNoOfCam' => $row["VidNoOfCam"],'VidType' => $row["VidType"];
 		//array_push($allList,$arr); 
     }
 	echo json_encode($arr);

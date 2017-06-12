@@ -29,9 +29,23 @@ $phone = $_POST['phone'];
 $dateH = $_POST['dateH'];
 $timeH = $_POST['timeH'];
 $placeH = $_POST['placeH'];
+$PSSize = $_POST['PSSize'];
+$PSPages  = $_POST['PSPages'];
+$PSQuality = $_POST['PSQuality'];
+$VidQuality = $_POST['VidQuality'];
+$VidNoOfCam = $_POST['VidNoOfCam'];
+$VidType = $_POST['VidType'];
+$Advance1 = $_POST['Advance1'];
+$Advance2 = $_POST['Advance2'];
+$Advance3 = $_POST['Advance3'];
+$Total = $_POST['Total'];
+$Comments = $_POST['Comments'];
 
-$sql = "INSERT INTO booking (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount, email, phone, dateH, timeH, placeH) 
-VALUES ('$name', '$dateW' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', '$phone' , '$dateH' , '$timeH','$placeH')";
+$sql = "INSERT INTO booking (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
+ homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments) 
+VALUES ('$name', '$dateW' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', 
+'$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', 
+'$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments')";
 
 
 if ($conn->query($sql) === TRUE) {
