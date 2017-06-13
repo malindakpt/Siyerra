@@ -359,54 +359,75 @@ function savePDF(){
 	
 	var doc = new jsPDF();
 	doc.addImage(pngUrl, 'PNG', 1, 5, 180, 25);
-	
-	doc.setFontSize(20);
-	doc.text(20, 45, 'Package Includes');
-	
+		
 	var shift = 0; 
-	var line = 60;
-	var vStart = 60
+	var line = 35; 
 	doc.setFontSize(12);
 	
+	doc.setFontSize(10);
+	doc.text(25, line+10, 'Name : '+$('#name').val());
+	doc.text(25, line+15, 'Addres : '+$('#name').val());
+	doc.text(25, line+20, 'Email : '+$('#name').val());
+	doc.text(25, line+25, 'Phone No : '+$('#name').val());
+	
+	doc.text(25, line+35, 'Wedding Date : '+$('#name').val());
+	doc.text(25, line+40, 'Location : '+$('#name').val());
+	doc.text(25, line+45, 'Time : '+$('#name').val());
+	
+	doc.text(25, line+55, 'Homecoming Date : '+$('#name').val());
+	doc.text(25, line+60, 'Location : '+$('#name').val());
+	doc.text(25, line+65, 'Time : '+$('#name').val());
+	
+	line = 110;
+	
 	if($('#CAQuality').val() != "N/A"){ 
+	doc.setFontSize(11);
 		doc.text(25, line, 'Main/Wedding Album');
 		doc.setFontSize(10);
-		doc.text(30, 65, 'Quality : '+$('#CAQuality').val());
-		doc.text(30, 70, 'Size : '+$('#CASize').val());
-		doc.text(30, 75, 'Pages : '+$('#CAPages').val());
+		doc.text(30, line+5, 'Quality : '+$('#CAQuality').val());
+		doc.text(30, line+10, 'Size : '+$('#CASize').val());
+		doc.text(30, line+15, 'Pages : '+$('#CAPages').val());
 		shift = shift+60; 
 	}
 	if($('#FAQuality').val() != "N/A"){ 
-		doc.setFontSize(12);
-		doc.text(25+shift, 60, 'Homecoming Album');
+		doc.setFontSize(11);
+		doc.text(25+shift, line, 'Homecoming Album');
 		doc.setFontSize(10);
-		doc.text(30+shift, 65, 'Quality : '+$('#FAQuality').val());
-		doc.text(30+shift, 70, 'Size : '+$('#FASize').val());
-		doc.text(30+shift, 75, 'Pages : '+$('#FAPages').val());
+		doc.text(30+shift, line+5, 'Quality : '+$('#FAQuality').val());
+		doc.text(30+shift, line+10, 'Size : '+$('#FASize').val());
+		doc.text(30+shift, line+15, 'Pages : '+$('#FAPages').val());
 		shift = shift+60; 
 	}
 	
 	if($('#PSQuality').val() != "N/A"){ 
 		doc.setFontSize(12);
-		doc.text(25+shift, 60, 'Preshoot Album');
+		doc.text(25+shift, line, 'Preshoot Album');
 		doc.setFontSize(10);
-		doc.text(30+shift, 65, 'Quality : '+$('#PSQuality').val());
-		doc.text(30+shift, 70, 'Size : '+$('#PSSize').val());
-		doc.text(30+shift, 75, 'Pages : '+$('#PSPages').val());
+		doc.text(30+shift, line+5, 'Quality : '+$('#PSQuality').val());
+		doc.text(30+shift, line+10, 'Size : '+$('#PSSize').val());
+		doc.text(30+shift, line+15, 'Pages : '+$('#PSPages').val());
 	}
 	line=line+25;
-	doc.setFontSize(12);
+	doc.setFontSize(11);
 	if($('#IncludeFA').is(":checked") == true){
 		doc.text(25, line,"1 Family Album(8x12 story type)");
 	}
 	line=line+10;
-	doc.setFontSize(12);
+	doc.setFontSize(11);
 	doc.text(25, line,"Thanking Cards ");
 	doc.setFontSize(10);
 	doc.text(30, line+5,"Quality : " + $('#thankCardQuality').val());
 	doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
 	doc.text(30, line+15,"Wedding Thanking Cards : " + $('#wedThankCardCount').val());
 	doc.text(30, line+20,"Homecoming Thanking Cards : " + $('#homeThankCardCount').val());
+	
+	line=line+30;
+	doc.setFontSize(11);
+	doc.text(25, line,"Enlargements");
+	doc.setFontSize(10);
+	doc.text(30, line+5,"1 Wedding couple enlargement 20x30 with frame");
+	doc.text(30, line+10,"2 Wedding couple enlargement 12x18 with frame" );
+	doc.text(30, line+15,"2 Group enlargement 12x18 with frame"); 
 	
 	doc.save('Test.pdf');
 
