@@ -52,6 +52,7 @@
 
 		</table>
 		<br> 
+		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 		<input id='name' class="w3-input" placeholder="Name"> </input>
 		<br>
 		<input id='Address' class="w3-input" placeholder="Address"> </input>
@@ -194,8 +195,10 @@
 		</div>
 		<div>
 		<br>
-			    <button class="w3-btn w3-green" onclick="myFunction()" >Save Changes</button>
-				<button class="w3-btn w3-green" onclick="savePDF()" >Download PDF</button>
+			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save New</button>
+				
+				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
+				<button class="w3-btn w3-green w3-padding-small" onclick="update()" >Update</button>
 				<br><br>
 				<button class="w3-btn w3-blue w3-padding-small" onclick="myFunction()" >Send Email</button>
 		</div>
@@ -220,6 +223,7 @@ function getWedding(event) {
 		function(returnedData){
 			console.log(returnedData);
 			var obj = JSON.parse(returnedData);
+			$('#ID').val(obj.ID);
 			$('#name').val(obj.name);
 			$('#dateW').val(obj.dateW);
 			$('#timeW').val(obj.timeW); 
@@ -272,6 +276,17 @@ function deleteWedding(event) {
 			  console.log("error");
 	});
 }
+function deleteWeddingUpdate() {
+   	
+	$.post('http://localhost/pdf/deleteWedding.php', { 
+			ID: $('#ID').val()	
+		}, 
+		function(returnedData){
+			console.log(returnedData); 
+		}).fail(function(){
+			  console.log("error");
+	});
+}
 function showAll() {
    	$( "#allListTable" ).empty()
 	$.post('http://localhost/pdf/showAll.php', { 
@@ -292,7 +307,7 @@ function showAll() {
 function hideAll() {
    	$( "#allListTable" ).empty();
 }
-function myFunction() {
+function saveNew() {
    	
 	$.post('http://localhost/pdf/addWedding.php', { 
 		name: $('#name').val(), 
@@ -338,7 +353,11 @@ function myFunction() {
 
 
 }
+function update() {
+		saveNew();
+		deleteWeddingUpdate();
 
+}
 </script>
 <script>
 
