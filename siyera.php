@@ -44,7 +44,7 @@
 		<div >
 		
 			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Show All Events</button>
-			 <button onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
+			 <button onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:right; margin:5px">Hide All Events</button>
 		</div>
 		
 
@@ -99,9 +99,7 @@
 		<br>
 		<label>Main/Wedding Pages Count</label>
 		<input id='CAPages'  class="w3-input" value="50"> </input>
-		
-		<br>
-		<br>
+		  
 	  <div class="XXX">
 			<br>
 			<label><b>Homecoming Album Quality</b></label>
@@ -118,8 +116,7 @@
 			<br> 
 			<label>Homecoming Album Pages Count</label>
 			<input id='FAPages' class="w3-input" value="40"> </input>
-			<br>		
-			<br>
+			 
 		</div> 
 		 <div class="XXX">
 			<br>
@@ -165,17 +162,21 @@
 			<label>Homecoming Thank Cards Count</label>
 			<input id='homeThankCardCount'  class="w3-input" value="100"> </input>
 		</div>
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-red">
+		<div class="">
 			<label><b>Video Quality</b></label>
 			<select id='VidQuality'  class="w3-select" > 
+				<option value="N/A">N/A</option> 
 				<option value="blueray">Blueray</option> 
 				<option value="hd">HD</option> 
 			</select>
 			<br>
-			<label>No of cameras</label>
-			<input id='VidNoOfCam'  class="w3-input" value="3"> </input>
-			<br>
-			<label>Video Type</label>
+			<select id='VidNoOfCam'  class="w3-select" > 
+				<option value="1cam">Use 1 Camera</option> 
+				<option value="2cam">Use 2 Cameras</option> 
+				<option value="3cam">Use 3 Camera</option> 
+				<option value="4cam">Use 4 Cameras</option>  
+			</select>
+			 
 			<select id='VidType'  class="w3-select" > 
 				<option value="wed">Wedding Only</option> 
 				<option value="wedHome">Wedding and Homecoming</option> 
@@ -183,9 +184,13 @@
 				<option value="preWed">Preshoot and Wedding</option> 
 				<option value="preWedHome">Preshoot, Wedding and Homecoming</option> 
 			</select>
+			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
+				<input type="checkbox" class="w3-check" id="IncludeDrone" checked> <b>Include Drone Camera</b></input><br>
+			</div>
 			
 		</div>
 		<div>
+
 			<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
 			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
 			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
@@ -195,12 +200,11 @@
 		</div>
 		<div>
 		<br>
-			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save New</button>
-				
-				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
-				<button class="w3-btn w3-green w3-padding-small" onclick="update()" >Update</button>
+			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save As New</button>
+				<button class="w3-btn w3-grey w3-padding-small" onclick="update()" style="float:right">Update Loaded</button>
 				<br><br>
-				<button class="w3-btn w3-blue w3-padding-small" onclick="myFunction()" >Send Email</button>
+				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
+				<button class="w3-btn w3-blue w3-padding-small" onclick="myFunction()" style="float:right">Send Email</button>
 		</div>
 	</div> 
 	<div class="col-3 col-m-12">
@@ -297,7 +301,7 @@ function showAll() {
 			 console.log(returnedData); 
 			var allArr = JSON.parse(returnedData);
 			for (var i = 0; i < allArr.length; i++) {
-				$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='View' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
+				$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='Load' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
 			}
 			
 		}).fail(function(){
@@ -354,9 +358,50 @@ function saveNew() {
 
 }
 function update() {
-		saveNew();
-		deleteWeddingUpdate();
-
+		//saveNew();
+		//deleteWeddingUpdate();
+$.post('http://localhost/pdf/editWedding.php', { 
+		ID: $('#ID').val(),
+		name: $('#name').val(), 
+		dateW : $('#dateW').val(),
+		timeW: $('#timeW').val(), 
+		placeW: $('#placeW').val(),
+		CASize: $('#CASize').val(),
+		CAPages: $('#CAPages').val(), 
+		CAQuality: $('#CAQuality').val(), 
+		FASize: $('#FASize').val(), 
+		FAPages: $('#FAPages').val(), 
+		FAQuality: $('#FAQuality').val(), 
+		thankCardSize: $('#thankCardSize').val(),
+		thankCardQuality: $('#thankCardQuality').val(), 
+		wedThankCardCount: $('#wedThankCardCount').val(), 
+		homeThankCardCount: $('#homeThankCardCount').val(),
+		email: $('#email').val(), 
+		Address: $('#Address').val(), 
+		phone: $('#phone').val(),
+		dateH : $('#dateH').val(),
+		timeH: $('#timeH').val(), 
+		placeH: $('#placeH').val(),
+		PSSize: $('#PSSize').val(), 
+		PSPages: $('#PSPages').val(), 
+		PSQuality: $('#PSQuality').val(),
+		VidQuality: $('#VidQuality').val(), 
+		VidNoOfCam: $('#VidNoOfCam').val(), 
+		VidType: $('#VidType').val(),
+		
+		Comments: $('#Comments').val(),
+		Advance1: $('#Advance1').val(),
+		Advance2: $('#Advance2').val(), 
+		Advance3: $('#Advance3').val(), 
+		Total: $('#Total').val(),
+		IncludeFA: $('#IncludeFA').is(":checked")
+	}, 
+    function(returnedData){
+         console.log(returnedData);
+		 //alert("Done" + returnedData);
+	}).fail(function(returnedData){
+		  console.log("error "  + returnedData);
+	});
 }
 </script>
 <script>
@@ -469,9 +514,11 @@ function savePDF(){
 	
 	
 	line=line+10;
+	var splitTitle = doc.splitTextToSize($('#Comments').val(), 190);
 	if($('#Comments').val() != ""){ 
 		doc.setFontSize(10);
-		doc.text(25, line, 'Comments : '+$('#Comments').val());
+		doc.text(25, line, splitTitle);
+		//doc.text(25, line, 'Comments : '+$('#Comments').val());
 	}
 	doc.save('Videost.pdf');
 
