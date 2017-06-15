@@ -41,13 +41,16 @@ $Advance3 = $_POST['Advance3'];
 $Total = $_POST['Total'];
 $Comments = $_POST['Comments'];
 $IncludeFA = $_POST['IncludeFA'];
+$IncludeDrone = $_POST['IncludeDrone'];
 $Address = $_POST['Address'];
 
 $sql = "INSERT INTO booking (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
- homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, IncludeFA, Address) 
+ homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, 
+ IncludeFA, Address, IncludeDrone) 
 VALUES ('$name', '$dateW' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', 
 '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', 
-'$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments','$IncludeFA', '$Address')";
+'$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments','$IncludeFA', 
+'$Address', '$IncludeDrone')";
 
 
 if ($conn->query($sql) === TRUE) {

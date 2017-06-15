@@ -1,4 +1,6 @@
 <?php
+//update 1 place
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -30,7 +32,8 @@ if ($result->num_rows > 0) {
 		'VidQuality' => $row["VidQuality"], 'VidNoOfCam' => $row["VidNoOfCam"],'VidType' => $row["VidType"],
 		
 		'Advance1' => $row["Advance1"], 'Advance2' => $row["Advance2"],'Advance3' => $row["Advance3"],
-		'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],'Address' => $row["Address"]
+		'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],
+		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"]
 		
 		);
 		//array_push($allList,$arr); 

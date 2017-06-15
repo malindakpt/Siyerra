@@ -1,4 +1,7 @@
 <?php
+
+//Update 2 places
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -43,16 +46,18 @@ $Comments = $_POST['Comments'];
 $IncludeFA = $_POST['IncludeFA'];
 $Address = $_POST['Address'];
 $ID = $_POST['ID'];
+$IncludeDrone = $_POST['IncludeDrone'];
+
 
 $sql = "UPDATE booking SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType', Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3', 
- Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address'
+ Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone'
 WHERE  ID = '$ID'";
 
 
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "New record edited successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

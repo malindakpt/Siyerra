@@ -3,8 +3,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/jspdf.debug.js"></script>
 <script src="js/jquery.js"></script>  
+<script src="js/sweetalert.js"></script>  
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
 <div class="header">
@@ -13,10 +16,26 @@
  
 
 </div> 
+<div id="overlay" onclick="off()"></div>
+
+<div style="padding:20px">
+  <h2>Overlay</h2>
+  <p>Add an overlay effect to the page content (100% width and height with a black background color with 50% opacity).</p>
+  <button onclick="on()">Turn on overlay effect</button>
+</div>
+<script>
+function on() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+</script>
 <div class="row">
 	<div class="hideInMobile col-3 col-m-3">
 
-        <div class=" aside">
+        <div class=" asideX">
          
         </div>
 
@@ -24,7 +43,7 @@
 	<div class="col-6 col-m-9">
 		<div >
 			<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:30%; float:left; margin:5px"> 
-			<select id='months'  class="w3-select" style="width:50% ;	 float:left;  margin:5px" >
+			<select id='months'  class="w3-select" style="width:50% ;	 float:right;  margin:5px" >
 				<option value="N/A">All Months</option>
 				<option value="1">January</option>
 				<option value="2">February</option>
@@ -208,7 +227,7 @@
 		</div>
 	</div> 
 	<div class="col-3 col-m-12">
-        <div class="hideInMobile aside">
+        <div class="hideInMobile asideX">
         </div>
     </div>
 	
@@ -261,8 +280,9 @@ function getWedding(event) {
 			$('#Total').val(obj.Total);
 			$('#Comments').val(obj.Comments);			
 			
-			$('#IncludeFA').prop('checked', Boolean.valueOf(obj.includeFA)); 	
-		 
+			$('#IncludeFA').prop('checked', Boolean.valueOf(obj.includeFA)); 
+			$('#IncludeDrone').prop('checked', Boolean.valueOf(obj.IncludeDrone)); 
+			
 			showRemainingBal();
 			 
 		}).fail(function(){
@@ -342,11 +362,13 @@ function saveNew() {
 		VidType: $('#VidType').val(),
 		
 		Comments: $('#Comments').val(),
-		Advance1: $('#Advance1').val(),
-		Advance2: $('#Advance2').val(), 
-		Advance3: $('#Advance3').val(), 
-		Total: $('#Total').val(),
-		IncludeFA: $('#IncludeFA').is(":checked")
+		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
+		Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
+		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
+		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
+		IncludeFA: $('#IncludeFA').is(":checked"),
+		IncludeDrone: $('#IncludeDrone').is(":checked")
+		
 	}, 
     function(returnedData){
          console.log(returnedData);
@@ -357,9 +379,7 @@ function saveNew() {
 
 
 }
-function update() {
-		//saveNew();
-		//deleteWeddingUpdate();
+function update() { 
 $.post('http://localhost/pdf/editWedding.php', { 
 		ID: $('#ID').val(),
 		name: $('#name').val(), 
@@ -390,11 +410,15 @@ $.post('http://localhost/pdf/editWedding.php', {
 		VidType: $('#VidType').val(),
 		
 		Comments: $('#Comments').val(),
-		Advance1: $('#Advance1').val(),
-		Advance2: $('#Advance2').val(), 
-		Advance3: $('#Advance3').val(), 
-		Total: $('#Total').val(),
-		IncludeFA: $('#IncludeFA').is(":checked")
+		
+		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
+		Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
+		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
+		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
+		
+		IncludeFA: $('#IncludeFA').is(":checked"),
+		IncludeDrone: $('#IncludeDrone').is(":checked")
+		
 	}, 
     function(returnedData){
          console.log(returnedData);
@@ -503,6 +527,11 @@ function savePDF(){
 	doc.text(30, line+5,"Quality : "+$('#VidQuality').val());
 	doc.text(30, line+10,"No Of Cameras : "+ $('#VidNoOfCam').val());
 	doc.text(30, line+15,"Type : "+$('#VidType').find(":selected").text()); 
+	
+	if($('#IncludeDrone').is(":checked") == true){
+		doc.setFontSize(11);
+		doc.text(25, line+20,"Drone camera will be used for video process");
+	}
 	
 	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
 	var adv2 = parseInt($('#Advance2').val())?parseInt($('#Advance2').val()):0; 
