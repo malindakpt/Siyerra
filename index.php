@@ -13,22 +13,29 @@
 <div class="header">
     <span class="inlineMenu"><img class="logo" src="img/logo1.png"/></span>
     <span class="topic">Siyerra Studio  </span>
- 
+<div>
+<?php
+include 'loginS2.php';
+session_start();
 
+if("ok" != login()){
+	echo "<a href=login.php>login</a>";
+	 
+}else{
+	echo "<a href=login.php>logout</a>";
+}	
+
+?>
+</div>
 </div> 
 <div id="overlay" onclick="off()"></div>
 
-<div style="padding:20px">
-  <h2>Overlay</h2>
-  <p>Add an overlay effect to the page content (100% width and height with a black background color with 50% opacity).</p>
-  <button onclick="on()">Turn on overlay effect</button>
-</div>
 <script>
-function on() {
+function ovOn() {
     document.getElementById("overlay").style.display = "block";
 }
 
-function off() {
+function ovOff() {
     document.getElementById("overlay").style.display = "none";
 }
 </script>
@@ -239,11 +246,12 @@ function off() {
 </body>
 <script>
 function getWedding(event) {
-   	
+   	ovOn();
 	$.post('http://localhost/pdf/getWedding.php', { 
 			ID: event.id	
 		}, 
 		function(returnedData){
+			ovOff();
 			console.log(returnedData);
 			var obj = JSON.parse(returnedData);
 			$('#ID').val(obj.ID);
@@ -312,12 +320,14 @@ function deleteWeddingUpdate() {
 	});
 }
 function showAll() {
+	ovOn();
    	$( "#allListTable" ).empty()
 	$.post('http://localhost/pdf/showAll.php', { 
 			year: $('#year').val(),
 			month: $('#months').val()
 		}, 
 		function(returnedData){
+			ovOff();
 			console.log(returnedData);
 			if(returnedData != "ip"){
 				var allArr = JSON.parse(returnedData);

@@ -1,14 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_bookings";
+ 
 session_start();
-//header("Location: login.php");
-//$_SESSION["UserName"] = "a";
-//$_SESSION['Password'] = "1a";
-include 'test.php';
-//echo login();
+ 
+include 'loginS2.php';
+ 
 
 if("ok" != login()){
 	echo "ip";
@@ -16,7 +11,8 @@ if("ok" != login()){
 }
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'DBConnect.php';
+$conn = getConnection(); 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

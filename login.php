@@ -69,7 +69,13 @@ span.psw {
 }
 </style>
 <body>
+ 
 
+ <?php
+    session_start();
+	$_SESSION["UserName"] = "";
+	$_SESSION['Password'] = "";
+ ?>
 <h2>Login Form</h2>
 
 <div  style="max-width:500px; margin: 0 auto; ">
@@ -104,7 +110,7 @@ function login(){
 		}, 
 		function(returnedData){
             if(returnedData=="ok"){
-                document.location = "siyera.php";
+                document.location = "index.php";
             }
 			console.log(returnedData); 
 		}).fail(function(){

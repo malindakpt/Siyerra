@@ -3,10 +3,10 @@
 
 session_start();
 
-	$servername = "localhost";
-	$usernameDB = "root";
-	$passwordDB = "";
-	$dbname = "db_bookings";
+	//$servername = "localhost";
+	//$usernameDB = "root";
+	//$passwordDB = "";
+	//$dbname = "db_bookings";
 
 	$UserName = $_POST['UserName'];
 	$Password = $_POST['Password'];
@@ -14,7 +14,8 @@ session_start();
 	$_SESSION["UserName"] = $UserName;
 	$_SESSION['Password'] = $Password;
   
-	$conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
+	include 'DBConnect.php';
+	$conn = getConnection(); //new mysqli($servername, $usernameDB, $passwordDB, $dbname);
  
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
