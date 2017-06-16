@@ -49,8 +49,14 @@ function ovOff() {
     </div>
 	<div class="col-6 col-m-9">
 		<div >
-			<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:30%; float:left; margin:5px"> 
-			<select id='months'  class="w3-select" style="width:50% ;	 float:right;  margin:5px" >
+			<!--<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:25%; float:left; margin:5px"> -->
+			<select id='year'  class="w3-select" style="width:25% ;	 float:left;  margin:5px" >
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option> 
+			</select>
+			<select id='months'  class="w3-select" style="width:40% ;	 float:left;  margin:5px" >
 				<option value="N/A">All Months</option>
 				<option value="1">January</option>
 				<option value="2">February</option>
@@ -69,14 +75,15 @@ function ovOff() {
 		 
 		<div >
 		
-			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Show All Events</button>
-			 <button onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:right; margin:5px">Hide All Events</button>
+			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Load</button>
+			<!--<img class="logo" src="img/search.png" onclick="showAll()" />-->
 		</div>
 		
 
 		<table id=allListTable class="w3-table-all w3-centered">
 
 		</table>
+		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 		<input id='name' class="w3-input" placeholder="Name"> </input>
@@ -247,7 +254,7 @@ function ovOff() {
 <script>
 function getWedding(event) {
    	ovOn();
-	$.post('http://localhost/pdf/getWedding.php', { 
+	$.post('getWedding.php', { 
 			ID: event.id	
 		}, 
 		function(returnedData){
@@ -299,7 +306,7 @@ function getWedding(event) {
 }
 function deleteWedding(event) {
    	
-	$.post('http://localhost/pdf/deleteWedding.php', { 
+	$.post('deleteWedding.php', { 
 			ID: event.id	
 		}, 
 		function(returnedData){
@@ -310,7 +317,7 @@ function deleteWedding(event) {
 }
 function deleteWeddingUpdate() {
    	
-	$.post('http://localhost/pdf/deleteWedding.php', { 
+	$.post('deleteWedding.php', { 
 			ID: $('#ID').val()	
 		}, 
 		function(returnedData){
@@ -322,7 +329,7 @@ function deleteWeddingUpdate() {
 function showAll() {
 	ovOn();
    	$( "#allListTable" ).empty()
-	$.post('http://localhost/pdf/showAll.php', { 
+	$.post('showAll.php', { 
 			year: $('#year').val(),
 			month: $('#months').val()
 		}, 
@@ -341,13 +348,16 @@ function showAll() {
 		}).fail(function(){
 			  console.log("error");
 	});
+	$( "#btnHide" ).show();
 }
+$( "#btnHide" ).hide();
 function hideAll() {
    	$( "#allListTable" ).empty();
+	$( "#btnHide" ).hide();
 }
 function saveNew() {
    	
-	$.post('http://localhost/pdf/addWedding.php', { 
+	$.post('addWedding.php', { 
 		name: $('#name').val(), 
 		dateW : $('#dateW').val(),
 		timeW: $('#timeW').val(), 
@@ -394,7 +404,7 @@ function saveNew() {
 
 }
 function update() { 
-$.post('http://localhost/pdf/editWedding.php', { 
+$.post('editWedding.php', { 
 		ID: $('#ID').val(),
 		name: $('#name').val(), 
 		dateW : $('#dateW').val(),

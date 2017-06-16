@@ -2,18 +2,19 @@
 //update 1 place
 
 function login(){ //function parameters, two variables.
-
-	$servername = "localhost";
-	$usernameDB = "root";
-	$passwordDB = "";
-	$dbname = "db_bookings";
+ 
 	
 	if($_SESSION) {
 		$UserName = $_SESSION['UserName'];
 		$Password = $_SESSION['Password'];
 		
-		// Create connection
-		$conn = new mysqli($servername, $usernameDB, $passwordDB, $dbname);
+		//$DB1 = include 'DBConnect.php';
+		
+		// Create connection 
+		if(!function_exists('getConnection')){
+			include 'DBConnect.php';
+		}$conn = getConnection();  
+
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
@@ -27,6 +28,7 @@ function login(){ //function parameters, two variables.
 		} else { 
 			return "0 results";
 		}
+		$conn->close();
 	
 	} else {
 		return "0 results";

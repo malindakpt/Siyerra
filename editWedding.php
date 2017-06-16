@@ -3,13 +3,11 @@ $_SESSION["test"] = $UserName;
 include 'loginServer.php';
 //Update 2 places
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_bookings";
+// Create connection 
+if(!function_exists('getConnection')){
+	include 'DBConnect.php';
+}$conn = getConnection();  
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

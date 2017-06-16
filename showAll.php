@@ -1,18 +1,18 @@
 <?php
- 
-session_start();
- 
+
+session_start(); 
 include 'loginS2.php';
  
-
 if("ok" != login()){
 	echo "ip";
 	return;
 }
 
-// Create connection
-include 'DBConnect.php';
-$conn = getConnection(); 
+// Create connection 
+if(!function_exists('getConnection')){
+	include 'DBConnect.php';
+}$conn = getConnection();  
+
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

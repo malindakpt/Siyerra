@@ -1,12 +1,7 @@
 <?php
 //update 1 place
 
-session_start();
-
-	//$servername = "localhost";
-	//$usernameDB = "root";
-	//$passwordDB = "";
-	//$dbname = "db_bookings";
+session_start(); 
 
 	$UserName = $_POST['UserName'];
 	$Password = $_POST['Password'];
@@ -15,7 +10,7 @@ session_start();
 	$_SESSION['Password'] = $Password;
   
 	include 'DBConnect.php';
-	$conn = getConnection(); //new mysqli($servername, $usernameDB, $passwordDB, $dbname);
+	$conn = getConnection();  
  
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
