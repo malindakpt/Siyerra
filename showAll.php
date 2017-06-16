@@ -3,6 +3,17 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "db_bookings";
+session_start();
+//header("Location: login.php");
+//$_SESSION["UserName"] = "a";
+//$_SESSION['Password'] = "1a";
+include 'test.php';
+//echo login();
+
+if("ok" != login()){
+	echo "ip";
+	return;
+}
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,6 +30,8 @@ if(!is_numeric($month)){
 	$sql1 = "select * from booking where year(dateW) = '$year' AND month(dateW) = '$month' ";
 	$sql2 = "select * from booking where year(dateH) = '$year' AND month(dateH) = '$month' ";
 }
+
+
 $result1 = $conn->query($sql1);
 $result2 = $conn->query($sql2);
 $allList =  array();

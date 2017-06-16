@@ -1,5 +1,6 @@
 <?php
-
+$_SESSION["test"] = $UserName;
+include 'loginServer.php';
 //Update 2 places
 
 $servername = "localhost";

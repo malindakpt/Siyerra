@@ -318,10 +318,14 @@ function showAll() {
 			month: $('#months').val()
 		}, 
 		function(returnedData){
-			 console.log(returnedData); 
-			var allArr = JSON.parse(returnedData);
-			for (var i = 0; i < allArr.length; i++) {
-				$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='Load' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
+			console.log(returnedData);
+			if(returnedData != "ip"){
+				var allArr = JSON.parse(returnedData);
+				for (var i = 0; i < allArr.length; i++) {
+					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='Load' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
+				}
+			}else{
+				document.location = "login.php";
 			}
 			
 		}).fail(function(){
