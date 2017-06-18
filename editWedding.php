@@ -13,6 +13,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $name = $_POST['name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+
+$NameG = $_POST['NameG'];
+$EmailG = $_POST['EmailG'];
+$PhoneG = $_POST['PhoneG'];
+
 $dateW = $_POST['dateW'];
 $timeW = $_POST['timeW'];
 $placeW = $_POST['placeW'];
@@ -26,8 +33,7 @@ $thankCardSize = $_POST['thankCardSize'];
 $thankCardQuality = $_POST['thankCardQuality'];
 $wedThankCardCount = $_POST['wedThankCardCount'];
 $homeThankCardCount = $_POST['homeThankCardCount'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
+
 $dateH = $_POST['dateH'];
 $timeH = $_POST['timeH'];
 $placeH = $_POST['placeH'];
@@ -50,7 +56,8 @@ $IncludeDrone = $_POST['IncludeDrone'];
 
 $sql = "UPDATE booking SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType', Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3', 
- Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone'
+ Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone',
+ NameG='$NameG', EmailG='$EmailG', PhoneG='$PhoneG'
 WHERE  ID = '$ID'";
 
 

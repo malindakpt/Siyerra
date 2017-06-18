@@ -31,7 +31,9 @@ if ($result->num_rows > 0) {
 		
 		'Advance1' => $row["Advance1"], 'Advance2' => $row["Advance2"],'Advance3' => $row["Advance3"],
 		'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],
-		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"]
+		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"],
+
+		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
 		
 		);
 		//array_push($allList,$arr); 

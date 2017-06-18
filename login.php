@@ -76,12 +76,13 @@ span.psw {
 	$_SESSION["UserName"] = "";
 	$_SESSION['Password'] = "";
  ?>
-<h2>Studio Manager</h2>
 
-<div  style="max-width:500px; margin: 0 auto; ">
-  <div class="imgcontainer">
-    <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
+
+<div  style="max-width:350px; margin: 0 auto;">
+    <h2><b>Siyeraa    Studio</b></h2>
+    <div class="imgcontainer">
+        <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
 
   <div class="container">
     <label><b>Username</b></label>
