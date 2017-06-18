@@ -11,21 +11,18 @@
 </head>
 <body>
 <div class="header">
-    <span class="inlineMenu"><img class="logo" src="img/logo1.png"/></span>
-    <span class="topic">Siyerra Studio  </span>
+    <!--<span class="inlineMenu"  style="float:right"><img class="logo" src="img/logo1.png"/></span>-->
+    <!--<span class="topic">Siyerra Studio  </span>-->
+	<h3 style="float:left">Siyerra Studio</h3>
+	 <br>
+	<?php
+		include 'loginS2.php';
+		session_start();
+		if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+	?>
+ <br>
 <div>
-<?php
-include 'loginS2.php';
-session_start();
 
-if("ok" != login()){
-	echo "<a href=login.php>login</a>";
-	 
-}else{
-	echo "<a href=login.php>logout</a>";
-}	
-
-?>
 </div>
 </div> 
 <div id="overlay" onclick="off()"></div>
@@ -254,6 +251,8 @@ function ovOff() {
 <script>
 function getWedding(event) {
    	ovOn();
+	$( "#btnHide" ).hide();
+	$( "#allListTable" ).empty();
 	$.post('getWedding.php', { 
 			ID: event.id	
 		}, 
@@ -295,8 +294,8 @@ function getWedding(event) {
 			$('#Total').val(obj.Total);
 			$('#Comments').val(obj.Comments);			
 			
-			$('#IncludeFA').prop('checked', Boolean.valueOf(obj.includeFA)); 
-			$('#IncludeDrone').prop('checked', Boolean.valueOf(obj.IncludeDrone)); 
+			$('#IncludeFA').prop('checked', obj.includeFA); 
+			$('#IncludeDrone').prop('checked', obj.IncludeDrone); 
 			
 			showRemainingBal();
 			 

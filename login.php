@@ -76,7 +76,7 @@ span.psw {
 	$_SESSION["UserName"] = "";
 	$_SESSION['Password'] = "";
  ?>
-<h2>Login Form</h2>
+<h2>Studio Manager</h2>
 
 <div  style="max-width:500px; margin: 0 auto; ">
   <div class="imgcontainer">
