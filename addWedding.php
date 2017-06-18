@@ -52,7 +52,7 @@ VALUES ('$name', '$dateW' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality'
 
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "ok";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

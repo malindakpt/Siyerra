@@ -13,7 +13,7 @@
 <div class="header">
     <!--<span class="inlineMenu"  style="float:right"><img class="logo" src="img/logo1.png"/></span>-->
     <!--<span class="topic">Siyerra Studio  </span>-->
-	<h3 style="float:left">Siyerra Studio</h3>
+	<h3 style="float:left">Siyeraa Studio</h3>
 	 <br>
 	<?php
 		include 'loginS2.php';
@@ -98,33 +98,35 @@ function ovOff() {
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeW'  class="w3-select" >
 				<option value="N/A" >Select Wedding Day/Night Function</option>
-				<option value="Day">Day</option>
-				<option value="Night">Night</option>
+				<option value="Day">Day Event</option>
+				<option value="Night">Night Event</option>
 			</select>
 		
-			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="Colombo" > </input>
+			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="" > </input>
 			
 			<br><br>
 			<label><b>Select Homecoming Date</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeH'  class="w3-select" >
 				<option value="N/A" >Select Homecoming Day/Night Function</option>
-				<option value="Day">Day</option>
-				<option value="Night">Night</option>
+				<option value="Day">Day Event</option>
+				<option value="Night">Night Event</option>
 			</select>	
-			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value="Kirindawa"> </input>
+			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
 		<label><b>Main/Wedding Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">N/A</option> 
-			<option value="12*23">12*23</option> 
-			<option value="40*30">40*30</option> 
+			<option value="Magazine">Magazine</option> 
+			<option value="Sory Book">Sory Book</option> 
 		</select>
 		<label>Main/Wedding Album Size</label>
 		<select id='CASize'  class="w3-select" > 
-			<option value="12*23">12*23</option> 
-			<option value="40*30">40*30</option> 
+				<option value="8 x 16">8 x 16</option> 
+				<option value="10 x 20">10 x 20</option> 
+				<option value="10 x 24">10 x 24</option> 
+				<option value="12 x 24">12 x 24</option> 
 		</select>
 		<br>
 		<label>Main/Wedding Pages Count</label>
@@ -135,13 +137,15 @@ function ovOff() {
 			<label><b>Homecoming Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
-				<option value="Story Book">Story Book</option> 
-				<option value="Magazine Book">Magazine Book</option>
+				<option value="Magazine">Magazine</option> 
+				<option value="Sory Book">Sory Book</option> 
 			</select>
 			<label>Homecoming Album Size</label>
 			<select id='FASize'  class="w3-select" > 
-				<option value="12*23">12*23</option> 
-				<option value="40*30">40*30</option> 
+				<option value="8 x 16">8 x 16</option> 
+				<option value="10 x 20">10 x 20</option> 
+				<option value="10 x 24">10 x 24</option> 
+				<option value="12 x 24">12 x 24</option> 
 			</select>
 			<br> 
 			<label>Homecoming Album Pages Count</label>
@@ -158,8 +162,10 @@ function ovOff() {
 			</select>
 			<label>Preshoot Album Size</label>
 			<select id='PSSize'  class="w3-select" > 
-				<option value="12*23">12*23</option> 
-				<option value="40*30">40*30</option> 
+				<option value="8 x 16">8 x 16</option> 
+				<option value="10 x 20">10 x 20</option> 
+				<option value="10 x 24">10 x 24</option> 
+				<option value="12 x 24">12 x 24</option> 
 			</select>
 			<br> 
 			<label>Preshoot Album Pages Count</label>
@@ -176,14 +182,15 @@ function ovOff() {
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label>Thanking Card Size</label>
 			<select id='thankCardSize'  class="w3-select" > 
-				<option value="12R">12R</option> 
-				<option value="4R">4R</option> 
+				<option value="4 x 6">4 x 6</option> 
+				<option value="4 x 8">4 x 8</option> 
 			</select>
 			<br>
 			<label>Thanking Card Quality</label>
 			<select id='thankCardQuality'  class="w3-select" > 
-				<option value="Dark">Dark</option> 
-				<option value="Light">Light</option> 
+				<option value="Quality 1">Quality 1</option> 
+				<option value="Quality 2">Quality 2</option> 
+				<option value="Quality 3">Quality 3</option> 
 			</select>
 			<br>
 			<label>Wedding Thank Cards Count</label>
@@ -234,7 +241,8 @@ function ovOff() {
 				<button class="w3-btn w3-grey w3-padding-small" onclick="update()" style="float:right">Update Loaded</button>
 				<br><br>
 				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
-				<button class="w3-btn w3-blue w3-padding-small" onclick="myFunction()" style="float:right">Send Email</button>
+				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>
+				
 		</div>
 	</div> 
 	<div class="col-3 col-m-12">
@@ -257,8 +265,7 @@ function getWedding(event) {
 			ID: event.id	
 		}, 
 		function(returnedData){
-			ovOff();
-			console.log(returnedData);
+		
 			var obj = JSON.parse(returnedData);
 			$('#ID').val(obj.ID);
 			$('#name').val(obj.name);
@@ -298,6 +305,11 @@ function getWedding(event) {
 			$('#IncludeDrone').prop('checked', obj.IncludeDrone); 
 			
 			showRemainingBal();
+
+			var mailToLink = "mailto:" + $('#email').val() + "?Subject=Siyeraa Studio Event Plan";
+			$("#EmailTo").attr("href", mailToLink);
+			ovOff();
+			console.log(returnedData);
 			 
 		}).fail(function(){
 			  console.log("error");
@@ -305,26 +317,38 @@ function getWedding(event) {
 }
 function deleteWedding(event) {
    	
-	$.post('deleteWedding.php', { 
-			ID: event.id	
-		}, 
-		function(returnedData){
-			console.log(returnedData); 
-		}).fail(function(){
-			  console.log("error");
+	swal({
+			title: "Are you sure?",
+			text: "You will not be able to recover this event!",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "Yes, delete it!",
+			cancelButtonText: "No, cancel plx!",
+			closeOnConfirm: false,
+			closeOnCancel: false
+			},
+			function(isConfirm){
+			if (isConfirm) {
+					$.post('deleteWedding.php', { 
+					ID: event.id	
+					}, 
+					function(returnedData){
+						$( "#btnHide" ).hide();
+						$( "#allListTable" ).empty();
+						swal("Deleted!", "Your event has been deleted.", "success");
+						console.log(returnedData); 
+					}).fail(function(){
+						console.log("error");
+			});
+				
+			} else {
+				swal("Cancelled", "Your event is safe :)", "error");
+			}
 	});
+
 }
-function deleteWeddingUpdate() {
-   	
-	$.post('deleteWedding.php', { 
-			ID: $('#ID').val()	
-		}, 
-		function(returnedData){
-			console.log(returnedData); 
-		}).fail(function(){
-			  console.log("error");
-	});
-}
+
 function showAll() {
 	ovOn();
    	$( "#allListTable" ).empty()
@@ -355,7 +379,7 @@ function hideAll() {
 	$( "#btnHide" ).hide();
 }
 function saveNew() {
-   	
+   	ovOn();
 	$.post('addWedding.php', { 
 		name: $('#name').val(), 
 		dateW : $('#dateW').val(),
@@ -395,7 +419,12 @@ function saveNew() {
 	}, 
     function(returnedData){
          console.log(returnedData);
-		 alert("Done" + returnedData);
+		 ovOff();
+		 if(returnedData == "ok"){
+		 	swal("Saved", $('#name').val() , "success");
+		 }else{
+			swal("Oops...", "Check inputs and try again", "error");
+		 }
 	}).fail(function(returnedData){
 		  console.log("error "  + returnedData);
 	});
@@ -403,7 +432,8 @@ function saveNew() {
 
 }
 function update() { 
-$.post('editWedding.php', { 
+	ovOn();
+	$.post('editWedding.php', { 
 		ID: $('#ID').val(),
 		name: $('#name').val(), 
 		dateW : $('#dateW').val(),
@@ -444,7 +474,9 @@ $.post('editWedding.php', {
 		
 	}, 
     function(returnedData){
-         console.log(returnedData);
+		ovOff();
+        console.log(returnedData);
+		swal("Updated Existing Event", $('#name').val() , "success");
 		 //alert("Done" + returnedData);
 	}).fail(function(returnedData){
 		  console.log("error "  + returnedData);
