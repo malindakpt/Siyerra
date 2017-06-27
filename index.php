@@ -74,6 +74,7 @@ function ovOff() {
 		<div >
 		
 			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Load</button>
+			  <button onclick="clearAll()" class="w3-btn w3-yellow w3-padding-small" style=" float:left; margin:5px">Clear</button>
 			<!--<img class="logo" src="img/search.png" onclick="showAll()" />-->
 		</div>
 		
@@ -125,21 +126,30 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
-		<label><b>Main/Wedding Album Quality</b></label>
+		<label><b>Main/Wedd./Engage. Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">N/A</option> 
 			<option value="Magazine">Magazine</option> 
 			<option value="Sory Book">Sory Book</option> 
 		</select>
-		<label>Main/Wedding Album Size</label>
+		<label>Main/Wedd./Engage. Album Size</label>
 		<select id='CASize'  class="w3-select" > 
-				<option value="8 x 16">8 x 16</option> 
-				<option value="10 x 20">10 x 20</option> 
+			<option value="8 x 16">8 x 16</option> 
+			<option value="8 x 20">8 x 20</option> 
+		
+			<option value="10 x 15">10 x 15</option> 
+			<option value="10 x 20">10 x 20</option> 
+
 				<option value="10 x 24">10 x 24</option> 
+				<option value="10 x 28">10 x 28</option> 
 				<option value="12 x 24">12 x 24</option> 
+				<option value="12 x 30">12 x 30</option> 
+				<option value="15 x 24">15 x 24</option> 
+				<option value="16 x 24">16 x 24</option> 
+				<option value="17 x 24">17 x 24</option> 
 		</select>
 		<br>
-		<label>Main/Wedding Pages Count</label>
+		<label>Main/Wedd./Engage. Pages Count</label>
 		<input id='CAPages'  class="w3-input" value="50"> </input>
 		  
 	  <div class="XXX">
@@ -147,15 +157,18 @@ function ovOff() {
 			<label><b>Homecoming Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
-				<option value="Magazine">Magazine</option> 
-				<option value="Sory Book">Sory Book</option> 
+			<option value="Magazine">Magazine</option> 
+			<option value="Sory Book">Sory Book</option> 
 			</select>
 			<label>Homecoming Album Size</label>
 			<select id='FASize'  class="w3-select" > 
-				<option value="8 x 16">8 x 16</option> 
-				<option value="10 x 20">10 x 20</option> 
 				<option value="10 x 24">10 x 24</option> 
+				<option value="10 x 28">10 x 28</option> 
 				<option value="12 x 24">12 x 24</option> 
+				<option value="12 x 30">12 x 30</option> 
+				<option value="15 x 24">15 x 24</option> 
+				<option value="16 x 24">16 x 24</option> 
+				<option value="17 x 24">17 x 24</option>
 			</select>
 			<br> 
 			<label>Homecoming Album Pages Count</label>
@@ -167,8 +180,8 @@ function ovOff() {
 			<label><b>Preshoot Album Quality</b></label>
 			<select id='PSQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
-				<option value="Story Book">Story Book</option> 
-				<option value="Magazine Book">Magazine Book</option>
+			<option value="Magazine">Magazine</option> 
+			<option value="Sory Book">Sory Book</option> 
 			</select>
 			<label>Preshoot Album Size</label>
 			<select id='PSSize'  class="w3-select" > 
@@ -192,15 +205,19 @@ function ovOff() {
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label>Thanking Card Size</label>
 			<select id='thankCardSize'  class="w3-select" > 
-				<option value="4 x 6">4 x 6</option> 
 				<option value="4 x 8">4 x 8</option> 
+				<option value="4 x 12">4 x 12</option> 
+				<option value="5 x 8">5 x 8</option> 
+				<option value="5 x 10">5 x 10</option> 
+				<option value="6 x 6">6 x 6</option> 
 			</select>
 			<br>
 			<label>Thanking Card Quality</label>
 			<select id='thankCardQuality'  class="w3-select" > 
-				<option value="Quality 1">Quality 1</option> 
-				<option value="Quality 2">Quality 2</option> 
-				<option value="Quality 3">Quality 3</option> 
+				<option value="Single Side Matte">Single Side Matte</option> 
+				<option value="Single Side Glossy">Single Side Glossy</option> 
+				<option value="Double Side Matte">Double Side Matte</option> 
+				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br>
 			<label>Thanking Cards Count</label>
@@ -213,15 +230,19 @@ function ovOff() {
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label>Thanking Card Size</label>
 			<select id='ThankCardSizeH'  class="w3-select" > 
-				<option value="4 x 6">4 x 6</option> 
 				<option value="4 x 8">4 x 8</option> 
+				<option value="4 x 12">4 x 12</option> 
+				<option value="5 x 8">5 x 8</option> 
+				<option value="5 x 10">5 x 10</option> 
+				<option value="6 x 6">6 x 6</option> 
 			</select>
 			<br>
 			<label>Thanking Card Quality</label>
 			<select id='ThankCardQualityH'  class="w3-select" > 
-				<option value="Quality 1">Quality 1</option> 
-				<option value="Quality 2">Quality 2</option> 
-				<option value="Quality 3">Quality 3</option> 
+				<option value="Single Side Matte">Single Side Matte</option> 
+				<option value="Single Side Glossy">Single Side Glossy</option> 
+				<option value="Double Side Matte">Double Side Matte</option> 
+				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br> 
 			<label>Thanking Cards Count</label>
@@ -260,7 +281,7 @@ function ovOff() {
 			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
 			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
 			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()"> </input>
-			<label id="totalPrice">Transport Cost       </label>
+			<label id="transportCost">Transport Cost       </label>
 			<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 			<label id="totalPrice">Total Price       </label>
 			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
@@ -362,18 +383,15 @@ function getWedding(event) {
 function deleteWedding(event) {
    	
 	swal({
-			title: "Are you sure?",
-			text: "You will not be able to recover this event!",
-			type: "warning",
+			title: "Delete existing event",
+			text: "Are you sure ?",
+			type: "error",
 			showCancelButton: true,
-			confirmButtonColor: "#DD6B55",
-			confirmButtonText: "Yes, delete it!",
-			cancelButtonText: "No, cancel plx!",
 			closeOnConfirm: false,
-			closeOnCancel: false
-			},
-			function(isConfirm){
-			if (isConfirm) {
+			showLoaderOnConfirm: true,
+		},
+		function(){
+					
 					$.post('deleteWedding.php', { 
 					ID: event.id	
 					}, 
@@ -384,15 +402,59 @@ function deleteWedding(event) {
 						console.log(returnedData); 
 					}).fail(function(){
 						console.log("error");
-			});
-				
-			} else {
-				swal("Cancelled", "Your event is safe :)", "error");
-			}
+					});
+		
 	});
 
 }
+function clearAll() {
+			$('#ID').val("");
+			$('#name').val("");
+			$('#email').val(""); 
+			$('#phone').val(""); 
 
+			$('#NameG').val(""); 
+			$('#EmailG').val(""); 
+			$('#PhoneG').val(""); 
+
+			$('#dateW').val(""); 
+			$('#timeW').val(""); 
+			$('#placeW').val(""); 
+			$('#CASize').val(""); 
+			$('#CAPages').val(""); 
+			$('#CAQuality').val(""); 
+			$('#FASize').val(""); 
+			$('#FAPages').val(""); 
+			$('#FAQuality').val(""); 
+			$('#thankCardSize').val(""); 
+			$('#thankCardQuality').val("");  
+			$('#wedThankCardCount').val(""); 
+			$('#homeThankCardCount').val(""); 
+	
+			$('#Address').val(""); 
+			$('#dateH').val(""); 
+			$('#timeH').val(""); 
+			$('#placeH').val(""); 
+			$('#PSSize').val(""); 
+			$('#PSPages').val(""); 
+			$('#PSQuality').val(""); 
+			$('#VidQuality').val(""); 
+			$('#VidNoOfCam').val(""); 
+			$('#VidType').val(""); 	
+			
+			$('#Advance1').val(""); 	
+			$('#Advance2').val(""); 
+			$('#Advance3').val(""); 
+			$('#Total').val(""); 
+			$('#Comments').val(""); 			
+			
+			$('#IncludeFA').prop('checked', true); 
+			$('#IncludeDrone').prop('checked', false); 
+
+			$('#ThankCardSizeH').val("");	
+			$('#ThankCardQualityH').val("");	
+			$('#Transport').val("");		
+}
 function showAll() {
 	ovOn();
    	$( "#allListTable" ).empty()
@@ -423,7 +485,15 @@ function hideAll() {
 	$( "#btnHide" ).hide();
 }
 function saveNew() {
-   	ovOn();
+   		swal({
+			title: "Save new event",
+			text: "Are you sure ?",
+			type: "info",
+			showCancelButton: true,
+			closeOnConfirm: false,
+			showLoaderOnConfirm: true,
+		},
+		function(){
 	$.post('addWedding.php', { 
 		
 		name: $('#name').val(), 
@@ -484,71 +554,81 @@ function saveNew() {
 	}).fail(function(returnedData){
 		  console.log("error "  + returnedData);
 	});
-
+		});
 
 }
 function update() { 
-	ovOn();
-	$.post('editWedding.php', { 
-		ID: $('#ID').val(),
-		
-		name: $('#name').val(), 
-		email: $('#email').val(),
-		phone: $('#phone').val(),
+		swal({
+			title: "Update exixting event",
+			text: "Are you sure ?",
+			type: "warning",
+			showCancelButton: true,
+			closeOnConfirm: false,
+			showLoaderOnConfirm: true,
+		},
+		function(){
+			ovOn();
+			$.post('editWedding.php', { 
+				ID: $('#ID').val(),
+				
+				name: $('#name').val(), 
+				email: $('#email').val(),
+				phone: $('#phone').val(),
 
-		NameG: $('#NameG').val(), 
-		EmailG: $('#EmailG').val(),
-		PhoneG: $('#PhoneG').val(),
+				NameG: $('#NameG').val(), 
+				EmailG: $('#EmailG').val(),
+				PhoneG: $('#PhoneG').val(),
 
-		dateW : $('#dateW').val(),
-		timeW: $('#timeW').val(), 
-		placeW: $('#placeW').val(),
-		CASize: $('#CASize').val(),
-		CAPages: $('#CAPages').val(), 
-		CAQuality: $('#CAQuality').val(), 
-		FASize: $('#FASize').val(), 
-		FAPages: $('#FAPages').val(), 
-		FAQuality: $('#FAQuality').val(), 
-		thankCardSize: $('#thankCardSize').val(),
-		thankCardQuality: $('#thankCardQuality').val(), 
-		wedThankCardCount: $('#wedThankCardCount').val(), 
-		homeThankCardCount: $('#homeThankCardCount').val(),
-	 
-		Address: $('#Address').val(), 
-	
-		dateH : $('#dateH').val(),
-		timeH: $('#timeH').val(), 
-		placeH: $('#placeH').val(),
-		PSSize: $('#PSSize').val(), 
-		PSPages: $('#PSPages').val(), 
-		PSQuality: $('#PSQuality').val(),
-		VidQuality: $('#VidQuality').val(), 
-		VidNoOfCam: $('#VidNoOfCam').val(), 
-		VidType: $('#VidType').val(),
-		
-		Comments: $('#Comments').val(),
-		
-		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
-		Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
-		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
-		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
-		
-		IncludeFA: $('#IncludeFA').is(":checked"),
-		IncludeDrone: $('#IncludeDrone').is(":checked"),
+				dateW : $('#dateW').val(),
+				timeW: $('#timeW').val(), 
+				placeW: $('#placeW').val(),
+				CASize: $('#CASize').val(),
+				CAPages: $('#CAPages').val(), 
+				CAQuality: $('#CAQuality').val(), 
+				FASize: $('#FASize').val(), 
+				FAPages: $('#FAPages').val(), 
+				FAQuality: $('#FAQuality').val(), 
+				thankCardSize: $('#thankCardSize').val(),
+				thankCardQuality: $('#thankCardQuality').val(), 
+				wedThankCardCount: $('#wedThankCardCount').val(), 
+				homeThankCardCount: $('#homeThankCardCount').val(),
+			
+				Address: $('#Address').val(), 
+			
+				dateH : $('#dateH').val(),
+				timeH: $('#timeH').val(), 
+				placeH: $('#placeH').val(),
+				PSSize: $('#PSSize').val(), 
+				PSPages: $('#PSPages').val(), 
+				PSQuality: $('#PSQuality').val(),
+				VidQuality: $('#VidQuality').val(), 
+				VidNoOfCam: $('#VidNoOfCam').val(), 
+				VidType: $('#VidType').val(),
+				
+				Comments: $('#Comments').val(),
+				
+				Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
+				Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
+				Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
+				Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
+				
+				IncludeFA: $('#IncludeFA').is(":checked"),
+				IncludeDrone: $('#IncludeDrone').is(":checked"),
 
-		ThankCardSizeH : $('#ThankCardSizeH').val(),
-		ThankCardQualityH: $('#ThankCardQualityH').val(), 
-		Transport: $('#Transport').val()
-		
-	}, 
-    function(returnedData){
-		ovOff();
-        console.log(returnedData);
-		swal("Updated Existing Event", $('#name').val() , "success");
-		 //alert("Done" + returnedData);
-	}).fail(function(returnedData){
-		  console.log("error "  + returnedData);
-	});
+				ThankCardSizeH : $('#ThankCardSizeH').val(),
+				ThankCardQualityH: $('#ThankCardQualityH').val(), 
+				Transport: $('#Transport').val()
+			}, 
+			function(returnedData){
+				ovOff();
+				console.log(returnedData);
+				
+				swal("Updated Existing Event", $('#name').val() , "success");
+				//alert("Done" + returnedData);
+			}).fail(function(returnedData){
+				console.log("error "  + returnedData);
+			});
+		});
 }
 </script>
 <script>
@@ -558,6 +638,7 @@ function showRemainingBal(){
 	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
 	var adv2 = parseInt($('#Advance2').val())?parseInt($('#Advance2').val()):0; 
 	var adv3 = parseInt($('#Advance3').val())?parseInt($('#Advance3').val()):0; 
+	// var transport = parseInt($('#Transport').val())?parseInt($('#Transport').val()):0; 
 	var Total = parseInt($('#Total').val())?parseInt($('#Total').val()):0; 
 	var bal = Total-adv1-adv2-adv3;
   
@@ -569,7 +650,7 @@ function savePDF(){
 	doc.addImage(head, 'PNG', 5, 5, 210, 42);
 
 
-	var line = 50;
+	var line = 45;
 
 	doc.setFontSize(10);
 	doc.text(150, line, new Date().toString().split("GMT")[0]);
@@ -597,28 +678,31 @@ function savePDF(){
 	doc.text(25, line+60, 'Location : '+$('#placeH').val());
 	doc.text(25, line+65, 'Time : '+$('#timeH').val());
 	
-	line = line+85;
+	line = line+75;
 	
 	if($('#CAQuality').val() != "N/A"){ 
+		shift = 0; 
 	doc.setFontSize(11);
 		doc.text(25, line, 'Main/Wedding Album');
 		doc.setFontSize(10);
 		doc.text(30, line+5, 'Quality : '+$('#CAQuality').val());
 		doc.text(30, line+10, 'Size : '+$('#CASize').val());
 		doc.text(30, line+15, 'Pages : '+$('#CAPages').val());
-		shift = shift+60; 
+	
 	}
 	if($('#FAQuality').val() != "N/A"){ 
+		shift = shift+50; 
 		doc.setFontSize(11);
 		doc.text(25+shift, line, 'Homecoming Album');
 		doc.setFontSize(10);
 		doc.text(30+shift, line+5, 'Quality : '+$('#FAQuality').val());
 		doc.text(30+shift, line+10, 'Size : '+$('#FASize').val());
 		doc.text(30+shift, line+15, 'Pages : '+$('#FAPages').val());
-		shift = shift+60; 
+		//shift = shift+60; 
 	}
 	
 	if($('#PSQuality').val() != "N/A"){ 
+		shift = shift+50; 
 		doc.setFontSize(12);
 		doc.text(25+shift, line, 'Preshoot Album');
 		doc.setFontSize(10);
@@ -627,20 +711,30 @@ function savePDF(){
 		doc.text(30+shift, line+15, 'Pages : '+$('#PSPages').val());
 	}
 	line=line+25;
-	doc.setFontSize(11);
+	doc.setFontSize(10);
 	if($('#IncludeFA').is(":checked") == true){
-		doc.text(25, line,"1 Family Album(8x12 story type)");
+		doc.text(25, line,"1 Family Album included (8x12 story type)");
 	}
+
+	//////////////////////Thanking Card Details//////////////////////
 	line=line+10;
 	doc.setFontSize(11);
-	doc.text(25, line,"Thanking Cards ");
+	doc.text(25, line,"Wedding Thanking Cards ");
 	doc.setFontSize(10);
 	doc.text(30, line+5,"Quality : " + $('#thankCardQuality').val());
 	doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
-	doc.text(30, line+15,"Wedding Thanking Cards : " + $('#wedThankCardCount').val());
-	doc.text(30, line+20,"Homecoming Thanking Cards : " + $('#homeThankCardCount').val());
+	doc.text(30, line+15,"No. Thanking Cards : " + $('#wedThankCardCount').val()); 
 	
-	line=line+30;
+	shift = 80; 
+	doc.setFontSize(11);
+	doc.text(25+shift, line,"Homecoming Thanking Cards ");
+	doc.setFontSize(10);
+	doc.text(30+shift, line+5,"Quality : " + $('#ThankCardQualityH').val());
+	doc.text(30+shift, line+10,"Size : " + $('#ThankCardSizeH').val()); 
+	doc.text(30+shift, line+15,"No. Thanking Cards : " + $('#homeThankCardCount').val());
+	//////////////////////////////////////////////////////////////////
+
+	line=line+25;
 	doc.setFontSize(11);
 	doc.text(25, line,"Enlargements");
 	doc.setFontSize(10);
@@ -648,29 +742,33 @@ function savePDF(){
 	doc.text(30, line+10,"2 Wedding couple enlargement 12x18 with frame" );
 	doc.text(30, line+15,"2 Group enlargement 12x18 with frame"); 
 	
-	line=line+30;
+	line=line+25;
 	doc.setFontSize(11);
-	doc.text(25, line,"Video");
+	doc.text(25, line,"Video Details");
 	doc.setFontSize(10);
 	doc.text(30, line+5,"Quality : "+$('#VidQuality').val());
 	doc.text(30, line+10,"No Of Cameras : "+ $('#VidNoOfCam').val());
 	doc.text(30, line+15,"Type : "+$('#VidType').find(":selected").text()); 
 	
 	if($('#IncludeDrone').is(":checked") == true){
-		doc.setFontSize(11);
-		doc.text(25, line+20,"Drone camera will be used for video process");
+		line = line+20;
+		// doc.setFontSize(10);
+		doc.text(30, line,"Drone camera will be used for preshoot video process");
 	}
 	
 	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
 	var adv2 = parseInt($('#Advance2').val())?parseInt($('#Advance2').val()):0; 
 	var adv3 = parseInt($('#Advance3').val())?parseInt($('#Advance3').val()):0; 
+
 	var sumPayments = adv1 + adv2 + adv3;
-	line=line+30;
-	doc.setFontSize(12);
-	doc.text(25, line,"Total Charges : Rs."+$('#Total').val()+"/=               			Advance Payments : Rs."+sumPayments+"/=");
-	
-	
 	line=line+10;
+	doc.text(25, line,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
+	doc.setFontSize(12);
+	doc.text(25, line+5,"Total Charges : Rs."+$('#Total').val()+"/=");//               			Advance Payments : Rs."+sumPayments+"/=");
+	doc.setFontSize(10);
+	doc.text(120, line+5,"Advance Payments : Rs."+sumPayments+"/= ");
+	
+	line=line+15;
 	var splitTitle = doc.splitTextToSize($('#Comments').val(), 190);
 	if($('#Comments').val() != ""){ 
 		doc.setFontSize(10);
