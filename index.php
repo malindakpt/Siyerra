@@ -187,7 +187,7 @@ function ovOff() {
 		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
 		</div>
 		<br>
-		<label><b>Thanking Card Details</b></label>
+		<label><b>Wedding Thanking Card Details</b></label>
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label>Thanking Card Size</label>
@@ -203,10 +203,28 @@ function ovOff() {
 				<option value="Quality 3">Quality 3</option> 
 			</select>
 			<br>
-			<label>Wedding Thank Cards Count</label>
+			<label>Thanking Cards Count</label>
 			<input id='wedThankCardCount'  class="w3-input" value="100"> </input>
 			
-			<label>Homecoming Thank Cards Count</label>
+		</div>
+		
+		
+		<label><b>Homecoming Thanking Card Details</b></label>
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+			<label>Thanking Card Size</label>
+			<select id='ThankCardSizeH'  class="w3-select" > 
+				<option value="4 x 6">4 x 6</option> 
+				<option value="4 x 8">4 x 8</option> 
+			</select>
+			<br>
+			<label>Thanking Card Quality</label>
+			<select id='ThankCardQualityH'  class="w3-select" > 
+				<option value="Quality 1">Quality 1</option> 
+				<option value="Quality 2">Quality 2</option> 
+				<option value="Quality 3">Quality 3</option> 
+			</select>
+			<br> 
+			<label>Thanking Cards Count</label>
 			<input id='homeThankCardCount'  class="w3-input" value="100"> </input>
 		</div>
 		<div class="">
@@ -242,6 +260,8 @@ function ovOff() {
 			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
 			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
 			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()"> </input>
+			<label id="totalPrice">Transport Cost       </label>
+			<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 			<label id="totalPrice">Total Price       </label>
 			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 		</div>
@@ -319,6 +339,10 @@ function getWedding(event) {
 			
 			$('#IncludeFA').prop('checked', obj.includeFA); 
 			$('#IncludeDrone').prop('checked', obj.IncludeDrone); 
+
+			$('#ThankCardSizeH').val(obj.ThankCardSizeH);	
+			$('#ThankCardQualityH').val(obj.ThankCardQualityH);	
+			$('#Transport').val(obj.Transport);	
 			
 			showRemainingBal();
 
@@ -442,7 +466,11 @@ function saveNew() {
 		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
 		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 		IncludeFA: $('#IncludeFA').is(":checked"),
-		IncludeDrone: $('#IncludeDrone').is(":checked")
+		IncludeDrone: $('#IncludeDrone').is(":checked"),
+
+		ThankCardSizeH : $('#ThankCardSizeH').val(),
+		ThankCardQualityH: $('#ThankCardQualityH').val(), 
+		Transport: $('#Transport').val()
 		
 	}, 
     function(returnedData){
@@ -506,7 +534,11 @@ function update() {
 		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 		
 		IncludeFA: $('#IncludeFA').is(":checked"),
-		IncludeDrone: $('#IncludeDrone').is(":checked")
+		IncludeDrone: $('#IncludeDrone').is(":checked"),
+
+		ThankCardSizeH : $('#ThankCardSizeH').val(),
+		ThankCardQualityH: $('#ThankCardQualityH').val(), 
+		Transport: $('#Transport').val()
 		
 	}, 
     function(returnedData){

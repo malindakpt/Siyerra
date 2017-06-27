@@ -34,6 +34,8 @@ if ($result->num_rows > 0) {
 		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"],
 
 		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
+
+		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],'Transport' => $row["Transport"]
 		
 		);
 		//array_push($allList,$arr); 
