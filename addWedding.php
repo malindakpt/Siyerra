@@ -30,7 +30,7 @@ $thankCardQuality = $_POST['thankCardQuality'];
 $wedThankCardCount = $_POST['wedThankCardCount'];
 $homeThankCardCount = $_POST['homeThankCardCount'];
 
-$dateH = $_POST['dateH'] == "" ? null : $_POST['dateH'];
+$dateH = $_POST['dateH'] !== '' ? $_POST['dateH'] : '2010-01-01';
 $timeH = $_POST['timeH'];
 $placeH = $_POST['placeH'];
 $PSSize = $_POST['PSSize'];
