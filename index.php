@@ -85,22 +85,22 @@ function ovOff() {
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
-		<input id='name' class="w3-input" placeholder="Groom Name"> </input>
+		<input id='name' class="w3-input" placeholder="Groom Name" maxlength="28"> </input>
 		<br>
 		
-		<input id='email' class="w3-input" placeholder="Groom Email"> </input>
+		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30"> </input>
 		<br>
-		<input id='phone'  class="w3-input" placeholder="Groom Phone"> </input>
+		<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"> </input>
 		<br>
 		<!--Girls Details-->
-		<input id='NameG' class="w3-input" placeholder="Bride Name"> </input>
+		<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"> </input>
 		<br> 
-		<input id='EmailG' class="w3-input" placeholder="Bride Email"> </input>
+		<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
 		<br>
-		<input id='PhoneG'  class="w3-input" placeholder="Bride Phone"> </input>
+		<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"> </input>
 		<br>
 
-		<input id='Address' class="w3-input" placeholder="Address"> </input>
+		<input id='Address' class="w3-input" placeholder="Address" maxlength="60"> </input>
 		<br>
 		 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
@@ -308,6 +308,22 @@ function ovOff() {
 </div>
 </body>
 <script>
+function validateData(){
+		if("" == $('#name').val() || "" == $('#NameG').val()){
+			swal("Invalid Inputs", "Name of Groom and Bride cannot be empty", "error");
+			return false;
+		}else if( $('#dateW').val() == ""){
+			swal("Invalid Inputs", "Wedd/Engage date cannot be empty", "error");
+			return false;
+		}
+		return true;
+		// email: $('#email').val(), 
+		// phone: $('#phone').val(),
+
+		// NameG: $('#NameG').val(), 
+		// EmailG: $('#EmailG').val(), 
+		// PhoneG: $('#PhoneG').val(),
+}
 function getWedding(event) {
    	ovOn();
 	$( "#btnHide" ).hide();
@@ -485,6 +501,10 @@ function hideAll() {
 	$( "#btnHide" ).hide();
 }
 function saveNew() {
+
+	if(validateData()==false){
+		return;
+	}
    		swal({
 			title: "Save new event",
 			text: "Are you sure ?",
@@ -520,7 +540,7 @@ function saveNew() {
 	
 		Address: $('#Address').val(), 
 	
-		dateH : $('#dateH').val(),
+		dateH :$('#dateH').val(),
 		timeH: $('#timeH').val(), 
 		placeH: $('#placeH').val(),
 		PSSize: $('#PSSize').val(), 
@@ -645,7 +665,9 @@ function showRemainingBal(){
 	document.getElementById('totalPrice').innerHTML = "Total Price        (To be paid="+bal+")";
 }
 
-function savePDF(){ 
+function savePDF(){
+	var time = (new Date()).toLocaleDateString('en-US');
+
 	var doc = new jsPDF();
 	doc.addImage(head, 'PNG', 5, 5, 210, 42);
 
