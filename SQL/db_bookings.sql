@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2017 at 05:02 PM
+-- Generation Time: Jun 30, 2017 at 01:52 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -44,7 +44,7 @@ CREATE TABLE `booking` (
   `homeThankCardCount` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(20) NOT NULL,
-  `dateH` date NOT NULL,
+  `dateH` date DEFAULT NULL,
   `timeH` varchar(11) NOT NULL,
   `placeH` varchar(100) NOT NULL,
   `PSSize` varchar(100) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `booking` (
   `PhoneG` varchar(100) NOT NULL,
   `ThankCardSizeH` varchar(100) NOT NULL,
   `ThankCardQualityH` varchar(100) NOT NULL,
-  `Transport` int(11) NOT NULL
+  `Transport` varchar(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -74,7 +74,10 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`ID`, `name`, `dateW`, `timeW`, `placeW`, `CASize`, `CAPages`, `CAQuality`, `FASize`, `FAPages`, `FAQuality`, `thankCardSize`, `thankCardQuality`, `wedThankCardCount`, `homeThankCardCount`, `email`, `phone`, `dateH`, `timeH`, `placeH`, `PSSize`, `PSPages`, `PSQuality`, `VidQuality`, `VidNoOfCam`, `VidType`, `Advance1`, `Advance2`, `Advance3`, `Total`, `Comments`, `IncludeFA`, `Address`, `IncludeDrone`, `NameG`, `EmailG`, `PhoneG`, `ThankCardSizeH`, `ThankCardQualityH`, `Transport`) VALUES
-(43, 'M1dsds', '2017-06-16', 'N/A', '', '8 x 16', 50, 'Magazine', '8 x 16', 40, 'Magazine', '4 x 8', 'Quality 2', 1000, 50, 'm@', 'm7', '2017-06-29', 'N/A', '', '8 x 16', 60, 'Story Book', 'N/A', '1cam', 'wed', 0, 0, 0, 0, 'addcomment', 'true', 'Address', 'true', 'B1', 'b@', 'B77', '4 x 6', 'Quality 1', 4000);
+(43, 'M1dsds', '2017-06-16', 'N/A', '', '8 x 16', 50, 'Magazine', '8 x 16', 40, 'Magazine', '4 x 8', 'Quality 2', 1000, 50, 'm@', 'm7', '2017-06-29', 'N/A', '', '8 x 16', 60, 'Story Book', 'N/A', '1cam', 'wed', 0, 0, 0, 0, 'addcomment', 'true', 'Address', 'true', 'B1', 'b@', 'B77', '4 x 6', 'Quality 1', '4000'),
+(45, 'qqWWWWWW', '2017-06-09', 'Day', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2017-06-14', 'Night', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'BBBBBBBBBBBBB', '', '', '4 x 8', 'Single Side Matte', '12222'),
+(46, 'sdsd', '2017-06-15', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'asas', '', '', '4 x 8', 'Single Side Matte', ''),
+(47, 'yyyy', '2017-06-07', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, 'iuy', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'yyyy', '', '', '4 x 8', 'Single Side Matte', '');
 
 -- --------------------------------------------------------
 
@@ -113,7 +116,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

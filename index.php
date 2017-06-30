@@ -17,9 +17,23 @@
 	<h3 style="float:left">Siyeraa Studio</h3>
 	 <br>
 	<?php
+		// include 'loginS2.php';
+		// session_start();
+	
+		session_start(); 
 		include 'loginS2.php';
-		session_start();
+		
+		if("ok" != login()){
+			echo "ip";
+			header("Location: login.php"); /* Redirect browser */
+			exit();
+			// return;
+		}
+	
 		if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+	
+		
+	
 	?>
  <br>
 <div>
