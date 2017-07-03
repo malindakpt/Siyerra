@@ -140,13 +140,13 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
-		<label><b>Main/Wedd./Engage. Album Quality</b></label>
+		<label><b>Main/Wedding Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">N/A</option> 
 			<option value="Magazine">Magazine</option> 
 			<option value="Sory Book">Sory Book</option> 
 		</select>
-		<label>Main/Wedd./Engage. Album Size</label>
+		<label>Main/Wedding Album Size</label>
 		<select id='CASize'  class="w3-select" > 
 			<option value="8 x 16">8 x 16</option> 
 			<option value="8 x 20">8 x 20</option> 
@@ -163,12 +163,16 @@ function ovOff() {
 				<option value="17 x 24">17 x 24</option> 
 		</select>
 		<br>
-		<label>Main/Wedd./Engage. Pages Count</label>
+		<label>Main/Wedding Pages Count</label>
 		<input id='CAPages'  class="w3-input" value="50"> </input>
 		  
 	  <div class="XXX">
 			<br>
-			<label><b>Homecoming Album Quality</b></label>
+			<select id='Album2Type'  class="w3-select" style="float: left; width: 120px;" > 
+				<option value="Homecoming">Homecoming</option> 
+				<option value="Engagement">Engagement</option>  
+			</select>
+			<label style="line-height: 47px;"><b> Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
 			<option value="Magazine">Magazine</option> 
@@ -240,7 +244,7 @@ function ovOff() {
 		</div>
 		
 		
-		<label><b>Homecoming Thanking Card Details</b></label>
+		<label><b>Homecoming/Enga. Thanking Card Details</b></label>
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label>Thanking Card Size</label>
 			<select id='ThankCardSizeH'  class="w3-select" > 
@@ -273,7 +277,7 @@ function ovOff() {
 			<select id='VidNoOfCam'  class="w3-select" > 
 				<option value="1cam">Use 1 Camera</option> 
 				<option value="2cam">Use 2 Cameras</option> 
-				<option value="3cam">Use 3 Camera</option> 
+				<option value="3cam">Use 3 Cameras</option> 
 				<option value="4cam">Use 4 Cameras</option>  
 			</select>
 			 
@@ -330,13 +334,7 @@ function validateData(){
 			swal("Invalid Inputs", "Wedd/Engage date cannot be empty", "error");
 			return false;
 		}
-		return true;
-		// email: $('#email').val(), 
-		// phone: $('#phone').val(),
-
-		// NameG: $('#NameG').val(), 
-		// EmailG: $('#EmailG').val(), 
-		// PhoneG: $('#PhoneG').val(),
+		return true; 
 }
 function getWedding(event) {
    	ovOn();
@@ -394,6 +392,7 @@ function getWedding(event) {
 			$('#ThankCardSizeH').val(obj.ThankCardSizeH);	
 			$('#ThankCardQualityH').val(obj.ThankCardQualityH);	
 			$('#Transport').val(obj.Transport);	
+			$('#Album2Type').val(obj.Album2Type);
 			
 			showRemainingBal();
 
@@ -574,7 +573,9 @@ function saveNew() {
 
 		ThankCardSizeH : $('#ThankCardSizeH').val(),
 		ThankCardQualityH: $('#ThankCardQualityH').val(), 
-		Transport: $('#Transport').val()
+		Transport: $('#Transport').val(),
+
+		Album2Type: $('#Album2Type').val()
 		
 	}, 
     function(returnedData){
@@ -651,7 +652,8 @@ function update() {
 
 				ThankCardSizeH : $('#ThankCardSizeH').val(),
 				ThankCardQualityH: $('#ThankCardQualityH').val(), 
-				Transport: $('#Transport').val()
+				Transport: $('#Transport').val(),:
+				Album2Type: $('#Album2Type').val()
 			}, 
 			function(returnedData){
 				ovOff();
@@ -718,7 +720,7 @@ function savePDF(){
 	
 	if($('#CAQuality').val() != "N/A"){ 
 		shift = 0; 
-	doc.setFontSize(11);
+		doc.setFontSize(11);
 		doc.text(25, line, 'Main/Wedding Album');
 		doc.setFontSize(10);
 		doc.text(30, line+5, 'Quality : '+$('#CAQuality').val());

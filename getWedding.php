@@ -16,8 +16,7 @@ $result = $conn->query($sql);
 $arr =  array();
 if ($result->num_rows > 0) {
     // output data of each row
-	//name, date, time,	place, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount, homeThankCardCount)
-    while($row = $result->fetch_assoc()) {
+	while($row = $result->fetch_assoc()) {
 		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 
 		'dateW' => $row["dateW"], 'timeW' => $row["timeW"],'placeW' => $row["placeW"], 
 		'dateH' => $row["dateH"], 'timeH' => $row["timeH"],'placeH' => $row["placeH"], 
@@ -35,10 +34,10 @@ if ($result->num_rows > 0) {
 
 		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
 
-		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],'Transport' => $row["Transport"]
+		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],
+		'Transport' => $row["Transport"], 'Album2Type' => $row["Album2Type"]
 		
-		);
-		//array_push($allList,$arr); 
+		); 
     }
 	echo json_encode($arr);
 } else {
