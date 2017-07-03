@@ -175,8 +175,8 @@ function ovOff() {
 			<label style="line-height: 47px;"><b> Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
-			<option value="Magazine">Magazine</option> 
-			<option value="Sory Book">Sory Book</option> 
+				<option value="Magazine">Magazine</option> 
+				<option value="Sory Book">Sory Book</option> 
 			</select>
 			<label>Homecoming Album Size</label>
 			<select id='FASize'  class="w3-select" > 
@@ -198,8 +198,8 @@ function ovOff() {
 			<label><b>Preshoot Album Quality</b></label>
 			<select id='PSQuality'  class="w3-select" > 
 				<option value="N/A">N/A</option> 
-			<option value="Magazine">Magazine</option> 
-			<option value="Sory Book">Sory Book</option> 
+				<option value="Magazine">Magazine</option> 
+				<option value="Sory Book">Sory Book</option> 
 			</select>
 			<label>Preshoot Album Size</label>
 			<select id='PSSize'  class="w3-select" > 
@@ -221,6 +221,17 @@ function ovOff() {
 		<label><b>Wedding Thanking Card Details</b></label>
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+
+			<label>Thanking Card Quality</label>
+			<select id='thankCardQuality'  class="w3-select" > 
+				<option value="N/A">N/A</option> 
+				<option value="Single Side Matte">Single Side Matte</option> 
+				<option value="Single Side Glossy">Single Side Glossy</option> 
+				<option value="Double Side Matte">Double Side Matte</option> 
+				<option value="Double Side Glossy">Double Side Glossy</option>  
+			</select>
+			<br>
+
 			<label>Thanking Card Size</label>
 			<select id='thankCardSize'  class="w3-select" > 
 				<option value="4 x 8">4 x 8</option> 
@@ -230,22 +241,25 @@ function ovOff() {
 				<option value="6 x 6">6 x 6</option> 
 			</select>
 			<br>
-			<label>Thanking Card Quality</label>
-			<select id='thankCardQuality'  class="w3-select" > 
-				<option value="Single Side Matte">Single Side Matte</option> 
-				<option value="Single Side Glossy">Single Side Glossy</option> 
-				<option value="Double Side Matte">Double Side Matte</option> 
-				<option value="Double Side Glossy">Double Side Glossy</option>  
-			</select>
-			<br>
+		
 			<label>Thanking Cards Count</label>
 			<input id='wedThankCardCount'  class="w3-input" value="100"> </input>
 			
 		</div>
 		
 		
-		<label><b>Homecoming/Enga. Thanking Card Details</b></label>
+		<label><b>Homeco./Enga. Thanking Card Details</b></label>
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+		
+			<label>Thanking Card Quality</label>
+			<select id='ThankCardQualityH'  class="w3-select" > 
+				<option value="N/A">N/A</option> 
+				<option value="Single Side Matte">Single Side Matte</option> 
+				<option value="Single Side Glossy">Single Side Glossy</option> 
+				<option value="Double Side Matte">Double Side Matte</option> 
+				<option value="Double Side Glossy">Double Side Glossy</option>  
+			</select>
+			<br> 
 			<label>Thanking Card Size</label>
 			<select id='ThankCardSizeH'  class="w3-select" > 
 				<option value="4 x 8">4 x 8</option> 
@@ -255,14 +269,7 @@ function ovOff() {
 				<option value="6 x 6">6 x 6</option> 
 			</select>
 			<br>
-			<label>Thanking Card Quality</label>
-			<select id='ThankCardQualityH'  class="w3-select" > 
-				<option value="Single Side Matte">Single Side Matte</option> 
-				<option value="Single Side Glossy">Single Side Glossy</option> 
-				<option value="Double Side Matte">Double Side Matte</option> 
-				<option value="Double Side Glossy">Double Side Glossy</option>  
-			</select>
-			<br> 
+			
 			<label>Thanking Cards Count</label>
 			<input id='homeThankCardCount'  class="w3-input" value="100"> </input>
 		</div>
@@ -652,7 +659,7 @@ function update() {
 
 				ThankCardSizeH : $('#ThankCardSizeH').val(),
 				ThankCardQualityH: $('#ThankCardQualityH').val(), 
-				Transport: $('#Transport').val(),:
+				Transport: $('#Transport').val(),
 				Album2Type: $('#Album2Type').val()
 			}, 
 			function(returnedData){
@@ -685,10 +692,10 @@ function savePDF(){
 	var time = (new Date()).toLocaleDateString('en-US');
 
 	var doc = new jsPDF();
-	doc.addImage(head, 'PNG', 5, 5, 210, 42);
+	doc.addImage(head, 'PNG', 0, 0, 210, 42);
 
 
-	var line = 45;
+	var line = 40;
 
 	doc.setFontSize(10);
 	doc.text(150, line, new Date().toString().split("GMT")[0]);
@@ -717,6 +724,8 @@ function savePDF(){
 	doc.text(25, line+65, 'Time : '+$('#timeH').val());
 	
 	line = line+75;
+
+	
 	
 	if($('#CAQuality').val() != "N/A"){ 
 		shift = 0; 
@@ -731,7 +740,7 @@ function savePDF(){
 	if($('#FAQuality').val() != "N/A"){ 
 		shift = shift+50; 
 		doc.setFontSize(11);
-		doc.text(25+shift, line, 'Homecoming Album');
+		doc.text(25+shift, line, 'Homeco./Engag. Album');
 		doc.setFontSize(10);
 		doc.text(30+shift, line+5, 'Quality : '+$('#FAQuality').val());
 		doc.text(30+shift, line+10, 'Size : '+$('#FASize').val());
@@ -741,7 +750,7 @@ function savePDF(){
 	
 	if($('#PSQuality').val() != "N/A"){ 
 		shift = shift+50; 
-		doc.setFontSize(12);
+		doc.setFontSize(11);
 		doc.text(25+shift, line, 'Preshoot Album');
 		doc.setFontSize(10);
 		doc.text(30+shift, line+5, 'Quality : '+$('#PSQuality').val());
@@ -756,20 +765,27 @@ function savePDF(){
 
 	//////////////////////Thanking Card Details//////////////////////
 	line=line+10;
-	doc.setFontSize(11);
-	doc.text(25, line,"Wedding Thanking Cards ");
-	doc.setFontSize(10);
-	doc.text(30, line+5,"Quality : " + $('#thankCardQuality').val());
-	doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
-	doc.text(30, line+15,"No. Thanking Cards : " + $('#wedThankCardCount').val()); 
+	shift = 0;
+	if($('#thankCardQuality').val() != "N/A"){ 
 	
-	shift = 80; 
-	doc.setFontSize(11);
-	doc.text(25+shift, line,"Homecoming Thanking Cards ");
-	doc.setFontSize(10);
-	doc.text(30+shift, line+5,"Quality : " + $('#ThankCardQualityH').val());
-	doc.text(30+shift, line+10,"Size : " + $('#ThankCardSizeH').val()); 
-	doc.text(30+shift, line+15,"No. Thanking Cards : " + $('#homeThankCardCount').val());
+		doc.setFontSize(11);
+		doc.text(25, line,"Main/Wedding Thanking Cards ");
+		doc.setFontSize(10);
+		doc.text(30, line+5,"Quality : " + $('#thankCardQuality').val());
+		doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
+		doc.text(30, line+15,"No. Thanking Cards : " + $('#wedThankCardCount').val()); 
+		shift = 80;
+	}
+	
+	if($('#ThankCardQualityH').val() != "N/A"){ 
+		 
+		doc.setFontSize(11);
+		doc.text(25+shift, line,"Homecoming/Engage. Thanking Cards ");
+		doc.setFontSize(10);
+		doc.text(30+shift, line+5,"Quality : " + $('#ThankCardQualityH').val());
+		doc.text(30+shift, line+10,"Size : " + $('#ThankCardSizeH').val()); 
+		doc.text(30+shift, line+15,"No. Thanking Cards : " + $('#homeThankCardCount').val());
+	}
 	//////////////////////////////////////////////////////////////////
 
 	line=line+25;
