@@ -5,6 +5,7 @@
 <script src="js/jquery.js"></script>  
 <script src="js/sweetalert.js"></script>  
 <script src="js/headerImg.js"></script>  
+<script src="js/footerImg.js"></script> 
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
@@ -99,7 +100,7 @@ function ovOff() {
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
-		<input id='name' class="w3-input" placeholder="Groom Name" maxlength="28"> </input>
+		<input id='name' class="w3-input" placeholder="Groom Name" > </input>
 		<br>
 		
 		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30"> </input>
@@ -217,6 +218,11 @@ function ovOff() {
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-yellow">
 		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
 		</div>
+		<br>
+		<label><b>Enlargements Details</b></label>
+<input id='Enlarge1' class="w3-input" maxlength="50" value="1 Wedding couple enlargement 20x30 with frame"> </input>
+<input id='Enlarge2' class="w3-input" maxlength="50" value="2 Wedding couple enlargement 12x18 with frame"> </input>
+<input id='Enlarge3' class="w3-input" maxlength="50" value="2 Group enlargement 12x18 with frame"> </input>
 		<br>
 		<label><b>Wedding Thanking Card Details</b></label>
 		
@@ -386,6 +392,10 @@ function getWedding(event) {
 			$('#VidQuality').val(obj.VidQuality);
 			$('#VidNoOfCam').val(obj.VidNoOfCam);
 			$('#VidType').val(obj.VidType);	
+
+			$('#Enlarge1').val(obj.Enlarge1); 	
+			$('#Enlarge2').val(obj.Enlarge2); 	
+			$('#Enlarge3').val(obj.Enlarge3); 
 			
 			$('#Advance1').val(obj.Advance1);	
 			$('#Advance2').val(obj.Advance2);	
@@ -477,6 +487,10 @@ function clearAll() {
 			$('#VidQuality').val(""); 
 			$('#VidNoOfCam').val(""); 
 			$('#VidType').val(""); 	
+
+			$('#Enlarge1').val(""); 	
+			$('#Enlarge2').val(""); 	
+			$('#Enlarge3').val(""); 	
 			
 			$('#Advance1').val(""); 	
 			$('#Advance2').val(""); 
@@ -569,6 +583,10 @@ function saveNew() {
 		VidQuality: $('#VidQuality').val(), 
 		VidNoOfCam: $('#VidNoOfCam').val(), 
 		VidType: $('#VidType').val(),
+
+		Enlarge1: $('#Enlarge1').val(),
+		Enlarge2: $('#Enlarge2').val(), 	
+		Enlarge3: $('#Enlarge3').val(), 
 		
 		Comments: $('#Comments').val(),
 		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
@@ -646,6 +664,10 @@ function update() {
 				VidQuality: $('#VidQuality').val(), 
 				VidNoOfCam: $('#VidNoOfCam').val(), 
 				VidType: $('#VidType').val(),
+
+				Enlarge1: $('#Enlarge1').val(),
+				Enlarge2: $('#Enlarge2').val(), 	
+				Enlarge3: $('#Enlarge3').val(), 
 				
 				Comments: $('#Comments').val(),
 				
@@ -693,6 +715,8 @@ function savePDF(){
 
 	var doc = new jsPDF();
 	doc.addImage(head, 'PNG', 0, 0, 210, 42);
+ 
+	doc.addImage(foot, 'PNG', 0, 255, 210, 42);
 
 
 	var line = 40;
@@ -792,9 +816,9 @@ function savePDF(){
 	doc.setFontSize(11);
 	doc.text(25, line,"Enlargements");
 	doc.setFontSize(10);
-	doc.text(30, line+5,"1 Wedding couple enlargement 20x30 with frame");
-	doc.text(30, line+10,"2 Wedding couple enlargement 12x18 with frame" );
-	doc.text(30, line+15,"2 Group enlargement 12x18 with frame"); 
+	doc.text(30, line+5,$('#Enlarge1').val());
+	doc.text(30, line+10,$('#Enlarge2').val());
+	doc.text(30, line+15,$('#Enlarge3').val()); 
 	
 	line=line+25;
 	doc.setFontSize(11);

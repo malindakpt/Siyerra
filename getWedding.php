@@ -36,6 +36,7 @@ if ($result->num_rows > 0) {
 
 		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],
 		'Transport' => $row["Transport"], 'Album2Type' => $row["Album2Type"]
+		,'Enlarge1' => $row["Enlarge1"]	,'Enlarge2' => $row["Enlarge2"]	,'Enlarge3' => $row["Enlarge3"]
 		
 		); 
     }
