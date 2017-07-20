@@ -1,3 +1,9 @@
+<?php
+    session_start();
+	$_SESSION["UserName"] = "";
+	$_SESSION['Password'] = "";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,14 +76,6 @@ span.psw {
 </style>
 <body>
  
-
- <?php
-    session_start();
-	$_SESSION["UserName"] = "";
-	$_SESSION['Password'] = "";
- ?>
-
-
 <div  style="max-width:350px; margin: 0 auto;">
     <h2><b>Siyeraa    Studio</b></h2>
     <div class="imgcontainer">

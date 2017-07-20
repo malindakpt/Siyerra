@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2017 at 01:21 AM
+-- Generation Time: Jul 03, 2017 at 03:22 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -67,21 +67,37 @@ CREATE TABLE `booking` (
   `ThankCardSizeH` varchar(100) NOT NULL,
   `ThankCardQualityH` varchar(100) NOT NULL,
   `Transport` varchar(11) NOT NULL,
-  `Album2Type` varchar(14) NOT NULL,
-  `Enlarge1` varchar(500) NOT NULL,
-  `Enlarge2` varchar(500) NOT NULL,
-  `Enlarge3` varchar(500) NOT NULL
+  `Album2Type` varchar(14) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`ID`, `name`, `dateW`, `timeW`, `placeW`, `CASize`, `CAPages`, `CAQuality`, `FASize`, `FAPages`, `FAQuality`, `thankCardSize`, `thankCardQuality`, `wedThankCardCount`, `homeThankCardCount`, `email`, `phone`, `dateH`, `timeH`, `placeH`, `PSSize`, `PSPages`, `PSQuality`, `VidQuality`, `VidNoOfCam`, `VidType`, `Advance1`, `Advance2`, `Advance3`, `Total`, `Comments`, `IncludeFA`, `Address`, `IncludeDrone`, `NameG`, `EmailG`, `PhoneG`, `ThankCardSizeH`, `ThankCardQualityH`, `Transport`, `Album2Type`, `Enlarge1`, `Enlarge2`, `Enlarge3`) VALUES
-(43, 'Wasantha Kumata', '2017-06-16', 'Day', 'Maradagahamula', '8 x 16', 50, 'Magazine', '15 x 24', 400, 'Magazine', '4 x 8', 'Single Side Matte', 1000, 50, 'malindakpt@gmail.com', '0779879879', '2017-06-29', 'Day', 'Wattala', '8 x 16', 60, 'Sory Book', 'blueray', '1cam', 'wed', 2000, 0, 0, 130000, 'addcomment', 'true', 'Kanadulla, Kuiyapitiya', 'true', 'Sumudu Nisansala', 'asd@kasjhdjkas.vom', '879879878979', '4 x 12', 'Double Side Matte', '4000', 'Engagement', '', '', ''),
-(45, 'qqWWWWWW', '2017-06-09', 'Day', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2017-06-14', 'Night', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'BBBBBBBBBBBBB', '', '', '4 x 8', 'Single Side Matte', '12222', '', '', '', ''),
-(46, 'sdsd', '2017-06-15', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'asas', '', '', '4 x 8', 'Single Side Matte', '', '', '', '', ''),
-(47, 'yyyy', '2017-06-07', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, 'iuy', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'yyyy', '', '', '4 x 8', 'Single Side Matte', '', '', 'E11', 'E21', 'E31');
+INSERT INTO `booking` (`ID`, `name`, `dateW`, `timeW`, `placeW`, `CASize`, `CAPages`, `CAQuality`, `FASize`, `FAPages`, `FAQuality`, `thankCardSize`, `thankCardQuality`, `wedThankCardCount`, `homeThankCardCount`, `email`, `phone`, `dateH`, `timeH`, `placeH`, `PSSize`, `PSPages`, `PSQuality`, `VidQuality`, `VidNoOfCam`, `VidType`, `Advance1`, `Advance2`, `Advance3`, `Total`, `Comments`, `IncludeFA`, `Address`, `IncludeDrone`, `NameG`, `EmailG`, `PhoneG`, `ThankCardSizeH`, `ThankCardQualityH`, `Transport`, `Album2Type`) VALUES
+(43, 'M1dsds', '2017-06-16', 'N/A', '', '8 x 16', 50, 'Magazine', '8 x 16', 40, 'Magazine', '4 x 8', 'Quality 2', 1000, 50, 'm@', 'm7', '2017-06-29', 'N/A', '', '8 x 16', 60, 'Story Book', 'N/A', '1cam', 'wed', 0, 0, 0, 0, 'addcomment', 'true', 'Address', 'true', 'B1', 'b@', 'B77', '4 x 6', 'Quality 1', '4000', ''),
+(45, 'qqWWWWWW', '2017-06-09', 'Day', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2017-06-14', 'Night', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'BBBBBBBBBBBBB', '', '', '4 x 8', 'Single Side Matte', '12222', ''),
+(46, 'sdsd', '2017-06-15', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, '', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'asas', '', '', '4 x 8', 'Single Side Matte', '', ''),
+(47, 'yyyy', '2017-06-07', 'N/A', '', '8 x 16', 50, 'N/A', '10 x 24', 40, 'N/A', '4 x 8', 'Single Side Matte', 100, 100, 'iuy', '', '2010-01-01', 'N/A', '', '8 x 16', 60, 'N/A', 'N/A', '1cam', 'wed', 0, 0, 0, 0, '', 'true', '', 'true', 'yyyy', '', '', '4 x 8', 'Single Side Matte', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `UserName` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`UserName`, `Password`) VALUES
+('a', 'a'),
+('b', 'b');
 
 --
 -- Indexes for dumped tables
@@ -105,3 +121,19 @@ ALTER TABLE `booking`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
+CREATE TABLE `users` (
+  `UserName` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`UserName`, `Password`) VALUES
+('a', 'a'),
+('b', 'b');

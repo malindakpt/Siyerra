@@ -38,7 +38,7 @@ if ($result1->num_rows > 0) {
     }
 	
 } else {
-    echo "0 results wed";
+  //  echo "0 results wedding day";
 }
 if ($result2->num_rows > 0) { 
     while($row = $result2->fetch_assoc()) {
@@ -47,7 +47,7 @@ if ($result2->num_rows > 0) {
     }
 	
 } else {
-    echo "0 results home";
+   // echo "0 results homecoming day";
 }
 
 

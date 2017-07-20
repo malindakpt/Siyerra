@@ -1,3 +1,8 @@
+<?php
+	session_start(); 
+	include 'loginS2.php';
+?>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +22,15 @@
     <!--<span class="topic">Siyerra Studio  </span>-->
 	<h3 style="float:left">Siyeraa Studio</h3>
 	 <br>
-	<?php
-		// include 'loginS2.php';
-		// session_start();
-	
-		session_start(); 
-		include 'loginS2.php';
-		
+
+	<?php	
 		if("ok" != login()){
 			echo "ip";
 			header("Location: login.php"); /* Redirect browser */
 			exit();
 			// return;
 		}
-	
 		if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
-	
-		
-	
 	?>
  <br>
 <div>
@@ -103,7 +99,7 @@ function ovOff() {
 		<input id='name' class="w3-input" placeholder="Groom Name" > </input>
 		<br>
 		
-		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30"> </input>
+		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"> </input>
 		<br>
 		<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"> </input>
 		<br>
@@ -120,7 +116,7 @@ function ovOff() {
 		 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 		 <br>
-			<label><b>Select Wedding Date</b></label>
+			<label><b>Select Main Func./Wedding Date</b></label>
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeW'  class="w3-select" >
 				<option value="N/A" >Select Wedding Day/Night Function</option>
@@ -141,27 +137,25 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
-		<label><b>Main/Wedding Album Quality</b></label>
+		<label><b>Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">N/A</option> 
 			<option value="Magazine">Magazine</option> 
 			<option value="Sory Book">Sory Book</option> 
 		</select>
-		<label>Main/Wedding Album Size</label>
+		<label>Album Size</label>
 		<select id='CASize'  class="w3-select" > 
 			<option value="8 x 16">8 x 16</option> 
-			<option value="8 x 20">8 x 20</option> 
-		
+			<option value="8 x 20">8 x 20</option> 		
 			<option value="10 x 15">10 x 15</option> 
 			<option value="10 x 20">10 x 20</option> 
-
-				<option value="10 x 24">10 x 24</option> 
-				<option value="10 x 28">10 x 28</option> 
-				<option value="12 x 24">12 x 24</option> 
-				<option value="12 x 30">12 x 30</option> 
-				<option value="15 x 24">15 x 24</option> 
-				<option value="16 x 24">16 x 24</option> 
-				<option value="17 x 24">17 x 24</option> 
+			<option value="10 x 24">10 x 24</option> 
+			<option value="10 x 28">10 x 28</option> 
+			<option value="12 x 24">12 x 24</option> 
+			<option value="12 x 30">12 x 30</option> 
+			<option value="15 x 24">15 x 24</option> 
+			<option value="16 x 24">16 x 24</option> 
+			<option value="17 x 24">17 x 24</option> 
 		</select>
 		<br>
 		<label>Main/Wedding Pages Count</label>
@@ -179,15 +173,19 @@ function ovOff() {
 				<option value="Magazine">Magazine</option> 
 				<option value="Sory Book">Sory Book</option> 
 			</select>
-			<label>Homecoming Album Size</label>
+			<label>Album Size</label>
 			<select id='FASize'  class="w3-select" > 
+				<option value="8 x 16">8 x 16</option> 
+				<option value="8 x 20">8 x 20</option> 		
+				<option value="10 x 15">10 x 15</option> 
+				<option value="10 x 20">10 x 20</option> 
 				<option value="10 x 24">10 x 24</option> 
 				<option value="10 x 28">10 x 28</option> 
 				<option value="12 x 24">12 x 24</option> 
 				<option value="12 x 30">12 x 30</option> 
 				<option value="15 x 24">15 x 24</option> 
 				<option value="16 x 24">16 x 24</option> 
-				<option value="17 x 24">17 x 24</option>
+				<option value="17 x 24">17 x 24</option> 
 			</select>
 			<br> 
 			<label>Homecoming Album Pages Count</label>
@@ -205,9 +203,16 @@ function ovOff() {
 			<label>Preshoot Album Size</label>
 			<select id='PSSize'  class="w3-select" > 
 				<option value="8 x 16">8 x 16</option> 
+				<option value="8 x 20">8 x 20</option> 		
+				<option value="10 x 15">10 x 15</option> 
 				<option value="10 x 20">10 x 20</option> 
 				<option value="10 x 24">10 x 24</option> 
+				<option value="10 x 28">10 x 28</option> 
 				<option value="12 x 24">12 x 24</option> 
+				<option value="12 x 30">12 x 30</option> 
+				<option value="15 x 24">15 x 24</option> 
+				<option value="16 x 24">16 x 24</option> 
+				<option value="17 x 24">17 x 24</option> 
 			</select>
 			<br> 
 			<label>Preshoot Album Pages Count</label>
@@ -412,12 +417,9 @@ function getWedding(event) {
 			$('#Album2Type').val(obj.Album2Type);
 			
 			showRemainingBal();
-
-			var mailToLink = "mailto:" + $('#email').val() + "?Subject=Siyeraa Studio Event Plan";
-			$("#EmailTo").attr("href", mailToLink);
-
-			var mailToLink = "mailto:" + $('#EmailG').val() + "?Subject=Siyeraa Studio Event Plan";
-			$("#EmailToG").attr("href", mailToLink);
+		
+		
+		setEmailButton();
 
 			ovOff();
 			console.log(returnedData);
@@ -534,6 +536,12 @@ function hideAll() {
    	$( "#allListTable" ).empty();
 	$( "#btnHide" ).hide();
 }
+
+function setEmailButton(){
+		var mailToLink = "mailto:" + $('#email').val() + "?Subject=Siyeraa Studio Event Plan";
+		$("#EmailTo").attr("href", mailToLink);
+		console.log("Email set");
+}
 function saveNew() {
 
 	if(validateData()==false){
@@ -548,6 +556,8 @@ function saveNew() {
 			showLoaderOnConfirm: true,
 		},
 		function(){
+
+			setEmailButton();
 	$.post('addWedding.php', { 
 		
 		name: $('#name').val(), 
@@ -618,6 +628,7 @@ function saveNew() {
 
 }
 function update() { 
+
 		swal({
 			title: "Update exixting event",
 			text: "Are you sure ?",
@@ -628,6 +639,7 @@ function update() {
 		},
 		function(){
 			ovOn();
+			setEmailButton();
 			$.post('editWedding.php', { 
 				ID: $('#ID').val(),
 				
@@ -743,10 +755,11 @@ function savePDF(){
 	doc.text(25, line+40, 'Location : '+$('#placeW').val());
 	doc.text(25, line+45, 'Time : '+$('#timeW').val());
 	
-	doc.text(25, line+55, 'Homecoming Date : '+$('#dateH').val());
-	doc.text(25, line+60, 'Location : '+$('#placeH').val());
-	doc.text(25, line+65, 'Time : '+$('#timeH').val());
-	
+	if(!$('#dateH').val().startsWith("2010-01")){
+		doc.text(25, line+55, 'Homecoming Date : '+$('#dateH').val());
+		doc.text(25, line+60, 'Location : '+$('#placeH').val());
+		doc.text(25, line+65, 'Time : '+$('#timeH').val());
+	}
 	line = line+75;
 
 	
@@ -853,9 +866,16 @@ function savePDF(){
 		doc.text(25, line, splitTitle);
 		//doc.text(25, line, 'Comments : '+$('#Comments').val());
 	}
-	doc.save('Videost.pdf');
+	var fileName =$('#name').val()+'-'+ $('#dateW').val()+'.pdf';
+	doc.save(fileName);
 
 }
  
+
+
+ $( document ).ready(function() {
+    clearAll();
+	console.log("Document ready");
+});
 </script>
 </html>
