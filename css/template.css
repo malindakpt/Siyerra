@@ -31,7 +31,7 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
+    padding: 5px;
 }
 html {
     font-family: "Lucida Sans", sans-serif;

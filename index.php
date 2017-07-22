@@ -1,4 +1,5 @@
 <?php
+	ob_start();
 	session_start(); 
 	include 'loginS2.php';
 ?>
@@ -21,17 +22,16 @@
     <!--<span class="inlineMenu"  style="float:right"><img class="logo" src="img/logo1.png"/></span>-->
     <!--<span class="topic">Siyerra Studio  </span>-->
 	<h3 style="float:left">Siyeraa Studio</h3>
-	 <br>
+	<br>
 
-	<?php	
-		if("ok" != login()){
-			echo "ip";
-			header("Location: login.php"); /* Redirect browser */
-			exit();
-			// return;
-		}
-		if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
-	?>
+<?php	
+	if("ok" != login()){
+		echo "ip";
+		header("Location: login.php"); /* Redirect browser */
+		exit();
+	}
+	if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+?>
  <br>
 <div>
 
@@ -59,13 +59,13 @@ function ovOff() {
 	<div class="col-6 col-m-9">
 		<div >
 			<!--<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:25%; float:left; margin:5px"> -->
-			<select id='year'  class="w3-select" style="width:25% ;	 float:left;  margin:5px" >
+			<select id='year'  class="w3-select" style="width:21% ;	 float:left;  margin:2px" >
 				<option value="2017">2017</option>
 				<option value="2018">2018</option>
 				<option value="2019">2019</option>
 				<option value="2020">2020</option> 
 			</select>
-			<select id='months'  class="w3-select" style="width:40% ;	 float:left;  margin:5px" >
+			<select id='months'  class="w3-select" style="width:34% ;	 float:left;  margin:2px" >
 				<option value="N/A">All Months</option>
 				<option value="1">January</option>
 				<option value="2">February</option>
@@ -84,9 +84,8 @@ function ovOff() {
 		 
 		<div >
 		
-			 <button onclick="showAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Load</button>
-			  <button onclick="clearAll()" class="w3-btn w3-yellow w3-padding-small" style=" float:left; margin:5px">Clear</button>
-			<!--<img class="logo" src="img/search.png" onclick="showAll()" />-->
+			 <img onclick="showAll()" src="img/calendar.png" style="margin: 3px;"/>
+			  <img onclick="clearAll()" src="img/new.png"  style="margin: 3px;"/> 
 		</div>
 		
 
@@ -137,7 +136,7 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
-		<label><b>Album Quality</b></label>
+		<label><b>Main/Wed Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">N/A</option> 
 			<option value="Magazine">Magazine</option> 
@@ -325,7 +324,7 @@ function ovOff() {
 		<div>
 		<br>
 			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save As New</button>
-				<button class="w3-btn w3-grey w3-padding-small" onclick="update()" style="float:right">Update Loaded</button>
+				<button class="w3-btn w3-red w3-padding-small" onclick="update()" style="float:right">Update Loaded</button>
 				<br><br>
 				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
 				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>
@@ -456,6 +455,9 @@ function deleteWedding(event) {
 
 }
 function clearAll() {
+
+			hideAll();
+
 			$('#ID').val("");
 			$('#name').val("");
 			$('#email').val(""); 
@@ -490,9 +492,9 @@ function clearAll() {
 			$('#VidNoOfCam').val(""); 
 			$('#VidType').val(""); 	
 
-			$('#Enlarge1').val(""); 	
-			$('#Enlarge2').val(""); 	
-			$('#Enlarge3').val(""); 	
+			$('#Enlarge1').val("1 Wedding couple enlargement 20x30 with frame"); 	
+			$('#Enlarge2').val("2 Wedding couple enlargement 12x18 with fram"); 	
+			$('#Enlarge3').val("2 Group enlargement 12x18 with frame"); 	
 			
 			$('#Advance1').val(""); 	
 			$('#Advance2').val(""); 
@@ -519,8 +521,9 @@ function showAll() {
 			console.log(returnedData);
 			if(returnedData != "ip"){
 				var allArr = JSON.parse(returnedData);
+				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
 				for (var i = 0; i < allArr.length; i++) {
-					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><input value='Load' type='button' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><input value='Delete' type='button' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
+					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><img src='img/load.png' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><img src='img/delete.png' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
 				}
 			}else{
 				document.location = "login.php";
