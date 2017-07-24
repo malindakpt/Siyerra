@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css">
+<!--<link rel="stylesheet" type="text/css" href="css/icons.css">-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 </head>
 <body>
 <div class="header">
@@ -57,6 +59,7 @@ function ovOff() {
 
     </div>
 	<div class="col-6 col-m-9">
+
 		<div >
 			<!--<input  id='year' class="w3-input" value='2017' placeholder="Year" style="width:25%; float:left; margin:5px"> -->
 			<select id='year'  class="w3-select" style="width:21% ;	 float:left;  margin:2px" >
@@ -83,9 +86,11 @@ function ovOff() {
 		</div>
 		 
 		<div >
-		
-			 <img onclick="showAll()" src="img/calendar.png" style="margin: 3px;"/>
-			  <img onclick="clearAll()" src="img/new.png"  style="margin: 3px;"/> 
+		<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px;">Search</button>
+		<!--<button class="w3-btn w3-orange w3-xlarge">Button<i class="w3-margin-left fa fa-home"></button>-->
+		<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 70px;">Clear</button>
+			 <!--<img onclick="showAll()" src="img/calendar.png" style="margin: 3px;"/>-->
+			  <!--<img onclick="clearAll()" src="img/new.png"  style="margin: 3px;"/> -->
 		</div>
 		
 
@@ -95,22 +100,22 @@ function ovOff() {
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
-		<input id='name' class="w3-input" placeholder="Groom Name" > </input>
+		<input id='name' class="w3-input" placeholder="Groom Name" style="height: 15px;"> </input>
 		<br>
 		
-		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"> </input>
+		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
 		<br>
-		<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"> </input>
+		<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"  style="height: 15px;"> </input>
 		<br>
 		<!--Girls Details-->
-		<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"> </input>
+		<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"  style="height: 15px;"> </input>
 		<br> 
-		<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
+		<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"  style="height: 15px;"> </input>
 		<br>
-		<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"> </input>
+		<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"  style="height: 15px;"> </input>
 		<br>
 
-		<input id='Address' class="w3-input" placeholder="Address" maxlength="60"> </input>
+		<input id='Address' class="w3-input" placeholder="Address" maxlength="60" > </input>
 		<br>
 		 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
@@ -118,7 +123,7 @@ function ovOff() {
 			<label><b>Select Main Func./Wedding Date</b></label>
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeW'  class="w3-select" >
-				<option value="N/A" >Select Wedding Day/Night Function</option>
+				<option value="N/A" >-Select Time-</option>
 				<option value="Day">Day Event</option>
 				<option value="Night">Night Event</option>
 			</select>
@@ -129,7 +134,7 @@ function ovOff() {
 			<label><b>Select Homecoming Date</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeH'  class="w3-select" >
-				<option value="N/A" >Select Homecoming Day/Night Function</option>
+				<option value="N/A" >-Select Time-</option>
 				<option value="Day">Day Event</option>
 				<option value="Night">Night Event</option>
 			</select>	
@@ -138,12 +143,13 @@ function ovOff() {
 		</div>
 		<label><b>Main/Wed Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
-			<option value="N/A">N/A</option> 
+			<option value="N/A">-Select Quality-</option> 
 			<option value="Magazine">Magazine</option> 
 			<option value="Sory Book">Sory Book</option> 
 		</select>
-		<label>Album Size</label>
+		<!--<label>Album Size</label>-->
 		<select id='CASize'  class="w3-select" > 
+			<option value="0">-Select Album Size-</option> 
 			<option value="8 x 16">8 x 16</option> 
 			<option value="8 x 20">8 x 20</option> 		
 			<option value="10 x 15">10 x 15</option> 
@@ -156,24 +162,23 @@ function ovOff() {
 			<option value="16 x 24">16 x 24</option> 
 			<option value="17 x 24">17 x 24</option> 
 		</select>
-		<br>
-		<label>Main/Wedding Pages Count</label>
-		<input id='CAPages'  class="w3-input" value="50"> </input>
+		<br> 
+		<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
 		  
 	  <div class="XXX">
 			<br>
-			<select id='Album2Type'  class="w3-select" style="float: left; width: 120px;" > 
+			<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
 				<option value="Homecoming">Homecoming</option> 
 				<option value="Engagement">Engagement</option>  
 			</select>
 			<label style="line-height: 47px;"><b> Album Quality</b></label>
 			<select id='FAQuality'  class="w3-select" > 
-				<option value="N/A">N/A</option> 
+				<option value="N/A">-Select Quality-</option> 
 				<option value="Magazine">Magazine</option> 
 				<option value="Sory Book">Sory Book</option> 
 			</select>
-			<label>Album Size</label>
 			<select id='FASize'  class="w3-select" > 
+				<option value="0">-Select Album Size-</option> 
 				<option value="8 x 16">8 x 16</option> 
 				<option value="8 x 20">8 x 20</option> 		
 				<option value="10 x 15">10 x 15</option> 
@@ -187,20 +192,21 @@ function ovOff() {
 				<option value="17 x 24">17 x 24</option> 
 			</select>
 			<br> 
-			<label>Homecoming Album Pages Count</label>
-			<input id='FAPages' class="w3-input" value="40"> </input>
+			<!--<label>Homecoming Album Pages Count</label>-->
+			<input id='FAPages' class="w3-input" value="40" placeholder="Pages Count"> </input>
 			 
 		</div> 
 		 <div class="XXX">
 			<br>
 			<label><b>Preshoot Album Quality</b></label>
 			<select id='PSQuality'  class="w3-select" > 
-				<option value="N/A">N/A</option> 
+				<option value="N/A">-Select Album Quality-</option> 
 				<option value="Magazine">Magazine</option> 
 				<option value="Sory Book">Sory Book</option> 
 			</select>
-			<label>Preshoot Album Size</label>
+			<!--<label>Preshoot Album Size</label>-->
 			<select id='PSSize'  class="w3-select" > 
+				<option value="0">-Album Size-</option> 
 				<option value="8 x 16">8 x 16</option> 
 				<option value="8 x 20">8 x 20</option> 		
 				<option value="10 x 15">10 x 15</option> 
@@ -214,8 +220,8 @@ function ovOff() {
 				<option value="17 x 24">17 x 24</option> 
 			</select>
 			<br> 
-			<label>Preshoot Album Pages Count</label>
-			<input id='PSPages' class="w3-input" value="60"> </input>
+			<!--<label>Preshoot Album Pages Count</label>-->
+			<input id='PSPages' class="w3-input" value="60"  placeholder="Pages Count"> </input>
 			
 		</div>
 		<br> 
@@ -231,10 +237,8 @@ function ovOff() {
 		<label><b>Wedding Thanking Card Details</b></label>
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
-
-			<label>Thanking Card Quality</label>
 			<select id='thankCardQuality'  class="w3-select" > 
-				<option value="N/A">N/A</option> 
+				<option value="N/A">-Select Qulaity-</option> 
 				<option value="Single Side Matte">Single Side Matte</option> 
 				<option value="Single Side Glossy">Single Side Glossy</option> 
 				<option value="Double Side Matte">Double Side Matte</option> 
@@ -242,8 +246,9 @@ function ovOff() {
 			</select>
 			<br>
 
-			<label>Thanking Card Size</label>
+			<!--<label>Thanking Card Size</label>-->
 			<select id='thankCardSize'  class="w3-select" > 
+				<option value="N/A">-Select Size-</option> 
 				<option value="4 x 8">4 x 8</option> 
 				<option value="4 x 12">4 x 12</option> 
 				<option value="5 x 8">5 x 8</option> 
@@ -252,8 +257,7 @@ function ovOff() {
 			</select>
 			<br>
 		
-			<label>Thanking Cards Count</label>
-			<input id='wedThankCardCount'  class="w3-input" value="100"> </input>
+			<input id='wedThankCardCount'  class="w3-input" value="100"  placeholder="Card Count"> </input>
 			
 		</div>
 		
@@ -261,17 +265,18 @@ function ovOff() {
 		<label><b>Homeco./Enga. Thanking Card Details</b></label>
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 		
-			<label>Thanking Card Quality</label>
+			<!--<label>Thanking Card Quality</label>-->
 			<select id='ThankCardQualityH'  class="w3-select" > 
-				<option value="N/A">N/A</option> 
+				<option value="N/A">-Select Qulaity-</option> 
 				<option value="Single Side Matte">Single Side Matte</option> 
 				<option value="Single Side Glossy">Single Side Glossy</option> 
 				<option value="Double Side Matte">Double Side Matte</option> 
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br> 
-			<label>Thanking Card Size</label>
+			<!--<label>Thanking Card Size</label>-->
 			<select id='ThankCardSizeH'  class="w3-select" > 
+				<option value="N/A">-Select Size-</option> 
 				<option value="4 x 8">4 x 8</option> 
 				<option value="4 x 12">4 x 12</option> 
 				<option value="5 x 8">5 x 8</option> 
@@ -279,19 +284,19 @@ function ovOff() {
 				<option value="6 x 6">6 x 6</option> 
 			</select>
 			<br>
-			
-			<label>Thanking Cards Count</label>
-			<input id='homeThankCardCount'  class="w3-input" value="100"> </input>
+
+			<input id='homeThankCardCount'  class="w3-input" value="100" placeholder="Card Count"> </input>
 		</div>
 		<div class="">
 			<label><b>Video Quality</b></label>
 			<select id='VidQuality'  class="w3-select" > 
-				<option value="N/A">N/A</option> 
+				<option value="N/A">-Select Quality-</option> 
 				<option value="blueray">Blueray</option> 
 				<option value="hd">HD</option> 
 			</select>
 			<br>
 			<select id='VidNoOfCam'  class="w3-select" > 
+				<option value="N/A">-Select No Of Cam.-</option> 
 				<option value="1cam">Use 1 Camera</option> 
 				<option value="2cam">Use 2 Cameras</option> 
 				<option value="3cam">Use 3 Cameras</option> 
@@ -299,6 +304,7 @@ function ovOff() {
 			</select>
 			 
 			<select id='VidType'  class="w3-select" > 
+				<option value="N/A">-Select Coverage Type-</option> 
 				<option value="wed">Wedding Only</option> 
 				<option value="wedHome">Wedding and Homecoming</option> 
 				<option value="pre">Preshoot Only</option> 
@@ -324,7 +330,7 @@ function ovOff() {
 		<div>
 		<br>
 			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save As New</button>
-				<button class="w3-btn w3-red w3-padding-small" onclick="update()" style="float:right">Update Loaded</button>
+				<button class="w3-btn w3-red w3-padding-small" onclick="update()" style="float:right">Save Existing</button>
 				<br><br>
 				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
 				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>
@@ -468,29 +474,29 @@ function clearAll() {
 			$('#PhoneG').val(""); 
 
 			$('#dateW').val(""); 
-			$('#timeW').val(""); 
+			$('#timeW').val("N/A"); 
 			$('#placeW').val(""); 
-			$('#CASize').val(""); 
+			$('#CASize').val("0"); 
 			$('#CAPages').val(""); 
-			$('#CAQuality').val(""); 
-			$('#FASize').val(""); 
+			$('#CAQuality').val("N/A"); 
+			$('#FASize').val("0"); 
 			$('#FAPages').val(""); 
-			$('#FAQuality').val(""); 
-			$('#thankCardSize').val(""); 
-			$('#thankCardQuality').val("");  
+			$('#FAQuality').val("N/A"); 
+			$('#thankCardSize').val("N/A"); 
+			$('#thankCardQuality').val("N/A");  
 			$('#wedThankCardCount').val(""); 
 			$('#homeThankCardCount').val(""); 
 	
 			$('#Address').val(""); 
 			$('#dateH').val(""); 
-			$('#timeH').val(""); 
+			$('#timeH').val("N/A"); 
 			$('#placeH').val(""); 
-			$('#PSSize').val(""); 
+			$('#PSSize').val("0"); 
 			$('#PSPages').val(""); 
-			$('#PSQuality').val(""); 
-			$('#VidQuality').val(""); 
-			$('#VidNoOfCam').val(""); 
-			$('#VidType').val(""); 	
+			$('#PSQuality').val("N/A"); 
+			$('#VidQuality').val("N/A"); 
+			$('#VidNoOfCam').val("N/A"); 
+			$('#VidType').val("N/A"); 	
 
 			$('#Enlarge1').val("1 Wedding couple enlargement 20x30 with frame"); 	
 			$('#Enlarge2').val("2 Wedding couple enlargement 12x18 with fram"); 	
@@ -505,8 +511,8 @@ function clearAll() {
 			$('#IncludeFA').prop('checked', true); 
 			$('#IncludeDrone').prop('checked', false); 
 
-			$('#ThankCardSizeH').val("");	
-			$('#ThankCardQualityH').val("");	
+			$('#ThankCardSizeH').val("N/A");	
+			$('#ThankCardQualityH').val("N/A");	
 			$('#Transport').val("");		
 }
 function showAll() {
@@ -523,7 +529,7 @@ function showAll() {
 				var allArr = JSON.parse(returnedData);
 				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
 				for (var i = 0; i < allArr.length; i++) {
-					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><img src='img/load.png' id='"+allArr[i].ID+"' onclick='getWedding(this)'></input></td><td><img src='img/delete.png' id='"+allArr[i].ID+"' onclick='deleteWedding(this)'></input></td></tr>" );
+					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>" );
 				}
 			}else{
 				document.location = "login.php";
@@ -836,18 +842,20 @@ function savePDF(){
 	doc.text(30, line+10,$('#Enlarge2').val());
 	doc.text(30, line+15,$('#Enlarge3').val()); 
 	
-	line=line+25;
-	doc.setFontSize(11);
-	doc.text(25, line,"Video Details");
-	doc.setFontSize(10);
-	doc.text(30, line+5,"Quality : "+$('#VidQuality').val());
-	doc.text(30, line+10,"No Of Cameras : "+ $('#VidNoOfCam').val());
-	doc.text(30, line+15,"Type : "+$('#VidType').find(":selected").text()); 
-	
-	if($('#IncludeDrone').is(":checked") == true){
-		line = line+20;
-		// doc.setFontSize(10);
-		doc.text(30, line,"Drone camera will be used for preshoot video process");
+	if($('#VidQuality').val() != "N/A"){ 
+		line=line+25;
+		doc.setFontSize(11);
+		doc.text(25, line,"Video Details");
+		doc.setFontSize(10);
+		doc.text(30, line+5,"Quality : "+$('#VidQuality').val());
+		doc.text(30, line+10,"No Of Cameras : "+ $('#VidNoOfCam').val());
+		doc.text(30, line+15,"Type : "+$('#VidType').find(":selected").text()); 
+		
+		if($('#IncludeDrone').is(":checked") == true){
+			line = line+20;
+			// doc.setFontSize(10);
+			doc.text(30, line,"Drone camera will be used for preshoot video process");
+		}
 	}
 	
 	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
@@ -856,9 +864,11 @@ function savePDF(){
 
 	var sumPayments = adv1 + adv2 + adv3;
 	line=line+10;
-	doc.text(25, line,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
+	doc.text(25, line,"Total Album Price : Rs."+$('#Total').val()+"/=");
+	// doc.text(25, line,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
 	doc.setFontSize(12);
-	doc.text(25, line+5,"Total Charges : Rs."+$('#Total').val()+"/=");//               			Advance Payments : Rs."+sumPayments+"/=");
+	doc.text(25, line+5,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
+	// doc.text(25, line+5,"Total Charges : Rs."+$('#Total').val()+"/=");
 	doc.setFontSize(10);
 	doc.text(120, line+5,"Advance Payments : Rs."+sumPayments+"/= ");
 	
@@ -878,6 +888,7 @@ function savePDF(){
 
  $( document ).ready(function() {
     clearAll();
+	 
 	console.log("Document ready");
 });
 </script>
