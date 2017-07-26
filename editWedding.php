@@ -12,6 +12,9 @@ if(!function_exists('getConnection')){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
+$DBTableName = $_POST['DBTableName'];
+
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -64,7 +67,7 @@ $Enlarge2 = $_POST['Enlarge2'];
 $Enlarge3 = $_POST['Enlarge3'];
 
 
-$sql = "UPDATE booking SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
+$sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType', Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3', 
  Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone',
  NameG='$NameG', EmailG='$EmailG', PhoneG='$PhoneG'

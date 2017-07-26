@@ -8,6 +8,9 @@ if(!function_exists('getConnection')){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
+$DBTableName = $_POST['DBTableName'];
+
 $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
@@ -58,7 +61,8 @@ $Enlarge1 = $_POST['Enlarge1'];
 $Enlarge2 = $_POST['Enlarge2'];
 $Enlarge3 = $_POST['Enlarge3'];
 
-$sql = "INSERT INTO booking (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
+
+$sql = "INSERT INTO $DBTableName (name, dateW, timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
  homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, 
  IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album2Type,Enlarge1,Enlarge2,Enlarge3 ) 
 

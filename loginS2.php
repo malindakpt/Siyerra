@@ -23,11 +23,18 @@ function login(){ //function parameters, two variables.
 		$sql = "select * from users where UserName = '$UserName' AND Password='$Password'";
 		$result = $conn->query($sql);
 		$arr =  array();
+
 		if ($result->num_rows > 0) { 
-			return "ok"; 
+			// return "ok"; 
+				while($row = $result->fetch_assoc()) {
+					return "ok;".$row["TableName"].';'.$row["StudioName"];
+				}
 		} else { 
 			return "0 results";
 		}
+
+
+
 		$conn->close();
 	
 	} else {

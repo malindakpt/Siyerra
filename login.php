@@ -78,7 +78,7 @@ span.psw {
 <body>
  
 <div  style="max-width:350px; margin: 0 auto;">
-    <h2><b>Siyeraa    Studio</b></h2>
+    <h2><b>Studio Manager</b></h2>
     <div class="imgcontainer">
         <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>

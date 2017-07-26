@@ -9,8 +9,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $ID = $_POST['ID'];
+$DBTableName = $_POST['DBTableName'];
 // sql to delete a record
-$sql = "DELETE FROM booking WHERE id='$ID'";
+$sql = "DELETE FROM $DBTableName WHERE id='$ID'";
 
 if ($conn->query($sql) === TRUE) {
     echo "Record deleted successfully";

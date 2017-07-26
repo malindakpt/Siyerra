@@ -3,7 +3,8 @@
 session_start(); 
 include 'loginS2.php';
  
-if("ok" != login()){
+$result = explode(";", login());	
+if("ok" != $result[0]){
 	echo "ip";
 	return;
 }
@@ -17,14 +18,17 @@ if(!function_exists('getConnection')){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+
+$DBTableName = $_POST['DBTableName'];
 $year = $_POST['year'];
 $month = $_POST['month'];
+
 if(!is_numeric($month)){ 
-	$sql1 = "select * from booking where year(dateW) = '$year' ";
-	$sql2 = "select * from booking where year(dateH) = '$year' ";
+	$sql1 = "select * from $DBTableName where year(dateW) = '$year' ";
+	$sql2 = "select * from $DBTableName where year(dateH) = '$year' ";
 }else{
-	$sql1 = "select * from booking where year(dateW) = '$year' AND month(dateW) = '$month' ";
-	$sql2 = "select * from booking where year(dateH) = '$year' AND month(dateH) = '$month' ";
+	$sql1 = "select * from $DBTableName where year(dateW) = '$year' AND month(dateW) = '$month' ";
+	$sql2 = "select * from $DBTableName where year(dateH) = '$year' AND month(dateH) = '$month' ";
 }
 
 

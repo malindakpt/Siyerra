@@ -16,23 +16,23 @@
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 <link rel="stylesheet" type="text/css" href="css/custom.css">
-<!--<link rel="stylesheet" type="text/css" href="css/icons.css">-->
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 </head>
 <body>
 <div class="header">
-    <!--<span class="inlineMenu"  style="float:right"><img class="logo" src="img/logo1.png"/></span>-->
-    <!--<span class="topic">Siyerra Studio  </span>-->
-	<h3 style="float:left">Siyeraa Studio</h3>
-	<br>
+	
+	
 
-<?php	
-	if("ok" != login()){
+<?php
+	$result = explode(";", login());	
+	if("ok" != $result[0]){
 		echo "ip";
 		header("Location: login.php"); /* Redirect browser */
 		exit();
+	}else{
+		echo '<h3 style="float:left">'.$result[2].'</h3><br>';
+		echo '<script>var tableName = "'.$result[1].'";</script>';
 	}
-	if("ok" != login()){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+	if("ok" != $result[0]){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
 ?>
  <br>
 <div>
@@ -86,11 +86,9 @@ function ovOff() {
 		</div>
 		 
 		<div >
-		<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px;">Search</button>
-		<!--<button class="w3-btn w3-orange w3-xlarge">Button<i class="w3-margin-left fa fa-home"></button>-->
-		<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 70px;">Clear</button>
-			 <!--<img onclick="showAll()" src="img/calendar.png" style="margin: 3px;"/>-->
-			  <!--<img onclick="clearAll()" src="img/new.png"  style="margin: 3px;"/> -->
+
+		<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 70px; height: 40px;float: right;">Clear</button>
+			<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px; height: 40px;float: right;">Search</button>
 		</div>
 		
 
@@ -100,25 +98,28 @@ function ovOff() {
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
-		<input id='name' class="w3-input" placeholder="Groom Name" style="height: 15px;"> </input>
-		<br>
-		
-		<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
-		<br>
-		<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"  style="height: 15px;"> </input>
-		<br>
-		<!--Girls Details-->
-		<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"  style="height: 15px;"> </input>
-		<br> 
-		<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"  style="height: 15px;"> </input>
-		<br>
-		<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"  style="height: 15px;"> </input>
-		<br>
 
-		<input id='Address' class="w3-input" placeholder="Address" maxlength="60" > </input>
-		<br>
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> 
+				<input id='name' class="w3-input" placeholder="Groom Name" style="height: 15px;"> </input>
+				<br>
+				
+				<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
+				<br>
+				<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"  style="height: 15px;"> </input>
+				<br>
+				<!--Girls Details-->
+				<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"  style="height: 15px;"> </input>
+				<br> 
+				<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"  style="height: 15px;"> </input>
+				<br>
+				<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"  style="height: 15px;"> </input>
+				<br>
+
+				<input id='Address' class="w3-input" placeholder="Address" maxlength="60" > </input>
+				<br>
+		</div>
 		 
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Teal">
 		 <br>
 			<label><b>Select Main Func./Wedding Date</b></label>
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
@@ -141,6 +142,7 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 		<label><b>Main/Wed Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">-Select Quality-</option> 
@@ -164,7 +166,7 @@ function ovOff() {
 		</select>
 		<br> 
 		<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
-		  
+		  </div>
 	  <div class="XXX">
 			<br>
 			<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
@@ -225,15 +227,18 @@ function ovOff() {
 			
 		</div>
 		<br> 
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-yellow">
+	<!--<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> -->
+	<div>
 		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
 		</div>
 		<br>
+			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Pink">
 		<label><b>Enlargements Details</b></label>
 <input id='Enlarge1' class="w3-input" maxlength="50" value="1 Wedding couple enlargement 20x30 with frame"> </input>
 <input id='Enlarge2' class="w3-input" maxlength="50" value="2 Wedding couple enlargement 12x18 with frame"> </input>
 <input id='Enlarge3' class="w3-input" maxlength="50" value="2 Group enlargement 12x18 with frame"> </input>
 		<br>
+		</div>
 		<label><b>Wedding Thanking Card Details</b></label>
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
@@ -287,7 +292,7 @@ function ovOff() {
 
 			<input id='homeThankCardCount'  class="w3-input" value="100" placeholder="Card Count"> </input>
 		</div>
-		<div class="">
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Red">
 			<label><b>Video Quality</b></label>
 			<select id='VidQuality'  class="w3-select" > 
 				<option value="N/A">-Select Quality-</option> 
@@ -322,10 +327,12 @@ function ovOff() {
 			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
 			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
 			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()"> </input>
-			<label id="transportCost">Transport Cost       </label>
-			<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
+			<br>
 			<label id="totalPrice">Total Price       </label>
 			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
+			<br>
+			<label id="transportCost">Transport Cost       </label>
+			<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 		</div>
 		<div>
 		<br>
@@ -364,7 +371,8 @@ function getWedding(event) {
 	$( "#btnHide" ).hide();
 	$( "#allListTable" ).empty();
 	$.post('getWedding.php', { 
-			ID: event.id	
+			ID: event.id,
+			DBTableName: tableName
 		}, 
 		function(returnedData){
 		
@@ -446,7 +454,8 @@ function deleteWedding(event) {
 		function(){
 					
 					$.post('deleteWedding.php', { 
-					ID: event.id	
+						DBTableName: tableName,
+						ID: event.id	
 					}, 
 					function(returnedData){
 						$( "#btnHide" ).hide();
@@ -519,6 +528,7 @@ function showAll() {
 	ovOn();
    	$( "#allListTable" ).empty()
 	$.post('showAll.php', { 
+			DBTableName: tableName,
 			year: $('#year').val(),
 			month: $('#months').val()
 		}, 
@@ -568,6 +578,8 @@ function saveNew() {
 
 			setEmailButton();
 	$.post('addWedding.php', { 
+
+		DBTableName: tableName,
 		
 		name: $('#name').val(), 
 		email: $('#email').val(), 
@@ -650,6 +662,8 @@ function update() {
 			ovOn();
 			setEmailButton();
 			$.post('editWedding.php', { 
+
+				DBTableName: tableName,
 				ID: $('#ID').val(),
 				
 				name: $('#name').val(), 
@@ -864,9 +878,10 @@ function savePDF(){
 
 	var sumPayments = adv1 + adv2 + adv3;
 	line=line+10;
+	doc.setFontSize(12);
 	doc.text(25, line,"Total Album Price : Rs."+$('#Total').val()+"/=");
 	// doc.text(25, line,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
-	doc.setFontSize(12);
+	doc.setFontSize(10);
 	doc.text(25, line+5,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
 	// doc.text(25, line+5,"Total Charges : Rs."+$('#Total').val()+"/=");
 	doc.setFontSize(10);
@@ -890,6 +905,53 @@ function savePDF(){
     clearAll();
 	 
 	console.log("Document ready");
+	//createFullReport();
 });
+
+
+function createFullReport(){
+	
+ 
+	$.post('getAllEvents.php', { 
+			DBTableName: tableName,
+			// year: $('#year').val(),
+			// month: $('#months').val()
+		}, 
+		function(returnedData){
+			ovOff();
+			console.log(returnedData);
+			downloadCSV(returnedData);
+			// newTab.location.href = 'data:text/csv;charset=utf-8,' + escape(returnedData);
+			
+			
+		}).fail(function(){
+			  console.log("error");
+	});
+} 
+
+function downloadCSV(csv) {  
+        var filename, link;
+        // var csv = convertArrayOfObjectsToCSV({
+        //     data: stockData
+        // });
+        if (csv == null) return;
+
+        filename = 'export.csv';
+
+        if (!csv.match(/^data:text\/csv/i)) {
+            csv = 'data:text/csv;charset=utf-8,' + csv;
+        }
+        data = encodeURI(csv);
+
+        link = document.createElement('a');
+        link.setAttribute('href', data);
+        link.setAttribute('download', filename);
+        link.click();
+}
+
 </script>
+
+<a href='#' 
+        onclick='createFullReport();'
+    >Download CSV</a>
 </html>

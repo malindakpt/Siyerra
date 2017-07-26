@@ -10,8 +10,10 @@ if(!function_exists('getConnection')){
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
+$DBTableName = $_POST['DBTableName'];
 $ID = $_POST['ID'];
-$sql = "select * from booking where ID = '$ID'";
+
+$sql = "select * from $DBTableName where ID = '$ID'";
 $result = $conn->query($sql);
 $arr =  array();
 if ($result->num_rows > 0) {
