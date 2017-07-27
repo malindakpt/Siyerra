@@ -12,8 +12,8 @@
 <script src="js/jspdf.debug.js"></script>
 <script src="js/jquery.js"></script>  
 <script src="js/sweetalert.js"></script>  
-<script src="js/headerImg.js"></script>  
-<script src="js/footerImg.js"></script> 
+<!-- <script src="js/headerImg.js"></script>  
+<script src="js/footerImg.js"></script>  -->
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
@@ -33,6 +33,8 @@
 	}else{
 		echo '<h3 style="float:left  ;  margin: 0 auto;">'.$result[2].'</h3><br>';
 		echo '<script>var tableName = "'.$result[1].'";</script>';
+		echo '<script src="js/header/'.$result[1].'H.js"></script>'; 
+		echo '<script src="js/footer/'.$result[1].'F.js"></script>';
 	}
 ?>
 <span style="    display: inline-block;
@@ -365,7 +367,7 @@ function ovOff() {
 <div class="footer">
     <p>Powered by Software Solutions 2017</p>
 </div>
-<a href='#' onclick='createFullReport();'>Download Excel</a>
+<a href='#' onclick='createFullReport();'>Download CSV</a>
 </body>
 <script>
 function validateData(){
@@ -501,6 +503,9 @@ function clearAll() {
 			$('#CAPages').val(""); 
 			$('#CAQuality').val("N/A"); 
 			$('#FASize').val("0"); 
+
+			$('#Album2Type').val("Homecoming");
+
 			$('#FAPages').val(""); 
 			$('#FAQuality').val("N/A"); 
 			$('#thankCardSize').val("N/A"); 
@@ -938,9 +943,7 @@ line = line+5;
 doc.setFontSize(10);
 				var allArr = JSON.parse(returnedData);
 				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
-				// for (var t = 0; t < 300; t++) {
 				for (var i = 0; i < allArr.length; i++) {
-					// var i = 1;
 					line = line+5;
 					doc.text(20, line, (i+1)+'.');
 					doc.text(30, line, allArr[i].name);
@@ -968,41 +971,35 @@ doc.setFontSize(10);
 
  $( document ).ready(function() {
     clearAll();
-	 
-	console.log("Document ready");
-	//createFullReport();
 });
 
 
 function createFullReport(){
-	
- 
+	swal({
+		title: "Creating Backup..",
+		text: "This may take few seconds",
+		timer: 3000,
+		showConfirmButton: false
+	});
 	$.post('getAllEvents.php', { 
 			DBTableName: tableName,
-			// year: $('#year').val(),
-			// month: $('#months').val()
 		}, 
 		function(returnedData){
 			ovOff();
 			console.log(returnedData);
 			downloadCSV(returnedData);
-			// newTab.location.href = 'data:text/csv;charset=utf-8,' + escape(returnedData);
-			
 			
 		}).fail(function(){
 			  console.log("error");
 	});
 } 
 
-
 function downloadCSV(csv) {  
+		var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
         var filename, link;
-        // var csv = convertArrayOfObjectsToCSV({
-        //     data: stockData
-        // });
         if (csv == null) return;
 
-        filename = 'export.csv';
+        filename = 'backup'+utc+'.csv';
 
         if (!csv.match(/^data:text\/csv/i)) {
             csv = 'data:text/csv;charset=utf-8,' + csv;
