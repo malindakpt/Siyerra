@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="shortcut icon" href="img/logo.png" />
+ <title>Photography Diary</title>
 <script src="js/jspdf.debug.js"></script>
 <script src="js/jquery.js"></script>  
 <script src="js/sweetalert.js"></script>  
@@ -29,10 +31,15 @@
 		header("Location: login.php"); /* Redirect browser */
 		exit();
 	}else{
-		echo '<h3 style="float:left">'.$result[2].'</h3><br>';
+		echo '<h3 style="float:left  ;  margin: 0 auto;">'.$result[2].'</h3><br>';
 		echo '<script>var tableName = "'.$result[1].'";</script>';
 	}
-	if("ok" != $result[0]){echo "<a href=login.php style=float:right>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+?>
+<span style="    display: inline-block;
+    margin-top: 10px;
+    margin-left: -80px;"><a>Photography Diary</a></span>
+<?php
+	if("ok" != $result[0]){echo "<a href=login.php style=float:right;>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
 ?>
  <br>
 <div>
@@ -86,9 +93,11 @@ function ovOff() {
 		</div>
 		 
 		<div >
-
+			<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px; height: 40px;float: left;">Search</button>
 		<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 70px; height: 40px;float: right;">Clear</button>
-			<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px; height: 40px;float: right;">Search</button>
+			
+			<button onclick="pdfAll()" class="w3-btn w3-small w3-green" style="margin: 1px; width: 70px; height: 40px;float: right;">PDF</button>
+			
 		</div>
 		
 
@@ -343,7 +352,9 @@ function ovOff() {
 				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>
 				
 		</div>
+	
 	</div> 
+		
 	<div class="col-3 col-m-12">
         <div class="hideInMobile asideX">
         </div>
@@ -354,6 +365,7 @@ function ovOff() {
 <div class="footer">
     <p>Powered by Software Solutions 2017</p>
 </div>
+<a href='#' onclick='createFullReport();'>Download Excel</a>
 </body>
 <script>
 function validateData(){
@@ -800,7 +812,7 @@ function savePDF(){
 	if($('#FAQuality').val() != "N/A"){ 
 		shift = shift+50; 
 		doc.setFontSize(11);
-		doc.text(25+shift, line, 'Homeco./Engag. Album');
+		doc.text(25+shift, line,  $('#Album2Type').val()+' Album');
 		doc.setFontSize(10);
 		doc.text(30+shift, line+5, 'Quality : '+$('#FAQuality').val());
 		doc.text(30+shift, line+10, 'Size : '+$('#FASize').val());
@@ -829,7 +841,7 @@ function savePDF(){
 	if($('#thankCardQuality').val() != "N/A"){ 
 	
 		doc.setFontSize(11);
-		doc.text(25, line,"Main/Wedding Thanking Cards ");
+		doc.text(25, line,"Wedding Thanking Cards ");
 		doc.setFontSize(10);
 		doc.text(30, line+5,"Quality : " + $('#thankCardQuality').val());
 		doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
@@ -840,7 +852,7 @@ function savePDF(){
 	if($('#ThankCardQualityH').val() != "N/A"){ 
 		 
 		doc.setFontSize(11);
-		doc.text(25+shift, line,"Homecoming/Engage. Thanking Cards ");
+		doc.text(25+shift, line,"Homecoming Thanking Cards ");
 		doc.setFontSize(10);
 		doc.text(30+shift, line+5,"Quality : " + $('#ThankCardQualityH').val());
 		doc.text(30+shift, line+10,"Size : " + $('#ThankCardSizeH').val()); 
@@ -855,9 +867,9 @@ function savePDF(){
 	doc.text(30, line+5,$('#Enlarge1').val());
 	doc.text(30, line+10,$('#Enlarge2').val());
 	doc.text(30, line+15,$('#Enlarge3').val()); 
-	
+	line=line+25;
 	if($('#VidQuality').val() != "N/A"){ 
-		line=line+25;
+		
 		doc.setFontSize(11);
 		doc.text(25, line,"Video Details");
 		doc.setFontSize(10);
@@ -899,6 +911,59 @@ function savePDF(){
 
 }
  
+function pdfAll(){
+	swal({
+		title: "Downloading Shedule",
+		text: "Year: "+$('#year').val()+" Month: "+$('#months').val(),
+		timer: 3000,
+		showConfirmButton: false
+	});
+	$.post('showAll.php', { 
+			DBTableName: tableName,
+			year: $('#year').val(),
+			month: $('#months').val()
+		}, 
+		function(returnedData){
+			ovOff();
+			console.log(returnedData);
+			if(returnedData != "ip"){
+				var time = (new Date()).toLocaleDateString('en-US');
+				var doc = new jsPDF();
+				doc.setFontSize(15);
+				var line=20;
+				var shift =50;
+				var pageHeight = doc.internal.pageSize.height;
+doc.text(20, line,$('#year').val()+" : "+$('#months').val()+" shedule");
+line = line+5;
+doc.setFontSize(10);
+				var allArr = JSON.parse(returnedData);
+				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
+				// for (var t = 0; t < 300; t++) {
+				for (var i = 0; i < allArr.length; i++) {
+					// var i = 1;
+					line = line+5;
+					doc.text(20, line, (i+1)+'.');
+					doc.text(30, line, allArr[i].name);
+					doc.text(70, line, allArr[i].date);
+					doc.text(95, line, allArr[i].time);
+					doc.text(105, line, allArr[i].type);
+					doc.text(120, line, allArr[i].phone);
+					doc.text(145, line, allArr[i].location);
+					
+					if (line+20>=pageHeight){
+						doc.addPage();
+						line=10;
+					}
+				}
+				doc.save($('#year').val()+":"+$('#months').val()+" shedule");
+			}else{
+				document.location = "login.php";
+			}
+			
+		}).fail(function(){
+			  console.log("error");
+	});
+} 
 
 
  $( document ).ready(function() {
@@ -929,6 +994,7 @@ function createFullReport(){
 	});
 } 
 
+
 function downloadCSV(csv) {  
         var filename, link;
         // var csv = convertArrayOfObjectsToCSV({
@@ -951,7 +1017,5 @@ function downloadCSV(csv) {
 
 </script>
 
-<a href='#' 
-        onclick='createFullReport();'
-    >Download CSV</a>
+
 </html>
