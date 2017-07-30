@@ -58,7 +58,9 @@ img.avatar {
 }
 
 .container {
-    padding: 16px;
+     padding: 16px; 
+     /* padding-bottom: 16px; */
+        /* height: 46px; */
 }
 
 span.psw {
@@ -95,18 +97,23 @@ span.psw {
 
     <label><b>Password</b></label>
     <input id="Password" type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button onclick="login()">Login</button>
-    <input type="checkbox" checked="checked"> Remember me 
+        <label id="error" style="color:red;display:none;">Invalid UserName or Password</label>
+        <label id="exp" style="color:red;display:none;"> <a href="tel:+94771141194" style="float:left;text-decoration:none;color:red">Account is expired. If you have done the payment already,  please call us : +94771141194</a></label>
+    <button onclick="login()">Login</button> 
   </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
+  <div id="contactus" class="container" style="background-color:#f1f1f1; display:none;">
+       <a href="tel:+94771141194" style="float:left;text-decoration:none;">Call Us : +94771141194</a><br><br>
+       <a href="mailto:malindakpt@gmail.com" style="float:left;text-decoration:none;">Email Us : malindakpt@gmail.com</a>
+       <br>
   </div>
+   <button type="button" class="cancelbtn" onclick="showContactData()" style="    margin-left: 17px;padding: 7px;">Contact Us</button> 
 </div>
 
 <script>
+function showContactData(){
+$('#contactus').show();
+}
 
 function login(){
 
@@ -118,9 +125,15 @@ function login(){
             if(returnedData=="ok"){
                 document.location = "index.php";
             }
+            else if(returnedData=="exp"){
+                $('#exp').show();
+            }else{
+                $('#error').show();
+            }
 			console.log(returnedData); 
 		}).fail(function(){
 			  console.log("error");
+             
 	    });
 }
 

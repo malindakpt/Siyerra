@@ -16,11 +16,16 @@ session_start();
 		die("Connection failed: " . $conn->connect_error);
 	} 
 	
-	$sql = "select * from users where UserName = '$UserName' AND Password='$Password'";
+	$sql = "select *,DATEDIFF( ExpireDate, CURDATE()) as Exp from users where UserName = '$UserName' AND Password='$Password'";
 	$result = $conn->query($sql);
 	$arr =  array();
-	if ($result->num_rows > 0) { 
-		echo "ok"; 
+	if ($result->num_rows > 0) {
+		$row = $result->fetch_assoc();
+		if((int)$row["Exp"]<0){
+			echo "exp";
+		}else{
+			echo "ok"; 
+		}
 	} else { 
 		echo "0 results";
 	} 

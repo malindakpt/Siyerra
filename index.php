@@ -35,6 +35,10 @@
 		echo '<script>var tableName = "'.$result[1].'";</script>';
 		echo '<script src="js/header/'.$result[1].'H.js"></script>'; 
 		echo '<script src="js/footer/'.$result[1].'F.js"></script>';
+
+		if((int)$result[4] < 30){
+			echo '<script>swal("'.$result[4].' days to expire account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
+		}
 	}
 ?>
 <span style="    display: inline-block;
@@ -143,7 +147,7 @@ function ovOff() {
 			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="" > </input>
 			
 			<br><br>
-			<label><b>Select Homecoming Date</b></label>
+			<label><b>Select Homecoming/Engage. Date</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeH'  class="w3-select" >
 				<option value="N/A" >-Select Time-</option>
@@ -153,8 +157,15 @@ function ovOff() {
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
 			<br>			 
 		</div>
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+		<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue"> -->
+		<div>
 		<label><b>Main/Wed Album Quality</b></label>
+		<br>
+			<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
+				<option value="Wedding">Wedding</option> 
+				<option value="MainEvent">Main Event</option>  
+			</select>
+			<label style="line-height: 47px;"><b> Album Quality</b></label>
 		<select id='CAQuality'  class="w3-select" > 
 			<option value="N/A">-Select Quality-</option> 
 			<option value="Magazine">Magazine</option> 
@@ -441,6 +452,7 @@ function getWedding(event) {
 			$('#ThankCardSizeH').val(obj.ThankCardSizeH);	
 			$('#ThankCardQualityH').val(obj.ThankCardQualityH);	
 			$('#Transport').val(obj.Transport);	
+			$('#Album1Type').val(obj.Album1Type);
 			$('#Album2Type').val(obj.Album2Type);
 			
 			showRemainingBal();
@@ -504,6 +516,7 @@ function clearAll() {
 			$('#CAQuality').val("N/A"); 
 			$('#FASize').val("0"); 
 
+			$('#Album1Type').val("Wedding");
 			$('#Album2Type').val("Homecoming");
 
 			$('#FAPages').val(""); 
@@ -648,6 +661,7 @@ function saveNew() {
 		ThankCardQualityH: $('#ThankCardQualityH').val(), 
 		Transport: $('#Transport').val(),
 
+		Album1Type: $('#Album1Type').val(),
 		Album2Type: $('#Album2Type').val()
 		
 	}, 
@@ -734,6 +748,7 @@ function update() {
 				ThankCardSizeH : $('#ThankCardSizeH').val(),
 				ThankCardQualityH: $('#ThankCardQualityH').val(), 
 				Transport: $('#Transport').val(),
+				Album1Type: $('#Album1Type').val(),
 				Album2Type: $('#Album2Type').val()
 			}, 
 			function(returnedData){
@@ -807,7 +822,7 @@ function savePDF(){
 	if($('#CAQuality').val() != "N/A"){ 
 		shift = 0; 
 		doc.setFontSize(11);
-		doc.text(25, line, 'Main/Wedding Album');
+		doc.text(25, line,  $('#Album1Type').val()+' Album');
 		doc.setFontSize(10);
 		doc.text(30, line+5, 'Quality : '+$('#CAQuality').val());
 		doc.text(30, line+10, 'Size : '+$('#CASize').val());
@@ -1010,6 +1025,11 @@ function downloadCSV(csv) {
         link.setAttribute('href', data);
         link.setAttribute('download', filename);
         link.click();
+}
+
+
+function validatePayment(){
+	
 }
 
 </script>

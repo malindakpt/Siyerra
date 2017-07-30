@@ -38,8 +38,9 @@ if ($result->num_rows > 0) {
 		.$row["dateH"].','
 		.$row["timeH"].','
 		.$row["placeH"].','
-			.$row["CAQuality"].','
 		
+		.$row["CAQuality"].','
+		.$row["Album1Type"].','
 		.$row["CASize"].','
 		.$row["CAPages"].','
 		.$row["FAQuality"].','
