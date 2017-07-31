@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jul 27, 2017 at 05:35 PM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.0.8
+-- Host: 127.0.0.1
+-- Generation Time: Jul 30, 2017 at 06:18 PM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,16 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id2376393_db_bookings`
+-- Database: `db_bookings`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `abc`
+-- Table structure for table `sireraa`
 --
 
-CREATE TABLE `abc` (
+CREATE TABLE `sireraa` (
   `ID` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -42,6 +42,7 @@ CREATE TABLE `abc` (
   `timeH` varchar(20) NOT NULL,
   `placeH` varchar(100) NOT NULL,
   `CAQuality` varchar(100) NOT NULL,
+  `Album1Type` varchar(20) NOT NULL,
   `CASize` varchar(20) NOT NULL,
   `CAPages` varchar(20) NOT NULL,
   `FAQuality` varchar(100) NOT NULL,
@@ -73,15 +74,26 @@ CREATE TABLE `abc` (
   `Comments` varchar(400) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `sireraa`
+--
+
+INSERT INTO `sireraa` (`ID`, `name`, `email`, `phone`, `NameG`, `EmailG`, `PhoneG`, `Address`, `dateW`, `timeW`, `placeW`, `dateH`, `timeH`, `placeH`, `CAQuality`, `Album1Type`, `CASize`, `CAPages`, `FAQuality`, `Album2Type`, `FASize`, `FAPages`, `PSQuality`, `PSSize`, `PSPages`, `IncludeFA`, `Enlarge1`, `Enlarge2`, `Enlarge3`, `thankCardQuality`, `thankCardSize`, `wedThankCardCount`, `ThankCardQualityH`, `ThankCardSizeH`, `homeThankCardCount`, `VidQuality`, `VidNoOfCam`, `VidType`, `IncludeDrone`, `Total`, `Transport`, `Advance1`, `Advance2`, `Advance3`, `Comments`) VALUES
+(43, 'C Wasantha Kumata', 'malindakpt@gmail.com', '0779879879', 'Sumudu Nisansala', 'asd@kasjhdjkas.vom', '879879878979', 'Kanadulla Kuiyapitiya', '2017-06-16', 'Day', 'Maradagahamula', '2017-06-29', 'Day', 'Wattala', 'Magazine', '', '8 x 16', '50', 'Magazine', 'Engagement', '15 x 24', '400', 'Sory Book', '8 x 16', '60', 'true', '', '', '', 'Single Side Matte', '4 x 8', '1000', 'Double Side Matte', '4 x 12', '50', 'blueray', '1cam', 'wed', 'true', '130000', '4000', '2000', '0', '0', 'addcomment'),
+(49, 'C Malindak', 'malindakpt@gmail.com', '0779879879', 'Sumudu Nisansala', 'asd@kasjhdjkas.vom', '879879878979', 'Kanadulla Kuiyapitiya', '2017-06-16', 'Day', 'Maradagahamula', '2017-06-29', 'Day', 'Wattala', 'Magazine', '', '8 x 16', '50', 'Magazine', 'Engagement', '15 x 24', '400', 'Sory Book', '8 x 16', '60', 'true', '', '', '', 'Single Side Matte', '4 x 8', '1000', 'Double Side Matte', '4 x 12', '50', 'blueray', '1cam', 'wed', 'true', '130000', '4000', '2000', '0', '0', 'addcomment'),
+(46, 'Csdsd', '', '', 'asas', '', '', '', '2017-06-15', 'N/A', '', '2010-01-01', 'N/A', '', 'N/A', '', '8 x 16', '50', 'N/A', '', '10 x 24', '40', 'N/A', '8 x 16', '60', 'true', '', '', '', 'Single Side Matte', '4 x 8', '100', 'Single Side Matte', '4 x 8', '100', 'N/A', '1cam', 'wed', 'true', '0', '', '0', '0', '0', ''),
+(47, 'C yyyy', 'iuy', '', 'yyyy', '', '', '', '2017-06-07', 'N/A', 'Kanadulla', '2017-07-27', 'N/A', 'Ragama', 'N/A', '', '8 x 16', '50', 'N/A', '', '10 x 24', '40', 'N/A', '8 x 16', '60', 'true', 'E11', 'E21', 'E31', 'Single Side Matte', '4 x 8', '100', 'Single Side Matte', '4 x 8', '100', 'N/A', '1cam', 'wed', 'true', '0', '', '0', '0', '0', ''),
+(48, 'C Salinda', '', '', 'weqwe', '', '', '', '2017-07-15', 'N/A', '', '2010-01-01', 'N/A', '', 'N/A', '', '8 x 16', '50', 'N/A', 'Homecoming', '10 x 24', '40', 'N/A', '8 x 16', '60', 'true', '1 Wedding couple enlargement 20x30 with frame', '2 Wedding couple enlargement 12x18 with frame', '2 Group enlargement 12x18 with frame', 'N/A', '4 x 8', '100', 'N/A', '4 x 8', '100', 'N/A', '1cam', 'wed', 'true', '0', '', '0', '0', '0', ''),
+(50, 'AA', '', '', 'CC', '', '', '', '2017-07-12', 'N/A', '', '2010-01-01', 'N/A', '', 'N/A', 'Wedding', '0', '', 'N/A', 'Homecoming', '0', '', 'N/A', '0', '', 'true', '1 Wedding couple enlargement 20x30 with frame', '2 Wedding couple enlargement 12x18 with fram', '2 Group enlargement 12x18 with frame', 'N/A', 'N/A', '', 'N/A', 'N/A', '', 'N/A', 'N/A', 'N/A', 'false', '0', '', '0', '0', '0', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `abc`
+-- Indexes for table `sireraa`
 --
-ALTER TABLE `abc`
+ALTER TABLE `sireraa`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -89,10 +101,10 @@ ALTER TABLE `abc`
 --
 
 --
--- AUTO_INCREMENT for table `abc`
+-- AUTO_INCREMENT for table `sireraa`
 --
-ALTER TABLE `abc`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `sireraa`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

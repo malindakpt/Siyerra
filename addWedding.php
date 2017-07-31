@@ -55,6 +55,7 @@ $ThankCardSizeH = $_POST['ThankCardSizeH'];
 $ThankCardQualityH = $_POST['ThankCardQualityH'];
 $Transport = $_POST['Transport'];
 
+$Album1Type = $_POST['Album1Type'];
 $Album2Type = $_POST['Album2Type'];
 
 $Enlarge1 = $_POST['Enlarge1'];
@@ -64,12 +65,12 @@ $Enlarge3 = $_POST['Enlarge3'];
 
 $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
  homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, 
- IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album2Type,Enlarge1,Enlarge2,Enlarge3 ) 
+ IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album1Type,Album2Type,Enlarge1,Enlarge2,Enlarge3 ) 
 
 VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', 
 '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', 
 '$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments','$IncludeFA', 
-'$Address', '$IncludeDrone',  '$NameG', '$EmailG', '$PhoneG','$ThankCardSizeH', '$ThankCardQualityH', '$Transport','$Album2Type','$Enlarge1','$Enlarge2','$Enlarge3')";
+'$Address', '$IncludeDrone',  '$NameG', '$EmailG', '$PhoneG','$ThankCardSizeH', '$ThankCardQualityH', '$Transport','$Album1Type','$Album2Type','$Enlarge1','$Enlarge2','$Enlarge3')";
 
 
 if ($conn->query($sql) === TRUE) {

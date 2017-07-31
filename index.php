@@ -134,20 +134,70 @@ function ovOff() {
 				<br>
 		</div>
 		 
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Teal">
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 		 <br>
-			<label><b>Select Main Func./Wedding Date</b></label>
-			<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
+		  
+<label><b>Main Function/Wedding Album Details</b></label>
+	<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeW'  class="w3-select" >
 				<option value="N/A" >-Select Time-</option>
 				<option value="Day">Day Event</option>
 				<option value="Night">Night Event</option>
 			</select>
-		
 			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="" > </input>
+			 
+				<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
+					<option value="Wedding">Wedding</option> 
+					<option value="MainEvent">Main Event</option>  
+				</select>
+				<label style="line-height: 47px;"><b> Album Quality</b></label>
+			<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
+				<option value="N/A">-Not Included-</option> 
+				<option value="Magazine">Magazine</option> 
+				<option value="Sory Book">Sory Book</option> 
+			</select>
+			<div id ="Q1">
+			<script>
+				function showhideQ1(){
+					 if($('#CAQuality').val()=="N/A"){
+						$('#Q1').hide();
+					 }else{
+						$('#Q1').show();
+					 }
+				}
+				function showhideQ2(){
+					 if($('#FAQuality').val()=="N/A"){
+						$('#Q2').hide();
+					 }else{
+						$('#Q2').show();
+					 }
+				}
 			
-			<br><br>
-			<label><b>Select Homecoming/Engage. Date</b></label>
+			</script>
+			<select id='CASize'  class="w3-select" > 
+				<option value="0">-Select Album Size-</option> 
+				<option value="8 x 16">8 x 16</option> 
+				<option value="8 x 20">8 x 20</option> 		
+				<option value="10 x 15">10 x 15</option> 
+				<option value="10 x 20">10 x 20</option> 
+				<option value="10 x 24">10 x 24</option> 
+				<option value="10 x 28">10 x 28</option> 
+				<option value="12 x 24">12 x 24</option> 
+				<option value="12 x 30">12 x 30</option> 
+				<option value="15 x 24">15 x 24</option> 
+				<option value="16 x 24">16 x 24</option> 
+				<option value="17 x 24">17 x 24</option> 
+			</select>
+			<br> 
+			<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
+			</div>
+				 
+		</div>
+		<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue"> -->
+	
+	  	<div class="w3-panel  w3-leftbar w3-rightbar w3-border-red">
+			<br>
+			<label><b>Homecoming/Engagement Album Details</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date'> </input>
 			<select id='timeH'  class="w3-select" >
 				<option value="N/A" >-Select Time-</option>
@@ -155,52 +205,18 @@ function ovOff() {
 				<option value="Night">Night Event</option>
 			</select>	
 			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
-			<br>			 
-		</div>
-		<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue"> -->
-		<div>
-		<label><b>Main/Wed Album Quality</b></label>
-		<br>
-			<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
-				<option value="Wedding">Wedding</option> 
-				<option value="MainEvent">Main Event</option>  
-			</select>
-			<label style="line-height: 47px;"><b> Album Quality</b></label>
-		<select id='CAQuality'  class="w3-select" > 
-			<option value="N/A">-Select Quality-</option> 
-			<option value="Magazine">Magazine</option> 
-			<option value="Sory Book">Sory Book</option> 
-		</select>
-		<!--<label>Album Size</label>-->
-		<select id='CASize'  class="w3-select" > 
-			<option value="0">-Select Album Size-</option> 
-			<option value="8 x 16">8 x 16</option> 
-			<option value="8 x 20">8 x 20</option> 		
-			<option value="10 x 15">10 x 15</option> 
-			<option value="10 x 20">10 x 20</option> 
-			<option value="10 x 24">10 x 24</option> 
-			<option value="10 x 28">10 x 28</option> 
-			<option value="12 x 24">12 x 24</option> 
-			<option value="12 x 30">12 x 30</option> 
-			<option value="15 x 24">15 x 24</option> 
-			<option value="16 x 24">16 x 24</option> 
-			<option value="17 x 24">17 x 24</option> 
-		</select>
-		<br> 
-		<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
-		  </div>
-	  <div class="XXX">
-			<br>
+		
 			<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
 				<option value="Homecoming">Homecoming</option> 
 				<option value="Engagement">Engagement</option>  
 			</select>
 			<label style="line-height: 47px;"><b> Album Quality</b></label>
-			<select id='FAQuality'  class="w3-select" > 
-				<option value="N/A">-Select Quality-</option> 
+			<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
+				<option value="N/A">-Not Included-</option> 
 				<option value="Magazine">Magazine</option> 
 				<option value="Sory Book">Sory Book</option> 
 			</select>
+			<div id='Q2'>
 			<select id='FASize'  class="w3-select" > 
 				<option value="0">-Select Album Size-</option> 
 				<option value="8 x 16">8 x 16</option> 
@@ -216,15 +232,16 @@ function ovOff() {
 				<option value="17 x 24">17 x 24</option> 
 			</select>
 			<br> 
-			<!--<label>Homecoming Album Pages Count</label>-->
 			<input id='FAPages' class="w3-input" value="40" placeholder="Pages Count"> </input>
-			 
+			
+			<br>
+			</div>	
 		</div> 
 		 <div class="XXX">
 			<br>
 			<label><b>Preshoot Album Quality</b></label>
-			<select id='PSQuality'  class="w3-select" > 
-				<option value="N/A">-Select Album Quality-</option> 
+			<select id='PSQuality'  class="w3-select"  onchange="showhideQ3()" > 
+				<option value="N/A">-Not Included-</option> 
 				<option value="Magazine">Magazine</option> 
 				<option value="Sory Book">Sory Book</option> 
 			</select>
@@ -254,26 +271,25 @@ function ovOff() {
 		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
 		</div>
 		<br>
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Pink">
+			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Orange">
 		<label><b>Enlargements Details</b></label>
 <input id='Enlarge1' class="w3-input" maxlength="50" value="1 Wedding couple enlargement 20x30 with frame"> </input>
 <input id='Enlarge2' class="w3-input" maxlength="50" value="2 Wedding couple enlargement 12x18 with frame"> </input>
 <input id='Enlarge3' class="w3-input" maxlength="50" value="2 Group enlargement 12x18 with frame"> </input>
 		<br>
 		</div>
-		<label><b>Wedding Thanking Card Details</b></label>
+		
 		
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
+		<label><b>Wedding Thanking Card Details</b></label>
 			<select id='thankCardQuality'  class="w3-select" > 
-				<option value="N/A">-Select Qulaity-</option> 
+				<option value="N/A">-Not Included-</option> 
 				<option value="Single Side Matte">Single Side Matte</option> 
 				<option value="Single Side Glossy">Single Side Glossy</option> 
 				<option value="Double Side Matte">Double Side Matte</option> 
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br>
-
-			<!--<label>Thanking Card Size</label>-->
 			<select id='thankCardSize'  class="w3-select" > 
 				<option value="N/A">-Select Size-</option> 
 				<option value="4 x 8">4 x 8</option> 
@@ -289,12 +305,11 @@ function ovOff() {
 		</div>
 		
 		
-		<label><b>Homeco./Enga. Thanking Card Details</b></label>
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
-		
-			<!--<label>Thanking Card Quality</label>-->
+	
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Red">
+			<label><b>Homecoming Thanking Card Details</b></label>
 			<select id='ThankCardQualityH'  class="w3-select" > 
-				<option value="N/A">-Select Qulaity-</option> 
+				<option value="N/A">-Not Included-</option> 
 				<option value="Single Side Matte">Single Side Matte</option> 
 				<option value="Single Side Glossy">Single Side Glossy</option> 
 				<option value="Double Side Matte">Double Side Matte</option> 
@@ -314,10 +329,12 @@ function ovOff() {
 
 			<input id='homeThankCardCount'  class="w3-input" value="100" placeholder="Card Count"> </input>
 		</div>
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Red">
-			<label><b>Video Quality</b></label>
+
+		
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Green">
+		<label><b>Video Quality</b></label>	
 			<select id='VidQuality'  class="w3-select" > 
-				<option value="N/A">-Select Quality-</option> 
+				<option value="N/A">-Not Included-</option> 
 				<option value="blueray">Blueray</option> 
 				<option value="hd">HD</option> 
 			</select>
@@ -338,17 +355,17 @@ function ovOff() {
 				<option value="preWed">Preshoot and Wedding</option> 
 				<option value="preWedHome">Preshoot, Wedding and Homecoming</option> 
 			</select>
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
+			<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-green"> -->
 				<input type="checkbox" class="w3-check" id="IncludeDrone" checked> <b>Include Drone Camera</b></input><br>
-			</div>
+			<!-- </div> -->
 			
 		</div>
 		<div>
 
 			<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
-			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" > </input>
-			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()"> </input>
-			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()"> </input>
+			<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="width: 33%; float: left;"> </input>
+			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="width: 33%; float: left;"> </input>
+			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()" style="width: 33%; float: left;"> </input>
 			<br>
 			<label id="totalPrice">Total Price       </label>
 			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
@@ -385,9 +402,15 @@ function validateData(){
 		if("" == $('#name').val() || "" == $('#NameG').val()){
 			swal("Invalid Inputs", "Name of Groom and Bride cannot be empty", "error");
 			return false;
-		}else if( $('#dateW').val() == ""){
-			swal("Invalid Inputs", "Wedd/Engage date cannot be empty", "error");
+		}else if( $('#dateW').val() == "" && $('#dateH').val() == ""){
+			swal("Invalid Inputs", "You have to add atleast 1 date", "error");
 			return false;
+		}else if(  $('#dateW').val()!=""  &&   Number($('#year').children()[0].value) > Number($('#dateW').val().split("-")[0]) ){
+			swal("Invalid Inputs", "Main/Wedding date should not be in past", "error");
+						return false;
+		}else if(  $('#dateH').val()!=""  &&   Number($('#year').children()[0].value) > Number($('#dateH').val().split("-")[0]) ){
+			swal("Invalid Inputs", "Engage./Homecom. date should not be in past", "error");
+						return false;
 		}
 		return true; 
 }
@@ -411,22 +434,33 @@ function getWedding(event) {
 			$('#EmailG').val(obj.EmailG); 
 			$('#PhoneG').val(obj.PhoneG);
 
-			$('#dateW').val(obj.dateW);
+			if(obj.dateW.startsWith("2010-01") ||  "" == obj.dateW){
+				$('#dateW').val('');
+			}else{
+				$('#dateW').val(obj.dateW);
+			}
+
+			if(obj.dateH.startsWith("2010-01") ||  "" == obj.dateH){
+				$('#dateH').val('');
+			}else{
+				$('#dateH').val(obj.dateH);
+			}
+
 			$('#timeW').val(obj.timeW); 
 			$('#placeW').val(obj.placeW);
 			$('#CASize').val(obj.CASize);
 			$('#CAPages').val(obj.CAPages); 
-			$('#CAQuality').val(obj.CAQuality); 
+			$('#CAQuality').val(obj.CAQuality).change();; 
 			$('#FASize').val(obj.FASize);
 			$('#FAPages').val(obj.FAPages); 
-			$('#FAQuality').val(obj.FAQuality); 
+			$('#FAQuality').val(obj.FAQuality).change();; 
 			$('#thankCardSize').val(obj.thankCardSize);
 			$('#thankCardQuality').val(obj.thankCardQuality); 
 			$('#wedThankCardCount').val(obj.wedThankCardCount); 
 			$('#homeThankCardCount').val(obj.homeThankCardCount);
 	
 			$('#Address').val(obj.Address);
-			$('#dateH').val(obj.dateH);
+			
 			$('#timeH').val(obj.timeH); 
 			$('#placeH').val(obj.placeH);
 			$('#PSSize').val(obj.PSSize);
@@ -498,6 +532,8 @@ function deleteWedding(event) {
 function clearAll() {
 
 			hideAll();
+			// $('#Q1').hide();
+			// $('#Q2').hide();
 
 			$('#ID').val("");
 			$('#name').val("");
@@ -513,14 +549,14 @@ function clearAll() {
 			$('#placeW').val(""); 
 			$('#CASize').val("0"); 
 			$('#CAPages').val(""); 
-			$('#CAQuality').val("N/A"); 
+			$('#CAQuality').val("N/A").change();; 
 			$('#FASize').val("0"); 
 
 			$('#Album1Type').val("Wedding");
 			$('#Album2Type').val("Homecoming");
 
 			$('#FAPages').val(""); 
-			$('#FAQuality').val("N/A"); 
+			$('#FAQuality').val("N/A").change();; 
 			$('#thankCardSize').val("N/A"); 
 			$('#thankCardQuality').val("N/A");  
 			$('#wedThankCardCount').val(""); 
@@ -650,9 +686,9 @@ function saveNew() {
 		Enlarge3: $('#Enlarge3').val(), 
 		
 		Comments: $('#Comments').val(),
-		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
-		Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
-		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
+		Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
+		Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '', 
+		Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '', 
 		Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 		IncludeFA: $('#IncludeFA').is(":checked"),
 		IncludeDrone: $('#IncludeDrone').is(":checked"),
@@ -680,6 +716,10 @@ function saveNew() {
 
 }
 function update() { 
+
+	if(validateData()==false){
+		return;
+	}
 
 		swal({
 			title: "Update exixting event",
@@ -737,9 +777,9 @@ function update() {
 				
 				Comments: $('#Comments').val(),
 				
-				Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '0',
-				Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '0', 
-				Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '0', 
+				Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
+				Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '', 
+				Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '', 
 				Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 				
 				IncludeFA: $('#IncludeFA').is(":checked"),
@@ -806,12 +846,14 @@ function savePDF(){
 	doc.text(25+shift, line+15, 'Email : '+$('#EmailG').val());
 	doc.text(25+shift, line+20, 'Phone : '+$('#PhoneG').val());
 	
-	doc.text(25, line+35, 'Wedding Date : '+$('#dateW').val());
-	doc.text(25, line+40, 'Location : '+$('#placeW').val());
-	doc.text(25, line+45, 'Time : '+$('#timeW').val());
+	if(!$('#dateW').val().startsWith("2010-01") && ! ""==$('#dateW').val()){
+		doc.text(25, line+35,  $('#Album1Type').val()+' Date : '+$('#dateW').val());
+		doc.text(25, line+40, 'Location : '+$('#placeW').val());
+		doc.text(25, line+45, 'Time : '+$('#timeW').val());
+	}
 	
-	if(!$('#dateH').val().startsWith("2010-01")){
-		doc.text(25, line+55, 'Homecoming Date : '+$('#dateH').val());
+	if(!$('#dateH').val().startsWith("2010-01") && ! ""==$('#dateH').val()){
+		doc.text(25, line+55,  $('#Album2Type').val()+' Date : '+$('#dateH').val());
 		doc.text(25, line+60, 'Location : '+$('#placeH').val());
 		doc.text(25, line+65, 'Time : '+$('#timeH').val());
 	}

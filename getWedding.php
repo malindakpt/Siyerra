@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
 
 		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],
-		'Transport' => $row["Transport"], 'Album2Type' => $row["Album2Type"]
+		'Transport' => $row["Transport"], 'Album1Type' => $row["Album1Type"], 'Album2Type' => $row["Album2Type"]
 		,'Enlarge1' => $row["Enlarge1"]	,'Enlarge2' => $row["Enlarge2"]	,'Enlarge3' => $row["Enlarge3"]
 		
 		); 

@@ -23,7 +23,10 @@ $NameG = $_POST['NameG'];
 $EmailG = $_POST['EmailG'];
 $PhoneG = $_POST['PhoneG'];
 
-$dateW = $_POST['dateW'];
+// $dateW = $_POST['dateW'];
+
+$dateW = $_POST['dateW'] !== '' ? $_POST['dateW'] : '2010-01-01';
+
 $timeW = $_POST['timeW'];
 $placeW = $_POST['placeW'];
 $CASize = $_POST['CASize'];
@@ -60,6 +63,7 @@ $ThankCardSizeH = $_POST['ThankCardSizeH'];
 $ThankCardQualityH = $_POST['ThankCardQualityH'];
 $Transport = $_POST['Transport'];
 
+$Album1Type = $_POST['Album1Type'];
 $Album2Type = $_POST['Album2Type'];
 
 $Enlarge1 = $_POST['Enlarge1'];
@@ -71,7 +75,7 @@ $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', pl
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType', Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3', 
  Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone',
  NameG='$NameG', EmailG='$EmailG', PhoneG='$PhoneG'
- , ThankCardSizeH='$ThankCardSizeH', ThankCardQualityH='$ThankCardQualityH', Transport='$Transport', Album2Type='$Album2Type'
+ , ThankCardSizeH='$ThankCardSizeH', ThankCardQualityH='$ThankCardQualityH', Transport='$Transport', Album1Type='$Album1Type', Album2Type='$Album2Type'
 ,Enlarge1='$Enlarge1', Enlarge2='$Enlarge2', Enlarge3= '$Enlarge3'
 
 WHERE  ID = '$ID'";
@@ -79,7 +83,7 @@ WHERE  ID = '$ID'";
 
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record edited successfully";
+    echo "Existing record edited successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
