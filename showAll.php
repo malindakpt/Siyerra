@@ -37,7 +37,7 @@ $result2 = $conn->query($sql2);
 $allList =  array();
 if ($result1->num_rows > 0) { 
     while($row = $result1->fetch_assoc()) {
-		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 'date' => $row["dateW"], 'time' => $row["timeW"], 'type' => 'Wedd', 'phone'=>$row["phone"], 'location'=>$row["placeW"]);
+		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 'date' => $row["dateW"], 'time' => $row["timeW"], 'type' => 'Main/Wed.', 'phone'=>$row["phone"], 'location'=>$row["placeW"]);
 		array_push($allList,$arr); 
     }
 	
@@ -46,7 +46,7 @@ if ($result1->num_rows > 0) {
 }
 if ($result2->num_rows > 0) { 
     while($row = $result2->fetch_assoc()) {
-		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 'date' => $row["dateH"], 'time' => $row["timeH"], 'type' => 'Home', 'phone'=>$row["phone"], 'location'=>$row["placeH"]);
+		$arr = array('ID' => $row["ID"], 'name' => $row["name"], 'date' => $row["dateH"], 'time' => $row["timeH"], 'type' => 'Hom/Enga.', 'phone'=>$row["phone"], 'location'=>$row["placeH"]);
 		array_push($allList,$arr); 
     }
 	

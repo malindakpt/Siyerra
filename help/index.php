@@ -1,6 +1,22 @@
 <html>
 <head> 
+
+<link rel="shortcut icon" href="../img/logo.png" />
+ <title>Help: Photography Diary</title>
 </head>
+<style>
+.cimage{
+    margin: auto;
+    display: block;
+}
+
+</style>
+<form style="max-width:750px; margin: 0 auto;">
+<br>
+<h1><u>Photography Diary Help Guide</u></h1>
+<br>
+
+<br>
 <h3>PhotographyDiary ආරම්භ කිරීමට පෙර  ඔබ  විසින් අප වෙත ලබා දිය යුතු  විස්තර.</h3>
 
 
@@ -16,14 +32,14 @@
 
 <p>
 ඔබ විසින් ලබා දුන් username , password භාවිතා කර login button මත click කරන්න
-<br><img src="img/loginPage.png" style="width:230px;height:400px;"/>
+<br><img class="cimage"  src="img/loginPage.png"  />
 
 <h3><u>Top Pannel මූලික පහසුකම්</u></h3>
-<br><img src="img/header.png" style="width:600px;height:200px;"/>
+<br><img class="cimage" src="img/header.png" />
 
 <h4>Search : </h4>
  ඔබ select කළ වර්ෂයට සහ මාසයට ඔබ ලබා ගත් events පෙන්වයි
-<br><img src="img/loaded.png" style="width:600px;height:320px;"/>
+<br><img class="cimage"  src="img/loaded.png" />
 <h4>PDF : </h4>
  ඔබ select කළ වර්ෂයට සහ මාසයට ඔබ ලබා ගත් events    .pdf ලෙස download කරයි
 
@@ -31,7 +47,7 @@
  මෙම පිටුව තුල ඔබ විසින් වෙනස් කළ දේවල් යලිත් මුල් තත්ත්වයට පත් කරයි.
 <br><br><br>
  <h3><u>Bottom Pannel මූලික පහසුකම්</u></h3>
- <br><img src="img/footer.png" style="width:600px;height:110px;"/>
+ <br><img  class="cimage" src="img/footer.png" />
  
  <h4>Save As New : </h4>
  මෙම පිටුවේ ඉහලින් ඇති විස්තර ඔබගේ customer ට අවශ්‍ය පරිදි ඇතුලත් කර  “Save As New”  click කළ විට එය අලුත්  event එකක් ලෙස store වෙයි.
@@ -49,7 +65,7 @@
 <h4><u>අනෙකුත් පහසුකම්</u></h4>
 ඔබ ඇතුලත් කරන customer event එකකට දින එකක් හෝ දෙකක් වෙන් නිරීමට හැකියාව ඔබට ඇත.
 <p>
-<br><img src="img/initial.png"/></br>
+<br><img  class="cimage" src="img/initial.png"/></br>
 <h5>Examples: </h5>
 1.	Wedding සහ homecoming ලෙස<br>
 2.  Wedding සහ Engagement ලෙස<br>
@@ -61,13 +77,17 @@
 
 
 <h4><u>Wedding සහ Homecoming ලෙස  ඇතුලත්  කිරීමට පහත  ලෙස  සකස් කළ හැක</u></h4>
-<img src="img/WH.png"/>
+<img  class="cimage" src="img/WH.png"/>
 <h4><u>Wedding එක පමණක් ලෙස  ඇතුලත්  කිරීමට පහත  ලෙස  සකස් කළ හැක</u></h4>
-<img src="img/W.png" />
+<img  class="cimage" src="img/W.png" />
 <h4><u>Homecoming එක පමණක් ලෙස  ඇතුලත්  කිරීමට පහත  ලෙස  සකස් කළ හැක</u></h4>
-<img src="img/H.png" />
+<img  class="cimage" src="img/H.png" />
 
 <h4><u>වෙනත් event ඇතුලත්  කිරීමට පහත  ලෙස  සකස් කළ හැක</u></h4>
-<img src="img/O.png"/></html>
+<img  class="cimage" src="img/O.png"/></html>
+
+
+</form>
+</html>
 
 

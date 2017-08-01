@@ -10,7 +10,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/logo.png" />
- <title>Photography Diary</title>
+ <title>Login: Photography Diary</title>
 <script src="js/jquery.js"></script>  
 </head>
 <style>
