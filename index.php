@@ -11,9 +11,7 @@
  <title>Photography Diary</title>
 <script src="js/jspdf.debug.js"></script>
 <script src="js/jquery.js"></script>  
-<script src="js/sweetalert.js"></script>  
-<!-- <script src="js/headerImg.js"></script>  
-<script src="js/footerImg.js"></script>  -->
+<script src="js/sweetalert.js"></script>
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
@@ -25,7 +23,7 @@
 	
 
 <?php
-	$result = explode(";", login());	
+	$result = explode(";;;;", login());	
 	if("ok" != $result[0]){
 		echo "ip";
 		header("Location: login.php"); /* Redirect browser */
@@ -39,6 +37,8 @@
 		if((int)$result[4] < 30){
 			echo '<script>swal("'.$result[4].' days to expire account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
 		}
+
+			echo '<script>var enlargements = "'.$result[5].'".split("####");</script>';
 	}
 ?>
 <span style="    display: inline-block;
@@ -115,12 +115,12 @@ function ovOff() {
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> 
-				<input id='name' class="w3-input" placeholder="Groom Name" style="height: 15px;"> </input>
+				<input id='name' class="w3-input" placeholder="Customer/Groom Name" style="height: 15px;"> </input>
 				<br>
 				
-				<input id='email' class="w3-input" placeholder="Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
+				<input id='email' class="w3-input" placeholder="Customer/Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
 				<br>
-				<input id='phone' type="number" class="w3-input" placeholder="Groom Phone" maxlength="10"  style="height: 15px;"> </input>
+				<input id='phone' type="number" class="w3-input" placeholder="Customer/Groom Phone" maxlength="10"  style="height: 15px;"> </input>
 				<br>
 				<!--Girls Details-->
 				<input id='NameG' class="w3-input" placeholder="Bride Name" maxlength="30"  style="height: 15px;"> </input>
@@ -144,7 +144,7 @@ function ovOff() {
 				<option value="Day">Day Event</option>
 				<option value="Night">Night Event</option>
 			</select>
-			<input id='placeW' placeholder="Enter Wedding Location"  class="w3-input" value="" > </input>
+			<input id='placeW' placeholder="Enter Main Function/Wedding Location"  class="w3-input" value="" > </input>
 			 
 				<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
 					<option value="Wedding">Wedding</option> 
@@ -154,7 +154,7 @@ function ovOff() {
 			<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
 				<option value="N/A">-Not Included-</option> 
 				<option value="Magazine">Magazine</option> 
-				<option value="Sory Book">Sory Book</option> 
+				<option value="Story Book">Story Book</option> 
 			</select>
 			<div id ="Q1">
 			<script>
@@ -170,6 +170,13 @@ function ovOff() {
 						$('#Q2').hide();
 					 }else{
 						$('#Q2').show();
+					 }
+				}
+				function showhideQ3(){
+					 if($('#PSQuality').val()=="N/A"){
+						$('#Q3').hide();
+					 }else{
+						$('#Q3').show();
 					 }
 				}
 			
@@ -204,7 +211,7 @@ function ovOff() {
 				<option value="Day">Day Event</option>
 				<option value="Night">Night Event</option>
 			</select>	
-			<input id='placeH' placeholder="Enter Homecoming Location"  class="w3-input" value=""> </input>
+			<input id='placeH' placeholder="Enter Homecoming/Engagement Location"  class="w3-input" value=""> </input>
 		
 			<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
 				<option value="Homecoming">Homecoming</option> 
@@ -214,7 +221,7 @@ function ovOff() {
 			<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
 				<option value="N/A">-Not Included-</option> 
 				<option value="Magazine">Magazine</option> 
-				<option value="Sory Book">Sory Book</option> 
+				<option value="Story Book">Story Book</option> 
 			</select>
 			<div id='Q2'>
 			<select id='FASize'  class="w3-select" > 
@@ -243,9 +250,9 @@ function ovOff() {
 			<select id='PSQuality'  class="w3-select"  onchange="showhideQ3()" > 
 				<option value="N/A">-Not Included-</option> 
 				<option value="Magazine">Magazine</option> 
-				<option value="Sory Book">Sory Book</option> 
+				<option value="Story Book">Story Book</option> 
 			</select>
-			<!--<label>Preshoot Album Size</label>-->
+			<div id='Q3'>
 			<select id='PSSize'  class="w3-select" > 
 				<option value="0">-Album Size-</option> 
 				<option value="8 x 16">8 x 16</option> 
@@ -263,7 +270,7 @@ function ovOff() {
 			<br> 
 			<!--<label>Preshoot Album Pages Count</label>-->
 			<input id='PSPages' class="w3-input" value="60"  placeholder="Pages Count"> </input>
-			
+			</div>
 		</div>
 		<br> 
 	<!--<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> -->
@@ -367,6 +374,7 @@ function ovOff() {
 			<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="width: 33%; float: left;"> </input>
 			<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()" style="width: 33%; float: left;"> </input>
 			<br>
+			<br><br><br>
 			<label id="totalPrice">Total Price       </label>
 			<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 			<br>
@@ -378,7 +386,7 @@ function ovOff() {
 			    <button class="w3-btn w3-green w3-padding-small" onclick="saveNew()" >Save As New</button>
 				<button class="w3-btn w3-red w3-padding-small" onclick="update()" style="float:right">Save Existing</button>
 				<br><br>
-				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download PDF</button>
+				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download Invoice</button>
 				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>
 				
 		</div>
@@ -393,14 +401,14 @@ function ovOff() {
 </div>
 
 <div class="footer">
-    <p>Powered by Software Solutions 2017</p>
+    <p>Powered by MSOFT Software Solutions 2017</p>
 </div>
 <a href='#' onclick='createFullReport();'>Download CSV</a>
 </body>
 <script>
 function validateData(){
-		if("" == $('#name').val() || "" == $('#NameG').val()){
-			swal("Invalid Inputs", "Name of Groom and Bride cannot be empty", "error");
+		if("" == $('#name').val()){
+			swal("Invalid Inputs", "Name of the Customer cannot be empty", "error");
 			return false;
 		}else if( $('#dateW').val() == "" && $('#dateH').val() == ""){
 			swal("Invalid Inputs", "You have to add atleast 1 date", "error");
@@ -450,7 +458,7 @@ function getWedding(event) {
 			$('#placeW').val(obj.placeW);
 			$('#CASize').val(obj.CASize);
 			$('#CAPages').val(obj.CAPages); 
-			$('#CAQuality').val(obj.CAQuality).change();; 
+			$('#CAQuality').val(obj.CAQuality).change();
 			$('#FASize').val(obj.FASize);
 			$('#FAPages').val(obj.FAPages); 
 			$('#FAQuality').val(obj.FAQuality).change();; 
@@ -465,7 +473,7 @@ function getWedding(event) {
 			$('#placeH').val(obj.placeH);
 			$('#PSSize').val(obj.PSSize);
 			$('#PSPages').val(obj.PSPages); 
-			$('#PSQuality').val(obj.PSQuality);
+			$('#PSQuality').val(obj.PSQuality).change();
 			$('#VidQuality').val(obj.VidQuality);
 			$('#VidNoOfCam').val(obj.VidNoOfCam);
 			$('#VidType').val(obj.VidType);	
@@ -568,14 +576,14 @@ function clearAll() {
 			$('#placeH').val(""); 
 			$('#PSSize').val("0"); 
 			$('#PSPages').val(""); 
-			$('#PSQuality').val("N/A"); 
+			$('#PSQuality').val("N/A").change(); 
 			$('#VidQuality').val("N/A"); 
 			$('#VidNoOfCam').val("N/A"); 
 			$('#VidType').val("N/A"); 	
 
-			$('#Enlarge1').val("1 Wedding couple enlargement 20x30 with frame"); 	
-			$('#Enlarge2').val("2 Wedding couple enlargement 12x18 with fram"); 	
-			$('#Enlarge3').val("2 Group enlargement 12x18 with frame"); 	
+			$('#Enlarge1').val(enlargements[0]); 	
+			$('#Enlarge2').val(enlargements[1]); 	
+			$('#Enlarge3').val(enlargements[2]); 	
 			
 			$('#Advance1').val(""); 	
 			$('#Advance2').val(""); 
@@ -616,7 +624,7 @@ function showAll() {
 	});
 	$( "#btnHide" ).show();
 }
-$( "#btnHide" ).hide();
+// $( "#btnHide" ).hide();
 function hideAll() {
    	$( "#allListTable" ).empty();
 	$( "#btnHide" ).hide();
@@ -717,12 +725,17 @@ function saveNew() {
 }
 function update() { 
 
+	if($('#ID').val() == ""){
+		swal("You are trying to update existing event", "You have to open an event first" , "error");
+		return;
+	}
+
 	if(validateData()==false){
 		return;
 	}
 
 		swal({
-			title: "Update exixting event",
+			title: "You are trying to update existing event",
 			text: "Are you sure ?",
 			type: "warning",
 			showCancelButton: true,
@@ -836,15 +849,18 @@ function savePDF(){
 	doc.setFontSize(12);
 	
 	doc.setFontSize(10);
-	doc.text(25, line+10, 'Groom Name : '+$('#name').val());	
+	doc.text(25, line+10, 'Customer/Groom Name : '+$('#name').val());	
 	doc.text(25, line+15, 'Email : '+$('#email').val());
 	doc.text(25, line+20, 'Phone : '+$('#phone').val());
 	doc.text(25, line+28, 'Addres : '+$('#Address').val());
 	shift = 80; 
 	doc.setFontSize(10);
-	doc.text(25+shift, line+10, 'Bride Name : '+$('#NameG').val()); 
-	doc.text(25+shift, line+15, 'Email : '+$('#EmailG').val());
-	doc.text(25+shift, line+20, 'Phone : '+$('#PhoneG').val());
+
+	if($('#NameG').val() != ""){
+		doc.text(25+shift, line+10, 'Bride Name : '+$('#NameG').val()); 
+		doc.text(25+shift, line+15, 'Email : '+$('#EmailG').val());
+		doc.text(25+shift, line+20, 'Phone : '+$('#PhoneG').val());
+	}
 	
 	if(!$('#dateW').val().startsWith("2010-01") && ! ""==$('#dateW').val()){
 		doc.text(25, line+35,  $('#Album1Type').val()+' Date : '+$('#dateW').val());
