@@ -890,22 +890,29 @@ function savePDF(){
 		doc.text(25+shift, line+15, 'Email : '+$('#EmailG').val());
 		doc.text(25+shift, line+20, 'Phone : '+$('#PhoneG').val());
 	}
+	line = line + 30;
 	
-	if(!$('#dateW').val().startsWith("2010-01") && ! ""==$('#dateW').val()){
-		doc.text(25, line+35,  $('#Album1Type').val()+' Date : '+$('#dateW').val());
-		doc.text(25, line+40, 'Location : '+$('#placeW').val());
-		doc.text(25, line+45, 'Time : '+$('#timeW').val());
+	var datePrinted = false;
+	var shiftDate = 0;
+	if(!$('#dateW').val().startsWith("2010-01") &&  ""!=$('#dateW').val()){
+		doc.text(25, line+5,  $('#Album1Type').val()+' Date : '+$('#dateW').val());
+		doc.text(25, line+10, 'Location : '+$('#placeW').val());
+		doc.text(25, line+15, 'Time : '+$('#timeW').val());
+		datePrinted = true;
+		shiftDate = 75;
 	}
 	
-	if(!$('#dateH').val().startsWith("2010-01") && ! ""==$('#dateH').val()){
-		doc.text(25, line+55,  $('#Album2Type').val()+' Date : '+$('#dateH').val());
-		doc.text(25, line+60, 'Location : '+$('#placeH').val());
-		doc.text(25, line+65, 'Time : '+$('#timeH').val());
+	if(!$('#dateH').val().startsWith("2010-01") &&  ""!=$('#dateH').val()){
+		doc.text(25 + shiftDate, line+5,  $('#Album2Type').val()+' Date : '+$('#dateH').val());
+		doc.text(25 + shiftDate, line+10, 'Location : '+$('#placeH').val());
+		doc.text(25 + shiftDate, line+15, 'Time : '+$('#timeH').val());
+		datePrinted = true;
 	}
-	line = line+75;
-
+	if(datePrinted){
+		line = line+25;
+	}
 	
-	
+	var albumsPrinted = false;
 	if($('#CAQuality').val() != "N/A"){ 
 		shift = 0; 
 		doc.setFontSize(11);
@@ -914,6 +921,7 @@ function savePDF(){
 		doc.text(30, line+5, 'Quality : '+$('#CAQuality').val());
 		doc.text(30, line+10, 'Size : '+$('#CASize').val());
 		doc.text(30, line+15, 'Pages : '+$('#CAPages').val());
+		albumsPrinted = true;
 	
 	}
 	if($('#FAQuality').val() != "N/A"){ 
@@ -925,8 +933,8 @@ function savePDF(){
 		doc.text(30+shift, line+10, 'Size : '+$('#FASize').val());
 		doc.text(30+shift, line+15, 'Pages : '+$('#FAPages').val());
 		//shift = shift+60; 
-	}
-	
+		albumsPrinted = true;
+	}	
 	if($('#PSQuality').val() != "N/A"){ 
 		shift = shift+50; 
 		doc.setFontSize(11);
@@ -935,16 +943,23 @@ function savePDF(){
 		doc.text(30+shift, line+5, 'Quality : '+$('#PSQuality').val());
 		doc.text(30+shift, line+10, 'Size : '+$('#PSSize').val());
 		doc.text(30+shift, line+15, 'Pages : '+$('#PSPages').val());
+		albumsPrinted = true;
 	}
-	line=line+25;
+	if(albumsPrinted){
+		line=line+25;
+	}
+	
 	doc.setFontSize(10);
 	if($('#IncludeFA').is(":checked") == true){
 		doc.text(25, line,"1 Family Album included (8x12 story type)");
+		line=line+10;
 	}
 
 	//////////////////////Thanking Card Details//////////////////////
-	line=line+10;
+	
 	shift = 0;
+
+	var thankCardPrinted = false;
 	if($('#thankCardQuality').val() != "N/A"){ 
 	
 		doc.setFontSize(11);
@@ -954,6 +969,7 @@ function savePDF(){
 		doc.text(30, line+10,"Size : " + $('#thankCardSize').val());
 		doc.text(30, line+15,"No. Thanking Cards : " + $('#wedThankCardCount').val()); 
 		shift = 80;
+		thankCardPrinted = true;
 	}
 	
 	if($('#ThankCardQualityH').val() != "N/A"){ 
@@ -964,17 +980,24 @@ function savePDF(){
 		doc.text(30+shift, line+5,"Quality : " + $('#ThankCardQualityH').val());
 		doc.text(30+shift, line+10,"Size : " + $('#ThankCardSizeH').val()); 
 		doc.text(30+shift, line+15,"No. Thanking Cards : " + $('#homeThankCardCount').val());
+		thankCardPrinted = true;
+	}
+	if(thankCardPrinted){
+		line=line+25;
 	}
 	//////////////////////////////////////////////////////////////////
 
-	line=line+25;
-	doc.setFontSize(11);
-	doc.text(25, line,"Enlargements");
-	doc.setFontSize(10);
-	doc.text(30, line+5,$('#Enlarge1').val());
-	doc.text(30, line+10,$('#Enlarge2').val());
-	doc.text(30, line+15,$('#Enlarge3').val()); 
-	line=line+25;
+	if($('#Enlarge1').val() != "" || $('#Enlarge2').val() != "" || $('#Enlarge3').val() != ""){
+		doc.setFontSize(11);
+		doc.text(25, line,"Enlargements");
+		doc.setFontSize(10);
+		doc.text(30, line+5,$('#Enlarge1').val());
+		doc.text(30, line+10,$('#Enlarge2').val());
+		doc.text(30, line+15,$('#Enlarge3').val()); 
+		line=line+25;
+	}
+	////////////////////////////////////////////////////////////////////
+
 	if($('#VidQuality').val() != "N/A"){ 
 		
 		doc.setFontSize(11);
@@ -984,11 +1007,10 @@ function savePDF(){
 		doc.text(30, line+10,"No Of Cameras : "+ $('#VidNoOfCam').val());
 		doc.text(30, line+15,"Type : "+$('#VidType').find(":selected").text()); 
 		
-		if($('#IncludeDrone').is(":checked") == true){
-			line = line+20;
-			// doc.setFontSize(10);
-			doc.text(30, line,"Drone camera will be used for preshoot video process");
+		if($('#IncludeDrone').is(":checked") == true){	
+			doc.text(30, line+20,"Drone camera will be used for preshoot video process");
 		}
+		line = line+20;
 	}
 	
 	var adv1 = parseInt($('#Advance1').val())?parseInt($('#Advance1').val()):0; 
@@ -998,20 +1020,18 @@ function savePDF(){
 	var sumPayments = adv1 + adv2 + adv3;
 	line=line+10;
 	doc.setFontSize(12);
-	doc.text(25, line,"Total Album Price : Rs."+$('#Total').val()+"/=");
-	// doc.text(25, line,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
+	doc.text(25, line,"Total Album Price : "+$('#Total').val()+"/=");
 	doc.setFontSize(10);
-	doc.text(25, line+5,"Transport Cost : Rs."+$('#Transport').val()+"/= ");
-	// doc.text(25, line+5,"Total Charges : Rs."+$('#Total').val()+"/=");
+	var trnsp =  $('#Transport').val() == "" ? "N/A" : ($('#Transport').val() +"/= ");
+	doc.text(25, line+5,"Transport Cost : "+trnsp);
 	doc.setFontSize(10);
-	doc.text(120, line+5,"Advance Payments : Rs."+sumPayments+"/= ");
+	doc.text(120, line+5,"Advance Payments : "+sumPayments+"/= ");
 	
 	line=line+15;
-	var splitTitle = doc.splitTextToSize($('#Comments').val(), 190);
+	var splitTitle = doc.splitTextToSize($('#Comments').val(), 150);
 	if($('#Comments').val() != ""){ 
 		doc.setFontSize(10);
 		doc.text(25, line, splitTitle);
-		//doc.text(25, line, 'Comments : '+$('#Comments').val());
 	}
 	var fileName =$('#name').val()+'-'+ $('#dateW').val()+'.pdf';
 	doc.save(fileName);

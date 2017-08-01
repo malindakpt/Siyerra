@@ -19,7 +19,7 @@ $NameG = $_POST['NameG'];
 $EmailG = $_POST['EmailG'];
 $PhoneG = $_POST['PhoneG'];
 
-$dateW = $_POST['dateW'];
+$dateW = $_POST['dateW'] !== '' ? $_POST['dateW'] : '2010-01-01';
 $timeW = $_POST['timeW'];
 $placeW = $_POST['placeW'];
 $CASize = $_POST['CASize'];
