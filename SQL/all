@@ -1,0 +1,128 @@
+
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 01, 2017 at 09:47 AM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_bookings`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `demo`
+--
+
+CREATE TABLE `demo` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `NameG` varchar(100) NOT NULL,
+  `EmailG` varchar(100) NOT NULL,
+  `PhoneG` varchar(20) NOT NULL,
+  `Address` varchar(100) NOT NULL,
+  `dateW` date NOT NULL,
+  `timeW` varchar(20) NOT NULL,
+  `placeW` varchar(100) NOT NULL,
+  `dateH` date NOT NULL,
+  `timeH` varchar(20) NOT NULL,
+  `placeH` varchar(100) NOT NULL,
+  `CAQuality` varchar(100) NOT NULL,
+  `Album1Type` varchar(20) NOT NULL,
+  `CASize` varchar(20) NOT NULL,
+  `CAPages` varchar(20) NOT NULL,
+  `FAQuality` varchar(100) NOT NULL,
+  `Album2Type` varchar(20) NOT NULL,
+  `FASize` varchar(20) NOT NULL,
+  `FAPages` varchar(20) NOT NULL,
+  `PSQuality` varchar(100) NOT NULL,
+  `PSSize` varchar(20) NOT NULL,
+  `PSPages` varchar(20) NOT NULL,
+  `IncludeFA` varchar(20) NOT NULL,
+  `Enlarge1` varchar(200) NOT NULL,
+  `Enlarge2` varchar(200) NOT NULL,
+  `Enlarge3` varchar(200) NOT NULL,
+  `thankCardQuality` varchar(100) NOT NULL,
+  `thankCardSize` varchar(20) NOT NULL,
+  `wedThankCardCount` varchar(20) NOT NULL,
+  `ThankCardQualityH` varchar(100) NOT NULL,
+  `ThankCardSizeH` varchar(20) NOT NULL,
+  `homeThankCardCount` varchar(20) NOT NULL,
+  `VidQuality` varchar(100) NOT NULL,
+  `VidNoOfCam` varchar(20) NOT NULL,
+  `VidType` varchar(100) NOT NULL,
+  `IncludeDrone` varchar(20) NOT NULL,
+  `Total` varchar(20) NOT NULL,
+  `Transport` varchar(20) NOT NULL,
+  `Advance1` varchar(20) NOT NULL,
+  `Advance2` varchar(20) NOT NULL,
+  `Advance3` varchar(20) NOT NULL,
+  `Comments` varchar(400) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `UserName` varchar(100) NOT NULL,
+  `Password` varchar(100) NOT NULL,
+  `StudioName` varchar(100) NOT NULL,
+  `TableName` varchar(100) NOT NULL,
+  `ExpireDate` date DEFAULT NULL,
+  `Cost` varchar(10) NOT NULL,
+  `Enlargements` varchar(400) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`UserName`, `Password`, `StudioName`, `TableName`, `ExpireDate`, `Cost`, `Enlargements`) VALUES
+('user', '1234', 'Demo Studio', 'demo', '2017-08-16', '8500', '1 Wedding couple enlargement 20x30 with frame####2 Wedding couple enlargement 12x18 with frame####2 Group enlargement 12x18 with frame');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `demo`
+--
+ALTER TABLE `demo`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`UserName`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `demo`
+--
+ALTER TABLE `demo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

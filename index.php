@@ -101,8 +101,8 @@ function ovOff() {
 		 
 		<div >
 			<button onclick="showAll()" class="w3-btn w3-small w3-blue" style="margin: 1px; width: 70px; height: 40px;float: left;">Search</button>
-			<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 70px; height: 40px;float: right;">Clear</button>	
-			<button onclick="pdfAll()" class="w3-btn w3-small w3-green" style="margin: 1px; width: 70px; height: 40px;float: right;">PDF</button>
+			<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 57px; height: 40px;float: right;">Clear</button>	
+			<button onclick="pdfAll()" class="w3-btn w3-small w3-green" style="margin: 1px; width: 57px; height: 40px;float: right;">PDF</button>
 		</div>
 		
 		<table id=allListTable class="w3-table-all w3-centered">
@@ -432,6 +432,7 @@ function ovOff() {
 <div class="footer">
     <p>Powered by MSOFT Software Solutions 2017</p>
 </div>
+<a id="help" href='help' target="_blank" style="padding: 50px;">Help Guide</a>
 <a href='#' onclick='createFullReport();'>Download CSV</a>
 </body>
 <script>
@@ -868,7 +869,7 @@ function savePDF(){
 	doc.addImage(foot, 'PNG', 0, 255, 210, 42);
 
 
-	var line = 40;
+	var line = 50;
 
 	doc.setFontSize(10);
 	doc.text(150, line, new Date().toString().split("GMT")[0]);
@@ -909,7 +910,7 @@ function savePDF(){
 		datePrinted = true;
 	}
 	if(datePrinted){
-		line = line+25;
+		line = line+30;
 	}
 	
 	var albumsPrinted = false;
@@ -1099,6 +1100,11 @@ function pdfAll(){
 
  $( document ).ready(function() {
     clearAll();
+
+	//avoid Help
+	if(tableName = "siyerra"){
+		$('#help').hide()
+	}
 
 		$(".no_comma").on("input", function(){
 		var regexp = /[^a-zA-Z]/g;
