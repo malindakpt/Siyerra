@@ -25,7 +25,7 @@ function login(){ //function parameters, two variables.
 		$arr =  array();
 
 		if ($result->num_rows > 0) {
-			while($row = $result->fetch_assoc()) {
+			if($row = $result->fetch_assoc()) {
 				return "ok;;;;".$row["TableName"].';;;;'.$row["StudioName"].';;;;'.$row["Cost"].';;;;'.$row["Exp"].';;;;'.$row["Enlargements"];
 			}
 		} else { 

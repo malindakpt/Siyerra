@@ -10,7 +10,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="img/logo.png" />
- <title>Login: Photography Diary</title>
+ <title>Photography Diary</title>
 <script src="js/jquery.js"></script>  
 </head>
 <style>
@@ -85,8 +85,11 @@ span.psw {
 </style>
 <body>
  
-<div  style="max-width:350px; margin: 0 auto;">
-    <h2 style="margin:50px" class="sansserif"><b>Photography Diary</b></h2>
+<div  style="max-width:350px; margin: 0 auto; border:1px;">
+    <div style=" background-color: #9933cc; color:white;    padding: 1px;">
+        <h2 style="margin:50px" class="sansserif"><b>Photography DIARY</b></h2>
+    </div>
+
     <div class="imgcontainer">
         <img src="img/logo.png" alt="Avatar" class="avatar">
     </div>

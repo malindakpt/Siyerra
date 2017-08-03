@@ -8,10 +8,16 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="shortcut icon" href="img/logo.png" />
- <title>Photography Diary</title>
-<script src="js/jspdf.debug.js"></script>
+ <title>Photography DIARY</title>
+<script src="js/jspdf.min.js" defer></script>
 <script src="js/jquery.js"></script>  
 <script src="js/sweetalert.js"></script>
+
+
+<!-- <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" onload="myInit()"> -->
+
+</script>
+
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
 <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
@@ -44,7 +50,7 @@
 ?>
 <span style="    display: inline-block;
     margin-top: 10px;
-    margin-left: -80px;"><a>Photography Diary</a></span>
+    margin-left: -80px;"><a>Photography DIARY</a></span>
 <?php
 	if("ok" != $result[0]){echo "<a href=login.php style=float:right;>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
 ?>
@@ -56,6 +62,10 @@
 <div id="overlay" onclick="off()"></div>
 
 <script>
+
+	function myInit(){
+		console.log("loaded Async");
+	}
 function ovOn() {
     document.getElementById("overlay").style.display = "block";
 }
@@ -112,21 +122,21 @@ function ovOff() {
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> 
-				<input id='name' class="w3-input" placeholder="Customer/Groom Name" style="height: 15px;"> </input>
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple"> 
+				<input id='name' class="w3-input" placeholder="Customer/Groom Name"> </input>
 				<br>
 				
-				<input id='email' class="w3-input" placeholder="Customer/Groom Email" maxlength="30" onchange="setEmailButton()"  style="height: 15px;"> </input>
+				<input id='email' class="w3-input" placeholder="Customer/Groom Email" maxlength="30" onchange="setEmailButton()" > </input>
 				<br>
-				<input id='phone' type="number" class="w3-input" placeholder="Customer/Groom Phone" maxlength="10"  style="height: 15px;"> </input>
+				<input id='phone' type="number" class="w3-input" placeholder="Customer/Groom Phone" maxlength="10"> </input>
 				<br>
 				
-				<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeypress="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  style="height: 15px;"> </input>
+				<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeypress="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  > </input>
 				<br> 
 				<div id="Q7">
-					<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"  style="height: 15px;"> </input>
+					<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
 					<br>
-					<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10"  style="height: 15px;"> </input>
+					<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10" > </input>
 					<br>
 				</div>
 
@@ -272,7 +282,7 @@ function ovOff() {
 			<br>
 			</div>	
 		</div> 
-		 <div class="XXX">
+		 <div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 			<br>
 			<label><b>Preshoot Album Quality</b></label>
 			<select id='PSQuality'  class="w3-select"  onchange="showhideQ3()" > 
@@ -301,16 +311,16 @@ function ovOff() {
 			</div>
 		</div>
 		<br> 
-	<!--<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> -->
-	<div>
+	<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo"> 
+	<!-- <div> -->
 		 <input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
 		</div>
 		<br>
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Orange">
+			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 		<label><b>Enlargements Details</b></label>
-<input id='Enlarge1' class="w3-input" maxlength="50" value="1 Wedding couple enlargement 20x30 with frame"> </input>
-<input id='Enlarge2' class="w3-input" maxlength="50" value="2 Wedding couple enlargement 12x18 with frame"> </input>
-<input id='Enlarge3' class="w3-input" maxlength="50" value="2 Group enlargement 12x18 with frame"> </input>
+<input id='Enlarge1' class="w3-input" maxlength="50" value=""> </input>
+<input id='Enlarge2' class="w3-input" maxlength="50" value=""> </input>
+<input id='Enlarge3' class="w3-input" maxlength="50" value=""> </input>
 		<br>
 		</div>
 		
@@ -367,7 +377,7 @@ function ovOff() {
 		</div>
 
 		
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Green">
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 		<label><b>Video Quality</b></label>	
 			<select id='VidQuality'  class="w3-select"  onchange="showhideQ6()" > 
 				<option value="N/A">-Not Included-</option> 
@@ -654,12 +664,10 @@ function showAll() {
 	});
 	$( "#btnHide" ).show();
 }
-// $( "#btnHide" ).hide();
 function hideAll() {
    	$( "#allListTable" ).empty();
 	$( "#btnHide" ).hide();
 }
-
 function setEmailButton(){
 		var mailToLink = "mailto:" + $('#email').val() + "?Subject=Siyeraa Studio Event Plan";
 		$("#EmailTo").attr("href", mailToLink);
@@ -744,6 +752,7 @@ function saveNew() {
 		 ovOff();
 		 if(returnedData == "ok"){
 		 	swal("Saved", $('#name').val() , "success");
+			clearAll();
 		 }else{
 			swal("Oops...", "Check inputs and try again", "error");
 		 }
@@ -891,7 +900,7 @@ function savePDF(){
 		doc.text(25+shift, line+15, 'Email : '+$('#EmailG').val());
 		doc.text(25+shift, line+20, 'Phone : '+$('#PhoneG').val());
 	}
-	line = line + 30;
+	line = line + 35;
 	
 	var datePrinted = false;
 	var shiftDate = 0;
@@ -1097,21 +1106,21 @@ function pdfAll(){
 	});
 } 
 
-
  $( document ).ready(function() {
     clearAll();
-
-	//avoid Help
-	if(tableName = "siyerra"){
-		$('#help').hide()
+	//hiding Help
+	if(tableName == "siyeraa"){
+		$('#help').hide();
 	}
+	// var doc = new jsPDF();
+	// console.log("mkpt");
 
-		$(".no_comma").on("input", function(){
-		var regexp = /[^a-zA-Z]/g;
-		if($(this).val().match(regexp)){
-			$(this).val( $(this).val().replace(regexp,'') );
-		}
-		});
+	// $(".no_comma").on("input", function(){
+	// var regexp = /[^a-zA-Z]/g;
+	// if($(this).val().match(regexp)){
+	// 	$(this).val( $(this).val().replace(regexp,'') );
+	// }
+	// });
 	
 });
 
