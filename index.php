@@ -13,10 +13,22 @@
 <script src="js/jquery.js"></script>  
 <script src="js/sweetalert.js"></script>
 
+ <style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
 
-<!-- <script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" onload="myInit()"> -->
+th, td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2}
 
-</script>
+ </style>
 
 <link rel="stylesheet" type="text/css" href="css/w3css.css">
 <link rel="stylesheet" type="text/css" href="css/template.css">
@@ -114,10 +126,11 @@ function ovOff() {
 			<button onclick="clearAll()" class="w3-btn w3-small w3-orange" style="margin: 1px; width: 57px; height: 40px;float: right;">Clear</button>	
 			<button onclick="pdfAll()" class="w3-btn w3-small w3-green" style="margin: 1px; width: 57px; height: 40px;float: right;">PDF</button>
 		</div>
-		
-		<table id=allListTable class="w3-table-all w3-centered">
-
-		</table>
+		<br>
+		<div style="overflow-x:auto; clear: both;">
+			<table id=allListTable> 
+			</table>
+		</div>
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
@@ -653,7 +666,7 @@ function showAll() {
 				var allArr = JSON.parse(returnedData);
 				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
 				for (var i = 0; i < allArr.length; i++) {
-					$( "#allListTable" ).append( "<tr><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>" );
+					$( "#allListTable" ).append( "<tr id='"+allArr[i].ID+"' onclick='getWedding(this)'><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>" );
 				}
 			}else{
 				document.location = "login.php";
