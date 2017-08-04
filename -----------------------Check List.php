@@ -1,1 +1,0 @@
-Hide Help for siyera

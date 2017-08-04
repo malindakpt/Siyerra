@@ -53,7 +53,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 		echo '<script src="js/footer/'.$result[1].'F.js"></script>';
 
 		if((int)$result[4] < 30){
-			echo '<script>swal("'.$result[4].' days to expire account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
+			echo '<script>swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
 		}
 
 			echo '<script>var enlargements = "'.$result[5].'".split("####");</script>';
@@ -131,7 +131,7 @@ function ovOff() {
 			<table id=allListTable> 
 			</table>
 		</div>
-		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-blue w3-padding-small" style=" float:left; margin:5px">Hide All Events</button>
+		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-orange w3-small" style=" float:left; margin:5px">Clear Searched Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 
@@ -144,7 +144,7 @@ function ovOff() {
 				<input id='phone' type="number" class="w3-input" placeholder="Customer/Groom Phone" maxlength="10"> </input>
 				<br>
 				
-				<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeypress="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  > </input>
+				<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeyup="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  > </input>
 				<br> 
 				<div id="Q7">
 					<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
@@ -160,94 +160,112 @@ function ovOff() {
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 		 <br>
 		  
-<label><b>Main Function/Wedding Album Details</b></label>
-	<input id='dateW'  class="w3-input"  class="w3-input" type='date'> </input>
-			<select id='timeW'  class="w3-select" >
-				<option value="N/A" >-Select Time-</option>
-				<option value="Day">Day Event</option>
-				<option value="Night">Night Event</option>
-			</select>
-			<input id='placeW' placeholder="Main Function/Wedding Location"  class="w3-input" value="" > </input>
-			 
-				<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
-					<option value="Wedding">Wedding</option> 
-					<option value="MainEvent">Main Event</option>  
-				</select>
-				<label style="line-height: 47px;"><b> Album Quality</b></label>
-			<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
-				<option value="N/A">-Not Included-</option> 
-				<option value="Magazine">Magazine</option> 
-				<option value="Story Book">Story Book</option> 
-			</select>
-			<div id ="Q1">
-			<script>
-				function showhideQ1(){
-					 if($('#CAQuality').val()=="N/A"){
-						$('#Q1').hide();
-					 }else{
-						$('#Q1').show();
-					 }
-				}
-				function showhideQ2(){
-					 if($('#FAQuality').val()=="N/A"){
-						$('#Q2').hide();
-					 }else{
-						$('#Q2').show();
-					 }
-				}
-				function showhideQ3(){
-					 if($('#PSQuality').val()=="N/A"){
-						$('#Q3').hide();
-					 }else{
-						$('#Q3').show();
-					 }
-				}
-				function showhideQ4(){
-					 if($('#thankCardQuality').val()=="N/A"){
-						$('#Q4').hide();
-					 }else{
-						$('#Q4').show();
-					 }
-				}
-				function showhideQ5(){
-					 if($('#ThankCardQualityH').val()=="N/A"){
-						$('#Q5').hide();
-					 }else{
-						$('#Q5').show();
-					 }
-				}
-				function showhideQ6(){
-					 if($('#VidQuality').val()=="N/A"){
-						$('#Q6').hide();
-					 }else{
-						$('#Q6').show();
-					 }
-				}
-				function showhideQ7(){
-					 if($('#NameG').val()==""){
-						$('#Q7').hide();
-					 }else{
-						$('#Q7').show();
-					 }
-				}
+			<label><b>Main Function/Wedding Album Details</b></label>
 			
-			</script>
-			<select id='CASize'  class="w3-select" > 
-				<option value="0">-Select Album Size-</option> 
-				<option value="8 x 16">8 x 16</option> 
-				<option value="8 x 20">8 x 20</option> 		
-				<option value="10 x 15">10 x 15</option> 
-				<option value="10 x 20">10 x 20</option> 
-				<option value="10 x 24">10 x 24</option> 
-				<option value="10 x 28">10 x 28</option> 
-				<option value="12 x 24">12 x 24</option> 
-				<option value="12 x 30">12 x 30</option> 
-				<option value="15 x 24">15 x 24</option> 
-				<option value="16 x 24">16 x 24</option> 
-				<option value="17 x 24">17 x 24</option> 
-			</select>
-			<br> 
-			<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
+			<input id='dateW'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ8()"> </input>
+			<div id="Q8">
+				<select id='timeW'  class="w3-select" >
+					<option value="N/A" >-Select Time-</option>
+					<option value="Day">Day Event</option>
+					<option value="Night">Night Event</option>
+				</select>
+				<input id='placeW' placeholder="Main Function/Wedding Location"  class="w3-input" value="" > </input>
+				
+					<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
+						<option value="Wedding">Wedding</option> 
+						<option value="MainEvent">Main Event</option>  
+					</select>
+					<label style="line-height: 47px;"><b> Album Quality</b></label>
+				<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
+					<option value="N/A">-Not Included-</option> 
+					<option value="Magazine">Magazine</option> 
+					<option value="Story Book">Story Book</option> 
+				</select>
+				<div id ="Q1">
+					<script>
+						function showhideQ1(){
+							if($('#CAQuality').val()=="N/A"){
+								$('#Q1').hide();
+							}else{
+								$('#Q1').show();
+							}
+						}
+						function showhideQ2(){
+							if($('#FAQuality').val()=="N/A"){
+								$('#Q2').hide();
+							}else{
+								$('#Q2').show();
+							}
+						}
+						function showhideQ3(){
+							if($('#PSQuality').val()=="N/A"){
+								$('#Q3').hide();
+							}else{
+								$('#Q3').show();
+							}
+						}
+						function showhideQ4(){
+							if($('#thankCardQuality').val()=="N/A"){
+								$('#Q4').hide();
+							}else{
+								$('#Q4').show();
+							}
+						}
+						function showhideQ5(){
+							if($('#ThankCardQualityH').val()=="N/A"){
+								$('#Q5').hide();
+							}else{
+								$('#Q5').show();
+							}
+						}
+						function showhideQ6(){
+							if($('#VidQuality').val()=="N/A"){
+								$('#Q6').hide();
+							}else{
+								$('#Q6').show();
+							}
+						}
+						function showhideQ7(){
+							if($('#NameG').val()==""){
+								$('#Q7').hide();
+							}else{
+								$('#Q7').show();
+							}
+						}
+
+						function showhideQ8(){
+							if($('#dateW').val()==""){
+								$('#Q8').hide();
+							}else{
+								$('#Q8').show();
+							}
+						}
+						function showhideQ9(){
+							if($('#dateH').val()==""){
+								$('#Q9').hide();
+							}else{
+								$('#Q9').show();
+							}
+						}
+					
+					</script>
+					<select id='CASize'  class="w3-select" > 
+						<option value="0">-Select Album Size-</option> 
+						<option value="8 x 16">8 x 16</option> 
+						<option value="8 x 20">8 x 20</option> 		
+						<option value="10 x 15">10 x 15</option> 
+						<option value="10 x 20">10 x 20</option> 
+						<option value="10 x 24">10 x 24</option> 
+						<option value="10 x 28">10 x 28</option> 
+						<option value="12 x 24">12 x 24</option> 
+						<option value="12 x 30">12 x 30</option> 
+						<option value="15 x 24">15 x 24</option> 
+						<option value="16 x 24">16 x 24</option> 
+						<option value="17 x 24">17 x 24</option> 
+					</select>
+					<br> 
+					<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
+				</div>
 			</div>
 				 
 		</div>
@@ -256,44 +274,45 @@ function ovOff() {
 	  	<div class="w3-panel  w3-leftbar w3-rightbar w3-border-red">
 			<br>
 			<label><b>Homecoming/Engagement Album Details</b></label>
-			<input id='dateH'  class="w3-input"  class="w3-input" type='date'> </input>
-			<select id='timeH'  class="w3-select" >
-				<option value="N/A" >-Select Time-</option>
-				<option value="Day">Day Event</option>
-				<option value="Night">Night Event</option>
-			</select>	
-			<input id='placeH' placeholder="Homecoming/Engagement Location"  class="w3-input" value=""> </input>
-		
-			<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
-				<option value="Homecoming">Homecoming</option> 
-				<option value="Engagement">Engagement</option>  
-			</select>
-			<label style="line-height: 47px;"><b> Album Quality</b></label>
-			<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
-				<option value="N/A">-Not Included-</option> 
-				<option value="Magazine">Magazine</option> 
-				<option value="Story Book">Story Book</option> 
-			</select>
-			<div id='Q2'>
-			<select id='FASize'  class="w3-select" > 
-				<option value="0">-Select Album Size-</option> 
-				<option value="8 x 16">8 x 16</option> 
-				<option value="8 x 20">8 x 20</option> 		
-				<option value="10 x 15">10 x 15</option> 
-				<option value="10 x 20">10 x 20</option> 
-				<option value="10 x 24">10 x 24</option> 
-				<option value="10 x 28">10 x 28</option> 
-				<option value="12 x 24">12 x 24</option> 
-				<option value="12 x 30">12 x 30</option> 
-				<option value="15 x 24">15 x 24</option> 
-				<option value="16 x 24">16 x 24</option> 
-				<option value="17 x 24">17 x 24</option> 
-			</select>
-			<br> 
-			<input id='FAPages' class="w3-input" value="40" placeholder="Pages Count"> </input>
+			<input id='dateH'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ9()"> </input>
+			<div id="Q9">
+				<select id='timeH'  class="w3-select" >
+					<option value="N/A" >-Select Time-</option>
+					<option value="Day">Day Event</option>
+					<option value="Night">Night Event</option>
+				</select>	
+				<input id='placeH' placeholder="Homecoming/Engagement Location"  class="w3-input" value=""> </input>
 			
-			<br>
-			</div>	
+				<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
+					<option value="Homecoming">Homecoming</option> 
+					<option value="Engagement">Engagement</option>  
+				</select>
+				<label style="line-height: 47px;"><b> Album Quality</b></label>
+				<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
+					<option value="N/A">-Not Included-</option> 
+					<option value="Magazine">Magazine</option> 
+					<option value="Story Book">Story Book</option> 
+				</select>
+				<div id='Q2'>
+					<select id='FASize'  class="w3-select" > 
+						<option value="0">-Select Album Size-</option> 
+						<option value="8 x 16">8 x 16</option> 
+						<option value="8 x 20">8 x 20</option> 		
+						<option value="10 x 15">10 x 15</option> 
+						<option value="10 x 20">10 x 20</option> 
+						<option value="10 x 24">10 x 24</option> 
+						<option value="10 x 28">10 x 28</option> 
+						<option value="12 x 24">12 x 24</option> 
+						<option value="12 x 30">12 x 30</option> 
+						<option value="15 x 24">15 x 24</option> 
+						<option value="16 x 24">16 x 24</option> 
+						<option value="17 x 24">17 x 24</option> 
+					</select>
+					<br> 
+					<input id='FAPages' class="w3-input" value="40" placeholder="Pages Count"> </input>
+					<br>
+				</div>	
+			</div>
 		</div> 
 		 <div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 			<br>
@@ -496,15 +515,15 @@ function getWedding(event) {
 			$('#PhoneG').val(obj.PhoneG);
 
 			if(obj.dateW.startsWith("2010-01") ||  "" == obj.dateW){
-				$('#dateW').val('');
+				$('#dateW').val('').change();
 			}else{
-				$('#dateW').val(obj.dateW);
+				$('#dateW').val(obj.dateW).change();
 			}
 
 			if(obj.dateH.startsWith("2010-01") ||  "" == obj.dateH){
-				$('#dateH').val('');
+				$('#dateH').val('').change();
 			}else{
-				$('#dateH').val(obj.dateH);
+				$('#dateH').val(obj.dateH).change();
 			}
 
 			$('#timeW').val(obj.timeW); 
@@ -565,8 +584,8 @@ function getWedding(event) {
 function deleteWedding(event) {
    	
 	swal({
-			title: "Delete existing event",
-			text: "Are you sure ?",
+			title: "Delete Existing Event",
+			text: "Are You Sure ?",
 			type: "error",
 			showCancelButton: true,
 			closeOnConfirm: false,
@@ -581,7 +600,7 @@ function deleteWedding(event) {
 					function(returnedData){
 						$( "#btnHide" ).hide();
 						$( "#allListTable" ).empty();
-						swal("Deleted!", "Your event has been deleted.", "success");
+						swal("Deleted!", "Event Deleted Successfully", "success");
 						console.log(returnedData); 
 					}).fail(function(){
 						console.log("error");
@@ -605,7 +624,7 @@ function clearAll() {
 			$('#EmailG').val(""); 
 			$('#PhoneG').val(""); 
 
-			$('#dateW').val(""); 
+			$('#dateW').val("").change(); 
 			$('#timeW').val("N/A"); 
 			$('#placeW').val(""); 
 			$('#CASize').val("0"); 
@@ -624,7 +643,7 @@ function clearAll() {
 			$('#homeThankCardCount').val(""); 
 	
 			$('#Address').val(""); 
-			$('#dateH').val(""); 
+			$('#dateH').val("").change(); 
 			$('#timeH').val("N/A"); 
 			$('#placeH').val(""); 
 			$('#PSSize').val("0"); 
@@ -665,6 +684,9 @@ function showAll() {
 			if(returnedData != "ip"){
 				var allArr = JSON.parse(returnedData);
 				allArr.sort(function(a, b){return Date.parse(a.date)-Date.parse(b.date)});
+				if( allArr.length == 0){
+					$( "#allListTable" ).append("<tr><td style='text-align: center;'>0 results found for this period</td></tr>");			
+				}
 				for (var i = 0; i < allArr.length; i++) {
 					$( "#allListTable" ).append( "<tr id='"+allArr[i].ID+"' onclick='getWedding(this)'><td>"+allArr[i].name+"</td><td>"+allArr[i].date+"</td><td>"+allArr[i].time+':'+allArr[i].type+"</td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='"+allArr[i].ID+"' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>" );
 				}
@@ -692,8 +714,8 @@ function saveNew() {
 		return;
 	}
    		swal({
-			title: "Save new event",
-			text: "Are you sure ?",
+			title: "Save New Event",
+			text: "Are You Sure ?",
 			type: "info",
 			showCancelButton: true,
 			closeOnConfirm: false,
@@ -764,10 +786,10 @@ function saveNew() {
          console.log(returnedData);
 		 ovOff();
 		 if(returnedData == "ok"){
-		 	swal("Saved", $('#name').val() , "success");
+		 	swal("New Event Saved", $('#name').val() , "success");
 			clearAll();
 		 }else{
-			swal("Oops...", "Check inputs and try again", "error");
+			swal("Oops...", "Unexpected Error. Please Contact MSOFT", "error");
 		 }
 	}).fail(function(returnedData){
 		  console.log("error "  + returnedData);
@@ -778,7 +800,7 @@ function saveNew() {
 function update() { 
 
 	if($('#ID').val() == ""){
-		swal("You are trying to update existing event", "You have to open an event first" , "error");
+		swal("Do You Need To Change An Event", "You Don't Have Opened An Event" , "error");
 		return;
 	}
 
@@ -787,8 +809,8 @@ function update() {
 	}
 
 		swal({
-			title: "You are trying to update existing event",
-			text: "Are you sure ?",
+			title: "Do You Need To Change An Event",
+			text: "Are You Sure ?",
 			type: "warning",
 			showCancelButton: true,
 			closeOnConfirm: false,
@@ -1140,8 +1162,8 @@ function pdfAll(){
 
 function createFullReport(){
 	swal({
-		title: "Creating Backup..",
-		text: "This may take few seconds",
+		title: "Creating Backup",
+		text: "This May Take Few Seconds",
 		timer: 3000,
 		showConfirmButton: false
 	});
