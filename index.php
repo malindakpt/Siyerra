@@ -127,10 +127,12 @@ function ovOff() {
 			<button onclick="pdfAll()" class="w3-btn w3-small w3-green" style="margin: 1px; width: 57px; height: 40px;float: right;">PDF</button>
 		</div>
 		<br>
+	
 		<div style="overflow-x:auto; clear: both;">
 			<table id=allListTable> 
 			</table>
 		</div>
+			<p id="wait" style="text-align: center;">wait . . .</p>
 		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-orange w3-small" style=" float:left; margin:5px">Clear Searched Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
@@ -163,24 +165,29 @@ function ovOff() {
 			<label><b>Main Function/Wedding Album Details</b></label>
 			
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ8()"> </input>
+			<br>
 			<div id="Q8">
 				<select id='timeW'  class="w3-select" >
 					<option value="N/A" >-Select Time-</option>
 					<option value="Day">Day Event</option>
 					<option value="Night">Night Event</option>
 				</select>
+				<br><br>
 				<input id='placeW' placeholder="Main Function/Wedding Location"  class="w3-input" value="" > </input>
+				<br>
+				<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
+					<option value="Wedding">Wedding</option> 
+					<option value="MainEvent">Main Event</option>  
+				</select>
 				
-					<select id='Album1Type'  class="w3-select" style="float: left; width: 125px;" > 
-						<option value="Wedding">Wedding</option> 
-						<option value="MainEvent">Main Event</option>  
-					</select>
-					<label style="line-height: 47px;"><b> Album Quality</b></label>
+				<label style="line-height: 47px;"><b> Album Quality</b></label>
 				<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
 					<option value="N/A">-Not Included-</option> 
 					<option value="Magazine">Magazine</option> 
 					<option value="Story Book">Story Book</option> 
 				</select>
+				<br><br>
+				 
 				<div id ="Q1">
 					<script>
 						function showhideQ1(){
@@ -263,7 +270,7 @@ function ovOff() {
 						<option value="16 x 24">16 x 24</option> 
 						<option value="17 x 24">17 x 24</option> 
 					</select>
-					<br> 
+					<br> <br>
 					<input id='CAPages'  class="w3-input" value="50"  placeholder="Pages Count"> </input>
 				</div>
 			</div>
@@ -275,24 +282,27 @@ function ovOff() {
 			<br>
 			<label><b>Homecoming/Engagement Album Details</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ9()"> </input>
+			<br>
 			<div id="Q9">
 				<select id='timeH'  class="w3-select" >
 					<option value="N/A" >-Select Time-</option>
 					<option value="Day">Day Event</option>
 					<option value="Night">Night Event</option>
-				</select>	
+				</select>
+				<br><br>	
 				<input id='placeH' placeholder="Homecoming/Engagement Location"  class="w3-input" value=""> </input>
-			
+			<br>
 				<select id='Album2Type'  class="w3-select" style="float: left; width: 125px;" > 
 					<option value="Homecoming">Homecoming</option> 
 					<option value="Engagement">Engagement</option>  
-				</select>
+				</select> 
 				<label style="line-height: 47px;"><b> Album Quality</b></label>
 				<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
 					<option value="N/A">-Not Included-</option> 
 					<option value="Magazine">Magazine</option> 
 					<option value="Story Book">Story Book</option> 
 				</select>
+				<br><br>
 				<div id='Q2'>
 					<select id='FASize'  class="w3-select" > 
 						<option value="0">-Select Album Size-</option> 
@@ -308,7 +318,7 @@ function ovOff() {
 						<option value="16 x 24">16 x 24</option> 
 						<option value="17 x 24">17 x 24</option> 
 					</select>
-					<br> 
+					<br> <br>
 					<input id='FAPages' class="w3-input" value="40" placeholder="Pages Count"> </input>
 					<br>
 				</div>	
@@ -322,6 +332,7 @@ function ovOff() {
 				<option value="Magazine">Magazine</option> 
 				<option value="Story Book">Story Book</option> 
 			</select>
+			<br><br>
 			<div id='Q3'>
 			<select id='PSSize'  class="w3-select" > 
 				<option value="0">-Album Size-</option> 
@@ -337,7 +348,7 @@ function ovOff() {
 				<option value="16 x 24">16 x 24</option> 
 				<option value="17 x 24">17 x 24</option> 
 			</select>
-			<br> 
+			<br> <br>
 			<!--<label>Preshoot Album Pages Count</label>-->
 			<input id='PSPages' class="w3-input" value="60"  placeholder="Pages Count"> </input>
 			</div>
@@ -350,9 +361,9 @@ function ovOff() {
 		<br>
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 		<label><b>Enlargements Details</b></label>
-<input id='Enlarge1' class="w3-input" maxlength="50" value=""> </input>
-<input id='Enlarge2' class="w3-input" maxlength="50" value=""> </input>
-<input id='Enlarge3' class="w3-input" maxlength="50" value=""> </input>
+			<input id='Enlarge1' class="w3-input" maxlength="50" value=""> </input>
+			<input id='Enlarge2' class="w3-input" maxlength="50" value=""> </input>
+			<input id='Enlarge3' class="w3-input" maxlength="50" value=""> </input>
 		<br>
 		</div>
 		
@@ -366,7 +377,7 @@ function ovOff() {
 				<option value="Double Side Matte">Double Side Matte</option> 
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
-			<br>
+			<br><br>
 			<div id ="Q4">
 			<select id='thankCardSize'  class="w3-select" > 
 				<option value="N/A">-Select Size-</option> 
@@ -376,7 +387,7 @@ function ovOff() {
 				<option value="5 x 10">5 x 10</option> 
 				<option value="6 x 6">6 x 6</option> 
 			</select>
-			<br>
+			<br><br>
 		
 			<input id='wedThankCardCount'  class="w3-input" value="100"  placeholder="Card Count"> </input>
 			</div>
@@ -393,6 +404,7 @@ function ovOff() {
 				<option value="Double Side Matte">Double Side Matte</option> 
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
+			<br><br>
 			<div id ="Q5"> 
 				<select id='ThankCardSizeH'  class="w3-select" > 
 					<option value="N/A">-Select Size-</option> 
@@ -402,7 +414,7 @@ function ovOff() {
 					<option value="5 x 10">5 x 10</option> 
 					<option value="6 x 6">6 x 6</option> 
 				</select>
-				<br>
+				<br><br>
 
 				<input id='homeThankCardCount'  class="w3-input" value="100" placeholder="Card Count"> </input>
 			</div>
@@ -416,7 +428,7 @@ function ovOff() {
 				<option value="blueray">Blueray</option> 
 				<option value="hd">HD</option> 
 			</select>
-			<br>
+			<br><br>
 			<div id ="Q6">
 				<select id='VidNoOfCam'  class="w3-select" > 
 					<option value="N/A">-Select No Of Cam.-</option> 
@@ -425,7 +437,7 @@ function ovOff() {
 					<option value="3cam">Use 3 Cameras</option> 
 					<option value="4cam">Use 4 Cameras</option>  
 				</select>
-				
+				<br><br>
 				<select id='VidType'  class="w3-select" > 
 					<option value="N/A">-Select Coverage Type-</option> 
 					<option value="wed">Wedding Only</option> 
@@ -434,6 +446,7 @@ function ovOff() {
 					<option value="preWed">Preshoot and Wedding</option> 
 					<option value="preWedHome">Preshoot, Wedding and Homecoming</option> 
 				</select>
+				<br><br>
 				<input type="checkbox" class="w3-check" id="IncludeDrone" checked> <b>Include Drone Camera</b></input><br>
 			</div>
 			
