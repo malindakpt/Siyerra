@@ -9,9 +9,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="shortcut icon" href="img/logo.png" />
  <title>Photography DIARY</title>
-<script src="js/jspdf.min.js" defer></script>
+<!-- <script src="js/jspdf.min.js" defer></script>
 <script src="js/jquery.js"></script>  
-<script src="js/sweetalert.js"></script>
+<script src="js/sweetalert.js"></script> -->
+<link rel="stylesheet" type="text/css" href="css/w3css.css">
+<link rel="stylesheet" type="text/css" href="css/template.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+ 
+<script type="text/javascript">
+	window.onload = function() {
+		loadScript("js/jquery.js",initializePage);
+	
+		// alert("  on Loaded");
+
+		
+	}
+
+	function initializePage(){
+		//clearAll(); 
+		if(tableName == "siyeraa"){
+			$('#help').hide();
+		}
+		console.log("JQuery loaded");
+
+		loadScript("js/sweetalert.js",function(){console.log("sweetalert loaded");});
+		loadScript("js/jspdf.min.js",function(){$('#wait').hide();console.log("JSpdf loaded");});
+		loadHeader();
+		loadFooter();
+
+
+		// console.log("Page Loaded Successfully");
+	}
+	
+	function loadScript(url, callback){
+
+    var script = document.createElement("script")
+    script.type = "text/javascript";
+
+    if (script.readyState){  //IE
+        script.onreadystatechange = function(){
+            if (script.readyState == "loaded" ||
+                    script.readyState == "complete"){
+                script.onreadystatechange = null;
+				
+				if(callback){
+					callback();
+				}
+               
+				// console.log("loaded IE");
+            }
+        };
+    } else {  //Others
+        script.onload = function(){
+            //callback();
+			// console.log("loaded Chomer");
+				if(callback){
+					callback();
+				}
+        };
+    }
+
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+</script>
+ 
 
  <style>
 table {
@@ -30,10 +93,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
  </style>
 
-<link rel="stylesheet" type="text/css" href="css/w3css.css">
-<link rel="stylesheet" type="text/css" href="css/template.css">
-<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-<link rel="stylesheet" type="text/css" href="css/custom.css">
+
 </head>
 <body>
 <div class="header">
@@ -49,8 +109,11 @@ tr:nth-child(even){background-color: #f2f2f2}
 	}else{
 		echo '<h3 style="float:left  ;  margin: 0 auto;">'.$result[2].'</h3><br>';
 		echo '<script>var tableName = "'.$result[1].'";</script>';
-		echo '<script src="js/header/'.$result[1].'H.js"></script>'; 
-		echo '<script src="js/footer/'.$result[1].'F.js"></script>';
+		// echo '<script src="js/header/'.$result[1].'H.js"></script>'; 
+		// echo '<script src="js/footer/'.$result[1].'F.js"></script>';
+
+		echo '<script>function loadHeader(){ 	loadScript("js/header/'.$result[1].'H.js",function(){console.log("header loaded");});}</script>'; 
+		echo '<script>function loadFooter(){ 	loadScript("js/footer/'.$result[1].'F.js",function(){console.log("footer loaded");});}</script>'; 
 
 		if((int)$result[4] < 30){
 			echo '<script>swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
@@ -133,7 +196,7 @@ function ovOff() {
 			</table>
 		</div>
 			<p id="wait" style="text-align: center;">wait . . .</p>
-		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-orange w3-small" style=" float:left; margin:5px">Clear Searched Events</button>
+		 <button id="btnHide" onclick="hideAll()" class="w3-btn w3-orange w3-small" style=" float:left; margin:5px; display:none;">Clear Searched Events</button>
 		<br> 
 		<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 
@@ -181,6 +244,7 @@ function ovOff() {
 				</select>
 				
 				<label style="line-height: 47px;"><b> Album Quality</b></label>
+				<br><br>
 				<select id='CAQuality'  class="w3-select" onchange="showhideQ1()" > 
 					<option value="N/A">-Not Included-</option> 
 					<option value="Magazine">Magazine</option> 
@@ -297,6 +361,7 @@ function ovOff() {
 					<option value="Engagement">Engagement</option>  
 				</select> 
 				<label style="line-height: 47px;"><b> Album Quality</b></label>
+				<br><br>
 				<select id='FAQuality'  class="w3-select"  onchange="showhideQ2()" > 
 					<option value="N/A">-Not Included-</option> 
 					<option value="Magazine">Magazine</option> 
@@ -1154,23 +1219,22 @@ function pdfAll(){
 	});
 } 
 
- $( document ).ready(function() {
-    clearAll();
-	//hiding Help
-	if(tableName == "siyeraa"){
-		$('#help').hide();
-	}
-	// var doc = new jsPDF();
-	// console.log("mkpt");
+//  $( document ).ready(function() {
+//     clearAll(); 
+// 	if(tableName == "siyeraa"){
+// 		$('#help').hide();
+// 	}
+// 	// var doc = new jsPDF();
+// 	// console.log("mkpt");
 
-	// $(".no_comma").on("input", function(){
-	// var regexp = /[^a-zA-Z]/g;
-	// if($(this).val().match(regexp)){
-	// 	$(this).val( $(this).val().replace(regexp,'') );
-	// }
-	// });
+// 	// $(".no_comma").on("input", function(){
+// 	// var regexp = /[^a-zA-Z]/g;
+// 	// if($(this).val().match(regexp)){
+// 	// 	$(this).val( $(this).val().replace(regexp,'') );
+// 	// }
+// 	// });
 	
-});
+// });
 
 
 function createFullReport(){
