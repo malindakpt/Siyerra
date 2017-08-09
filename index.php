@@ -27,7 +27,7 @@
 	}
 
 	function initializePage(){
-		//clearAll(); 
+		clearAll(); 
 		if(tableName == "siyeraa"){
 			$('#help').hide();
 		}
