@@ -211,7 +211,7 @@ function ovOff() {
 				
 				<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeyup="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  > </input>
 				<br> 
-				<div id="Q7">
+				<div id="Q7" style="display:none;">
 					<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
 					<br>
 					<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10" > </input>
@@ -229,7 +229,7 @@ function ovOff() {
 			
 			<input id='dateW'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ8()"> </input>
 			<br>
-			<div id="Q8">
+			<div id="Q8" style="display:none;">
 				<select id='timeW'  class="w3-select" >
 					<option value="N/A" >-Select Time-</option>
 					<option value="Day">Day Event</option>
@@ -252,7 +252,7 @@ function ovOff() {
 				</select>
 				<br><br>
 				 
-				<div id ="Q1">
+				<div id ="Q1" style="display:none;">
 					<script>
 						function showhideQ1(){
 							if($('#CAQuality').val()=="N/A"){
@@ -347,7 +347,7 @@ function ovOff() {
 			<label><b>Homecoming/Engagement Album Details</b></label>
 			<input id='dateH'  class="w3-input"  class="w3-input" type='date' onchange="showhideQ9()"> </input>
 			<br>
-			<div id="Q9">
+			<div id="Q9" style="display:none;">
 				<select id='timeH'  class="w3-select" >
 					<option value="N/A" >-Select Time-</option>
 					<option value="Day">Day Event</option>
@@ -368,7 +368,7 @@ function ovOff() {
 					<option value="Story Book">Story Book</option> 
 				</select>
 				<br><br>
-				<div id='Q2'>
+				<div id="Q2" style="display:none;">
 					<select id='FASize'  class="w3-select" > 
 						<option value="0">-Select Album Size-</option> 
 						<option value="8 x 16">8 x 16</option> 
@@ -398,7 +398,7 @@ function ovOff() {
 				<option value="Story Book">Story Book</option> 
 			</select>
 			<br><br>
-			<div id='Q3'>
+			<div id="Q3" style="display:none;">
 			<select id='PSSize'  class="w3-select" > 
 				<option value="0">-Album Size-</option> 
 				<option value="8 x 16">8 x 16</option> 
@@ -443,7 +443,7 @@ function ovOff() {
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br><br>
-			<div id ="Q4">
+			<div id ="Q4" style="display:none;">
 			<select id='thankCardSize'  class="w3-select" > 
 				<option value="N/A">-Select Size-</option> 
 				<option value="4 x 8">4 x 8</option> 
@@ -470,7 +470,7 @@ function ovOff() {
 				<option value="Double Side Glossy">Double Side Glossy</option>  
 			</select>
 			<br><br>
-			<div id ="Q5"> 
+			<div id ="Q5" style="display:none;"> 
 				<select id='ThankCardSizeH'  class="w3-select" > 
 					<option value="N/A">-Select Size-</option> 
 					<option value="4 x 8">4 x 8</option> 
@@ -494,7 +494,7 @@ function ovOff() {
 				<option value="hd">HD</option> 
 			</select>
 			<br><br>
-			<div id ="Q6">
+			<div id ="Q6" style="display:none;">
 				<select id='VidNoOfCam'  class="w3-select" > 
 					<option value="N/A">-Select No Of Cam.-</option> 
 					<option value="1cam">Use 1 Camera</option> 
