@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/template.css">
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css"> 
 
-	<link rel="stylesheet" type="text/css" href="css/main.css?1.1">
+	<link rel="stylesheet" type="text/css" href="css/main.css?1.3">
 </head>
 
 <body>
@@ -41,8 +41,8 @@
 				echo '<script>swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
 			}
 
-				echo '<script>var enlargements = "'.$result[5].'".split("####");</script>';
-				echo '<script>var studioName = "'.$result[2].'";</script>';
+			echo '<script>var enlargements = "'.$result[5].'".split("####");</script>';
+			echo '<script>var studioName = "'.$result[2].'";</script>';
 		}
 	?>
 	<span style="    display: inline-block;
@@ -232,25 +232,29 @@
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 					<label><b>Enlargements Details</b></label>
 					<div>
-						<input id='EnCount1' class="en-count w3-input" maxlength="20" value="1"></input> 
-						<select id='EnSize1' class="w3-select" onchange="setEnlargementCost();"> 
+						<input id='EnCount1' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+						<select id='EnSize1' class="enl-size w3-select" onchange="setEnlargementCost();"> 
 							<option value="0">Enlargement Size</option> 
 							<?php echo getProperty("EnlargementSizes"); ?>
 						</select>
 					</div>
 					<div>
-						<input id='EnCount2' class="en-count w3-input" maxlength="20" value="1"></input> 
-						<select id='EnSize2' class="w3-select" onchange="setEnlargementCost();"> 
+						<input id='EnCount2' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+						<select id='EnSize2' class="enl-size w3-select" onchange="setEnlargementCost();"> 
 							<option value="0">Enlargement Size</option> 
 							<?php echo getProperty("EnlargementSizes"); ?>
 						</select>
 					</div>
 					<div>
-						<input id='EnCount3' class="en-count w3-input" maxlength="20" value="1"></input> 
-						<select id='EnSize3' class="w3-select" onchange="setEnlargementCost();"> 
+						<input id='EnCount3' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+						<select id='EnSize3' class="enl-size w3-select" onchange="setEnlargementCost();"> 
 							<option value="0">Enlargement Size</option> 
 							<?php echo getProperty("EnlargementSizes"); ?>
 						</select>
+					</div>
+					<div>
+						<input id='EnlPrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='EnlCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
 					<br>
 			</div>
@@ -259,10 +263,7 @@
 			<label><b>Wedding Thanking Card Details</b></label>
 				<select id='thankCardQuality'  class="w3-select" onchange="showhideQ4()" > 
 					<option value="N/A">-Not Included-</option> 
-					<option value="Single Side Matte">Single Side Matte</option> 
-					<option value="Single Side Glossy">Single Side Glossy</option> 
-					<option value="Double Side Matte">Double Side Matte</option> 
-					<option value="Double Side Glossy">Double Side Glossy</option>  
+					<?php echo getProperty("ThankCardQualities"); ?>  
 				</select>
 				<br><br>
 				<div id ="Q4" style="display:none;">
@@ -280,10 +281,7 @@
 				<label><b>Homecoming Thanking Card Details</b></label>
 				<select id='ThankCardQualityH'  class="w3-select"  onchange="showhideQ5()"> 
 					<option value="N/A">-Not Included-</option> 
-					<option value="Single Side Matte">Single Side Matte</option> 
-					<option value="Single Side Glossy">Single Side Glossy</option> 
-					<option value="Double Side Matte">Double Side Matte</option> 
-					<option value="Double Side Glossy">Double Side Glossy</option>  
+					<?php echo getProperty("ThankCardQualities"); ?>  
 				</select>
 				<br><br>
 				<div id ="Q5" style="display:none;"> 

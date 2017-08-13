@@ -1,4 +1,7 @@
 var cm = new Map();
+
+
+
 cm.set("Magazine:8 x 16:Pages", 30);
 cm.set("Magazine:8 x 16:Cost", 14000);
 cm.set("Magazine:8 x 16:Price", 65000);
@@ -22,6 +25,36 @@ cm.set("Story Book:8 x 20:Cost", 14000);
 cm.set("Story Book:8 x 20:Price", 62000);
 cm.set("Story Book:8 x 20:ExCost", 1300);
 cm.set("Story Book:8 x 20:ExPrice", 2300);
+
+cm.set("Enl:15 x 24:Cost", 3000);
+cm.set("Enl:16 x 24:Cost", 4000);
+cm.set("Enl:17 x 24:Cost", 5000);
+cm.set("Enl:15 x 24:Price", 4000);
+cm.set("Enl:16 x 24:Price", 5000);
+cm.set("Enl:17 x 24:Price", 6000);
+
+function setEnlargementCost() {
+    var size1 = $('#EnSize1').val();
+    var size2 = $('#EnSize2').val();
+    var size3 = $('#EnSize3').val();
+
+    var cost1 = Number(cm.get("Enl:" + size1 + ":Cost"));
+    var cost2 = Number(cm.get("Enl:" + size2 + ":Cost"));
+    var cost3 = Number(cm.get("Enl:" + size3 + ":Cost"));
+    var price1 = Number(cm.get("Enl:" + size1 + ":Price"));
+    var price2 = Number(cm.get("Enl:" + size2 + ":Price"));
+    var price3 = Number(cm.get("Enl:" + size3 + ":Price"));
+
+    var count1 = Number($('#EnCount1').val());
+    var count2 = Number($('#EnCount2').val());
+    var count3 = Number($('#EnCount3').val());
+
+    var totCost = cost1 * count1 + cost2 * count2 + cost3 * count3;
+    var totPrice = price1 * count1 + price2 * count2 + price3 * count3;
+
+    $('#EnlCost').val(totCost);
+    $('#EnlPrice').val(totPrice);
+}
 
 function setAlbumCost(album) {
 
@@ -83,7 +116,4 @@ function setAlbumCost(album) {
         $('#Album3Cost').val(totCost);
         $('#Album3Price').val(totPrice);
     }
-
-
-
 }

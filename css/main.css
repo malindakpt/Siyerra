@@ -1,3 +1,15 @@
+.enl-count {
+    float: left;
+    width: 20%;
+    margin: 7px;
+}
+
+.enl-size {
+    float: left;
+    width: 60%;
+    margin: 7px;
+}
+
 .input-price {
     width: 20%;
     float: right;
