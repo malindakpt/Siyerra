@@ -28,13 +28,14 @@ input[type=text], input[type=password] {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: blue;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 2px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 45%;
+    
 }
 
 button:hover {
@@ -102,7 +103,8 @@ span.psw {
     <input id="Password" type="password" placeholder="Enter Password" name="psw" required>
         <label id="error" style="color:red;display:none;">Invalid UserName or Password</label>
         <label id="exp" style="color:red;display:none;"> <a href="tel:+94771141194" style="float:left;text-decoration:none;color:red">Account is expired. If you have done the payment already,  please call us : +94771141194</a></label>
-    <button onclick="login()">Login</button> 
+    <button onclick="login()" style="float:left;">Login</button> 
+    <button onclick="demoLogin()"  style="float:right;">Trial</button> 
   </div>
 
   <div id="contactus" class="container" style="background-color:#f1f1f1; display:none;">
@@ -123,6 +125,28 @@ function login(){
     	$.post('loginS1.php', { 
 			UserName :$('#UserName').val(),
             Password :$('#Password').val(),
+		}, 
+		function(returnedData){
+            if(returnedData=="ok"){
+                document.location = "index.php";
+            }
+            else if(returnedData=="exp"){
+                $('#exp').show();
+            }else{
+                $('#error').show();
+            }
+			console.log(returnedData); 
+		}).fail(function(){
+			  console.log("error");
+             
+	    });
+}
+
+function demoLogin(){
+
+    	$.post('loginS1.php', { 
+			UserName :"demo",
+            Password :"1234",
 		}, 
 		function(returnedData){
             if(returnedData=="ok"){
