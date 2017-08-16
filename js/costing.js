@@ -1,67 +1,3 @@
-var cm = new Map();
-
-
-
-cm.set("Magazine:8 x 16:Pages", 30);
-cm.set("Magazine:8 x 16:Cost", 14000);
-cm.set("Magazine:8 x 16:Price", 65000);
-cm.set("Magazine:8 x 16:ExCost", 1750);
-cm.set("Magazine:8 x 16:ExPrice", 2750);
-
-cm.set("Magazine:8 x 20:Pages", 30);
-cm.set("Magazine:8 x 20:Cost", 16000);
-cm.set("Magazine:8 x 20:Price", 71000);
-cm.set("Magazine:8 x 20:ExCost", 2000);
-cm.set("Magazine:8 x 20:ExPrice", 3000);
-
-cm.set("Story Book:8 x 16:Pages", 30);
-cm.set("Story Book:8 x 16:Cost", 12000);
-cm.set("Story Book:8 x 16:Price", 55000);
-cm.set("Story Book:8 x 16:ExCost", 1200);
-cm.set("Story Book:8 x 16:ExPrice", 2200);
-
-cm.set("Story Book:8 x 20:Pages", 30);
-cm.set("Story Book:8 x 20:Cost", 14000);
-cm.set("Story Book:8 x 20:Price", 62000);
-cm.set("Story Book:8 x 20:ExCost", 1300);
-cm.set("Story Book:8 x 20:ExPrice", 2300);
-
-cm.set("Enl:15 x 24:Cost", 3000);
-cm.set("Enl:16 x 24:Cost", 4000);
-cm.set("Enl:17 x 24:Cost", 5000);
-cm.set("Enl:15 x 24:Price", 4000);
-cm.set("Enl:16 x 24:Price", 5000);
-cm.set("Enl:17 x 24:Price", 6000);
-
-cm.set("Single Side Matte:4 x 8:Cost", 12);
-cm.set("Single Side Matte:4 x 12:Cost", 15);
-cm.set("Single Side Matte:4 x 8:Price", 20);
-cm.set("Single Side Matte:4 x 12:Price", 30);
-
-cm.set("Single Side Glossy:4 x 8:Cost", 12);
-cm.set("Single Side Glossy:4 x 12:Cost", 15);
-cm.set("Single Side Glossy:4 x 8:Price", 20);
-cm.set("Single Side Glossy:4 x 12:Price", 30);
-
-cm.set("Blueray:1cam:wed:Cost", 10000);
-cm.set("Blueray:2cam:wedHome:Cost", 20000);
-cm.set("Blueray:2cam:wedHome:Cost", 30000);
-cm.set("Blueray:1cam:wed:Price", 150000);
-cm.set("Blueray:2cam:wedHome:Price", 25000);
-cm.set("Blueray:2cam:wedHome:Price", 35000);
-
-cm.set("Drone:Cost", 4000);
-cm.set("Drone:Price", 5500);
-
-cm.set("MiniAlb:Cost", 4000);
-cm.set("MiniAlb:Price", 5500);
-
-
-cm.set("SigBoard:15 x 24:Cost", 9000);
-cm.set("SigBoard:15 x 24:Price", 12000);
-cm.set("SigBoard:17 x 24:Cost", 10000);
-cm.set("SigBoard:17 x 24:Price", 15000);
-
 function setMiniAlbCost() {
     if ($('#IncludeFA').prop('checked') == true) {
         $('#miniAlbCost').val(cm.get("MiniAlb:Cost"));
@@ -185,13 +121,11 @@ function setAlbumCost(album) {
         pages = Number($('#PSPages').val());
     }
 
-
-
-    var keyPages = quality + ":" + size + ":Pages";
-    var keyCost = quality + ":" + size + ":Cost";
-    var keyPrice = quality + ":" + size + ":Price";
-    var keyExCost = quality + ":" + size + ":ExCost";
-    var keyExPrice = quality + ":" + size + ":ExCost";
+    var keyPages = quality + ":" + size + ":FixedPages";
+    var keyCost = quality + ":" + size + ":FixedCost";
+    var keyPrice = quality + ":" + size + ":FixedPrice";
+    var keyExCost = quality + ":" + size + ":ExtraPageCost";
+    var keyExPrice = quality + ":" + size + ":ExtraPagePrice";
 
     var pagesLimit = Number(cm.get(keyPages));
     var cost = Number(cm.get(keyCost));

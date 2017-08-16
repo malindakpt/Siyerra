@@ -3,6 +3,8 @@
 	session_start(); 
 	include 'loginS2.php';
 	include 'config.php';
+	include 'getCost.php';
+
 ?>
 
 <html>
@@ -10,8 +12,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="img/logo.png" />
 	<title>Photography DIARY</title>
-	
- 
+	<script>	
+		var cm = new Map();
+		<?php  
+			$result = getAllCost();
+			$resArr = explode(";;;;",$result);
+			$resMap = array();
+			for ($i = 0; $i < sizeof($resArr)-1; $i++) {
+				$arr = explode("?",$resArr[$i]);
+				echo 'cm.set("'.$arr[0].'", '.$arr[1].');';
+			}
+		?>
+ 	</script>
 	<script src="js/costing.js?1.2" ></script>
 	<script src="js/main.js?1.0"></script> 
 	
@@ -396,4 +408,6 @@
 	<a id="help" href='help' target="_blank" style="padding: 50px; display:none">Help Guide</a>
 	<a href='#' onclick='createFullReport();'>Download CSV</a>
 </body>
+
+
 </html>

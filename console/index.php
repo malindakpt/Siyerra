@@ -3,7 +3,7 @@
 	session_start(); 
 	include '../loginS2.php';
 	include '../config.php';
-	include 'getCost.php';
+	include '../getCost.php';
 ?>
 
 <html>
@@ -82,9 +82,9 @@ function send(){
 	$.post('setCost.php', attr,
                function(returnedData) {
                    
-                  alert(returnedData);
+                  console.log(returnedData);
               }).fail(function() {
-               console.log("error");
+               alert("error");
     });
 }
 </script>
@@ -93,47 +93,32 @@ function send(){
 
 
 <?php 
-
 	$qualities = explode("value",getProperty("AlbumQualities"));
-
 	$albums = explode("value", getProperty("AlbumSizes"));
-
-	echo "<ul id='albumCosts'>";
-
 	$result = getAllCost();
-
 	$resArr = explode(";;;;",$result);
 	$resMap = array();
-	for ($i = 1; $i < sizeof($resArr)-1; $i++) {
+	for ($i = 0; $i < sizeof($resArr)-1; $i++) {
 		$arr = explode("?",$resArr[$i]);
 		$resMap[$arr[0]] = $arr[1];
 	}
 
+	echo "<ul id='albumCosts'>";
 	for ($x = 1; $x < sizeof($qualities); $x++) {
 		$subs = explode("\"",$qualities[$x])[1];
-	
+		
 		for ($y = 1; $y < sizeof($albums); $y++) {
 			$v2 = explode("\"",$albums[$y])[1];
 			$key = $subs.':'.$v2;
-			echo '<li>'.$subs.':'.$v2.':Pages</li><input value="'.$resMap[$key.':Pages'].'" class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':Cost</li><input value="'.$resMap[$key.':Cost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':Price</li><input value="'.$resMap[$key.':Price'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExCost</li><input value="'.$resMap[$key.':ExCost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExPrice</li><input value="'.$resMap[$key.':ExPrice'].'"  class="w3-input input-get-cost"/>';
-			
+			echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':ExtraPageCost</li><input value="'.$resMap[$key.':ExtraPageCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':ExtraPagePrice</li><input value="'.$resMap[$key.':ExtraPagePrice'].'"  class="w3-input input-get-cost"/>';		
 		}
-
 	}
 	echo "</ul>"
 ?>
-
-
-
-
-
-
-
-
 
 		</div>	
 		<div class="col-3 col-m-12">
