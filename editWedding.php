@@ -66,21 +66,27 @@ $Transport = $_POST['Transport'];
 $Album1Type = $_POST['Album1Type'];
 $Album2Type = $_POST['Album2Type'];
 
-$Enlarge1 = $_POST['Enlarge1'];
-$Enlarge2 = $_POST['Enlarge2'];
-$Enlarge3 = $_POST['Enlarge3'];
+$Enlarge1Size = $_POST['Enlarge1Size'];
+$Enlarge2Size = $_POST['Enlarge2Size'];
+$Enlarge3Size = $_POST['Enlarge3Size'];
+
+$Enlarge1Count = $_POST['Enlarge1Count'];
+$Enlarge2Count = $_POST['Enlarge2Count'];
+$Enlarge3Count = $_POST['Enlarge3Count'];
+
+$SigBoard = $_POST['SigBoard'];
 
 
 $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType', Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3', 
  Total='$Total', Comments='$Comments', IncludeFA='$IncludeFA', Address='$Address', IncludeDrone='$IncludeDrone',
  NameG='$NameG', EmailG='$EmailG', PhoneG='$PhoneG'
- , ThankCardSizeH='$ThankCardSizeH', ThankCardQualityH='$ThankCardQualityH', Transport='$Transport', Album1Type='$Album1Type', Album2Type='$Album2Type'
-,Enlarge1='$Enlarge1', Enlarge2='$Enlarge2', Enlarge3= '$Enlarge3'
+,ThankCardSizeH='$ThankCardSizeH', ThankCardQualityH='$ThankCardQualityH', Transport='$Transport', Album1Type='$Album1Type', Album2Type='$Album2Type'
+,Enlarge1Size='$Enlarge1Size', Enlarge2Size='$Enlarge2Size', Enlarge3Size= '$Enlarge3Size' 
+,Enlarge1Count='$Enlarge1Count', Enlarge2Count='$Enlarge2Count', Enlarge3Count= '$Enlarge3Count' 
+,SigBoard= '$SigBoard'
 
 WHERE  ID = '$ID'";
-
-
 
 if ($conn->query($sql) === TRUE) {
     echo "Existing record edited successfully";

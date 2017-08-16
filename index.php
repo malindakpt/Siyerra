@@ -148,8 +148,7 @@
 					<br><br>
 					<select id='CAQuality'  class="w3-select" onchange="showhideQ1(); setAlbumCost(1);" > 
 						<option value="N/A">-Not Included-</option> 
-						<option value="Magazine">Magazine</option> 
-						<option value="Story Book">Story Book</option> 
+						<?php echo getProperty("AlbumQualities"); ?>
 					</select>
 					<br><br>
 					
@@ -190,8 +189,7 @@
 					<br><br>
 					<select id='FAQuality'  class="w3-select"  onchange="showhideQ2(); setAlbumCost(2);"> 
 						<option value="N/A">-Not Included-</option> 
-						<option value="Magazine">Magazine</option> 
-						<option value="Story Book">Story Book</option> 
+						<?php echo getProperty("AlbumQualities"); ?>
 					</select>
 					<br><br>
 					<div id="Q2" style="display:none;">
@@ -211,8 +209,7 @@
 				<label><b>Preshoot Album Quality</b></label>
 				<select id='PSQuality'  class="w3-select"  onchange="showhideQ3(); setAlbumCost(3);" > 
 					<option value="N/A">-Not Included-</option> 
-					<option value="Magazine">Magazine</option> 
-					<option value="Story Book">Story Book</option> 
+					<?php echo getProperty("AlbumQualities"); ?>
 				</select>
 				<br><br>
 				<div id="Q3" style="display:none;">
@@ -227,32 +224,53 @@
 				</div>
 			</div>
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
-			<input type="checkbox" class="w3-check" id="IncludeFA" checked> <b>Include Family Album</b></input><br>
+			
+			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Family Album</b></input><br>
+			<input id='miniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
+			<input id='miniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+		
+			
+		
 		</div>
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
-					<label><b>Enlargements Details</b></label>
-					<div>
-						<input id='EnCount1' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
-						<select id='EnSize1' class="enl-size w3-select" onchange="setEnlargementCost();"> 
-							<option value="0">Enlargement Size</option> 
-							<?php echo getProperty("EnlargementSizes"); ?>
-						</select>
-					</div>
-					<div>
-						<input id='EnCount2' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
-						<select id='EnSize2' class="enl-size w3-select" onchange="setEnlargementCost();"> 
-							<option value="0">Enlargement Size</option> 
-							<?php echo getProperty("EnlargementSizes"); ?>
-						</select>
-					</div>
-					<div>
-						<input id='EnCount3' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
-						<select id='EnSize3' class="enl-size w3-select" onchange="setEnlargementCost();"> 
-							<option value="0">Enlargement Size</option> 
-							<?php echo getProperty("EnlargementSizes"); ?>
-						</select>
-					</div>
-					<div>
+
+
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
+			<label><b>Signature Board Details</b></label>
+			<select id='SigBoard' class="w3-select" onchange="setSigBoardCost();"> 
+				<option value="N/A">-Select Signature Board-</option> 
+				<?php echo getProperty("EnlargementSizes"); ?>
+			</select>
+			<input id='sigBoardPrice'  class="input-price w3-input" placeholder="Price"> </input>
+			<input id='sigBoardCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+		</div>
+
+		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
+				<label><b>Enlargements Details</b></label>
+				<div>
+					<select id='Enlarge1Size' class="enl-size w3-select" onchange="setEnlargementCost();"> 
+						<option value="N/A">-Select Enlargement 1 Size-</option> 
+						<?php echo getProperty("EnlargementSizes"); ?>
+					</select>
+					<input placeholder="Count" id='Enlarge1Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+				
+				</div>
+				<div>
+					<select id='Enlarge2Size' class="enl-size w3-select" onchange="setEnlargementCost();"> 
+						<option value="N/A">-Select Enlargement 2 Size-</option> 
+						<?php echo getProperty("EnlargementSizes"); ?>
+					</select>
+					<input placeholder="Count" id='Enlarge2Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+				
+				</div>
+				<div>
+					<select id='Enlarge3Size' class="enl-size w3-select" onchange="setEnlargementCost();"> 
+						<option value="N/A">-Select Enlargement 3  Size-</option> 
+						<?php echo getProperty("EnlargementSizes"); ?>
+					</select>
+					<input placeholder="Count" id='Enlarge3Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+				
+				</div>
+				<div>
 						<input id='EnlPrice'  class="input-price w3-input" placeholder="Price"> </input>
 						<input id='EnlCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
@@ -261,62 +279,66 @@
 		
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-blue">
 			<label><b>Wedding Thanking Card Details</b></label>
-				<select id='thankCardQuality'  class="w3-select" onchange="showhideQ4()" > 
+				<select id='thankCardQuality'  class="w3-select" onchange="showhideQ4(); setThankCardCost('wed');" > 
 					<option value="N/A">-Not Included-</option> 
 					<?php echo getProperty("ThankCardQualities"); ?>  
 				</select>
 				<br><br>
 				<div id ="Q4" style="display:none;">
-				<select id='thankCardSize'  class="w3-select" > 
+				<select id='thankCardSize'  class="w3-select"  onchange="setThankCardCost('wed');"> 
 					<option value="N/A">-Select Size-</option> 
 					<?php echo getProperty("ThankCardSizes"); ?>
 				</select>
 				<br><br>
 			
-				<input id='wedThankCardCount'  class="w3-input" value="100"  placeholder="Card Count"> </input>
+				<div>
+					<input id='wedThankCardCount' type="number"  class="input-pageCount w3-input" placeholder="Card Count" onchange="setThankCardCost('wed');"> </input>
+					<input id='wedThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
+					<input id='wedThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+				</div>
+			
 				</div>
 			</div>
 					
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Red">
 				<label><b>Homecoming Thanking Card Details</b></label>
-				<select id='ThankCardQualityH'  class="w3-select"  onchange="showhideQ5()"> 
-					<option value="N/A">-Not Included-</option> 
+				<select id='ThankCardQualityH'  class="w3-select"  onchange="showhideQ5(); setThankCardCost('home');"> 
+					 <option value="N/A">-Not Included-</option>  
 					<?php echo getProperty("ThankCardQualities"); ?>  
 				</select>
 				<br><br>
 				<div id ="Q5" style="display:none;"> 
-					<select id='ThankCardSizeH'  class="w3-select" > 
+					<select id='ThankCardSizeH'  class="w3-select" onchange="setThankCardCost('home');"> 
 						<option value="N/A">-Select Size-</option> 
 						<?php echo getProperty("ThankCardSizes"); ?>
 					</select>
-					<br><br>
-					<input id='homeThankCardCount'  class="w3-input" value="100" placeholder="Card Count"> </input>
+					<br><br> 
+					<div style="float:left">
+						<input id='homeThankCardCount'  type="number"  class="input-pageCount w3-input" placeholder="Card Count" onchange="setThankCardCost('home');"> </input>
+						<input id='homeThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='homeThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+					</div>
 				</div>
 			</div>
 	
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 			<label><b>Video Quality</b></label>	
-				<select id='VidQuality'  class="w3-select"  onchange="showhideQ6()" > 
+				<select id='VidQuality'  class="w3-select"  onchange="showhideQ6();setVideoCost();" > 
 					<option value="N/A">-Not Included-</option> 
-					<option value="blueray">Blueray</option> 
-					<option value="hd">HD</option> 
+					<option value="Blueray">Blueray</option> 
+					<option value="HD">HD</option> 
 				</select>
 				<br><br>
 				<div id ="Q6" style="display:none;">
-					<select id='VidNoOfCam'  class="w3-select" > 
+					<select id='VidNoOfCam'  class="w3-select" onchange="setVideoCost();"> 
 						<option value="N/A">-Select No Of Cam.-</option> 
 						<option value="1cam">Use 1 Camera</option> 
-						<option value="2cam">Use 2 Cameras</option> 
-						<option value="3cam">Use 3 Cameras</option> 
-						<option value="4cam">Use 4 Cameras</option>  
+						<option value="2cam">Use 2 Camera</option> 
+						<option value="3cam">Use 3 Camera</option> 
+						<option value="4cam">Use 4 Camera</option>  
 					</select>
-					<br><br>
-					<input type="checkbox" class="w3-check" id="VidPre" checked>Preshoot</input><br>
-					<input type="checkbox" class="w3-check" id="VidWed" checked>Wedding</input><br>
-					<input type="checkbox" class="w3-check" id="VidHome" checked>Homecoming</input><br>
-					<input type="checkbox" class="w3-check" id="VidOther" checked>Other</input><br>
-					
-					<select id='VidType'  class="w3-select" > 
+					<br><br> 
+					<select id='VidType'  class="w3-select" onchange="setVideoCost();"> 
 						<option value="N/A">-Select Coverage Type-</option> 
 						<option value="wed">Wedding Only</option> 
 						<option value="wedHome">Wedding and Homecoming</option> 
@@ -324,8 +346,18 @@
 						<option value="preWed">Preshoot and Wedding</option> 
 						<option value="preWedHome">Preshoot, Wedding and Homecoming</option> 
 					</select>
-					<br><br>
-					<input type="checkbox" class="w3-check" id="IncludeDrone" checked> <b>Include Drone Camera</b></input><br>
+					<div>
+						<input id='vidPrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='vidCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+						 
+					</div>
+					<br><br><br>
+					<div>
+					 
+						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDoneCost();"> <b>Include Drone Camera</b></input><br>
+						<input id='dronePrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='droneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+					</div>
 				</div>	
 			</div>
 
@@ -361,7 +393,7 @@
 	<div class="footer">
 		<p>Powered by MSOFT Software Solutions 2017</p>
 	</div>
-	<a id="help" href='help' target="_blank" style="padding: 50px;">Help Guide</a>
+	<a id="help" href='help' target="_blank" style="padding: 50px; display:none">Help Guide</a>
 	<a href='#' onclick='createFullReport();'>Download CSV</a>
 </body>
 </html>

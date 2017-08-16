@@ -26,6 +26,7 @@ function login(){ //function parameters, two variables.
 
 		if ($result->num_rows > 0) {
 			if($row = $result->fetch_assoc()) {
+				$_SESSION['TableName'] =$row["TableName"];
 				return "ok;;;;".$row["TableName"].';;;;'.$row["StudioName"].';;;;'.$row["Cost"].';;;;'.$row["Exp"].';;;;'.$row["Enlargements"];
 			}
 		} else { 

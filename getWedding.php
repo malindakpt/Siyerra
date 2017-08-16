@@ -38,7 +38,9 @@ if ($result->num_rows > 0) {
 
 		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],
 		'Transport' => $row["Transport"], 'Album1Type' => $row["Album1Type"], 'Album2Type' => $row["Album2Type"]
-		,'Enlarge1' => $row["Enlarge1"]	,'Enlarge2' => $row["Enlarge2"]	,'Enlarge3' => $row["Enlarge3"]
+		,'Enlarge1Size' => $row["Enlarge1Size"]	,'Enlarge2Size' => $row["Enlarge2Size"]	,'Enlarge3Size' => $row["Enlarge3Size"]
+		,'Enlarge1Count' => $row["Enlarge1Count"]	,'Enlarge2Count' => $row["Enlarge2Count"]	,'Enlarge3Count' => $row["Enlarge3Count"]
+		,'SigBoard' => $row["SigBoard"]
 		
 		); 
     }

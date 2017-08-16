@@ -71,9 +71,14 @@ function getWedding(event) {
             $('#VidNoOfCam').val(obj.VidNoOfCam);
             $('#VidType').val(obj.VidType);
 
-            $('#Enlarge1').val(obj.Enlarge1);
-            $('#Enlarge2').val(obj.Enlarge2);
-            $('#Enlarge3').val(obj.Enlarge3);
+
+            $('#Enlarge1Size').val(obj.Enlarge1Size);
+            $('#Enlarge2Size').val(obj.Enlarge2Size);
+            $('#Enlarge3Size').val(obj.Enlarge3Size);
+
+            $('#Enlarge1Count').val(obj.Enlarge1Count);
+            $('#Enlarge2Count').val(obj.Enlarge2Count);
+            $('#Enlarge3Count').val(obj.Enlarge3Count);
 
             $('#Advance1').val(obj.Advance1);
             $('#Advance2').val(obj.Advance2);
@@ -89,6 +94,8 @@ function getWedding(event) {
             $('#Transport').val(obj.Transport);
             $('#Album1Type').val(obj.Album1Type);
             $('#Album2Type').val(obj.Album2Type);
+
+            $('#SigBoard').val(obj.SigBoard).change();
 
             showRemainingBal();
 
@@ -176,9 +183,13 @@ function clearAll() {
     $('#VidNoOfCam').val("N/A");
     $('#VidType').val("N/A");
 
-    $('#Enlarge1').val(enlargements[0]);
-    $('#Enlarge2').val(enlargements[1]);
-    $('#Enlarge3').val(enlargements[2]);
+    $('#Enlarge1Size').val("N/A");
+    $('#Enlarge2Size').val("N/A");
+    $('#Enlarge3Size').val("N/A");
+
+    $('#Enlarge1Count').val("");
+    $('#Enlarge2Count').val("");
+    $('#Enlarge3Count').val("");
 
     $('#Advance1').val("");
     $('#Advance2').val("");
@@ -192,6 +203,9 @@ function clearAll() {
     $('#ThankCardSizeH').val("N/A");
     $('#ThankCardQualityH').val("N/A").change();
     $('#Transport').val("");
+
+
+    $('#SigBoard').val("N/A").change();
 }
 
 function showAll() {
@@ -289,9 +303,13 @@ function saveNew() {
                     VidNoOfCam: $('#VidNoOfCam').val(),
                     VidType: $('#VidType').val(),
 
-                    Enlarge1: $('#Enlarge1').val(),
-                    Enlarge2: $('#Enlarge2').val(),
-                    Enlarge3: $('#Enlarge3').val(),
+                    Enlarge1Size: $('#Enlarge1Size').val(),
+                    Enlarge2Size: $('#Enlarge2Size').val(),
+                    Enlarge3Size: $('#Enlarge3Size').val(),
+
+                    Enlarge1Count: $('#Enlarge1Count').val(),
+                    Enlarge2Count: $('#Enlarge2Count').val(),
+                    Enlarge3Count: $('#Enlarge3Count').val(),
 
                     Comments: $('#Comments').val(),
                     Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
@@ -306,7 +324,9 @@ function saveNew() {
                     Transport: $('#Transport').val(),
 
                     Album1Type: $('#Album1Type').val(),
-                    Album2Type: $('#Album2Type').val()
+                    Album2Type: $('#Album2Type').val(),
+
+                    SigBoard: $('#SigBoard').val()
 
                 },
                 function(returnedData) {
@@ -386,9 +406,13 @@ function update() {
                     VidNoOfCam: $('#VidNoOfCam').val(),
                     VidType: $('#VidType').val(),
 
-                    Enlarge1: $('#Enlarge1').val(),
-                    Enlarge2: $('#Enlarge2').val(),
-                    Enlarge3: $('#Enlarge3').val(),
+                    Enlarge1Size: $('#Enlarge1Size').val(),
+                    Enlarge2Size: $('#Enlarge2Size').val(),
+                    Enlarge3Size: $('#Enlarge3Size').val(),
+
+                    Enlarge1Count: $('#Enlarge1Count').val(),
+                    Enlarge2Count: $('#Enlarge2Count').val(),
+                    Enlarge3Count: $('#Enlarge3Count').val(),
 
                     Comments: $('#Comments').val(),
 
@@ -404,7 +428,9 @@ function update() {
                     ThankCardQualityH: $('#ThankCardQualityH').val(),
                     Transport: $('#Transport').val(),
                     Album1Type: $('#Album1Type').val(),
-                    Album2Type: $('#Album2Type').val()
+                    Album2Type: $('#Album2Type').val(),
+
+                    SigBoard: $('#SigBoard').val()
                 },
                 function(returnedData) {
                     ovOff();

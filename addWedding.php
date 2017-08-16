@@ -58,19 +58,31 @@ $Transport = $_POST['Transport'];
 $Album1Type = $_POST['Album1Type'];
 $Album2Type = $_POST['Album2Type'];
 
-$Enlarge1 = $_POST['Enlarge1'];
-$Enlarge2 = $_POST['Enlarge2'];
-$Enlarge3 = $_POST['Enlarge3'];
+$Enlarge1Size = $_POST['Enlarge1Size'];
+$Enlarge2Size = $_POST['Enlarge2Size'];
+$Enlarge3Size = $_POST['Enlarge3Size'];
+
+$Enlarge1Count = $_POST['Enlarge1Count'];
+$Enlarge2Count = $_POST['Enlarge2Count'];
+$Enlarge3Count = $_POST['Enlarge3Count'];
+
+$SigBoard = $_POST['SigBoard'];
 
 
 $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
  homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, 
- IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album1Type,Album2Type,Enlarge1,Enlarge2,Enlarge3 ) 
+ IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album1Type,Album2Type,
+Enlarge1Size,Enlarge2Size,Enlarge3Size,
+Enlarge1Count,Enlarge2Count,Enlarge3Count,
+ SigBoard ) 
 
 VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', 
 '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', 
 '$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments','$IncludeFA', 
-'$Address', '$IncludeDrone',  '$NameG', '$EmailG', '$PhoneG','$ThankCardSizeH', '$ThankCardQualityH', '$Transport','$Album1Type','$Album2Type','$Enlarge1','$Enlarge2','$Enlarge3')";
+'$Address', '$IncludeDrone',  '$NameG', '$EmailG', '$PhoneG','$ThankCardSizeH', '$ThankCardQualityH', '$Transport','$Album1Type','$Album2Type',
+'$Enlarge1Size','$Enlarge2Size','$Enlarge3Size',
+'$Enlarge1Count','$Enlarge2Count','$Enlarge3Count',
+'$SigBoard')";
 
 
 if ($conn->query($sql) === TRUE) {

@@ -33,10 +33,117 @@ cm.set("Enl:15 x 24:Price", 4000);
 cm.set("Enl:16 x 24:Price", 5000);
 cm.set("Enl:17 x 24:Price", 6000);
 
+cm.set("Single Side Matte:4 x 8:Cost", 12);
+cm.set("Single Side Matte:4 x 12:Cost", 15);
+cm.set("Single Side Matte:4 x 8:Price", 20);
+cm.set("Single Side Matte:4 x 12:Price", 30);
+
+cm.set("Single Side Glossy:4 x 8:Cost", 12);
+cm.set("Single Side Glossy:4 x 12:Cost", 15);
+cm.set("Single Side Glossy:4 x 8:Price", 20);
+cm.set("Single Side Glossy:4 x 12:Price", 30);
+
+cm.set("Blueray:1cam:wed:Cost", 10000);
+cm.set("Blueray:2cam:wedHome:Cost", 20000);
+cm.set("Blueray:2cam:wedHome:Cost", 30000);
+cm.set("Blueray:1cam:wed:Price", 150000);
+cm.set("Blueray:2cam:wedHome:Price", 25000);
+cm.set("Blueray:2cam:wedHome:Price", 35000);
+
+cm.set("Drone:Cost", 4000);
+cm.set("Drone:Price", 5500);
+
+cm.set("MiniAlb:Cost", 4000);
+cm.set("MiniAlb:Price", 5500);
+
+
+cm.set("SigBoard:15 x 24:Cost", 9000);
+cm.set("SigBoard:15 x 24:Price", 12000);
+cm.set("SigBoard:17 x 24:Cost", 10000);
+cm.set("SigBoard:17 x 24:Price", 15000);
+
+function setMiniAlbCost() {
+    if ($('#IncludeFA').prop('checked') == true) {
+        $('#miniAlbCost').val(cm.get("MiniAlb:Cost"));
+        $('#miniAlbPrice').val(cm.get("MiniAlb:Price"));
+    } else {
+        $('#miniAlbCost').val("");
+        $('#miniAlbPrice').val("");
+    }
+}
+
+function setSigBoardCost() {
+    var cost = cm.get("SigBoard:" + $('#SigBoard').val() + ":Cost");
+    var price = cm.get("SigBoard:" + $('#SigBoard').val() + ":Price");
+    $('#sigBoardCost').val(cost);
+    $('#sigBoardPrice').val(price);
+
+}
+
+
+function setDoneCost() {
+    if ($('#IncludeDrone').prop('checked') == true) {
+        $('#droneCost').val(cm.get("Drone:Cost"));
+        $('#dronePrice').val(cm.get("Drone:Price"));
+    } else {
+        $('#droneCost').val("");
+        $('#dronePrice').val("");
+    }
+}
+
+function setVideoCost() {
+    var quality, camCount, coverage;
+    quality = $('#VidQuality').val();
+    camCount = $('#VidNoOfCam').val();
+    coverage = $('#VidType').val();
+
+    var key = quality + ":" + camCount + ":" + coverage;
+
+    var cost = cm.get(key + ":Cost");
+    var price = cm.get(key + ":Price");
+
+    $('#vidCost').val(cost);
+    $('#vidPrice').val(price);
+
+}
+
+function setThankCardCost(day) {
+
+    var size, quality, count;
+
+    if (day == "wed") {
+        size = $('#thankCardSize').val();
+        quality = $('#thankCardQuality').val();
+        count = Number($('#wedThankCardCount').val());
+    }
+    if (day == "home") {
+        size = $('#ThankCardSizeH').val();
+        quality = $('#ThankCardQualityH').val();
+        count = Number($('#homeThankCardCount').val());
+    }
+
+    var cost = Number(cm.get(quality + ":" + size + ":Cost"));
+    var price = Number(cm.get(quality + ":" + size + ":Price"));
+
+    var totCost = cost * count;
+    var totPrice = price * count;
+
+
+    if (day == "wed") {
+        $('#wedThankCost').val(totCost);
+        $('#wedThankPrice').val(totPrice);
+    }
+    if (day == "home") {
+        $('#homeThankCost').val(totCost);
+        $('#homeThankPrice').val(totPrice);
+    }
+}
+
+
 function setEnlargementCost() {
-    var size1 = $('#EnSize1').val();
-    var size2 = $('#EnSize2').val();
-    var size3 = $('#EnSize3').val();
+    var size1 = $('#Enlarge1Size').val();
+    var size2 = $('#Enlarge2Size').val();
+    var size3 = $('#Enlarge3Size').val();
 
     var cost1 = Number(cm.get("Enl:" + size1 + ":Cost"));
     var cost2 = Number(cm.get("Enl:" + size2 + ":Cost"));
@@ -45,9 +152,9 @@ function setEnlargementCost() {
     var price2 = Number(cm.get("Enl:" + size2 + ":Price"));
     var price3 = Number(cm.get("Enl:" + size3 + ":Price"));
 
-    var count1 = Number($('#EnCount1').val());
-    var count2 = Number($('#EnCount2').val());
-    var count3 = Number($('#EnCount3').val());
+    var count1 = Number($('#Enlarge1Count').val());
+    var count2 = Number($('#Enlarge2Count').val());
+    var count3 = Number($('#Enlarge3Count').val());
 
     var totCost = cost1 * count1 + cost2 * count2 + cost3 * count3;
     var totPrice = price1 * count1 + price2 * count2 + price3 * count3;
