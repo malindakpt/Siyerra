@@ -49,9 +49,12 @@
 	<span style="    display: inline-block;
 		margin-top: 10px;
 		margin-left: -80px;"><a>Photography DIARY</a></span>
+	<span style="    float: right;">
+		<a href=../index.php style="margin-right: 5px;">MyDiary</a>
 	<?php
-		if("ok" != $result[0]){echo "<a href=login.php style=float:right;>login</a>";}else{	echo "<a href=login.php style=float:right>logout</a>";}	
+		if("ok" != $result[0]){echo "<a href=../login.php >login</a>";}else{	echo "<a href=../login.php >logout</a>";}	
 	?>
+	</span>
 	<br>
 	</div> 
 	 
