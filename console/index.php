@@ -48,7 +48,7 @@
 	?>
 	<span style="    display: inline-block;
 		margin-top: 10px;
-		margin-left: -80px;"><a>Photography DIARY</a></span>
+		margin-left: -80px;"><a>Photography DIARY Settings</a></span>
 	<span style="    float: right;">
 		<a href=../index.php style="margin-right: 5px;">MyDiary</a>
 	<?php
@@ -66,14 +66,10 @@
 			</div>
 
 		</div>
-		<div class="col-6 col-m-9">
+		<div class="col-6 col-m-9" style="width:100%">
 
+ 
 
-
-	<h3>Album Cost Settings</h3>
-
-
-<button onclick="send()"> Submit </button>
 <script>
 
 function send(){
@@ -91,6 +87,7 @@ function send(){
     });
 }
 </script>
+
 <?php
 	$result = getAllCost();
 	$resArr = explode(";;;;",$result);
@@ -100,6 +97,77 @@ function send(){
 		$resMap[$arr[0]] = $arr[1];
 	}
 ?>
+
+<div class="w3-bar w3-black">
+  <button class="w3-btn w3-black w3-padding-small" onclick="openCat('SignatureBoard')">Signature Board</button>
+  <button class="w3-btn w3-black w3-padding-small" onclick="openCat('Enlargements')">Enlargements</button>
+  <button class="w3-btn w3-black w3-padding-small" onclick="openCat('ThankCard')">Thankyou Cards</button>
+  <button class="w3-btn w3-black w3-padding-small" onclick="openCat('AlbumCost')">Album</button>
+    <button class="w3-btn w3-black w3-padding-small" onclick="openCat('Video')">Video </button>
+  <button class="w3-btn w3-black w3-padding-small" onclick="openCat('Other')">Other</button> 
+</div>
+
+<div>
+<button onclick="send()" class="w3-btn w3-green w3-padding-small" style="float:right;margin:5px"> Save Changes </button>
+
+</div>
+
+<script>
+function openCat(cityName) {
+    var i;
+    var x = document.getElementsByClassName("cat");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(cityName).style.display = "block";  
+}
+</script>
+
+<div id="Other" class="w3-container cat" style="display:none">
+
+	
+	<?php 
+		echo "<h4>Drone Camera Cost and Price</h4>";
+		echo "<ul id='droneCamCOst'>";
+			echo '<li class="lbl-settings">DroneCameraCost</li><input value="'.$resMap['DroneCameraCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">DroneCameraPrice</li><input value="'.$resMap['DroneCameraPrice'].'"  class="w3-input input-get-cost"/>';		
+		echo "</ul>"
+	?>
+	
+	<?php 
+		echo "<h4>Mini Album Cost and Price</h4>";
+		echo "<ul id='miniALbumCOst'>";
+			echo '<li class="lbl-settings">MiniAlbumCost</li><input value="'.$resMap['MiniAlbumCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">MiniAlbumPrice</li><input value="'.$resMap['MiniAlbumPrice'].'"  class="w3-input input-get-cost"/>';		
+		echo "</ul>"
+?>
+
+	<?php 
+		echo "<h4>Helper Cost and Price</h4>";
+		echo "<ul id='helperCost'>";
+			echo '<li class="lbl-settings">Cost For 1 Helper</li><input value="'.$resMap['Cost For 1 Helper'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">Price For 1 Helper</li><input value="'.$resMap['Price For 1 Helper'].'"  class="w3-input input-get-cost"/>';		
+		echo "</ul>"
+	?>
+</div>
+
+<div id="SignatureBoard" class="w3-container cat">
+<?php  
+	$EnlargementSizes = explode("value", getProperty("EnlargementSizes"));
+
+	echo "<h4>SignatureBoard Cost and Price</h4>";
+	echo "<ul id='enlargementCost'>";
+	
+		for ($y = 1; $y < sizeof($EnlargementSizes); $y++) {
+			$v2 = explode("\"",$EnlargementSizes[$y])[1];
+			echo '<li class="lbl-settings">'.$v2.':SignatureBoardCost</li><input value="'.$resMap[$v2.':SignatureBoardCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">'.$v2.':SignatureBoardPrice</li><input value="'.$resMap[$v2.':SignatureBoardPrice'].'"  class="w3-input input-get-cost"/>';		
+		}
+	echo "</ul>"
+?>
+</div>
+
+<div id="Video" class="w3-container cat" style="display:none">
 <?php 
 	$VidQuality = explode("value",getProperty("VidQuality"));
 	$VidNoOfCam = explode("value", getProperty("VidNoOfCam"));
@@ -107,6 +175,7 @@ function send(){
 
 	echo "<h4>Video Cost and Price</h4>";
 	echo "<ul id='videoCost'>";
+	echo '<table style="    border: none;">';
 	for ($x = 1; $x < sizeof($VidQuality); $x++) {
 		$subs = explode("\"",$VidQuality[$x])[1];	
 		for ($y = 1; $y < sizeof($VidNoOfCam); $y++) {
@@ -115,87 +184,87 @@ function send(){
 				for ($y = 1; $y < sizeof($VidType); $y++) {
 					$v3 = explode("\"",$VidType[$y])[1];
 					$subs3 = $subs2.':'.$v3;
-					echo '<li>'.$subs3.':VideoCost</li><input value="'.$resMap[$subs3.':VideoCost'].'"  class="w3-input input-get-cost"/>';
-					echo '<li>'.$subs3.':VideoPrice</li><input value="'.$resMap[$subs3.':VideoPrice'].'"  class="w3-input input-get-cost"/>';		
+					echo '<tr>';
+						echo '<td><li class="lbl-settings">'.$subs3.':VideoCost</li><input value="'.$resMap[$subs3.':VideoCost'].'"  class="w3-input input-get-cost"/></td>';
+						echo '<td><li class="lbl-settings">'.$subs3.':VideoPrice</li><input value="'.$resMap[$subs3.':VideoPrice'].'"  class="w3-input input-get-cost"/></td>';		
+					echo '</tr>';
 				}
 		}
 	}
+	echo '</table>';
 	echo "</ul>"
 ?>
+</div>
 
-<?php 
-	// $qualities = explode("value",getProperty("AlbumQualities"));
+<div id="Enlargements" class="w3-container cat" style="display:none">
+<?php  
 	$EnlargementSizes = explode("value", getProperty("EnlargementSizes"));
 
 	echo "<h4>Enlargements Cost and Price</h4>";
 	echo "<ul id='enlargementCost'>";
-	// for ($x = 1; $x < sizeof($qualities); $x++) {
-		// $subs = explode("\"",$qualities[$x])[1];
-		
 		for ($y = 1; $y < sizeof($EnlargementSizes); $y++) {
 			$v2 = explode("\"",$EnlargementSizes[$y])[1];
-			// $key = $subs.':'.$v2;
-			// echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
-			// echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
-			// echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$v2.':ExtraEnlargementCost</li><input value="'.$resMap[$v2.':ExtraEnlargementCost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$v2.':ExtraEnlargementPrice</li><input value="'.$resMap[$v2.':ExtraEnlargementPrice'].'"  class="w3-input input-get-cost"/>';		
+			echo '<li class="lbl-settings">'.$v2.':ExtraEnlargementCost</li><input value="'.$resMap[$v2.':ExtraEnlargementCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">'.$v2.':ExtraEnlargementPrice</li><input value="'.$resMap[$v2.':ExtraEnlargementPrice'].'"  class="w3-input input-get-cost"/>';		
 		}
-	// }
 	echo "</ul>"
 ?>
+</div>
 
+<div id="ThankCard" class="w3-container cat" style="display:none">
 <?php 
 	$qualities = explode("value",getProperty("ThankCardQualities"));
 	$sizes = explode("value", getProperty("ThankCardSizes"));
 
 	echo "<h4>Thank Card Cost and Price</h4>";
 	echo "<ul id='thankCardCosts'>";
+	echo '<table style="    border: none;">';
 	for ($x = 1; $x < sizeof($qualities); $x++) {
 		$subs = explode("\"",$qualities[$x])[1];
 		
 		for ($y = 1; $y < sizeof($sizes); $y++) {
 			$v2 = explode("\"",$sizes[$y])[1];
 			$key = $subs.':'.$v2;
-			// echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
-			// echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
-			// echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExtraCardCost</li><input value="'.$resMap[$key.':ExtraCardCost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExtraCardPrice</li><input value="'.$resMap[$key.':ExtraCardPrice'].'"  class="w3-input input-get-cost"/>';		
+			echo '<tr>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':ExtraCardCost</li><input value="'.$resMap[$key.':ExtraCardCost'].'"  class="w3-input input-get-cost"/></td>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':ExtraCardPrice</li><input value="'.$resMap[$key.':ExtraCardPrice'].'"  class="w3-input input-get-cost"/></td>';		
+			echo '</tr>';
 		}
 	}
-	echo "</ul>"
+	echo '</table>';
+	echo "</ul>";
 ?>
+</div>
 
 
-
+<div id="AlbumCost" class="w3-container cat" style="display:none">
 <?php 
 	$qualities = explode("value",getProperty("AlbumQualities"));
 	$albums = explode("value", getProperty("AlbumSizes"));
-	// $result = getAllCost();
-	// $resArr = explode(";;;;",$result);
-	// $resMap = array();
-	// for ($i = 0; $i < sizeof($resArr)-1; $i++) {
-	// 	$arr = explode("?",$resArr[$i]);
-	// 	$resMap[$arr[0]] = $arr[1];
-	// }
+
 	echo "<h4>Album Cost and Price</h4>";
 	echo "<ul id='albumCosts'>";
+	echo '<table style="    border: none;">';
 	for ($x = 1; $x < sizeof($qualities); $x++) {
 		$subs = explode("\"",$qualities[$x])[1];
 		
 		for ($y = 1; $y < sizeof($albums); $y++) {
 			$v2 = explode("\"",$albums[$y])[1];
 			$key = $subs.':'.$v2;
-			echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExtraPageCost</li><input value="'.$resMap[$key.':ExtraPageCost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li>'.$subs.':'.$v2.':ExtraPagePrice</li><input value="'.$resMap[$key.':ExtraPagePrice'].'"  class="w3-input input-get-cost"/>';		
+			echo '<tr>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="input-settings w3-input"/></td>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="input-settings w3-input "/></td>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="input-settings w3-input "/></td>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':ExtraPageCost</li><input value="'.$resMap[$key.':ExtraPageCost'].'"  class="input-settings w3-input "/></td>';
+			echo '<td><li class="lbl-settings">'.$subs.':'.$v2.':ExtraPagePrice</li><input value="'.$resMap[$key.':ExtraPagePrice'].'"  class="input-settings w3-input "/></td>';		
+			echo '</tr>';
 		}
 	}
+	echo '</table>';
 	echo "</ul>"
 ?>
+</div>
+
 
 		</div>	
 		<div class="col-3 col-m-12">

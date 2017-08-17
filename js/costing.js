@@ -1,7 +1,7 @@
 function setMiniAlbCost() {
     if ($('#IncludeFA').prop('checked') == true) {
-        $('#miniAlbCost').val(cm.get("MiniAlb:Cost"));
-        $('#miniAlbPrice').val(cm.get("MiniAlb:Price"));
+        $('#miniAlbCost').val(cm.get("MiniAlbumCost"));
+        $('#miniAlbPrice').val(cm.get("MiniAlbumPrice"));
     } else {
         $('#miniAlbCost').val("");
         $('#miniAlbPrice').val("");
@@ -9,18 +9,31 @@ function setMiniAlbCost() {
 }
 
 function setSigBoardCost() {
-    var cost = cm.get("SigBoard:" + $('#SigBoard').val() + ":Cost");
-    var price = cm.get("SigBoard:" + $('#SigBoard').val() + ":Price");
+    var cost = cm.get($('#SigBoard').val() + ":SignatureBoardPrice");
+    var price = cm.get($('#SigBoard').val() + ":SignatureBoardPrice");
     $('#sigBoardCost').val(cost);
     $('#sigBoardPrice').val(price);
 
 }
 
+function setHelperCost() {
+    var cost = Number(cm.get("Cost For 1 Helper"));
+    var price = Number(cm.get("Price For 1 Helper"));
 
-function setDoneCost() {
+    var count = Number($('#helperCount').val());
+
+    var totCost = cost * count;
+    var totPrice = price * count;
+
+    $('#helperCost').val(totCost);
+    $('#helperPrice').val(totPrice);
+}
+
+
+function setDroneCost() {
     if ($('#IncludeDrone').prop('checked') == true) {
-        $('#droneCost').val(cm.get("Drone:Cost"));
-        $('#dronePrice').val(cm.get("Drone:Price"));
+        $('#droneCost').val(cm.get("DroneCameraCost"));
+        $('#dronePrice').val(cm.get("DroneCameraPrice"));
     } else {
         $('#droneCost').val("");
         $('#dronePrice').val("");
@@ -64,6 +77,8 @@ function setThankCardCost(day) {
     var totCost = cost * count;
     var totPrice = price * count;
 
+    totCost = isNaN(totCost) ? "" : totCost;
+    totPrice = isNaN(totPrice) ? "" : totPrice;
 
     if (day == "wed") {
         $('#wedThankCost').val(totCost);
@@ -94,6 +109,9 @@ function setEnlargementCost() {
 
     var totCost = cost1 * count1 + cost2 * count2 + cost3 * count3;
     var totPrice = price1 * count1 + price2 * count2 + price3 * count3;
+
+    totCost = isNaN(totCost) ? "" : totCost;
+    totPrice = isNaN(totPrice) ? "" : totPrice;
 
     $('#EnlCost').val(totCost);
     $('#EnlPrice').val(totPrice);
@@ -142,6 +160,8 @@ function setAlbumCost(album) {
         totPrice = price;
     }
 
+    totCost = isNaN(totCost) ? "" : totCost;
+    totPrice = isNaN(totPrice) ? "" : totPrice;
 
     if (album == "1") {
         $('#Album1Cost').val(totCost);

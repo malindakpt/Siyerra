@@ -12,20 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="../img/logo.png" />
 	<title>Photography DIARY</title>
-	<script>	
-		var cm = new Map();
-		<?php  
-			$result = getAllCost();
-			$resArr = explode(";;;;",$result);
-			$resMap = array();
-			for ($i = 0; $i < sizeof($resArr)-1; $i++) {
-				$arr = explode("?",$resArr[$i]);
-				echo 'cm.set("'.$arr[0].'", '.$arr[1].');';
-			}
-		?>
- 	</script>
-	<script src="js/costing.js?1.2" ></script>
-	<script src="js/main.js?1.0"></script> 
+
 	
 	<link rel="stylesheet" type="text/css" href="css/w3css.css">
 	<link rel="stylesheet" type="text/css" href="css/template.css">
@@ -240,7 +227,7 @@
 			</div>
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
 			
-			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Family Album</b></input><br>
+			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Mini Album</b></input><br>
 			<input id='miniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
 			<input id='miniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 		
@@ -359,13 +346,21 @@
 					</div>
 					<br><br><br>
 					<div>					 
-						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDoneCost();"> <b>Include Drone Camera</b></input><br>
+						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDroneCost();"> <b>Include Drone Camera</b></input><br>
 						<input id='dronePrice'  class="input-price w3-input" placeholder="Price"> </input>
 						<input id='droneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
 				</div>	
 			</div>
 
+			 
+			<div style="float:left">
+				<label id="helpers" class="input-pageCount">Total Helpers Count       </label>
+				<input id='helperCount'  type="number" style="width:60px" class="input-pageCount w3-input" onchange="setHelperCost();"> </input>
+				<input id='helperPrice'  class="input-price w3-input" placeholder="Price"> </input>
+				<input id='helperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+			</div>
+		 
 			<div>
 				<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
 				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 25%; float: left;"> </input>
@@ -379,6 +374,7 @@
 				<label id="transportCost">Transport Cost       </label>
 				<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
 			</div>
+
 
 			<div>
 				<br>
@@ -400,6 +396,21 @@
 	</div>
 	<a id="help" href='help' target="_blank" style="padding: 50px; display:none">Help Guide</a>
 	<a href='#' onclick='createFullReport();'>Download CSV</a>
+
+		<script>	
+		var cm = new Map();
+		<?php  
+			$result = getAllCost();
+			$resArr = explode(";;;;",$result);
+			$resMap = array();
+			for ($i = 0; $i < sizeof($resArr)-1; $i++) {
+				$arr = explode("?",$resArr[$i]);
+				echo 'cm.set("'.$arr[0].'", '.$arr[1].');';
+			}
+		?>
+ 	</script>
+	<script src="js/costing.js?1.2" ></script>
+	<script src="js/main.js?1.0"></script> 
 </body>
 
 

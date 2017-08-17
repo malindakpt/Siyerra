@@ -1,3 +1,23 @@
+function calcTotalPrice() {
+    var album1Cost = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
+    var album2Cost = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
+    var album3Cost = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
+    var miniAlbPrice = isNaN(document.getElementById("miniAlbPrice").value) ? 0 : Number(document.getElementById("miniAlbPrice").value);
+    var sigBoardPrice = isNaN(document.getElementById("sigBoardPrice").value) ? 0 : Number(document.getElementById("sigBoardPrice").value);
+    var EnlPrice = isNaN(document.getElementById("EnlPrice").value) ? 0 : Number(document.getElementById("EnlPrice").value);
+    var wedThankPrice = isNaN(document.getElementById("wedThankPrice").value) ? 0 : Number(document.getElementById("wedThankPrice").value);
+    var homeThankPrice = isNaN(document.getElementById("homeThankPrice").value) ? 0 : Number(document.getElementById("homeThankPrice").value);
+    var vidPrice = isNaN(document.getElementById("vidPrice").value) ? 0 : Number(document.getElementById("vidPrice").value);
+    var dronePrice = isNaN(document.getElementById("dronePrice").value) ? 0 : Number(document.getElementById("dronePrice").value);
+    var helperPrice = isNaN(document.getElementById("helperPrice").value) ? 0 : Number(document.getElementById("helperPrice").value);
+
+
+    var total = album1Cost + album2Cost + album3Cost + miniAlbPrice + sigBoardPrice + EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice;
+    document.getElementById("Total").value = total;
+}
+
+setInterval(calcTotalPrice, 1000);
+
 function validateData() {
     if ("" == $('#name').val()) {
         swal("Invalid Inputs", "Name of the Customer cannot be empty", "error");
@@ -72,13 +92,13 @@ function getWedding(event) {
             $('#VidType').val(obj.VidType);
 
 
-            $('#Enlarge1Size').val(obj.Enlarge1Size);
-            $('#Enlarge2Size').val(obj.Enlarge2Size);
-            $('#Enlarge3Size').val(obj.Enlarge3Size);
+            $('#Enlarge1Size').val(obj.Enlarge1Size).change();
+            $('#Enlarge2Size').val(obj.Enlarge2Size).change();
+            $('#Enlarge3Size').val(obj.Enlarge3Size).change();
 
-            $('#Enlarge1Count').val(obj.Enlarge1Count);
-            $('#Enlarge2Count').val(obj.Enlarge2Count);
-            $('#Enlarge3Count').val(obj.Enlarge3Count);
+            $('#Enlarge1Count').val(obj.Enlarge1Count).change();
+            $('#Enlarge2Count').val(obj.Enlarge2Count).change();
+            $('#Enlarge3Count').val(obj.Enlarge3Count).change();
 
             $('#Advance1').val(obj.Advance1);
             $('#Advance2').val(obj.Advance2);
@@ -183,13 +203,13 @@ function clearAll() {
     $('#VidNoOfCam').val("N/A");
     $('#VidType').val("N/A");
 
-    $('#Enlarge1Size').val("N/A");
-    $('#Enlarge2Size').val("N/A");
-    $('#Enlarge3Size').val("N/A");
+    $('#Enlarge1Size').val("N/A").change();
+    $('#Enlarge2Size').val("N/A").change();
+    $('#Enlarge3Size').val("N/A").change();
 
-    $('#Enlarge1Count').val("");
-    $('#Enlarge2Count').val("");
-    $('#Enlarge3Count').val("");
+    $('#Enlarge1Count').val("").change();
+    $('#Enlarge2Count').val("").change();
+    $('#Enlarge3Count').val("").change();
 
     $('#Advance1').val("");
     $('#Advance2').val("");
@@ -197,8 +217,8 @@ function clearAll() {
     $('#Total').val("");
     $('#Comments').val("");
 
-    $('#IncludeFA').prop('checked', true);
-    $('#IncludeDrone').prop('checked', false);
+    $('#IncludeFA').prop('checked', false).change();
+    $('#IncludeDrone').prop('checked', false).change();
 
     $('#ThankCardSizeH').val("N/A");
     $('#ThankCardQualityH').val("N/A").change();
