@@ -35,8 +35,8 @@ function setVideoCost() {
 
     var key = quality + ":" + camCount + ":" + coverage;
 
-    var cost = cm.get(key + ":Cost");
-    var price = cm.get(key + ":Price");
+    var cost = cm.get(key + ":VideoCost");
+    var price = cm.get(key + ":VideoPrice");
 
     $('#vidCost').val(cost);
     $('#vidPrice').val(price);
@@ -58,8 +58,8 @@ function setThankCardCost(day) {
         count = Number($('#homeThankCardCount').val());
     }
 
-    var cost = Number(cm.get(quality + ":" + size + ":Cost"));
-    var price = Number(cm.get(quality + ":" + size + ":Price"));
+    var cost = Number(cm.get(quality + ":" + size + ":ExtraCardCost"));
+    var price = Number(cm.get(quality + ":" + size + ":ExtraCardPrice"));
 
     var totCost = cost * count;
     var totPrice = price * count;
@@ -81,12 +81,12 @@ function setEnlargementCost() {
     var size2 = $('#Enlarge2Size').val();
     var size3 = $('#Enlarge3Size').val();
 
-    var cost1 = Number(cm.get("Enl:" + size1 + ":Cost"));
-    var cost2 = Number(cm.get("Enl:" + size2 + ":Cost"));
-    var cost3 = Number(cm.get("Enl:" + size3 + ":Cost"));
-    var price1 = Number(cm.get("Enl:" + size1 + ":Price"));
-    var price2 = Number(cm.get("Enl:" + size2 + ":Price"));
-    var price3 = Number(cm.get("Enl:" + size3 + ":Price"));
+    var cost1 = Number(cm.get(size1 + ":ExtraEnlargementCost"));
+    var cost2 = Number(cm.get(size2 + ":ExtraEnlargementCost"));
+    var cost3 = Number(cm.get(size3 + ":ExtraEnlargementCost"));
+    var price1 = Number(cm.get(size1 + ":ExtraEnlargementPrice"));
+    var price2 = Number(cm.get(size2 + ":ExtraEnlargementPrice"));
+    var price3 = Number(cm.get(size3 + ":ExtraEnlargementPrice"));
 
     var count1 = Number($('#Enlarge1Count').val());
     var count2 = Number($('#Enlarge2Count').val());

@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="img/logo.png" />
+	<link rel="shortcut icon" href="../img/logo.png" />
 	<title>Photography DIARY</title>
 	<script>	
 		var cm = new Map();
@@ -340,35 +340,25 @@
 			<label><b>Video Quality</b></label>	
 				<select id='VidQuality'  class="w3-select"  onchange="showhideQ6();setVideoCost();" > 
 					<option value="N/A">-Not Included-</option> 
-					<option value="Blueray">Blueray</option> 
-					<option value="HD">HD</option> 
+					<?php echo getProperty("VidQuality"); ?>			
 				</select>
 				<br><br>
 				<div id ="Q6" style="display:none;">
 					<select id='VidNoOfCam'  class="w3-select" onchange="setVideoCost();"> 
 						<option value="N/A">-Select No Of Cam.-</option> 
-						<option value="1cam">Use 1 Camera</option> 
-						<option value="2cam">Use 2 Camera</option> 
-						<option value="3cam">Use 3 Camera</option> 
-						<option value="4cam">Use 4 Camera</option>  
+						<?php echo getProperty("VidNoOfCam"); ?>
 					</select>
 					<br><br> 
 					<select id='VidType'  class="w3-select" onchange="setVideoCost();"> 
 						<option value="N/A">-Select Coverage Type-</option> 
-						<option value="wed">Wedding Only</option> 
-						<option value="wedHome">Wedding and Homecoming</option> 
-						<option value="pre">Preshoot Only</option> 
-						<option value="preWed">Preshoot and Wedding</option> 
-						<option value="preWedHome">Preshoot, Wedding and Homecoming</option> 
+						<?php echo getProperty("VidType"); ?>	
 					</select>
 					<div>
 						<input id='vidPrice'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='vidCost'  class="input-cost w3-input" placeholder="Cost"> </input>
-						 
+						<input id='vidCost'  class="input-cost w3-input" placeholder="Cost"> </input>						 
 					</div>
 					<br><br><br>
-					<div>
-					 
+					<div>					 
 						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDoneCost();"> <b>Include Drone Camera</b></input><br>
 						<input id='dronePrice'  class="input-price w3-input" placeholder="Price"> </input>
 						<input id='droneCost'  class="input-cost w3-input" placeholder="Cost"> </input>

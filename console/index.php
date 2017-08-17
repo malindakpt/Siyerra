@@ -91,13 +91,7 @@ function send(){
     });
 }
 </script>
-
-
-
-
-<?php 
-	$qualities = explode("value",getProperty("AlbumQualities"));
-	$albums = explode("value", getProperty("AlbumSizes"));
+<?php
 	$result = getAllCost();
 	$resArr = explode(";;;;",$result);
 	$resMap = array();
@@ -105,7 +99,87 @@ function send(){
 		$arr = explode("?",$resArr[$i]);
 		$resMap[$arr[0]] = $arr[1];
 	}
+?>
+<?php 
+	$VidQuality = explode("value",getProperty("VidQuality"));
+	$VidNoOfCam = explode("value", getProperty("VidNoOfCam"));
+	$VidType = explode("value", getProperty("VidType"));
 
+	echo "<h4>Video Cost and Price</h4>";
+	echo "<ul id='videoCost'>";
+	for ($x = 1; $x < sizeof($VidQuality); $x++) {
+		$subs = explode("\"",$VidQuality[$x])[1];	
+		for ($y = 1; $y < sizeof($VidNoOfCam); $y++) {
+			$v2 = explode("\"",$VidNoOfCam[$y])[1];
+			$subs2 = $subs.':'.$v2;
+				for ($y = 1; $y < sizeof($VidType); $y++) {
+					$v3 = explode("\"",$VidType[$y])[1];
+					$subs3 = $subs2.':'.$v3;
+					echo '<li>'.$subs3.':VideoCost</li><input value="'.$resMap[$subs3.':VideoCost'].'"  class="w3-input input-get-cost"/>';
+					echo '<li>'.$subs3.':VideoPrice</li><input value="'.$resMap[$subs3.':VideoPrice'].'"  class="w3-input input-get-cost"/>';		
+				}
+		}
+	}
+	echo "</ul>"
+?>
+
+<?php 
+	// $qualities = explode("value",getProperty("AlbumQualities"));
+	$EnlargementSizes = explode("value", getProperty("EnlargementSizes"));
+
+	echo "<h4>Enlargements Cost and Price</h4>";
+	echo "<ul id='enlargementCost'>";
+	// for ($x = 1; $x < sizeof($qualities); $x++) {
+		// $subs = explode("\"",$qualities[$x])[1];
+		
+		for ($y = 1; $y < sizeof($EnlargementSizes); $y++) {
+			$v2 = explode("\"",$EnlargementSizes[$y])[1];
+			// $key = $subs.':'.$v2;
+			// echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
+			// echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
+			// echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$v2.':ExtraEnlargementCost</li><input value="'.$resMap[$v2.':ExtraEnlargementCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$v2.':ExtraEnlargementPrice</li><input value="'.$resMap[$v2.':ExtraEnlargementPrice'].'"  class="w3-input input-get-cost"/>';		
+		}
+	// }
+	echo "</ul>"
+?>
+
+<?php 
+	$qualities = explode("value",getProperty("ThankCardQualities"));
+	$sizes = explode("value", getProperty("ThankCardSizes"));
+
+	echo "<h4>Thank Card Cost and Price</h4>";
+	echo "<ul id='thankCardCosts'>";
+	for ($x = 1; $x < sizeof($qualities); $x++) {
+		$subs = explode("\"",$qualities[$x])[1];
+		
+		for ($y = 1; $y < sizeof($sizes); $y++) {
+			$v2 = explode("\"",$sizes[$y])[1];
+			$key = $subs.':'.$v2;
+			// echo '<li style="font-size: 20;">'.$subs.':'.$v2.':FixedPages</li><input value="'.$resMap[$key.':FixedPages'].'" class="w3-input input-get-cost"/>';
+			// echo '<li>'.$subs.':'.$v2.':FixedCost</li><input value="'.$resMap[$key.':FixedCost'].'"  class="w3-input input-get-cost"/>';
+			// echo '<li>'.$subs.':'.$v2.':FixedPrice</li><input value="'.$resMap[$key.':FixedPrice'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':ExtraCardCost</li><input value="'.$resMap[$key.':ExtraCardCost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li>'.$subs.':'.$v2.':ExtraCardPrice</li><input value="'.$resMap[$key.':ExtraCardPrice'].'"  class="w3-input input-get-cost"/>';		
+		}
+	}
+	echo "</ul>"
+?>
+
+
+
+<?php 
+	$qualities = explode("value",getProperty("AlbumQualities"));
+	$albums = explode("value", getProperty("AlbumSizes"));
+	// $result = getAllCost();
+	// $resArr = explode(";;;;",$result);
+	// $resMap = array();
+	// for ($i = 0; $i < sizeof($resArr)-1; $i++) {
+	// 	$arr = explode("?",$resArr[$i]);
+	// 	$resMap[$arr[0]] = $arr[1];
+	// }
+	echo "<h4>Album Cost and Price</h4>";
 	echo "<ul id='albumCosts'>";
 	for ($x = 1; $x < sizeof($qualities); $x++) {
 		$subs = explode("\"",$qualities[$x])[1];
