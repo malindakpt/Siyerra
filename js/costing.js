@@ -1,7 +1,7 @@
 function setMiniAlbCost() {
     if ($('#IncludeFA').prop('checked') == true) {
-        $('#miniAlbCost').val(cm.get("MiniAlbumCost"));
-        $('#miniAlbPrice').val(cm.get("MiniAlbumPrice"));
+        $('#miniAlbCost').val(cm.get("Mini Album Cost"));
+        $('#miniAlbPrice').val(cm.get("Mini Album Price"));
     } else {
         $('#miniAlbCost').val("");
         $('#miniAlbPrice').val("");
@@ -9,8 +9,8 @@ function setMiniAlbCost() {
 }
 
 function setSigBoardCost() {
-    var cost = cm.get($('#SigBoard').val() + ":SignatureBoardPrice");
-    var price = cm.get($('#SigBoard').val() + ":SignatureBoardPrice");
+    var cost = cm.get($('#SigBoard').val() + ":Signature Board Cost");
+    var price = cm.get($('#SigBoard').val() + ":Signature Board Price");
     $('#sigBoardCost').val(cost);
     $('#sigBoardPrice').val(price);
 
@@ -32,8 +32,8 @@ function setHelperCost() {
 
 function setDroneCost() {
     if ($('#IncludeDrone').prop('checked') == true) {
-        $('#droneCost').val(cm.get("DroneCameraCost"));
-        $('#dronePrice').val(cm.get("DroneCameraPrice"));
+        $('#droneCost').val(cm.get("Drone Camera Cost"));
+        $('#dronePrice').val(cm.get("Drone Camera Price"));
     } else {
         $('#droneCost').val("");
         $('#dronePrice').val("");
@@ -48,8 +48,8 @@ function setVideoCost() {
 
     var key = quality + ":" + camCount + ":" + coverage;
 
-    var cost = cm.get(key + ":VideoCost");
-    var price = cm.get(key + ":VideoPrice");
+    var cost = cm.get(key + ":Video Cost");
+    var price = cm.get(key + ":Video Price");
 
     $('#vidCost').val(cost);
     $('#vidPrice').val(price);
@@ -71,8 +71,8 @@ function setThankCardCost(day) {
         count = Number($('#homeThankCardCount').val());
     }
 
-    var cost = Number(cm.get(quality + ":" + size + ":ExtraCardCost"));
-    var price = Number(cm.get(quality + ":" + size + ":ExtraCardPrice"));
+    var cost = Number(cm.get(quality + ":" + size + ":Cost per Card"));
+    var price = Number(cm.get(quality + ":" + size + ":Price per Card"));
 
     var totCost = cost * count;
     var totPrice = price * count;
@@ -96,12 +96,12 @@ function setEnlargementCost() {
     var size2 = $('#Enlarge2Size').val();
     var size3 = $('#Enlarge3Size').val();
 
-    var cost1 = Number(cm.get(size1 + ":ExtraEnlargementCost"));
-    var cost2 = Number(cm.get(size2 + ":ExtraEnlargementCost"));
-    var cost3 = Number(cm.get(size3 + ":ExtraEnlargementCost"));
-    var price1 = Number(cm.get(size1 + ":ExtraEnlargementPrice"));
-    var price2 = Number(cm.get(size2 + ":ExtraEnlargementPrice"));
-    var price3 = Number(cm.get(size3 + ":ExtraEnlargementPrice"));
+    var cost1 = Number(cm.get(size1 + ":Cost per Enlargement"));
+    var cost2 = Number(cm.get(size2 + ":Cost per Enlargement"));
+    var cost3 = Number(cm.get(size3 + ":Cost per Enlargement"));
+    var price1 = Number(cm.get(size1 + ":Price per Enlargement"));
+    var price2 = Number(cm.get(size2 + ":Price per Enlargement"));
+    var price3 = Number(cm.get(size3 + ":Price per Enlargement"));
 
     var count1 = Number($('#Enlarge1Count').val());
     var count2 = Number($('#Enlarge2Count').val());

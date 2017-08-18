@@ -1,10 +1,9 @@
-
 -- phpMyAdmin SQL Dump
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2017 at 09:47 AM
+-- Generation Time: Aug 18, 2017 at 01:46 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -20,6 +19,44 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_bookings`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `config`
+--
+
+CREATE TABLE `config` (
+  `ID` int(11) NOT NULL,
+  `Property` varchar(1000) NOT NULL,
+  `Value` varchar(1000) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`ID`, `Property`, `Value`) VALUES
+(1, 'AlbumSizes', '	<option value="8 x 16">8 x 16</option>  							<option value="8 x 20">8 x 20</option> 		 							<option value="10 x 15">10 x 15</option>  							<option value="10 x 20">10 x 20</option>  							<option value="10 x 24">10 x 24</option>  							<option value="10 x 28">10 x 28</option>  							<option value="12 x 24">12 x 24</option>  							<option value="12 x 30">12 x 30</option>  							<option value="15 x 24">15 x 24</option>  							<option value="16 x 24">16 x 24</option>  							<option value="17 x 24">17 x 24</option> <option value="18 x 24">18 x 24</option> '),
+(2, 'ThankCardSizes', '<option value="4 x 8">4 x 8</option>  					<option value="4 x 12">4 x 12</option>  					<option value="5 x 8">5 x 8</option>  					<option value="5 x 10">5 x 10</option>  					<option value="6 x 6">6 x 6</option> '),
+(3, 'EnlargementSizes', '<option value="15 x 24">15 x 24</option>  								<option value="16 x 24">16 x 24</option>  								<option value="17 x 24">17 x 24</option> '),
+(4, 'ThankCardQualities', '<option value="Single Side Matte">Single Side Matte</option> \r\n					<option value="Single Side Glossy">Single Side Glossy</option> \r\n					<option value="Double Side Matte">Double Side Matte</option> \r\n					<option value="Double Side Glossy">Double Side Glossy</option>'),
+(5, 'AlbumQualities', '<option value="Magazine">Magazine</option> \n					<option value="Story Book">Story Book</option> '),
+(6, 'VidQuality', '	<option value="Blueray">Blueray</option> \r\n					<option value="HD">HD</option> '),
+(7, 'VidNoOfCam', '<option value="Use 1 Camera">Use 1 Camera</option> \n<option value="Use 2 Camera">Use 2 Camera</option> \n<option value="Use 3 Camera">Use 3 Camera</option>'),
+(8, 'VidType', '<option value="Wedding Only">Wedding Only</option> \n<option value="Wedding and Homecoming">Wedding and Homecoming</option> \n<option value="Preshoot Only">Preshoot Only</option> \n<option value="Preshoot and Wedding">Preshoot and Wedding</option> \n<option value="Preshoot, Wedding and Homecoming">Preshoot, Wedding and Homecoming</option> ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `costmodel`
+--
+
+CREATE TABLE `costmodel` (
+  `ID` int(11) NOT NULL,
+  `TableName` varchar(20) NOT NULL,
+  `KeyVal` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -54,9 +91,13 @@ CREATE TABLE `demo` (
   `PSSize` varchar(20) NOT NULL,
   `PSPages` varchar(20) NOT NULL,
   `IncludeFA` varchar(20) NOT NULL,
-  `Enlarge1` varchar(200) NOT NULL,
-  `Enlarge2` varchar(200) NOT NULL,
-  `Enlarge3` varchar(200) NOT NULL,
+  `SigBoard` varchar(20) NOT NULL,
+  `Enlarge1Size` varchar(20) NOT NULL,
+  `Enlarge2Size` varchar(20) NOT NULL,
+  `Enlarge3Size` varchar(20) NOT NULL,
+  `Enlarge1Count` varchar(20) NOT NULL,
+  `Enlarge2Count` varchar(20) NOT NULL,
+  `Enlarge3Count` varchar(20) NOT NULL,
   `thankCardQuality` varchar(100) NOT NULL,
   `thankCardSize` varchar(20) NOT NULL,
   `wedThankCardCount` varchar(20) NOT NULL,
@@ -96,11 +137,24 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserName`, `Password`, `StudioName`, `TableName`, `ExpireDate`, `Cost`, `Enlargements`) VALUES
-('user', '1234', 'Demo Studio', 'demo', '2017-08-16', '8500', '1 Wedding couple enlargement 20x30 with frame####2 Wedding couple enlargement 12x18 with frame####2 Group enlargement 12x18 with frame');
+('demo', '1234', 'Demo Studio', 'demo', '2017-09-21', '8500', '1 Wedding couple enlargement 20x30 with frame####2 Wedding couple enlargement 12x18 with frame####2 Group enlargement 12x18 with frame'),
+('siyeraa1234', '1234', 'Siyeraa Studio', 'siyeraa', '2018-08-08', '6000', '1 Wedding couple enlargement 20x30 with frame####2 Wedding couple enlargement 12x18 with frame####2 Group enlargement 12x18 with frame');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `costmodel`
+--
+ALTER TABLE `costmodel`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `demo`
@@ -119,10 +173,20 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `config`
+--
+ALTER TABLE `config`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `costmodel`
+--
+ALTER TABLE `costmodel`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8161;
+--
 -- AUTO_INCREMENT for table `demo`
 --
 ALTER TABLE `demo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

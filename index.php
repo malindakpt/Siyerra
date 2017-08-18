@@ -360,7 +360,7 @@
 				<input id='helperPrice'  class="input-price w3-input" placeholder="Price"> </input>
 				<input id='helperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 			</div>
-		 
+		 <br><br>
 			<div>
 				<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
 				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 25%; float: left;"> </input>
