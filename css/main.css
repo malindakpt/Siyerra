@@ -28,13 +28,31 @@
 
 .input-price {
     width: 20%;
+    pointer-events: none;
     float: right;
     margin-left: 10px;
-    color: blueviolet;
+    color: red;
     text-align: right;
 }
 
 .input-cost {
+    width: 20%;
+    pointer-events: none;
+    float: right;
+    margin-left: 10px;
+    color: blue;
+    text-align: right;
+}
+
+.input-price-enabled {
+    width: 20%;
+    float: right;
+    margin-left: 10px;
+    color: red;
+    text-align: right;
+}
+
+.input-cost-enabled {
     width: 20%;
     float: right;
     margin-left: 10px;

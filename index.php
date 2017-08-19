@@ -362,14 +362,30 @@
 			</div>
 		 <br><br>
 			<div>
-				<textarea id="Comments" placeholder="Additional Comments" style="width:100%;height:150px;"></textarea>
-				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 25%; float: left;"> </input>
-				<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 25%; float: left;"> </input>
-				<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 25%; float: left;"> </input>
+				<textarea id="PrivateComments" placeholder="Private Comments For Additional Costs" style="width:100%;height:150px;"></textarea>
+				<input id='PrivateCommentsPrice'  class="input-price-enabled w3-input" placeholder="Price"> </input>
+				<input id='PrivateCommentsCost'  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
+				<br><br><br>
+				<textarea id="Comments" placeholder="Customer Comments" style="width:100%;height:150px;"></textarea>
+				<p>
+				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				<input id='Advance3'  type="number" placeholder="Advance3" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				<input id='Advance4'  type="number" placeholder="Advance4" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				<input id='Advance5'  type="number" placeholder="Advance5" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				<input id='Advance6'  type="number" placeholder="Advance6" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
+				</p>
 				<br>
 				<br><br><br>
-				<label id="totalPrice">Total Price       </label>
-				<input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>
+				<p>
+					<br>
+				<label id="totalPrice">Final Total Amounts       </label>
+				<br>
+				<input id='Total'  class="input-price w3-input" placeholder="Price" onChange="showRemainingBal()"> </input>
+				<input id='TotalCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+				<!-- <input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input> -->
+	</p><br><br>
+				<input type="checkbox" class="w3-check" id="showCost" checked onchange="showCostBoxes();"> <b>Show Cost</b></input><br>
 				<br>
 				<label id="transportCost">Transport Cost       </label>
 				<input id='Transport'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input>

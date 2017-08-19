@@ -1,7 +1,7 @@
 function calcTotalPrice() {
-    var album1Cost = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
-    var album2Cost = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
-    var album3Cost = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
+    var album1Price = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
+    var album2Price = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
+    var album3Price = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
     var miniAlbPrice = isNaN(document.getElementById("miniAlbPrice").value) ? 0 : Number(document.getElementById("miniAlbPrice").value);
     var sigBoardPrice = isNaN(document.getElementById("sigBoardPrice").value) ? 0 : Number(document.getElementById("sigBoardPrice").value);
     var EnlPrice = isNaN(document.getElementById("EnlPrice").value) ? 0 : Number(document.getElementById("EnlPrice").value);
@@ -10,13 +10,89 @@ function calcTotalPrice() {
     var vidPrice = isNaN(document.getElementById("vidPrice").value) ? 0 : Number(document.getElementById("vidPrice").value);
     var dronePrice = isNaN(document.getElementById("dronePrice").value) ? 0 : Number(document.getElementById("dronePrice").value);
     var helperPrice = isNaN(document.getElementById("helperPrice").value) ? 0 : Number(document.getElementById("helperPrice").value);
+    var PrivateCommentsPrice = isNaN(document.getElementById("PrivateCommentsPrice").value) ? 0 : Number(document.getElementById("PrivateCommentsPrice").value);
 
 
-    var total = album1Cost + album2Cost + album3Cost + miniAlbPrice + sigBoardPrice + EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice;
-    document.getElementById("Total").value = total;
+    var totalPrice = album1Price + album2Price + album3Price + miniAlbPrice + sigBoardPrice +
+        EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice + PrivateCommentsPrice;
+
+    if (totalPrice == 0) {
+        document.getElementById("Total").value = "";
+    } else {
+        document.getElementById("Total").value = totalPrice;
+    }
 }
 
-setInterval(calcTotalPrice, 1000);
+function calcTotalCost() {
+    var album1Cost = isNaN(document.getElementById("Album1Cost").value) ? 0 : Number(document.getElementById("Album1Cost").value);
+    var album2Cost = isNaN(document.getElementById("Album2Cost").value) ? 0 : Number(document.getElementById("Album2Cost").value);
+    var album3Cost = isNaN(document.getElementById("Album3Cost").value) ? 0 : Number(document.getElementById("Album3Cost").value);
+    var miniAlbCost = isNaN(document.getElementById("miniAlbCost").value) ? 0 : Number(document.getElementById("miniAlbCost").value);
+    var sigBoardCost = isNaN(document.getElementById("sigBoardCost").value) ? 0 : Number(document.getElementById("sigBoardCost").value);
+    var EnlCost = isNaN(document.getElementById("EnlCost").value) ? 0 : Number(document.getElementById("EnlCost").value);
+    var wedThankCost = isNaN(document.getElementById("wedThankCost").value) ? 0 : Number(document.getElementById("wedThankCost").value);
+    var homeThankCost = isNaN(document.getElementById("homeThankCost").value) ? 0 : Number(document.getElementById("homeThankCost").value);
+    var vidCost = isNaN(document.getElementById("vidCost").value) ? 0 : Number(document.getElementById("vidCost").value);
+    var droneCost = isNaN(document.getElementById("droneCost").value) ? 0 : Number(document.getElementById("droneCost").value);
+    var helperCost = isNaN(document.getElementById("helperCost").value) ? 0 : Number(document.getElementById("helperCost").value);
+    var PrivateCommentsCost = isNaN(document.getElementById("PrivateCommentsCost").value) ? 0 : Number(document.getElementById("PrivateCommentsCost").value);
+
+
+    var totalCost = album1Cost + album2Cost + album3Cost + miniAlbCost + sigBoardCost +
+        EnlCost + wedThankCost + homeThankCost + vidCost + droneCost + helperCost + PrivateCommentsCost;
+
+    if (totalCost == 0) {
+        document.getElementById("TotalCost").value = "";
+    } else {
+        document.getElementById("TotalCost").value = totalCost;
+    }
+}
+
+setInterval(calcTot, 1000);
+
+function calcTot() {
+    calcTotalPrice();
+    calcTotalCost();
+
+}
+
+function showCostBoxes() {
+
+    if ($('#showCost').is(":checked")) {
+        $('#Album1Cost').show();
+        $('#Album2Cost').show();
+        $('#Album3Cost').show();
+        $('#miniAlbCost').show();
+        $('#sigBoardCost').show();
+        $('#EnlCost').show();
+        $('#wedThankCost').show();
+        $('#homeThankCost').show();
+        $('#vidCost').show();
+        $('#droneCost').show();
+        $('#helperCost').show();
+        $('#PrivateCommentsCost').show();
+        $('#TotalCost').show();
+
+
+    } else {
+        $('#Album1Cost').hide();
+        $('#Album2Cost').hide();
+        $('#Album3Cost').hide();
+        $('#miniAlbCost').hide();
+        $('#sigBoardCost').hide();
+        $('#EnlCost').hide();
+        $('#wedThankCost').hide();
+        $('#homeThankCost').hide();
+        $('#vidCost').hide();
+        $('#droneCost').hide();
+        $('#helperCost').hide();
+        $('#PrivateCommentsCost').hide();
+        $('#TotalCost').hide();
+    }
+
+}
+
+
 
 function validateData() {
     if ("" == $('#name').val()) {
@@ -103,8 +179,16 @@ function getWedding(event) {
             $('#Advance1').val(obj.Advance1);
             $('#Advance2').val(obj.Advance2);
             $('#Advance3').val(obj.Advance3);
+            $('#Advance4').val(obj.Advance4);
+            $('#Advance5').val(obj.Advance5);
+            $('#Advance6').val(obj.Advance6);
+
             $('#Total').val(obj.Total);
             $('#Comments').val(obj.Comments);
+
+            $('#PrivateComments').val(obj.PrivateComments);
+            $('#PrivateCommentsCost').val(obj.PrivateCommentsCost);
+            $('#PrivateCommentsPrice').val(obj.PrivateCommentsPrice);
 
             $('#IncludeFA').prop('checked', obj.includeFA);
             $('#IncludeDrone').prop('checked', obj.IncludeDrone);
@@ -162,6 +246,7 @@ function deleteWedding(event) {
 function clearAll() {
 
     hideAll();
+    $('#showCost').prop('checked', false).change();
     // $('#Q1').hide();
     // $('#Q2').hide();
 
@@ -214,8 +299,16 @@ function clearAll() {
     $('#Advance1').val("");
     $('#Advance2').val("");
     $('#Advance3').val("");
+    $('#Advance4').val("");
+    $('#Advance5').val("");
+    $('#Advance6').val("");
+
     $('#Total').val("");
     $('#Comments').val("");
+
+    $('#PrivateComments').val("");
+    $('#PrivateCommentsCost').val("");
+    $('#PrivateCommentsPrice').val("");
 
     $('#IncludeFA').prop('checked', false).change();
     $('#IncludeDrone').prop('checked', false).change();
@@ -332,9 +425,18 @@ function saveNew() {
                     Enlarge3Count: $('#Enlarge3Count').val(),
 
                     Comments: $('#Comments').val(),
+
+                    PrivateComments: $('#PrivateComments').val(),
+                    PrivateCommentsCost: $('#PrivateCommentsCost').val(),
+                    PrivateCommentsPrice: $('#PrivateCommentsPrice').val(),
+
                     Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
                     Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '',
                     Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '',
+                    Advance4: parseInt($('#Advance4').val()) ? $('#Advance4').val() : '',
+                    Advance5: parseInt($('#Advance5').val()) ? $('#Advance5').val() : '',
+                    Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
+
                     Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
                     IncludeFA: $('#IncludeFA').is(":checked"),
                     IncludeDrone: $('#IncludeDrone').is(":checked"),
@@ -436,9 +538,17 @@ function update() {
 
                     Comments: $('#Comments').val(),
 
+                    PrivateComments: $('#PrivateComments').val(),
+                    PrivateCommentsCost: $('#PrivateCommentsCost').val(),
+                    PrivateCommentsPrice: $('#PrivateCommentsPrice').val(),
+
                     Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
                     Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '',
                     Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '',
+                    Advance4: parseInt($('#Advance4').val()) ? $('#Advance4').val() : '',
+                    Advance5: parseInt($('#Advance5').val()) ? $('#Advance5').val() : '',
+                    Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
+
                     Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 
                     IncludeFA: $('#IncludeFA').is(":checked"),
@@ -469,9 +579,13 @@ function showRemainingBal() {
     var adv1 = parseInt($('#Advance1').val()) ? parseInt($('#Advance1').val()) : 0;
     var adv2 = parseInt($('#Advance2').val()) ? parseInt($('#Advance2').val()) : 0;
     var adv3 = parseInt($('#Advance3').val()) ? parseInt($('#Advance3').val()) : 0;
+    var adv4 = parseInt($('#Advance4').val()) ? parseInt($('#Advance4').val()) : 0;
+    var adv5 = parseInt($('#Advance5').val()) ? parseInt($('#Advance5').val()) : 0;
+    var adv6 = parseInt($('#Advance6').val()) ? parseInt($('#Advance6').val()) : 0;
+
     // var transport = parseInt($('#Transport').val())?parseInt($('#Transport').val()):0; 
     var Total = parseInt($('#Total').val()) ? parseInt($('#Total').val()) : 0;
-    var bal = Total - adv1 - adv2 - adv3;
+    var bal = Total - adv1 - adv2 - adv3 - adv4 - adv5 - adv6;
 
     document.getElementById('totalPrice').innerHTML = "Total Price        (To be paid=" + bal + ")";
 }
@@ -633,8 +747,11 @@ function savePDF() {
     var adv1 = parseInt($('#Advance1').val()) ? parseInt($('#Advance1').val()) : 0;
     var adv2 = parseInt($('#Advance2').val()) ? parseInt($('#Advance2').val()) : 0;
     var adv3 = parseInt($('#Advance3').val()) ? parseInt($('#Advance3').val()) : 0;
+    var adv4 = parseInt($('#Advance4').val()) ? parseInt($('#Advance4').val()) : 0;
+    var adv5 = parseInt($('#Advance5').val()) ? parseInt($('#Advance5').val()) : 0;
+    var adv6 = parseInt($('#Advance6').val()) ? parseInt($('#Advance6').val()) : 0;
 
-    var sumPayments = adv1 + adv2 + adv3;
+    var sumPayments = adv1 + adv2 + adv3 + adv4 + adv5 + adv6;
     line = line + 10;
     doc.setFontSize(12);
     doc.text(25, line, "Total Album Price : " + $('#Total').val() + "/=");

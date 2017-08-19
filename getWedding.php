@@ -28,16 +28,19 @@ if ($result->num_rows > 0) {
 		'thankCardQuality' => $row["thankCardQuality"], 'wedThankCardCount' => $row["wedThankCardCount"], 'homeThankCardCount' => $row["homeThankCardCount"],
 		'email' => $row["email"], 'phone' => $row["phone"],
 		'PSSize' => $row["PSSize"], 'PSPages' => $row["PSPages"],'PSQuality' => $row["PSQuality"],
-		'VidQuality' => $row["VidQuality"], 'VidNoOfCam' => $row["VidNoOfCam"],'VidType' => $row["VidType"],
+		'VidQuality' => $row["VidQuality"], 'VidNoOfCam' => $row["VidNoOfCam"],'VidType' => $row["VidType"]
 		
-		'Advance1' => $row["Advance1"], 'Advance2' => $row["Advance2"],'Advance3' => $row["Advance3"],
-		'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],
+		,'Advance1' => $row["Advance1"], 'Advance2' => $row["Advance2"],'Advance3' => $row["Advance3"]
+		,'Advance4' => $row["Advance4"], 'Advance5' => $row["Advance5"],'Advance6' => $row["Advance6"]
+
+		,'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],
 		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"],
 
 		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
 
-		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"],
-		'Transport' => $row["Transport"], 'Album1Type' => $row["Album1Type"], 'Album2Type' => $row["Album2Type"]
+		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"]
+		,'Transport' => $row["Transport"], 'Album1Type' => $row["Album1Type"], 'Album2Type' => $row["Album2Type"]
+		,'PrivateComments' => $row["PrivateComments"], 'PrivateCommentsCost' => $row["PrivateCommentsCost"], 'PrivateCommentsPrice' => $row["PrivateCommentsPrice"]
 		,'Enlarge1Size' => $row["Enlarge1Size"]	,'Enlarge2Size' => $row["Enlarge2Size"]	,'Enlarge3Size' => $row["Enlarge3Size"]
 		,'Enlarge1Count' => $row["Enlarge1Count"]	,'Enlarge2Count' => $row["Enlarge2Count"]	,'Enlarge3Count' => $row["Enlarge3Count"]
 		,'SigBoard' => $row["SigBoard"]

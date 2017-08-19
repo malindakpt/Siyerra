@@ -42,11 +42,16 @@ $PSQuality = $_POST['PSQuality'];
 $VidQuality = $_POST['VidQuality'];
 $VidNoOfCam = $_POST['VidNoOfCam'];
 $VidType = $_POST['VidType'];
+
 $Advance1 = $_POST['Advance1'];
 $Advance2 = $_POST['Advance2'];
 $Advance3 = $_POST['Advance3'];
+$Advance4 = $_POST['Advance4'];
+$Advance5 = $_POST['Advance5'];
+$Advance6 = $_POST['Advance6'];
+
 $Total = $_POST['Total'];
-$Comments = $_POST['Comments'];
+
 $IncludeFA = $_POST['IncludeFA'];
 $IncludeDrone = $_POST['IncludeDrone'];
 $Address = $_POST['Address'];
@@ -68,20 +73,34 @@ $Enlarge3Count = $_POST['Enlarge3Count'];
 
 $SigBoard = $_POST['SigBoard'];
 
+$Comments = $_POST['Comments'];
+
+$PrivateComments = $_POST['PrivateComments'];
+$PrivateCommentsCost = $_POST['PrivateCommentsCost'];
+$PrivateCommentsPrice = $_POST['PrivateCommentsPrice'];
+
 
 $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality, thankCardSize, thankCardQuality, wedThankCardCount,
- homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType, Advance1, Advance2, Advance3, Total, Comments, 
+ homeThankCardCount, email, phone, dateH, timeH, placeH, PSSize, PSPages, PSQuality, VidQuality, VidNoOfCam, VidType
+ , Advance1, Advance2, Advance3
+ , Advance4, Advance5, Advance6
+ , Total, Comments, 
  IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH,ThankCardQualityH,Transport,Album1Type,Album2Type,
 Enlarge1Size,Enlarge2Size,Enlarge3Size,
 Enlarge1Count,Enlarge2Count,Enlarge3Count,
+PrivateComments,PrivateCommentsCost,PrivateCommentsPrice,
  SigBoard ) 
 
 VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality', 
 '$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email', 
-'$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType', '$Advance1','$Advance2','$Advance3','$Total','$Comments','$IncludeFA', 
+'$phone' , '$dateH' , '$timeH','$placeH', '$PSSize', '$PSPages', '$PSQuality', '$VidQuality', '$VidNoOfCam', '$VidType'
+,'$Advance1','$Advance2','$Advance3'
+,'$Advance4','$Advance5','$Advance6'
+,'$Total','$Comments','$IncludeFA', 
 '$Address', '$IncludeDrone',  '$NameG', '$EmailG', '$PhoneG','$ThankCardSizeH', '$ThankCardQualityH', '$Transport','$Album1Type','$Album2Type',
 '$Enlarge1Size','$Enlarge2Size','$Enlarge3Size',
 '$Enlarge1Count','$Enlarge2Count','$Enlarge3Count',
+'$PrivateComments','$PrivateCommentsCost','$PrivateCommentsPrice',
 '$SigBoard')";
 
 

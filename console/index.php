@@ -190,14 +190,16 @@ function openCat(cityName) {
 		for ($y = 1; $y < sizeof($VidNoOfCam); $y++) {
 			$v2 = explode("\"",$VidNoOfCam[$y])[1];
 			$subs2 = $subs.':'.$v2;
-				for ($y = 1; $y < sizeof($VidType); $y++) {
-					$v3 = explode("\"",$VidType[$y])[1];
+	 
+				for ($z = 1; $z < sizeof($VidType); $z++) {
+					$v3 = explode("\"",$VidType[$z])[1];
 					$subs3 = $subs2.':'.$v3;
 					echo '<tr>';
 						echo '<td><li class="lbl-settings">'.$subs3.':Video Cost</li><input value="'.$resMap[$subs3.':Video Cost'].'"  class="w3-input input-get-cost"/></td>';
 						echo '<td><li class="lbl-settings">'.$subs3.':Video Price</li><input value="'.$resMap[$subs3.':Video Price'].'"  class="w3-input input-get-cost"/></td>';		
 					echo '</tr>';
 				}
+			 
 		}
 	}
 	echo '</table>';

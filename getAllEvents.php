@@ -72,9 +72,14 @@ if ($result->num_rows > 0) {
 		.$row["Advance1"].','
 		.$row["Advance2"].','
 		.$row["Advance3"].','
+		.$row["Advance4"].','
+		.$row["Advance5"].','
+		.$row["Advance6"].','
 	
-	
-		.$row["Comments"]."\n"; 
+		.$row["Comments"].','
+		.$row["PrivateComments"].','
+		.$row["PrivateCommentsCost"].','
+		.$row["PrivateCommentsPrice"]."\n"; 
 	
 	
 	
