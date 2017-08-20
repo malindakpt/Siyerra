@@ -1,15 +1,21 @@
+//clearAll
+//saveNew
+//update
+//getWedding
+
+
 function calcTotalPrice() {
     var album1Price = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
     var album2Price = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
     var album3Price = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
-    var miniAlbPrice = isNaN(document.getElementById("miniAlbPrice").value) ? 0 : Number(document.getElementById("miniAlbPrice").value);
-    var sigBoardPrice = isNaN(document.getElementById("sigBoardPrice").value) ? 0 : Number(document.getElementById("sigBoardPrice").value);
-    var EnlPrice = isNaN(document.getElementById("EnlPrice").value) ? 0 : Number(document.getElementById("EnlPrice").value);
-    var wedThankPrice = isNaN(document.getElementById("wedThankPrice").value) ? 0 : Number(document.getElementById("wedThankPrice").value);
-    var homeThankPrice = isNaN(document.getElementById("homeThankPrice").value) ? 0 : Number(document.getElementById("homeThankPrice").value);
-    var vidPrice = isNaN(document.getElementById("vidPrice").value) ? 0 : Number(document.getElementById("vidPrice").value);
-    var dronePrice = isNaN(document.getElementById("dronePrice").value) ? 0 : Number(document.getElementById("dronePrice").value);
-    var helperPrice = isNaN(document.getElementById("helperPrice").value) ? 0 : Number(document.getElementById("helperPrice").value);
+    var miniAlbPrice = isNaN(document.getElementById("MiniAlbPrice").value) ? 0 : Number(document.getElementById("MiniAlbPrice").value);
+    var sigBoardPrice = isNaN(document.getElementById("SigBoard").value) ? 0 : Number(document.getElementById("sigBoardPrice").value);
+    var EnlPrice = isNaN(document.getElementById("EnlargePrice").value) ? 0 : Number(document.getElementById("EnlargePrice").value);
+    var wedThankPrice = isNaN(document.getElementById("WedThankPrice").value) ? 0 : Number(document.getElementById("WedThankPrice").value);
+    var homeThankPrice = isNaN(document.getElementById("HomThankPrice").value) ? 0 : Number(document.getElementById("HomThankPrice").value);
+    var vidPrice = isNaN(document.getElementById("VidPrice").value) ? 0 : Number(document.getElementById("VidPrice").value);
+    var dronePrice = isNaN(document.getElementById("DronePrice").value) ? 0 : Number(document.getElementById("DronePrice").value);
+    var helperPrice = isNaN(document.getElementById("HelperPrice").value) ? 0 : Number(document.getElementById("HelperPrice").value);
     var PrivateCommentsPrice = isNaN(document.getElementById("PrivateCommentsPrice").value) ? 0 : Number(document.getElementById("PrivateCommentsPrice").value);
 
 
@@ -21,20 +27,21 @@ function calcTotalPrice() {
     } else {
         document.getElementById("Total").value = totalPrice;
     }
+    return totalPrice;
 }
 
 function calcTotalCost() {
     var album1Cost = isNaN(document.getElementById("Album1Cost").value) ? 0 : Number(document.getElementById("Album1Cost").value);
     var album2Cost = isNaN(document.getElementById("Album2Cost").value) ? 0 : Number(document.getElementById("Album2Cost").value);
     var album3Cost = isNaN(document.getElementById("Album3Cost").value) ? 0 : Number(document.getElementById("Album3Cost").value);
-    var miniAlbCost = isNaN(document.getElementById("miniAlbCost").value) ? 0 : Number(document.getElementById("miniAlbCost").value);
-    var sigBoardCost = isNaN(document.getElementById("sigBoardCost").value) ? 0 : Number(document.getElementById("sigBoardCost").value);
-    var EnlCost = isNaN(document.getElementById("EnlCost").value) ? 0 : Number(document.getElementById("EnlCost").value);
-    var wedThankCost = isNaN(document.getElementById("wedThankCost").value) ? 0 : Number(document.getElementById("wedThankCost").value);
-    var homeThankCost = isNaN(document.getElementById("homeThankCost").value) ? 0 : Number(document.getElementById("homeThankCost").value);
-    var vidCost = isNaN(document.getElementById("vidCost").value) ? 0 : Number(document.getElementById("vidCost").value);
-    var droneCost = isNaN(document.getElementById("droneCost").value) ? 0 : Number(document.getElementById("droneCost").value);
-    var helperCost = isNaN(document.getElementById("helperCost").value) ? 0 : Number(document.getElementById("helperCost").value);
+    var miniAlbCost = isNaN(document.getElementById("MiniAlbCost").value) ? 0 : Number(document.getElementById("MiniAlbCost").value);
+    var sigBoardCost = isNaN(document.getElementById("SigboardCost").value) ? 0 : Number(document.getElementById("SigboardCost").value);
+    var EnlCost = isNaN(document.getElementById("EnlargeCost").value) ? 0 : Number(document.getElementById("EnlargeCost").value);
+    var wedThankCost = isNaN(document.getElementById("WedThankCost").value) ? 0 : Number(document.getElementById("WedThankCost").value);
+    var homeThankCost = isNaN(document.getElementById("HomThankCost").value) ? 0 : Number(document.getElementById("HomThankCost").value);
+    var vidCost = isNaN(document.getElementById("VidCost").value) ? 0 : Number(document.getElementById("VidCost").value);
+    var droneCost = isNaN(document.getElementById("DroneCost").value) ? 0 : Number(document.getElementById("DroneCost").value);
+    var helperCost = isNaN(document.getElementById("HelperCost").value) ? 0 : Number(document.getElementById("HelperCost").value);
     var PrivateCommentsCost = isNaN(document.getElementById("PrivateCommentsCost").value) ? 0 : Number(document.getElementById("PrivateCommentsCost").value);
 
 
@@ -46,14 +53,22 @@ function calcTotalCost() {
     } else {
         document.getElementById("TotalCost").value = totalCost;
     }
+
+    return totalCost;
 }
 
 setInterval(calcTot, 1000);
 
 function calcTot() {
-    calcTotalPrice();
-    calcTotalCost();
+    var price = calcTotalPrice();
+    var cost = calcTotalCost();
+    var profit = price - cost;
 
+    if (isNaN(profit) || profit == 0) {
+        document.getElementById("profit").innerHTML = "Profit : - - - -";
+    } else {
+        document.getElementById("profit").innerHTML = "Profit : " + profit;
+    }
 }
 
 function showCostBoxes() {
@@ -72,6 +87,7 @@ function showCostBoxes() {
         $('#helperCost').show();
         $('#PrivateCommentsCost').show();
         $('#TotalCost').show();
+        $('#profit').show();
 
 
     } else {
@@ -88,11 +104,10 @@ function showCostBoxes() {
         $('#helperCost').hide();
         $('#PrivateCommentsCost').hide();
         $('#TotalCost').hide();
+        $('#profit').hide();
     }
 
 }
-
-
 
 function validateData() {
     if ("" == $('#name').val()) {
@@ -115,7 +130,7 @@ function getWedding(event) {
     ovOn();
     $("#btnHide").hide();
     $("#allListTable").empty();
-    $.post('getWedding.php', {
+    $.post('MainGetWedding.php', {
             ID: event.id,
             DBTableName: tableName
         },
@@ -201,11 +216,43 @@ function getWedding(event) {
 
             $('#SigBoard').val(obj.SigBoard).change();
 
+            $('#Album1Cost').val(obj.Album1Cost);
+            $('#Album1Price').val(obj.Album1Price);
+            $('#Album2Cost').val(obj.Album2Cost);
+            $('#Album2Price').val(obj.Album2Price);
+            $('#Album3Cost').val(obj.Album3Cost);
+            $('#Album3Price').val(obj.Album3Price);
+
+            $('#MiniAlbCost').val(obj.MiniAlbCost);
+            $('#MiniAlbPrice').val(obj.MiniAlbPrice);
+            $('#SigboardCost').val(obj.SigboardCost);
+            $('#SigboardPrice').val(obj.SigboardPrice);
+            $('#EnlargeCost').val(obj.EnlargeCost);
+            $('#EnlargePrice').val(obj.EnlargePrice);
+            $('#WedThankCost').val(obj.WedThankCost);
+            $('#WedThankPrice').val(obj.WedThankPrice);
+            $('#HomThankCost').val(obj.HomThankCost);
+            $('#HomThankPrice').val(obj.HomThankPrice);
+            $('#VidCost').val(obj.VidCost);
+
+            $('#VidPrice').val(obj.VidPrice);
+            $('#DroneCost').val(obj.DroneCost);
+            $('#DronePrice').val(obj.DronePrice);
+            $('#HelperCost').val(obj.HelperCost);
+            $('#HelperPrice').val(obj.HelperPrice);
+            $('#DesignerCost').val(obj.DesignerCost);
+            $('#DesignerPrice').val(obj.DesignerPrice);
+
+            $('#CostVersion').val(obj.CostVersion);
+
+            if (cm.get('CostVersion') != obj.CostVersion) {
+                // alert("Version mismatch");
+                swal("Old Cost Settings", "This event is saved with old cost values. If you change any component, it will be affected by new cost values as per " + cm.get('CostVersion'), "error");
+            }
+
+
             showRemainingBal();
-
-
             setEmailButton();
-
             ovOff();
             console.log(returnedData);
 
@@ -319,6 +366,33 @@ function clearAll() {
 
 
     $('#SigBoard').val("N/A").change();
+
+    $('#Album1Cost').val("");
+    $('#Album1Price').val("");
+    $('#Album2Cost').val("");
+    $('#Album2Price').val("");
+    $('#Album3Cost').val("");
+    $('#Album3Price').val("");
+
+    $('#MiniAlbCost').val("");
+    $('#MiniAlbPrice').val("");
+    $('#SigboardCost').val("");
+    $('#SigboardPrice').val("");
+    $('#EnlargeCost').val("");
+    $('#EnlargePrice').val("");
+    $('#WedThankCost').val("");
+    $('#WedThankPrice').val("");
+    $('#HomThankCost').val("");
+    $('#HomThankPrice').val("");
+    $('#VidCost').val("");
+
+    $('#VidPrice').val("");
+    $('#DroneCost').val("");
+    $('#DronePrice').val("");
+    $('#HelperCost').val("");
+    $('#HelperPrice').val("");
+    $('#DesignerCost').val("");
+    $('#DesignerPrice').val("");
 }
 
 function showAll() {
@@ -378,7 +452,7 @@ function saveNew() {
         function() {
 
             setEmailButton();
-            $.post('addWedding.php', {
+            $.post('MainAddWedding.php', {
 
                     DBTableName: tableName,
 
@@ -448,7 +522,39 @@ function saveNew() {
                     Album1Type: $('#Album1Type').val(),
                     Album2Type: $('#Album2Type').val(),
 
-                    SigBoard: $('#SigBoard').val()
+                    SigBoard: $('#SigBoard').val(),
+
+
+                    Album1Cost: $('#Album1Cost').val(),
+                    Album1Price: $('#Album1Price').val(),
+                    Album2Cost: $('#Album2Cost').val(),
+                    Album2Price: $('#Album2Price').val(),
+                    Album3Cost: $('#Album3Cost').val(),
+                    Album3Price: $('#Album3Price').val(),
+
+                    MiniAlbCost: $('#MiniAlbCost').val(),
+                    MiniAlbPrice: $('#MiniAlbPrice').val(),
+                    SigboardCost: $('#SigboardCost').val(),
+                    SigboardPrice: $('#SigboardPrice').val(),
+                    EnlargeCost: $('#EnlargeCost').val(),
+                    EnlargePrice: $('#EnlargePrice').val(),
+                    WedThankCost: $('#WedThankCost').val(),
+                    WedThankPrice: $('#WedThankPrice').val(),
+                    HomThankCost: $('#HomThankCost').val(),
+                    HomThankPrice: $('#HomThankPrice').val(),
+                    VidCost: $('#VidCost').val(),
+
+                    VidPrice: $('#VidPrice').val(),
+                    DroneCost: $('#DroneCost').val(),
+                    DronePrice: $('#DronePrice').val(),
+                    HelperCost: $('#HelperCost').val(),
+                    HelperPrice: $('#HelperPrice').val(),
+                    DesignerCost: $('#DesignerCost').val(),
+                    DesignerPrice: $('#DesignerPrice').val(),
+
+                    CostVersion: $('#CostVersion').text()
+
+
 
                 },
                 function(returnedData) {
@@ -489,7 +595,7 @@ function update() {
         function() {
             ovOn();
             setEmailButton();
-            $.post('editWedding.php', {
+            $.post('MainEditWedding.php', {
 
                     DBTableName: tableName,
                     ID: $('#ID').val(),
@@ -560,7 +666,37 @@ function update() {
                     Album1Type: $('#Album1Type').val(),
                     Album2Type: $('#Album2Type').val(),
 
-                    SigBoard: $('#SigBoard').val()
+                    SigBoard: $('#SigBoard').val(),
+
+
+                    Album1Cost: $('#Album1Cost').val(),
+                    Album1Price: $('#Album1Price').val(),
+                    Album2Cost: $('#Album2Cost').val(),
+                    Album2Price: $('#Album2Price').val(),
+                    Album3Cost: $('#Album3Cost').val(),
+                    Album3Price: $('#Album3Price').val(),
+
+                    MiniAlbCost: $('#MiniAlbCost').val(),
+                    MiniAlbPrice: $('#MiniAlbPrice').val(),
+                    SigboardCost: $('#SigboardCost').val(),
+                    SigboardPrice: $('#SigboardPrice').val(),
+                    EnlargeCost: $('#EnlargeCost').val(),
+                    EnlargePrice: $('#EnlargePrice').val(),
+                    WedThankCost: $('#WedThankCost').val(),
+                    WedThankPrice: $('#WedThankPrice').val(),
+                    HomThankCost: $('#HomThankCost').val(),
+                    HomThankPrice: $('#HomThankPrice').val(),
+                    VidCost: $('#VidCost').val(),
+
+                    VidPrice: $('#VidPrice').val(),
+                    DroneCost: $('#DroneCost').val(),
+                    DronePrice: $('#DronePrice').val(),
+                    HelperCost: $('#HelperCost').val(),
+                    HelperPrice: $('#HelperPrice').val(),
+                    DesignerCost: $('#DesignerCost').val(),
+                    DesignerPrice: $('#DesignerPrice').val(),
+
+                    CostVersion: $('#CostVersion').text()
                 },
                 function(returnedData) {
                     ovOff();
@@ -837,7 +973,7 @@ function createFullReport() {
         timer: 3000,
         showConfirmButton: false
     });
-    $.post('getAllEvents.php', {
+    $.post('MainGetAllEvents.php', {
             DBTableName: tableName,
         },
         function(returnedData) {
@@ -968,6 +1104,7 @@ function initializePage() {
     });
     loadHeader();
     loadFooter();
+
 }
 
 function loadScript(url, callback) {

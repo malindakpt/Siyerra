@@ -160,7 +160,7 @@
 							<?php echo getProperty("AlbumSizes"); ?>
 						</select>
 						<br> <br>
-						<div style="float:left">
+						<div>
 							<input id='CAPages'  type="number"  class="input-pageCount w3-input" placeholder="Pages Count" onchange="setAlbumCost(1);"> </input>
 							<input id='Album1Price'  class="input-price w3-input" placeholder="Price"> </input>
 							<input id='Album1Cost'  class="input-cost w3-input" placeholder="Cost"> </input>
@@ -228,8 +228,8 @@
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
 			
 			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Mini Album</b></input><br>
-			<input id='miniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
-			<input id='miniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
+			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 		
 			
 		
@@ -242,8 +242,8 @@
 				<option value="N/A">-Select Signature Board-</option> 
 				<?php echo getProperty("EnlargementSizes"); ?>
 			</select>
-			<input id='sigBoardPrice'  class="input-price w3-input" placeholder="Price"> </input>
-			<input id='sigBoardCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+			<input id='SigboardPrice'  class="input-price w3-input" placeholder="Price"> </input>
+			<input id='SigboardCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 		</div>
 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
@@ -273,8 +273,8 @@
 				
 				</div>
 				<div>
-						<input id='EnlPrice'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='EnlCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+						<input id='EnlargePrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='EnlargeCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
 					<br>
 			</div>
@@ -295,8 +295,8 @@
 			
 				<div>
 					<input id='wedThankCardCount' type="number"  class="input-pageCount w3-input" placeholder="Card Count" onchange="setThankCardCost('wed');"> </input>
-					<input id='wedThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
-					<input id='wedThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+					<input id='WedThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
+					<input id='WedThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 				</div>
 			
 				</div>
@@ -317,8 +317,8 @@
 					<br><br> 
 					<div style="float:left">
 						<input id='homeThankCardCount'  type="number"  class="input-pageCount w3-input" placeholder="Card Count" onchange="setThankCardCost('home');"> </input>
-						<input id='homeThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='homeThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+						<input id='HomThankPrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='HomThankCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
 				</div>
 			</div>
@@ -341,32 +341,38 @@
 						<?php echo getProperty("VidType"); ?>	
 					</select>
 					<div>
-						<input id='vidPrice'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='vidCost'  class="input-cost w3-input" placeholder="Cost"> </input>						 
+						<input id='VidPrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='VidCost'  class="input-cost w3-input" placeholder="Cost"> </input>						 
 					</div>
 					<br><br><br>
 					<div>					 
 						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDroneCost();"> <b>Include Drone Camera</b></input><br>
-						<input id='dronePrice'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='droneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+						<input id='DronePrice'  class="input-price w3-input" placeholder="Price"> </input>
+						<input id='DroneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
 				</div>	
 			</div>
 
 			 
-			<div style="float:left">
+			<p>
 				<label id="helpers" class="input-pageCount">Total Helpers Count       </label>
 				<input id='helperCount'  type="number" style="width:60px" class="input-pageCount w3-input" onchange="setHelperCost();"> </input>
-				<input id='helperPrice'  class="input-price w3-input" placeholder="Price"> </input>
-				<input id='helperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
-			</div>
-		 <br><br>
+				<input id='HelperPrice'  class="input-price w3-input" placeholder="Price"> </input>
+				<input id='HelperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+			</p>
+			<br><br>
+			<p>
+				<label id="helpers" class="input-pageCount">Designer Cost       </label>
+				<input id='DesignerPrice'  class="input-price-enabled w3-input" placeholder="Designer Price"> </input>
+				<input id='DesignerCost'  class="input-cost-enabled w3-input" placeholder="Designer Cost"> </input>
+			</p>
+		 <br><br><br>
 			<div>
 				<textarea id="PrivateComments" placeholder="Private Comments For Additional Costs" style="width:100%;height:150px;"></textarea>
 				<input id='PrivateCommentsPrice'  class="input-price-enabled w3-input" placeholder="Price"> </input>
 				<input id='PrivateCommentsCost'  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
 				<br><br><br>
-				<textarea id="Comments" placeholder="Customer Comments" style="width:100%;height:150px;"></textarea>
+				<textarea id="Comments" placeholder="Customer Comments" style="width:100%;height:100px;"></textarea>
 				<p>
 				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
 				<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
@@ -383,6 +389,15 @@
 				<br>
 				<input id='Total'  class="input-price w3-input" placeholder="Price" onChange="showRemainingBal()"> </input>
 				<input id='TotalCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+
+
+
+				<br><br>
+				<p>
+				<!-- <input id='profit' style="float:right;width:100px;" class="w3-input" placeholder="Profit"> </input> -->
+				<label id="profit" style="float:right;">Profit</label>
+			
+	</p>
 				<!-- <input id='Total'  type="number"  class="w3-input" onChange="showRemainingBal()"> </input> -->
 	</p><br><br>
 				<input type="checkbox" class="w3-check" id="showCost" checked onchange="showCostBoxes();"> <b>Show Cost</b></input><br>
@@ -399,6 +414,10 @@
 				<br><br>
 				<button class="w3-btn w3-green w3-padding-small" onclick="savePDF()" >Download Invoice</button>
 				<button class="w3-btn w3-blue w3-padding-small" style="float:right"><a id="EmailTo"	href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Send Mail</a></button>		
+			</div>
+
+			<div>
+			<label id="costver" class ="meta-data">Cost Version : </label><label id="CostVersion" class ="meta-data">2017-04-23</label>
 			</div>
 		</div> 
 			
@@ -419,10 +438,17 @@
 			$result = getAllCost();
 			$resArr = explode(";;;;",$result);
 			$resMap = array();
-			for ($i = 0; $i < sizeof($resArr)-1; $i++) {
+			$last = sizeof($resArr)-1;
+			for ($i = 0; $i < $last; $i++) {
+				// $val = explode("#",$resArr[$i])[0];
+				// $version = explode("#",$resArr[$i])[1];
 				$arr = explode("?",$resArr[$i]);
 				echo 'cm.set("'.$arr[0].'", '.$arr[1].');';
+				
 			}
+			$version = $resArr[$last];
+			echo 'cm.set("CostVersion", "'.$version.'");';
+			echo "document.getElementById('CostVersion').innerHTML = '".$version."';";
 		?>
  	</script>
 	<script src="js/costing.js?1.2" ></script>

@@ -52,10 +52,15 @@ if ($result->num_rows > 0) {
 		.$row["PSPages"].','
 
 		.$row["IncludeFA"].','
-		.$row["Enlarge1"].','
-		.$row["Enlarge2"].','
-		.$row["Enlarge3"].','
+		.$row["SigBoard"].','
 		
+		.$row["Enlarge1Size"].','
+		.$row["Enlarge2Size"].','
+		.$row["Enlarge3Size"].','
+		.$row["Enlarge1Count"].','
+		.$row["Enlarge2Count"].','
+		.$row["Enlarge3Count"].','
+
 		.$row["thankCardQuality"].','
 		.$row["thankCardSize"].','
 		.$row["wedThankCardCount"].','
@@ -79,15 +84,32 @@ if ($result->num_rows > 0) {
 		.$row["Comments"].','
 		.$row["PrivateComments"].','
 		.$row["PrivateCommentsCost"].','
-		.$row["PrivateCommentsPrice"]."\n"; 
-	
-	
-	
-		
-	
-		
-	
-	
+		.$row["PrivateCommentsPrice"].','
+
+		.$row["Album1Cost"].','
+		.$row["Album1Price"].','
+		.$row["Album2Cost"].','
+		.$row["Album2Price"].','
+		.$row["Album3Cost"].','
+		.$row["Album3Price"].','
+		.$row["MiniAlbCost"].','
+		.$row["MiniAlbPrice"].','
+		.$row["SigboardCost"].','
+		.$row["SigboardPrice"].','
+		.$row["EnlargeCost"].','
+		.$row["EnlargePrice"].','
+		.$row["WedThankCost"].','
+		.$row["WedThankPrice"].','
+		.$row["HomThankCost"].','
+		.$row["HomThankPrice"].','
+		.$row["VidCost"].','
+		.$row["VidPrice"].','
+		.$row["DroneCost"].','
+		.$row["DronePrice"].','
+		.$row["HelperCost"].','
+		.$row["HelperPrice"].','
+		.$row["DesignerCost"].','
+		.$row["DesignerPrice"]."\n"; 
     }
 	// echo json_encode($arr);
 } else {

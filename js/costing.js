@@ -1,18 +1,18 @@
 function setMiniAlbCost() {
     if ($('#IncludeFA').prop('checked') == true) {
-        $('#miniAlbCost').val(cm.get("Mini Album Cost"));
-        $('#miniAlbPrice').val(cm.get("Mini Album Price"));
+        $('#MiniAlbCost').val(cm.get("Mini Album Cost"));
+        $('#MiniAlbPrice').val(cm.get("Mini Album Price"));
     } else {
-        $('#miniAlbCost').val("");
-        $('#miniAlbPrice').val("");
+        $('#MiniAlbCost').val("");
+        $('#MiniAlbPrice').val("");
     }
 }
 
 function setSigBoardCost() {
     var cost = cm.get($('#SigBoard').val() + ":Signature Board Cost");
     var price = cm.get($('#SigBoard').val() + ":Signature Board Price");
-    $('#sigBoardCost').val(cost);
-    $('#sigBoardPrice').val(price);
+    $('#SigboardCost').val(cost);
+    $('#SigboardPrice').val(price);
 
 }
 
@@ -25,18 +25,17 @@ function setHelperCost() {
     var totCost = cost * count;
     var totPrice = price * count;
 
-    $('#helperCost').val(totCost);
-    $('#helperPrice').val(totPrice);
+    $('#HelperCost').val(totCost);
+    $('#HelperPrice').val(totPrice);
 }
-
 
 function setDroneCost() {
     if ($('#IncludeDrone').prop('checked') == true) {
-        $('#droneCost').val(cm.get("Drone Camera Cost"));
-        $('#dronePrice').val(cm.get("Drone Camera Price"));
+        $('#DroneCost').val(cm.get("Drone Camera Cost"));
+        $('#DronePrice').val(cm.get("Drone Camera Price"));
     } else {
-        $('#droneCost').val("");
-        $('#dronePrice').val("");
+        $('#DroneCost').val("");
+        $('#DronePrice').val("");
     }
 }
 
@@ -51,8 +50,8 @@ function setVideoCost() {
     var cost = cm.get(key + ":Video Cost");
     var price = cm.get(key + ":Video Price");
 
-    $('#vidCost').val(cost);
-    $('#vidPrice').val(price);
+    $('#VidCost').val(cost);
+    $('#VidPrice').val(price);
 
 }
 
@@ -81,15 +80,14 @@ function setThankCardCost(day) {
     totPrice = isNaN(totPrice) ? "" : totPrice;
 
     if (day == "wed") {
-        $('#wedThankCost').val(totCost);
-        $('#wedThankPrice').val(totPrice);
+        $('#WedThankCost').val(totCost);
+        $('#WedThankPrice').val(totPrice);
     }
     if (day == "home") {
-        $('#homeThankCost').val(totCost);
-        $('#homeThankPrice').val(totPrice);
+        $('#HomThankCost').val(totCost);
+        $('#HomThankPrice').val(totPrice);
     }
 }
-
 
 function setEnlargementCost() {
     var size1 = $('#Enlarge1Size').val();
@@ -113,8 +111,8 @@ function setEnlargementCost() {
     totCost = isNaN(totCost) ? "" : totCost;
     totPrice = isNaN(totPrice) ? "" : totPrice;
 
-    $('#EnlCost').val(totCost);
-    $('#EnlPrice').val(totPrice);
+    $('#EnlargeCost').val(totCost);
+    $('#EnlargePrice').val(totPrice);
 }
 
 function setAlbumCost(album) {
@@ -139,11 +137,11 @@ function setAlbumCost(album) {
         pages = Number($('#PSPages').val());
     }
 
-    var keyPages = quality + ":" + size + ":FixedPages";
-    var keyCost = quality + ":" + size + ":FixedCost";
-    var keyPrice = quality + ":" + size + ":FixedPrice";
-    var keyExCost = quality + ":" + size + ":ExtraPageCost";
-    var keyExPrice = quality + ":" + size + ":ExtraPagePrice";
+    var keyPages = quality + ":" + size + ":Fixed Pages";
+    var keyCost = quality + ":" + size + ":Fixed Cost";
+    var keyPrice = quality + ":" + size + ":Fixed Price";
+    var keyExCost = quality + ":" + size + ":Extra Page Cost";
+    var keyExPrice = quality + ":" + size + ":Extra Page Price";
 
     var pagesLimit = Number(cm.get(keyPages));
     var cost = Number(cm.get(keyCost));

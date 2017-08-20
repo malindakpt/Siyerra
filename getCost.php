@@ -18,12 +18,16 @@ $tableName=$_SESSION['TableName'];
 $sql = "SELECT * FROM costmodel WHERE TableName = '".$tableName."'";
 $result = $conn->query($sql);
 $ans="";
+$version = "";
 
 if ($result->num_rows > 0) {
    	while($row = $result->fetch_assoc()) {
 		$ans = $ans.$row["KeyVal"].';;;;';
+		$version = $row["Version"];
     }
 }
+
+$ans = $ans.$version;
 
 $conn->close();
 

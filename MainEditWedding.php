@@ -86,6 +86,36 @@ $PrivateCommentsPrice = $_POST['PrivateCommentsPrice'];
 $SigBoard = $_POST['SigBoard'];
 
 
+//New Attrs
+$Album1Cost = $_POST['Album1Cost'];
+$Album1Price = $_POST['Album1Price'];
+$Album2Cost = $_POST['Album2Cost'];
+$Album2Price = $_POST['Album2Price'];
+$Album3Cost = $_POST['Album3Cost'];
+$Album3Price = $_POST['Album3Price'];
+$MiniAlbCost = $_POST['MiniAlbCost'];
+$MiniAlbPrice = $_POST['MiniAlbPrice'];
+$SigboardCost = $_POST['SigboardCost'];
+$SigboardPrice = $_POST['SigboardPrice'];
+$EnlargeCost = $_POST['EnlargeCost'];
+$EnlargePrice = $_POST['EnlargePrice'];
+$WedThankCost = $_POST['WedThankCost'];
+$WedThankPrice = $_POST['WedThankPrice'];
+$HomThankCost = $_POST['HomThankCost'];
+$HomThankPrice = $_POST['HomThankPrice'];
+$VidCost = $_POST['VidCost'];
+$VidPrice = $_POST['VidPrice'];
+$DroneCost = $_POST['DroneCost'];
+$DronePrice = $_POST['DronePrice'];
+$HelperCost = $_POST['HelperCost'];
+$HelperPrice = $_POST['HelperPrice'];
+$DesignerCost = $_POST['DesignerCost'];
+$DesignerPrice = $_POST['DesignerPrice'];
+
+$CostVersion = $_POST['CostVersion'];
+
+
+
 $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', placeW='$placeW', CASize='$CASize', CAPages='$CAPages', CAQuality='$CAQuality', FASize='$FASize', FAPages='$FAPages', FAQuality='$FAQuality', thankCardSize='$thankCardSize', thankCardQuality='$thankCardQuality', wedThankCardCount='$wedThankCardCount',
  homeThankCardCount='$homeThankCardCount', email='$email', phone='$phone', dateH= '$dateH', timeH='$timeH', placeH='$placeH', PSSize='$PSSize', PSPages='$PSPages', PSQuality='$PSQuality', VidQuality='$VidQuality', VidNoOfCam='$VidNoOfCam', VidType='$VidType'
  , Advance1='$Advance1', Advance2='$Advance2', Advance3='$Advance3'
@@ -99,6 +129,12 @@ $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', pl
 ,PrivateComments='$PrivateComments', PrivateCommentsCost='$PrivateCommentsCost', PrivateCommentsPrice= '$PrivateCommentsPrice' 
 
 ,SigBoard= '$SigBoard'
+
+,Album1Cost='$Album1Cost',Album1Price='$Album1Price,Album2Cost='$Album2Cost',Album2Price='$Album2Price',Album3Cost='$Album3Cost',Album3Price='$Album3Price',MiniAlbCost='$MiniAlbCost',MiniAlbPrice='$MiniAlbPrice', SigboardCost='$SigboardCost'
+,SigboardPrice='$SigboardPrice', EnlargeCost='$EnlargeCost', EnlargePrice='$EnlargePrice', WedThankCost='$WedThankCost', WedThankPrice='$WedThankPrice', HomThankCost='$HomThankCost', HomThankPrice='$HomThankPrice', VidCost='$VidCost'
+,VidPrice='$VidPrice', DroneCost='$DroneCost', DronePrice='$DronePrice', HelperCost='$HelperCost', HelperPrice='$HelperPrice', DesignerCost='$DesignerCost'
+, DesignerPrice='$DesignerPrice'
+, CostVersion='$CostVersion'
 
 WHERE  ID = '$ID'";
 

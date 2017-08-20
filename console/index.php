@@ -247,7 +247,6 @@ function openCat(cityName) {
 ?>
 </div>
 
-
 <div id="AlbumCost" class="w3-container cat" style="display:none">
 <?php 
 	$qualities = explode("value",getProperty("AlbumQualities"));

@@ -44,6 +44,22 @@ if ($result->num_rows > 0) {
 		,'Enlarge1Size' => $row["Enlarge1Size"]	,'Enlarge2Size' => $row["Enlarge2Size"]	,'Enlarge3Size' => $row["Enlarge3Size"]
 		,'Enlarge1Count' => $row["Enlarge1Count"]	,'Enlarge2Count' => $row["Enlarge2Count"]	,'Enlarge3Count' => $row["Enlarge3Count"]
 		,'SigBoard' => $row["SigBoard"]
+
+		,'Album1Cost' => $row["Album1Cost"]	,'Album1Price' => $row["Album1Price"]
+		,'Album2Cost' => $row["Album2Cost"]	,'Album2Price' => $row["Album2Price"]
+		,'Album3Cost' => $row["Album3Cost"]	,'Album3Price' => $row["Album3Price"]
+		,'MiniAlbCost' => $row["MiniAlbCost"]	,'MiniAlbPrice' => $row["MiniAlbPrice"]
+		,'SigboardCost' => $row["SigboardCost"]	,'SigboardPrice' => $row["SigboardPrice"]
+		,'EnlargeCost' => $row["EnlargeCost"]	,'EnlargePrice' => $row["EnlargePrice"]
+		,'WedThankCost' => $row["WedThankCost"]	,'WedThankPrice' => $row["WedThankPrice"]
+		,'HomThankCost' => $row["HomThankCost"]	,'HomThankPrice' => $row["HomThankPrice"]
+		,'VidCost' => $row["VidCost"]	,'VidPrice' => $row["VidPrice"]
+		,'DroneCost' => $row["DroneCost"]	,'DronePrice' => $row["DronePrice"]
+		,'HelperCost' => $row["HelperCost"]	,'HelperPrice' => $row["HelperPrice"]
+		,'DesignerCost' => $row["DesignerCost"]	,'DesignerPrice' => $row["DesignerPrice"]
+
+		,'CostVersion' => $row["CostVersion"]
+
 		
 		); 
     }
