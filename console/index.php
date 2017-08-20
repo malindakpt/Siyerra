@@ -144,12 +144,25 @@ function openCat(cityName) {
 	?>
 	
 	<?php 
-		echo "<h4>Mini Album Cost and Price</h4>";
-		echo "<ul id='miniALbumCOst'>";
-			echo '<li class="lbl-settings">Mini Album Cost</li><input value="'.$resMap['Mini Album Cost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li class="lbl-settings">Mini Album Price</li><input value="'.$resMap['Mini Album Price'].'"  class="w3-input input-get-cost"/>';		
-		echo "</ul>"
+		// echo "<h4>Mini Album Cost and Price</h4>";
+		// echo "<ul id='miniALbumCOst'>";
+		// 	echo '<li class="lbl-settings">Mini Album Cost</li><input value="'.$resMap['Mini Album Cost'].'"  class="w3-input input-get-cost"/>';
+		// 	echo '<li class="lbl-settings">Mini Album Price</li><input value="'.$resMap['Mini Album Price'].'"  class="w3-input input-get-cost"/>';		
+		// echo "</ul>"
 	?>
+	<?php  
+	$MiniAlbumSizes = explode("value", getProperty("MiniAlbumSizes"));
+
+	echo "<h4>MiniAlbum Cost and Price</h4>";
+	echo "<ul id='enlargementCost'>";
+	
+		for ($y = 1; $y < sizeof($MiniAlbumSizes); $y++) {
+			$v2 = explode("\"",$MiniAlbumSizes[$y])[1];
+			echo '<li class="lbl-settings">'.$v2.':Mini Album Cost</li><input value="'.$resMap[$v2.':Mini Album Cost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">'.$v2.':Mini Album Price</li><input value="'.$resMap[$v2.':Mini Album Price'].'"  class="w3-input input-get-cost"/>';		
+		}
+	echo "</ul>"
+?>
 
 	<?php 
 		echo "<h4>Helper Cost and Price</h4>";

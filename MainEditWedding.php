@@ -1,6 +1,6 @@
 <?php
-$_SESSION["test"] = $UserName;
-include 'loginServer.php';
+//$_SESSION["test"] = $UserName;
+//include 'loginServer.php';
 //Update 2 places
 
 // Create connection 
@@ -130,7 +130,7 @@ $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', pl
 
 ,SigBoard= '$SigBoard'
 
-,Album1Cost='$Album1Cost',Album1Price='$Album1Price,Album2Cost='$Album2Cost',Album2Price='$Album2Price',Album3Cost='$Album3Cost',Album3Price='$Album3Price',MiniAlbCost='$MiniAlbCost',MiniAlbPrice='$MiniAlbPrice', SigboardCost='$SigboardCost'
+,Album1Cost='$Album1Cost',Album1Price='$Album1Price',Album2Cost='$Album2Cost',Album2Price='$Album2Price',Album3Cost='$Album3Cost',Album3Price='$Album3Price', MiniAlbCost='$MiniAlbCost', MiniAlbPrice='$MiniAlbPrice', SigboardCost='$SigboardCost'
 ,SigboardPrice='$SigboardPrice', EnlargeCost='$EnlargeCost', EnlargePrice='$EnlargePrice', WedThankCost='$WedThankCost', WedThankPrice='$WedThankPrice', HomThankCost='$HomThankCost', HomThankPrice='$HomThankPrice', VidCost='$VidCost'
 ,VidPrice='$VidPrice', DroneCost='$DroneCost', DronePrice='$DronePrice', HelperCost='$HelperCost', HelperPrice='$HelperPrice', DesignerCost='$DesignerCost'
 , DesignerPrice='$DesignerPrice'

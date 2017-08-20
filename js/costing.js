@@ -1,11 +1,15 @@
 function setMiniAlbCost() {
-    if ($('#IncludeFA').prop('checked') == true) {
-        $('#MiniAlbCost').val(cm.get("Mini Album Cost"));
-        $('#MiniAlbPrice').val(cm.get("Mini Album Price"));
-    } else {
-        $('#MiniAlbCost').val("");
-        $('#MiniAlbPrice').val("");
-    }
+    // if ($('#IncludeFA').prop('checked') == true) {
+    //     $('#MiniAlbCost').val(cm.get("Mini Album Cost"));
+    //     $('#MiniAlbPrice').val(cm.get("Mini Album Price"));
+    // } else {
+    //     $('#MiniAlbCost').val("");
+    //     $('#MiniAlbPrice').val("");
+    // }
+    var cost = cm.get($('#IncludeFA').val() + ":Mini Album Cost");
+    var price = cm.get($('#IncludeFA').val() + ":Mini Album Price");
+    $('#MiniAlbCost').val(cost);
+    $('#MiniAlbPrice').val(price);
 }
 
 function setSigBoardCost() {

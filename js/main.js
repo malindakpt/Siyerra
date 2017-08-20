@@ -17,10 +17,11 @@ function calcTotalPrice() {
     var dronePrice = isNaN(document.getElementById("DronePrice").value) ? 0 : Number(document.getElementById("DronePrice").value);
     var helperPrice = isNaN(document.getElementById("HelperPrice").value) ? 0 : Number(document.getElementById("HelperPrice").value);
     var PrivateCommentsPrice = isNaN(document.getElementById("PrivateCommentsPrice").value) ? 0 : Number(document.getElementById("PrivateCommentsPrice").value);
+    var DesignerPrice = isNaN(document.getElementById("DesignerPrice").value) ? 0 : Number(document.getElementById("DesignerPrice").value);
 
 
     var totalPrice = album1Price + album2Price + album3Price + miniAlbPrice + sigBoardPrice +
-        EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice + PrivateCommentsPrice;
+        EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice + PrivateCommentsPrice + DesignerPrice;
 
     if (totalPrice == 0) {
         document.getElementById("Total").value = "";
@@ -43,10 +44,11 @@ function calcTotalCost() {
     var droneCost = isNaN(document.getElementById("DroneCost").value) ? 0 : Number(document.getElementById("DroneCost").value);
     var helperCost = isNaN(document.getElementById("HelperCost").value) ? 0 : Number(document.getElementById("HelperCost").value);
     var PrivateCommentsCost = isNaN(document.getElementById("PrivateCommentsCost").value) ? 0 : Number(document.getElementById("PrivateCommentsCost").value);
+    var DesignerCost = isNaN(document.getElementById("DesignerCost").value) ? 0 : Number(document.getElementById("DesignerCost").value);
 
 
     var totalCost = album1Cost + album2Cost + album3Cost + miniAlbCost + sigBoardCost +
-        EnlCost + wedThankCost + homeThankCost + vidCost + droneCost + helperCost + PrivateCommentsCost;
+        EnlCost + wedThankCost + homeThankCost + vidCost + droneCost + helperCost + PrivateCommentsCost + DesignerCost;
 
     if (totalCost == 0) {
         document.getElementById("TotalCost").value = "";
@@ -88,6 +90,7 @@ function showCostBoxes() {
         $('#PrivateCommentsCost').show();
         $('#TotalCost').show();
         $('#profit').show();
+        $('#DesignerCost').show();
 
 
     } else {
@@ -105,6 +108,7 @@ function showCostBoxes() {
         $('#PrivateCommentsCost').hide();
         $('#TotalCost').hide();
         $('#profit').hide();
+        $('#DesignerCost').hide();
     }
 
 }
@@ -205,7 +209,7 @@ function getWedding(event) {
             $('#PrivateCommentsCost').val(obj.PrivateCommentsCost);
             $('#PrivateCommentsPrice').val(obj.PrivateCommentsPrice);
 
-            $('#IncludeFA').prop('checked', obj.includeFA);
+            $('#IncludeFA').val(obj.IncludeFA).change();
             $('#IncludeDrone').prop('checked', obj.IncludeDrone);
 
             $('#ThankCardSizeH').val(obj.ThankCardSizeH);
@@ -357,7 +361,7 @@ function clearAll() {
     $('#PrivateCommentsCost').val("");
     $('#PrivateCommentsPrice').val("");
 
-    $('#IncludeFA').prop('checked', false).change();
+    $('#IncludeFA').val("N/A").change();
     $('#IncludeDrone').prop('checked', false).change();
 
     $('#ThankCardSizeH').val("N/A");
@@ -413,7 +417,7 @@ function showAll() {
                     $("#allListTable").append("<tr><td style='text-align: center;'>0 results found for this period</td></tr>");
                 }
                 for (var i = 0; i < allArr.length; i++) {
-                    $("#allListTable").append("<tr id='" + allArr[i].ID + "' onclick='getWedding(this)'><td>" + allArr[i].name + "</td><td>" + allArr[i].date + "</td><td>" + allArr[i].time + ':' + allArr[i].type + "</td><td><button id='" + allArr[i].ID + "' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='" + allArr[i].ID + "' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>");
+                    $("#allListTable").append("<tr id='" + allArr[i].ID + "'><td>" + allArr[i].name + "</td><td>" + allArr[i].date + "</td><td>" + allArr[i].time + ':' + allArr[i].type + "</td><td><button id='" + allArr[i].ID + "' class='w3-btn w3-small w3-blue' onclick='getWedding(this)'>Open</button></td><td><button id='" + allArr[i].ID + "' class='w3-btn w3-small w3-red' onclick='deleteWedding(this)'>Delete</button></td></tr>");
                 }
             } else {
                 document.location = "login.php";
@@ -512,7 +516,7 @@ function saveNew() {
                     Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
 
                     Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
-                    IncludeFA: $('#IncludeFA').is(":checked"),
+                    IncludeFA: $('#IncludeFA').val(),
                     IncludeDrone: $('#IncludeDrone').is(":checked"),
 
                     ThankCardSizeH: $('#ThankCardSizeH').val(),
@@ -657,7 +661,7 @@ function update() {
 
                     Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
 
-                    IncludeFA: $('#IncludeFA').is(":checked"),
+                    IncludeFA: $('#IncludeFA').val(),
                     IncludeDrone: $('#IncludeDrone').is(":checked"),
 
                     ThankCardSizeH: $('#ThankCardSizeH').val(),
@@ -749,7 +753,7 @@ function savePDF() {
     doc.text(25, line + 15, 'Email : ' + $('#email').val());
     doc.text(25, line + 20, 'Phone : ' + $('#phone').val());
     doc.text(25, line + 28, 'Addres : ' + $('#Address').val());
-    shift = 80;
+    shift = 100;
     doc.setFontSize(10);
 
     if ($('#NameG').val() != "") {
@@ -776,7 +780,7 @@ function savePDF() {
         datePrinted = true;
     }
     if (datePrinted) {
-        line = line + 30;
+        line = line + 25;
     }
 
     var albumsPrinted = false;
@@ -817,11 +821,15 @@ function savePDF() {
     }
 
     doc.setFontSize(10);
-    if ($('#IncludeFA').is(":checked") == true) {
-        doc.text(25, line, "1 Family Album included (8x12 story type)");
+    if ($('#IncludeFA').val() != "N/A") {
+        doc.text(25, line, "Mini Album of size " + $('#IncludeFA').val() + " included");
         line = line + 10;
     }
 
+    if ($('#SigBoard').val() != "N/A") {
+        doc.text(25, line, "Signature Board of size " + $('#SigBoard').val() + " included");
+        line = line + 10;
+    }
     //////////////////////Thanking Card Details//////////////////////
 
     shift = 0;
@@ -853,15 +861,27 @@ function savePDF() {
         line = line + 25;
     }
     //////////////////////////////////////////////////////////////////
-
-    if ($('#Enlarge1').val() != "" || $('#Enlarge2').val() != "" || $('#Enlarge3').val() != "") {
-        doc.setFontSize(11);
-        doc.text(25, line, "Enlargements");
+    var enlargementPRinted = false;
+    if (Number($('#Enlarge1Count').val()) > 0) {
         doc.setFontSize(10);
-        doc.text(30, line + 5, $('#Enlarge1').val());
-        doc.text(30, line + 10, $('#Enlarge2').val());
-        doc.text(30, line + 15, $('#Enlarge3').val());
-        line = line + 25;
+        doc.text(30, line, "Enlargement Size: " + $('#Enlarge1Size').val() + "       Count: " + $('#Enlarge1Count').val());
+        line = line + 5;
+        enlargementPRinted = true;
+    }
+    if (Number($('#Enlarge2Count').val()) > 0) {
+        doc.setFontSize(10);
+        doc.text(30, line, "Enlargement Size: " + $('#Enlarge2Size').val() + "       Count: " + $('#Enlarge2Count').val());
+        line = line + 5;
+        enlargementPRinted = true;
+    }
+    if (Number($('#Enlarge3Count').val()) > 0) {
+        doc.setFontSize(10);
+        doc.text(30, line, "Enlargement Size: " + $('#Enlarge3Size').val() + "       Count: " + $('#Enlarge3Count').val());
+        line = line + 5;
+        enlargementPRinted = true;
+    }
+    if (enlargementPRinted == true) {
+        line = line + 5;
     }
     ////////////////////////////////////////////////////////////////////
 
@@ -892,16 +912,19 @@ function savePDF() {
     doc.setFontSize(12);
     doc.text(25, line, "Total Album Price : " + $('#Total').val() + "/=");
     doc.setFontSize(10);
-    var trnsp = $('#Transport').val() == "" ? "N/A" : ($('#Transport').val() + "/= ");
-    doc.text(25, line + 5, "Transport Cost : " + trnsp);
+    doc.text(25, line + 5, "Advance Payments : " + sumPayments + " ( " +
+        (adv1 == 0 ? "" : adv1 + ", ") + (adv2 == 0 ? "" : adv2 + ", ") + (adv3 == 0 ? "" : adv3 + ", ") +
+        (adv4 == 0 ? "" : adv4 + ", ") + (adv5 == 0 ? "" : adv5 + ", ") + (adv6 == 0 ? "" : adv6) + ")");
+
     doc.setFontSize(10);
-    doc.text(120, line + 5, "Advance Payments : " + sumPayments + "/= ");
+    var trnsp = $('#Transport').val() == "" ? "N/A" : ($('#Transport').val() + "/= ");
+    doc.text(25, line + 10, "Transport Cost : " + trnsp);
 
     line = line + 15;
     var splitTitle = doc.splitTextToSize($('#Comments').val(), 150);
     if ($('#Comments').val() != "") {
-        doc.setFontSize(10);
-        doc.text(25, line, splitTitle);
+        doc.setFontSize(8);
+        doc.text(60, line, splitTitle);
     }
     var fileName = $('#name').val() + '-' + $('#dateW').val() + '.pdf';
     doc.save(fileName);

@@ -225,7 +225,7 @@
 					<input id='Album3Cost'  class="input-cost w3-input" placeholder="Cost"> </input>
 				</div>
 			</div>
-		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
+		<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
 			
 			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Mini Album</b></input><br>
 			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
@@ -233,14 +233,21 @@
 		
 			
 		
-		</div>
-
+		</div> -->
 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
+			<label><b>Mini Album Details</b></label>
+			<select id='IncludeFA' class="w3-select" onchange="setMiniAlbCost();"> 
+				<option value="N/A">-Select Mini Album-</option> 
+				<?php echo getProperty("MiniAlbumSizes"); ?>
+			</select>
+			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
+			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+ <br><br>
 			<label><b>Signature Board Details</b></label>
 			<select id='SigBoard' class="w3-select" onchange="setSigBoardCost();"> 
 				<option value="N/A">-Select Signature Board-</option> 
-				<?php echo getProperty("EnlargementSizes"); ?>
+				<?php echo getProperty("SigBoardSizes"); ?>
 			</select>
 			<input id='SigboardPrice'  class="input-price w3-input" placeholder="Price"> </input>
 			<input id='SigboardCost'  class="input-cost w3-input" placeholder="Cost"> </input>
@@ -345,14 +352,14 @@
 						<input id='VidCost'  class="input-cost w3-input" placeholder="Cost"> </input>						 
 					</div>
 					<br><br><br>
-					<div>					 
+					
+				</div>	
+			</div>
+			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">					 
 						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDroneCost();"> <b>Include Drone Camera</b></input><br>
 						<input id='DronePrice'  class="input-price w3-input" placeholder="Price"> </input>
 						<input id='DroneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
-				</div>	
-			</div>
-
 			 
 			<p>
 				<label id="helpers" class="input-pageCount">Total Helpers Count       </label>

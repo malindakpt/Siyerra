@@ -33,11 +33,10 @@ if ($result->num_rows > 0) {
 		,'Advance1' => $row["Advance1"], 'Advance2' => $row["Advance2"],'Advance3' => $row["Advance3"]
 		,'Advance4' => $row["Advance4"], 'Advance5' => $row["Advance5"],'Advance6' => $row["Advance6"]
 
-		,'Total' => $row["Total"], 'Comments' => $row["Comments"],'IncludeFA' => $row["IncludeFA"],
-		'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"],
-
-		'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
-
+		,'Total' => $row["Total"], 'Comments' => $row["Comments"]
+		,'IncludeFA' => $row["IncludeFA"]
+		,'Address' => $row["Address"], 'IncludeDrone' => $row["IncludeDrone"]
+		,'NameG' => $row["NameG"], 'EmailG' => $row["EmailG"],'PhoneG' => $row["PhoneG"]
 		,'ThankCardSizeH' => $row["ThankCardSizeH"],'ThankCardQualityH' => $row["ThankCardQualityH"]
 		,'Transport' => $row["Transport"], 'Album1Type' => $row["Album1Type"], 'Album2Type' => $row["Album2Type"]
 		,'PrivateComments' => $row["PrivateComments"], 'PrivateCommentsCost' => $row["PrivateCommentsCost"], 'PrivateCommentsPrice' => $row["PrivateCommentsPrice"]
