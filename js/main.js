@@ -66,6 +66,8 @@ function calcTot() {
     var cost = calcTotalCost();
     var profit = price - cost;
 
+    showRemainingBal();
+
     if (isNaN(profit) || profit == 0) {
         document.getElementById("profit").innerHTML = "Profit : - - - -";
     } else {
@@ -434,6 +436,111 @@ function hideAll() {
     $("#btnHide").hide();
 }
 
+function getDataObj() {
+    return {
+        ID: $('#ID').val(),
+        DBTableName: tableName,
+
+        name: $('#name').val(),
+        email: $('#email').val(),
+        phone: $('#phone').val(),
+
+        NameG: $('#NameG').val(),
+        EmailG: $('#EmailG').val(),
+        PhoneG: $('#PhoneG').val(),
+
+        dateW: $('#dateW').val(),
+        timeW: $('#timeW').val(),
+        placeW: $('#placeW').val(),
+        CASize: $('#CASize').val(),
+        CAPages: $('#CAPages').val(),
+        CAQuality: $('#CAQuality').val(),
+        FASize: $('#FASize').val(),
+        FAPages: $('#FAPages').val(),
+        FAQuality: $('#FAQuality').val(),
+        thankCardSize: $('#thankCardSize').val(),
+        thankCardQuality: $('#thankCardQuality').val(),
+        wedThankCardCount: $('#wedThankCardCount').val(),
+        homeThankCardCount: $('#homeThankCardCount').val(),
+
+        Address: $('#Address').val(),
+
+        dateH: $('#dateH').val(),
+        timeH: $('#timeH').val(),
+        placeH: $('#placeH').val(),
+        PSSize: $('#PSSize').val(),
+        PSPages: $('#PSPages').val(),
+        PSQuality: $('#PSQuality').val(),
+        VidQuality: $('#VidQuality').val(),
+        VidNoOfCam: $('#VidNoOfCam').val(),
+        VidType: $('#VidType').val(),
+
+        Enlarge1Size: $('#Enlarge1Size').val(),
+        Enlarge2Size: $('#Enlarge2Size').val(),
+        Enlarge3Size: $('#Enlarge3Size').val(),
+
+        Enlarge1Count: $('#Enlarge1Count').val(),
+        Enlarge2Count: $('#Enlarge2Count').val(),
+        Enlarge3Count: $('#Enlarge3Count').val(),
+
+        Comments: $('#Comments').val(),
+
+        PrivateComments: $('#PrivateComments').val(),
+        PrivateCommentsCost: $('#PrivateCommentsCost').val(),
+        PrivateCommentsPrice: $('#PrivateCommentsPrice').val(),
+
+        Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
+        Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '',
+        Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '',
+        Advance4: parseInt($('#Advance4').val()) ? $('#Advance4').val() : '',
+        Advance5: parseInt($('#Advance5').val()) ? $('#Advance5').val() : '',
+        Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
+
+        Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
+        IncludeFA: $('#IncludeFA').val(),
+        IncludeDrone: $('#IncludeDrone').is(":checked"),
+
+        ThankCardSizeH: $('#ThankCardSizeH').val(),
+        ThankCardQualityH: $('#ThankCardQualityH').val(),
+        Transport: $('#Transport').val(),
+
+        Album1Type: $('#Album1Type').val(),
+        Album2Type: $('#Album2Type').val(),
+
+        SigBoard: $('#SigBoard').val(),
+
+        Album1Cost: $('#Album1Cost').val(),
+        Album1Price: $('#Album1Price').val(),
+        Album2Cost: $('#Album2Cost').val(),
+        Album2Price: $('#Album2Price').val(),
+        Album3Cost: $('#Album3Cost').val(),
+        Album3Price: $('#Album3Price').val(),
+
+        MiniAlbCost: $('#MiniAlbCost').val(),
+        MiniAlbPrice: $('#MiniAlbPrice').val(),
+        SigboardCost: $('#SigboardCost').val(),
+        SigboardPrice: $('#SigboardPrice').val(),
+        EnlargeCost: $('#EnlargeCost').val(),
+        EnlargePrice: $('#EnlargePrice').val(),
+        WedThankCost: $('#WedThankCost').val(),
+        WedThankPrice: $('#WedThankPrice').val(),
+        HomThankCost: $('#HomThankCost').val(),
+        HomThankPrice: $('#HomThankPrice').val(),
+        VidCost: $('#VidCost').val(),
+
+        VidPrice: $('#VidPrice').val(),
+        DroneCost: $('#DroneCost').val(),
+        DronePrice: $('#DronePrice').val(),
+        HelperCost: $('#HelperCost').val(),
+        HelperPrice: $('#HelperPrice').val(),
+        DesignerCost: $('#DesignerCost').val(),
+        DesignerPrice: $('#DesignerPrice').val(),
+
+        CostVersion: $('#CostVersion').text()
+
+    };
+}
+
 function setEmailButton() {
     var mailToLink = "mailto:" + $('#email').val() + "?Subject=Siyeraa Studio Event Plan";
     $("#EmailTo").attr("href", mailToLink);
@@ -456,111 +563,7 @@ function saveNew() {
         function() {
 
             setEmailButton();
-            $.post('MainAddWedding.php', {
-
-                    DBTableName: tableName,
-
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    phone: $('#phone').val(),
-
-                    NameG: $('#NameG').val(),
-                    EmailG: $('#EmailG').val(),
-                    PhoneG: $('#PhoneG').val(),
-
-                    dateW: $('#dateW').val(),
-                    timeW: $('#timeW').val(),
-                    placeW: $('#placeW').val(),
-                    CASize: $('#CASize').val(),
-                    CAPages: $('#CAPages').val(),
-                    CAQuality: $('#CAQuality').val(),
-                    FASize: $('#FASize').val(),
-                    FAPages: $('#FAPages').val(),
-                    FAQuality: $('#FAQuality').val(),
-                    thankCardSize: $('#thankCardSize').val(),
-                    thankCardQuality: $('#thankCardQuality').val(),
-                    wedThankCardCount: $('#wedThankCardCount').val(),
-                    homeThankCardCount: $('#homeThankCardCount').val(),
-
-                    Address: $('#Address').val(),
-
-                    dateH: $('#dateH').val(),
-                    timeH: $('#timeH').val(),
-                    placeH: $('#placeH').val(),
-                    PSSize: $('#PSSize').val(),
-                    PSPages: $('#PSPages').val(),
-                    PSQuality: $('#PSQuality').val(),
-                    VidQuality: $('#VidQuality').val(),
-                    VidNoOfCam: $('#VidNoOfCam').val(),
-                    VidType: $('#VidType').val(),
-
-                    Enlarge1Size: $('#Enlarge1Size').val(),
-                    Enlarge2Size: $('#Enlarge2Size').val(),
-                    Enlarge3Size: $('#Enlarge3Size').val(),
-
-                    Enlarge1Count: $('#Enlarge1Count').val(),
-                    Enlarge2Count: $('#Enlarge2Count').val(),
-                    Enlarge3Count: $('#Enlarge3Count').val(),
-
-                    Comments: $('#Comments').val(),
-
-                    PrivateComments: $('#PrivateComments').val(),
-                    PrivateCommentsCost: $('#PrivateCommentsCost').val(),
-                    PrivateCommentsPrice: $('#PrivateCommentsPrice').val(),
-
-                    Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
-                    Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '',
-                    Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '',
-                    Advance4: parseInt($('#Advance4').val()) ? $('#Advance4').val() : '',
-                    Advance5: parseInt($('#Advance5').val()) ? $('#Advance5').val() : '',
-                    Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
-
-                    Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
-                    IncludeFA: $('#IncludeFA').val(),
-                    IncludeDrone: $('#IncludeDrone').is(":checked"),
-
-                    ThankCardSizeH: $('#ThankCardSizeH').val(),
-                    ThankCardQualityH: $('#ThankCardQualityH').val(),
-                    Transport: $('#Transport').val(),
-
-                    Album1Type: $('#Album1Type').val(),
-                    Album2Type: $('#Album2Type').val(),
-
-                    SigBoard: $('#SigBoard').val(),
-
-
-                    Album1Cost: $('#Album1Cost').val(),
-                    Album1Price: $('#Album1Price').val(),
-                    Album2Cost: $('#Album2Cost').val(),
-                    Album2Price: $('#Album2Price').val(),
-                    Album3Cost: $('#Album3Cost').val(),
-                    Album3Price: $('#Album3Price').val(),
-
-                    MiniAlbCost: $('#MiniAlbCost').val(),
-                    MiniAlbPrice: $('#MiniAlbPrice').val(),
-                    SigboardCost: $('#SigboardCost').val(),
-                    SigboardPrice: $('#SigboardPrice').val(),
-                    EnlargeCost: $('#EnlargeCost').val(),
-                    EnlargePrice: $('#EnlargePrice').val(),
-                    WedThankCost: $('#WedThankCost').val(),
-                    WedThankPrice: $('#WedThankPrice').val(),
-                    HomThankCost: $('#HomThankCost').val(),
-                    HomThankPrice: $('#HomThankPrice').val(),
-                    VidCost: $('#VidCost').val(),
-
-                    VidPrice: $('#VidPrice').val(),
-                    DroneCost: $('#DroneCost').val(),
-                    DronePrice: $('#DronePrice').val(),
-                    HelperCost: $('#HelperCost').val(),
-                    HelperPrice: $('#HelperPrice').val(),
-                    DesignerCost: $('#DesignerCost').val(),
-                    DesignerPrice: $('#DesignerPrice').val(),
-
-                    CostVersion: $('#CostVersion').text()
-
-
-
-                },
+            $.post('MainAddWedding.php', getDataObj(),
                 function(returnedData) {
                     console.log(returnedData);
                     ovOff();
@@ -599,115 +602,13 @@ function update() {
         function() {
             ovOn();
             setEmailButton();
-            $.post('MainEditWedding.php', {
-
-                    DBTableName: tableName,
-                    ID: $('#ID').val(),
-
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    phone: $('#phone').val(),
-
-                    NameG: $('#NameG').val(),
-                    EmailG: $('#EmailG').val(),
-                    PhoneG: $('#PhoneG').val(),
-
-                    dateW: $('#dateW').val(),
-                    timeW: $('#timeW').val(),
-                    placeW: $('#placeW').val(),
-                    CASize: $('#CASize').val(),
-                    CAPages: $('#CAPages').val(),
-                    CAQuality: $('#CAQuality').val(),
-                    FASize: $('#FASize').val(),
-                    FAPages: $('#FAPages').val(),
-                    FAQuality: $('#FAQuality').val(),
-                    thankCardSize: $('#thankCardSize').val(),
-                    thankCardQuality: $('#thankCardQuality').val(),
-                    wedThankCardCount: $('#wedThankCardCount').val(),
-                    homeThankCardCount: $('#homeThankCardCount').val(),
-
-                    Address: $('#Address').val(),
-
-                    dateH: $('#dateH').val(),
-                    timeH: $('#timeH').val(),
-                    placeH: $('#placeH').val(),
-                    PSSize: $('#PSSize').val(),
-                    PSPages: $('#PSPages').val(),
-                    PSQuality: $('#PSQuality').val(),
-                    VidQuality: $('#VidQuality').val(),
-                    VidNoOfCam: $('#VidNoOfCam').val(),
-                    VidType: $('#VidType').val(),
-
-                    Enlarge1Size: $('#Enlarge1Size').val(),
-                    Enlarge2Size: $('#Enlarge2Size').val(),
-                    Enlarge3Size: $('#Enlarge3Size').val(),
-
-                    Enlarge1Count: $('#Enlarge1Count').val(),
-                    Enlarge2Count: $('#Enlarge2Count').val(),
-                    Enlarge3Count: $('#Enlarge3Count').val(),
-
-                    Comments: $('#Comments').val(),
-
-                    PrivateComments: $('#PrivateComments').val(),
-                    PrivateCommentsCost: $('#PrivateCommentsCost').val(),
-                    PrivateCommentsPrice: $('#PrivateCommentsPrice').val(),
-
-                    Advance1: parseInt($('#Advance1').val()) ? $('#Advance1').val() : '',
-                    Advance2: parseInt($('#Advance2').val()) ? $('#Advance2').val() : '',
-                    Advance3: parseInt($('#Advance3').val()) ? $('#Advance3').val() : '',
-                    Advance4: parseInt($('#Advance4').val()) ? $('#Advance4').val() : '',
-                    Advance5: parseInt($('#Advance5').val()) ? $('#Advance5').val() : '',
-                    Advance6: parseInt($('#Advance6').val()) ? $('#Advance6').val() : '',
-
-                    Total: parseInt($('#Total').val()) ? $('#Total').val() : '0',
-
-                    IncludeFA: $('#IncludeFA').val(),
-                    IncludeDrone: $('#IncludeDrone').is(":checked"),
-
-                    ThankCardSizeH: $('#ThankCardSizeH').val(),
-                    ThankCardQualityH: $('#ThankCardQualityH').val(),
-                    Transport: $('#Transport').val(),
-                    Album1Type: $('#Album1Type').val(),
-                    Album2Type: $('#Album2Type').val(),
-
-                    SigBoard: $('#SigBoard').val(),
-
-
-                    Album1Cost: $('#Album1Cost').val(),
-                    Album1Price: $('#Album1Price').val(),
-                    Album2Cost: $('#Album2Cost').val(),
-                    Album2Price: $('#Album2Price').val(),
-                    Album3Cost: $('#Album3Cost').val(),
-                    Album3Price: $('#Album3Price').val(),
-
-                    MiniAlbCost: $('#MiniAlbCost').val(),
-                    MiniAlbPrice: $('#MiniAlbPrice').val(),
-                    SigboardCost: $('#SigboardCost').val(),
-                    SigboardPrice: $('#SigboardPrice').val(),
-                    EnlargeCost: $('#EnlargeCost').val(),
-                    EnlargePrice: $('#EnlargePrice').val(),
-                    WedThankCost: $('#WedThankCost').val(),
-                    WedThankPrice: $('#WedThankPrice').val(),
-                    HomThankCost: $('#HomThankCost').val(),
-                    HomThankPrice: $('#HomThankPrice').val(),
-                    VidCost: $('#VidCost').val(),
-
-                    VidPrice: $('#VidPrice').val(),
-                    DroneCost: $('#DroneCost').val(),
-                    DronePrice: $('#DronePrice').val(),
-                    HelperCost: $('#HelperCost').val(),
-                    HelperPrice: $('#HelperPrice').val(),
-                    DesignerCost: $('#DesignerCost').val(),
-                    DesignerPrice: $('#DesignerPrice').val(),
-
-                    CostVersion: $('#CostVersion').text()
-                },
+            $.post('MainEditWedding.php', getDataObj(),
                 function(returnedData) {
                     ovOff();
                     console.log(returnedData);
 
                     swal("Updated Existing Event", $('#name').val(), "success");
-                    //alert("Done" + returnedData);
+
                 }).fail(function(returnedData) {
                 console.log("error " + returnedData);
             });

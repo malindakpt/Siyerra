@@ -104,7 +104,7 @@ span.psw {
         <label id="error" style="color:red;display:none;">Invalid UserName or Password</label>
         <label id="exp" style="color:red;display:none;"> <a href="tel:+94771141194" style="float:left;text-decoration:none;color:red">Account is expired. If you have done the payment already,  please call us : +94771141194</a></label>
     <button onclick="login()" style="float:left;">Login</button> 
-    <button onclick="demoLogin()"  style="float:right;display:none;">Trial</button> 
+    <button onclick="demoLogin()"  style="float:right;">Test</button> 
   </div>
 
   <div id="contactus" class="container" style="background-color:#f1f1f1; display:none;">
