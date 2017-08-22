@@ -363,7 +363,7 @@
 			 
 			<p>
 				<label id="helpers" class="input-pageCount">Total Helpers Count       </label>
-				<input id='helperCount'  type="number" style="width:60px" class="input-pageCount w3-input" onchange="setHelperCost();"> </input>
+				<input id='HelperCount'  type="number" style="width:60px" class="input-pageCount w3-input" onchange="setHelperCost();"> </input>
 				<input id='HelperPrice'  class="input-price w3-input" placeholder="Price"> </input>
 				<input id='HelperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 			</p>

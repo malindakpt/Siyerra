@@ -24,7 +24,7 @@ function setHelperCost() {
     var cost = Number(cm.get("Cost For 1 Helper"));
     var price = Number(cm.get("Price For 1 Helper"));
 
-    var count = Number($('#helperCount').val());
+    var count = Number($('#HelperCount').val());
 
     var totCost = cost * count;
     var totPrice = price * count;

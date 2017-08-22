@@ -106,6 +106,8 @@ $DesignerCost = $_POST['DesignerCost'];
 $DesignerPrice = $_POST['DesignerPrice'];
 
 $CostVersion = $_POST['CostVersion'];
+$HelperCount = $_POST['HelperCount'];
+
 
 
 $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, CAQuality, FASize, FAPages, FAQuality
@@ -117,7 +119,7 @@ $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, C
 ,Album1Cost,Album1Price,Album2Cost,Album2Price,Album3Cost,Album3Price,MiniAlbCost,MiniAlbPrice, SigboardCost
 ,SigboardPrice, EnlargeCost, EnlargePrice, WedThankCost, WedThankPrice, HomThankCost, HomThankPrice, VidCost
 ,VidPrice, DroneCost, DronePrice, HelperCost, HelperPrice, DesignerCost, DesignerPrice
-,SigBoard,CostVersion ) 
+,SigBoard,CostVersion, HelperCount ) 
 
 VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality','$FASize','$FAPages', '$FAQuality'
 ,'$thankCardSize', '$thankCardQuality', '$wedThankCardCount', '$homeThankCardCount', '$email'
@@ -136,7 +138,7 @@ VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality',
 ,'$SigboardPrice', '$EnlargeCost', '$EnlargePrice', '$WedThankCost', '$WedThankPrice', '$HomThankCost'
 , '$HomThankPrice', '$VidCost'
 ,'$VidPrice', '$DroneCost', '$DronePrice', '$HelperCost', '$HelperPrice', '$DesignerCost', '$DesignerPrice'
-,'$SigBoard','$CostVersion')";
+,'$SigBoard','$CostVersion','$HelperCount')";
 
 
 if ($conn->query($sql) === TRUE) {

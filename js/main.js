@@ -1,9 +1,3 @@
-//clearAll
-//saveNew
-//update
-//getWedding
-
-
 function calcTotalPrice() {
     var album1Price = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
     var album2Price = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
@@ -250,6 +244,8 @@ function getWedding(event) {
             $('#DesignerPrice').val(obj.DesignerPrice);
 
             $('#CostVersion').val(obj.CostVersion);
+            $('#HelperCount').val(obj.HelperCount);
+
 
             if (cm.get('CostVersion') != obj.CostVersion) {
                 // alert("Version mismatch");
@@ -399,6 +395,7 @@ function clearAll() {
     $('#HelperPrice').val("");
     $('#DesignerCost').val("");
     $('#DesignerPrice').val("");
+    $('#HelperCount').val("");
 }
 
 function showAll() {
@@ -536,7 +533,9 @@ function getDataObj() {
         DesignerCost: $('#DesignerCost').val(),
         DesignerPrice: $('#DesignerPrice').val(),
 
-        CostVersion: $('#CostVersion').text()
+        CostVersion: $('#CostVersion').text(),
+        HelperCount: $('#HelperCount').val()
+
 
     };
 }

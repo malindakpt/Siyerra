@@ -113,6 +113,7 @@ $DesignerCost = $_POST['DesignerCost'];
 $DesignerPrice = $_POST['DesignerPrice'];
 
 $CostVersion = $_POST['CostVersion'];
+$HelperCount = $_POST['HelperCount'];
 
 
 
@@ -135,6 +136,7 @@ $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', pl
 ,VidPrice='$VidPrice', DroneCost='$DroneCost', DronePrice='$DronePrice', HelperCost='$HelperCost', HelperPrice='$HelperPrice', DesignerCost='$DesignerCost'
 , DesignerPrice='$DesignerPrice'
 , CostVersion='$CostVersion'
+, HelperCount='$HelperCount'
 
 WHERE  ID = '$ID'";
 

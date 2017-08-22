@@ -71,6 +71,8 @@ if ($result->num_rows > 0) {
 		.$row["VidNoOfCam"].','
 		.$row["VidType"].','
 		.$row["IncludeDrone"].','
+		.$row["HelperCount"].','
+		
 
 		.$row["Total"].','
 		.$row["Transport"].','

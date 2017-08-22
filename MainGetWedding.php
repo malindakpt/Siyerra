@@ -56,8 +56,9 @@ if ($result->num_rows > 0) {
 		,'DroneCost' => $row["DroneCost"]	,'DronePrice' => $row["DronePrice"]
 		,'HelperCost' => $row["HelperCost"]	,'HelperPrice' => $row["HelperPrice"]
 		,'DesignerCost' => $row["DesignerCost"]	,'DesignerPrice' => $row["DesignerPrice"]
-
 		,'CostVersion' => $row["CostVersion"]
+		,'HelperCount' => $row["HelperCount"]
+
 
 		
 		); 
