@@ -37,7 +37,11 @@
 			echo '<script>function loadFooter(){ 	loadScript("js/footer/'.$result[1].'F.js",function(){console.log("footer loaded");});}</script>'; 
 
 			if((int)$result[4] < 30){
-				echo '<script>swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning")</script>';
+				echo '<script>alert("'.$result[4].' Days To Expire Your Account !      Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com");
+				</script>';
+
+				// echo '<script>setTimeout(swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning"), 3000);
+				// </script>';
 			}
 
 			echo '<script>var enlargements = "'.$result[5].'".split("####");</script>';
@@ -148,14 +152,14 @@
 					
 					<label style="line-height: 47px;"><b> Album Quality</b></label>
 					<br><br>
-					<select id='CAQuality'  class="w3-select" onchange="showhideQ1(); setAlbumCost(1);" > 
+					<select id='CAQuality'  class="w3-select" onchange="showhideQ1(); setAlbumCost(1,true);" > 
 						<option value="N/A">-Not Included-</option> 
 						<?php echo getProperty("AlbumQualities"); ?>
 					</select>
 					<br><br>
 					
 					<div id ="Q1" style="display:none;">
-						<select id='CASize'  class="w3-select" onchange="setAlbumCost(1);"> 
+						<select id='CASize'  class="w3-select" onchange="setAlbumCost(1,true);"> 
 							<option value="0">-Select Album Size-</option> 	
 							<?php echo getProperty("AlbumSizes"); ?>
 						</select>
@@ -189,13 +193,13 @@
 					</select> 
 					<label style="line-height: 47px;"><b> Album Quality</b></label>
 					<br><br>
-					<select id='FAQuality'  class="w3-select"  onchange="showhideQ2(); setAlbumCost(2);"> 
+					<select id='FAQuality'  class="w3-select"  onchange="showhideQ2(); setAlbumCost(2,true);"> 
 						<option value="N/A">-Not Included-</option> 
 						<?php echo getProperty("AlbumQualities"); ?>
 					</select>
 					<br><br>
 					<div id="Q2" style="display:none;">
-						<select id='FASize'  class="w3-select" onchange="setAlbumCost(2);" > 
+						<select id='FASize'  class="w3-select" onchange="setAlbumCost(2,true);" > 
 							<option value="0">-Select Album Size-</option> 
 							<?php echo getProperty("AlbumSizes"); ?>
 						</select>
@@ -209,13 +213,13 @@
 			</div> 
 			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">
 				<label><b>Preshoot Album Quality</b></label>
-				<select id='PSQuality'  class="w3-select"  onchange="showhideQ3(); setAlbumCost(3);" > 
+				<select id='PSQuality'  class="w3-select"  onchange="showhideQ3(); setAlbumCost(3,true);" > 
 					<option value="N/A">-Not Included-</option> 
 					<?php echo getProperty("AlbumQualities"); ?>
 				</select>
 				<br><br>
 				<div id="Q3" style="display:none;">
-					<select id='PSSize' class="w3-select" onchange="setAlbumCost(3);"> 
+					<select id='PSSize' class="w3-select" onchange="setAlbumCost(3,true);"> 
 						<option value="0">-Album Size-</option> 
 						<?php echo getProperty("AlbumSizes"); ?>
 					</select>
@@ -260,7 +264,7 @@
 						<option value="N/A">-Select Enlargement 1 Size-</option> 
 						<?php echo getProperty("EnlargementSizes"); ?>
 					</select>
-					<input placeholder="Count" id='Enlarge1Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+					<input placeholder="Count" type="number" id='Enlarge1Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
 				
 				</div>
 				<div>
@@ -268,7 +272,7 @@
 						<option value="N/A">-Select Enlargement 2 Size-</option> 
 						<?php echo getProperty("EnlargementSizes"); ?>
 					</select>
-					<input placeholder="Count" id='Enlarge2Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+					<input placeholder="Count" type="number" id='Enlarge2Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
 				
 				</div>
 				<div>
@@ -276,7 +280,7 @@
 						<option value="N/A">-Select Enlargement 3  Size-</option> 
 						<?php echo getProperty("EnlargementSizes"); ?>
 					</select>
-					<input placeholder="Count" id='Enlarge3Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
+					<input placeholder="Count" type="number" id='Enlarge3Count' class="enl-count w3-input" maxlength="20" value="1" onchange="setEnlargementCost();"></input> 
 				
 				</div>
 				<div>
@@ -370,16 +374,19 @@
 			<br><br>
 			<p>
 				<label id="helpers" class="input-pageCount">Designer Cost       </label>
-				<input id='DesignerPrice'  class="input-price-enabled w3-input" placeholder="Designer Price"> </input>
-				<input id='DesignerCost'  class="input-cost-enabled w3-input" placeholder="Designer Cost"> </input>
+				<input id='DesignerPrice' type="number"  class="input-price-enabled w3-input" placeholder="Designer Price"> </input>
+				<input id='DesignerCost' type="number"  class="input-cost-enabled w3-input" placeholder="Designer Cost"> </input>
 			</p>
 		 <br><br><br>
 			<div>
+			<textarea id="Comments" placeholder="Customer Comments" style="width:100%;height:100px;"></textarea>
+
+				<br><br><br>
+				
 				<textarea id="PrivateComments" placeholder="Private Comments For Additional Costs" style="width:100%;height:150px;"></textarea>
 				<input id='PrivateCommentsPrice'  class="input-price-enabled w3-input" placeholder="Price"> </input>
 				<input id='PrivateCommentsCost'  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
-				<br><br><br>
-				<textarea id="Comments" placeholder="Customer Comments" style="width:100%;height:100px;"></textarea>
+				<br><br>
 				<p>
 				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
 				<input id='Advance2'  type="number" placeholder="Advance2" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>
@@ -424,8 +431,9 @@
 			</div>
 
 			<div>
-			<label id="costver" class ="meta-data">Cost Version : </label><label id="CostVersion" class ="meta-data">2017-04-23</label>
+			<!-- <label id="costver" class ="meta-data">Cost Version : </label><label id="CostVersion" class ="meta-data">2017-04-23</label> -->
 			</div>
+			<!-- <a href='#' onclick='createFullReport();'>Download CSV</a> -->
 		</div> 
 			
 		<div class="col-3 col-m-12">
@@ -434,10 +442,11 @@
 		</div>
 	</div>
 	<div class="footer">
-		<p>Powered by MSOFT Software Solutions 2017</p>
+		 <label id="costver" class ="meta-data">Cost Version : </label><label id="CostVersion" class ="meta-data">2017-04-23</label>
+</p><p>Powered by MSOFT Software Solutions 2017   </p>
 	</div>
 	<a id="help" href='help' target="_blank" style="padding: 50px; display:none">Help Guide</a>
-	<a href='#' onclick='createFullReport();'>Download CSV</a>
+
 
 		<script>	
 		var cm = new Map();
@@ -458,8 +467,8 @@
 			echo "document.getElementById('CostVersion').innerHTML = '".$version."';";
 		?>
  	</script>
-	<script src="js/costing.js?1.2" ></script>
-	<script src="js/main.js?1.0"></script> 
+	<script src="js/costing.js?1.3" ></script>
+	<script src="js/main.js?1.3"></script> 
 </body>
 
 

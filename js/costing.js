@@ -109,8 +109,8 @@ function setEnlargementCost() {
     var count2 = Number($('#Enlarge2Count').val());
     var count3 = Number($('#Enlarge3Count').val());
 
-    var totCost = cost1 * count1 + cost2 * count2 + cost3 * count3;
-    var totPrice = price1 * count1 + price2 * count2 + price3 * count3;
+    var totCost = (isNaN(cost1 * count1) ? 0 : (cost1 * count1)) + (isNaN(cost2 * count2) ? 0 : (cost2 * count2)) + (isNaN(cost3 * count3) ? 0 : (cost3 * count3));
+    var totPrice = (isNaN(price1 * count1) ? 0 : (price1 * count1)) + (isNaN(price2 * count2) ? 0 : (price2 * count2)) + (isNaN(price3 * count3) ? 0 : (price3 * count3));
 
     totCost = isNaN(totCost) ? "" : totCost;
     totPrice = isNaN(totPrice) ? "" : totPrice;
@@ -119,7 +119,7 @@ function setEnlargementCost() {
     $('#EnlargePrice').val(totPrice);
 }
 
-function setAlbumCost(album) {
+function setAlbumCost(album, setPages) {
 
     var quality, size, pages;
 
@@ -139,6 +139,7 @@ function setAlbumCost(album) {
         quality = $('#PSQuality').val();
         size = $('#PSSize').val();
         pages = Number($('#PSPages').val());
+
     }
 
     var keyPages = quality + ":" + size + ":Fixed Pages";
@@ -168,15 +169,40 @@ function setAlbumCost(album) {
     if (album == "1") {
         $('#Album1Cost').val(totCost);
         $('#Album1Price').val(totPrice);
+
+        if (setPages) {
+            if (isNaN(pagesLimit)) {
+                $('#CAPages').val("");
+            } else {
+                $('#CAPages').val(pagesLimit);
+            }
+        }
     }
 
     if (album == "2") {
         $('#Album2Cost').val(totCost);
         $('#Album2Price').val(totPrice);
+
+        if (setPages) {
+            if (isNaN(pagesLimit)) {
+                $('#FAPages').val("");
+            } else {
+                $('#FAPages').val(pagesLimit);
+            }
+        }
     }
 
     if (album == "3") {
         $('#Album3Cost').val(totCost);
         $('#Album3Price').val(totPrice);
+
+        if (setPages) {
+            if (isNaN(pagesLimit)) {
+                $('#PSPages').val("");
+            } else {
+                $('#PSPages').val(pagesLimit);
+            }
+
+        }
     }
 }

@@ -160,12 +160,15 @@ function getWedding(event) {
 
             $('#timeW').val(obj.timeW);
             $('#placeW').val(obj.placeW);
+
             $('#CASize').val(obj.CASize);
-            $('#CAPages').val(obj.CAPages);
             $('#CAQuality').val(obj.CAQuality).change();
+            $('#CAPages').val(obj.CAPages);
+
             $('#FASize').val(obj.FASize);
+            $('#FAQuality').val(obj.FAQuality).change();
             $('#FAPages').val(obj.FAPages);
-            $('#FAQuality').val(obj.FAQuality).change();;
+
             $('#thankCardSize').val(obj.thankCardSize);
             $('#thankCardQuality').val(obj.thankCardQuality).change();
             $('#wedThankCardCount').val(obj.wedThankCardCount);
@@ -175,9 +178,11 @@ function getWedding(event) {
 
             $('#timeH').val(obj.timeH);
             $('#placeH').val(obj.placeH);
+
             $('#PSSize').val(obj.PSSize);
-            $('#PSPages').val(obj.PSPages);
             $('#PSQuality').val(obj.PSQuality).change();
+            $('#PSPages').val(obj.PSPages); //This should be final
+
             $('#VidQuality').val(obj.VidQuality).change();
             $('#VidNoOfCam').val(obj.VidNoOfCam);
             $('#VidType').val(obj.VidType);
