@@ -158,6 +158,22 @@ function openCat(cityName) {
 	echo "</ul>"
 ?>
 
+<?php 
+		echo "<br><br><h4>Design Cost For Large Album</h4>";
+		echo "<ul id='helperCost'>";
+			echo '<li class="lbl-settings">Design Cost For 1 Large Album</li><input  type="number" value="'.$resMap['Design Cost For 1 Large Album'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">Design Price For 1 Large Album</li><input  type="number" value="'.$resMap['Design Price For 1 Large Album'].'"  class="w3-input input-get-cost"/>';		
+		echo "</ul>"
+	?>
+
+<?php 
+		echo "<br><br><h4>Design Cost For Mini Album</h4>";
+		echo "<ul id='helperCost'>";
+			echo '<li class="lbl-settings">Design Cost For 1 Mini Album</li><input  type="number" value="'.$resMap['Design Cost For 1 Mini Album'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">Design Price For 1 Mini Album</li><input  type="number" value="'.$resMap['Design Price For 1 Mini Album'].'"  class="w3-input input-get-cost"/>';		
+		echo "</ul>"
+	?>
+
 	<?php 
 		echo "<br><br><h4>Helper Cost and Price</h4>";
 		echo "<ul id='helperCost'>";

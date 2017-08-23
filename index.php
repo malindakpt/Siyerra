@@ -110,7 +110,8 @@
 			<br> 
 			<input id='ID' style="display:none;" class="w3-input" placeholder="ID"> </input>
 
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple"> 
+			<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-purple">  -->
+				<div>
 					<input id='name' class="w3-input" placeholder="Customer/Groom Name"> </input>
 					<br>
 					
@@ -166,8 +167,8 @@
 						<br> <br>
 						<div>
 							<input id='CAPages'  type="number"  class="input-pageCount w3-input" placeholder="Pages Count" onchange="setAlbumCost(1);"> </input>
-							<input id='Album1Price'  class="input-price w3-input" placeholder="Price"> </input>
-							<input id='Album1Cost'  class="input-cost w3-input" placeholder="Cost"> </input>
+							<input id='Album1Price'  class="input-price w3-input" placeholder="Price" onchange="setDesignCost()"> </input>
+							<input id='Album1Cost'  class="input-cost w3-input" placeholder="Cost" onchange="setDesignCost()"> </input>
 						</div>
 					</div>
 				</div>
@@ -205,8 +206,8 @@
 						</select>
 						<br> <br> 
 						<input id='FAPages' type="number"  class="input-pageCount w3-input" placeholder="Pages Count" onchange="setAlbumCost(2);"> </input>
-						<input id='Album2Price'  class="input-price w3-input" placeholder="Price"> </input>
-						<input id='Album2Cost'  class="input-cost w3-input" placeholder="Cost"> </input>
+						<input id='Album2Price'  class="input-price w3-input" placeholder="Price"  onchange="setDesignCost()"> </input>
+						<input id='Album2Cost'  class="input-cost w3-input" placeholder="Cost"  onchange="setDesignCost()"> </input>
 						<br>
 					</div>	
 				</div>
@@ -225,28 +226,20 @@
 					</select>
 					<br><br> 
 					<input id='PSPages' type="number"  class="input-pageCount w3-input" placeholder="Pages Count" onchange="setAlbumCost(3);"> </input>
-					<input id='Album3Price'  class="input-price w3-input" placeholder="Price"> </input>
-					<input id='Album3Cost'  class="input-cost w3-input" placeholder="Cost"> </input>
+					<input id='Album3Price'  class="input-price w3-input" placeholder="Price" onchange="setDesignCost()"> </input>
+					<input id='Album3Cost'  class="input-cost w3-input" placeholder="Cost" onchange="setDesignCost()"> </input>
 				</div>
 			</div>
-		<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">
-			
-			<input type="checkbox" class="w3-check" id="IncludeFA" checked onchange="setMiniAlbCost();"> <b>Include Mini Album</b></input><br>
-			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
-			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
-		
-			
-		
-		</div> -->
 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
 			<label><b>Mini Album Details</b></label>
+			<!-- FA Family ALbum is the mini Album -->
 			<select id='IncludeFA' class="w3-select" onchange="setMiniAlbCost();"> 
 				<option value="N/A">-Select Mini Album-</option> 
 				<?php echo getProperty("MiniAlbumSizes"); ?>
 			</select>
-			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"> </input>
-			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"> </input>
+			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"  onchange="setDesignCost()"> </input>
+			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"  onchange="setDesignCost()"> </input>
  <br><br>
 			<label><b>Signature Board Details</b></label>
 			<select id='SigBoard' class="w3-select" onchange="setSigBoardCost();"> 
@@ -359,23 +352,25 @@
 					
 				</div>	
 			</div>
-			<div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">					 
+			<!-- <div class="w3-panel  w3-leftbar w3-rightbar w3-border-Indigo">					  -->
+			<p>	<div>
 						<input type="checkbox" class="w3-check" id="IncludeDrone" checked onchange="setDroneCost();"> <b>Include Drone Camera</b></input><br>
 						<input id='DronePrice'  class="input-price w3-input" placeholder="Price"> </input>
 						<input id='DroneCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 					</div>
-			 
+	</p>
+	<br><br>
 			<p>
 				<label id="helpers" class="input-pageCount">Total Helpers Count       </label>
 				<input id='HelperCount'  type="number" style="width:60px" class="input-pageCount w3-input" onchange="setHelperCost();"> </input>
 				<input id='HelperPrice'  class="input-price w3-input" placeholder="Price"> </input>
 				<input id='HelperCost'  class="input-cost w3-input" placeholder="Cost"> </input>
 			</p>
-			<br><br>
+			<br><br><br>
 			<p>
-				<label id="helpers" class="input-pageCount">Designer Cost       </label>
-				<input id='DesignerPrice' type="number"  class="input-price-enabled w3-input" placeholder="Designer Price"> </input>
-				<input id='DesignerCost' type="number"  class="input-cost-enabled w3-input" placeholder="Designer Cost"> </input>
+				<label id="Designers" class="input-pageCount">Designer Cost       </label>
+				<input id='DesignerPrice' type="number"  class="input-price-enabled w3-input" placeholder="Price"> </input>
+				<input id='DesignerCost' type="number"  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
 			</p>
 		 <br><br><br>
 			<div>
@@ -438,6 +433,7 @@
 			
 		<div class="col-3 col-m-12">
 			<div class="hideInMobile asideX">
+				
 			</div>
 		</div>
 	</div>

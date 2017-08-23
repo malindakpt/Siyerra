@@ -1,15 +1,8 @@
 function setMiniAlbCost() {
-    // if ($('#IncludeFA').prop('checked') == true) {
-    //     $('#MiniAlbCost').val(cm.get("Mini Album Cost"));
-    //     $('#MiniAlbPrice').val(cm.get("Mini Album Price"));
-    // } else {
-    //     $('#MiniAlbCost').val("");
-    //     $('#MiniAlbPrice').val("");
-    // }
     var cost = cm.get($('#IncludeFA').val() + ":Mini Album Cost");
     var price = cm.get($('#IncludeFA').val() + ":Mini Album Price");
-    $('#MiniAlbCost').val(cost);
-    $('#MiniAlbPrice').val(price);
+    $('#MiniAlbCost').val(cost).change();
+    $('#MiniAlbPrice').val(price).change();
 }
 
 function setSigBoardCost() {
@@ -119,6 +112,47 @@ function setEnlargementCost() {
     $('#EnlargePrice').val(totPrice);
 }
 
+function setDesignCost() {
+    // console.log("MINI");
+    var total1 = 0;
+    var total2 = 0;
+
+    if (Number($('#Album1Cost').val()) > 0) {
+        total1++;
+    }
+    if (Number($('#Album2Cost').val()) > 0) {
+        total1++;
+    }
+    if (Number($('#Album3Cost').val()) > 0) {
+        total1++;
+    }
+
+    var cost1 = Number(cm.get("Design Cost For 1 Large Album")) * total1;
+    var price1 = Number(cm.get("Design Price For 1 Large Album")) * total1;
+
+    if (Number($('#MiniAlbCost').val()) > 0) {
+        total2++;
+    }
+
+    var cost2 = Number(cm.get("Design Cost For 1 Mini Album")) * total2;
+    var price2 = Number(cm.get("Design Price For 1 Mini Album")) * total2;
+
+    var totDeCost = cost1 + cost2;
+    var totDePrice = price1 + price2;
+
+    if (totDeCost > 0) {
+        $('#DesignerCost').val(totDeCost)
+    } else {
+        $('#DesignerCost').val("")
+    }
+
+    if (totDePrice > 0) {
+        $('#DesignerPrice').val(totDePrice)
+    } else {
+        $('#DesignerPrice').val("")
+    }
+}
+
 function setAlbumCost(album, setPages) {
 
     var quality, size, pages;
@@ -167,8 +201,8 @@ function setAlbumCost(album, setPages) {
     totPrice = isNaN(totPrice) ? "" : totPrice;
 
     if (album == "1") {
-        $('#Album1Cost').val(totCost);
-        $('#Album1Price').val(totPrice);
+        $('#Album1Cost').val(totCost).change();
+        $('#Album1Price').val(totPrice).change();
 
         if (setPages) {
             if (isNaN(pagesLimit)) {
@@ -180,8 +214,8 @@ function setAlbumCost(album, setPages) {
     }
 
     if (album == "2") {
-        $('#Album2Cost').val(totCost);
-        $('#Album2Price').val(totPrice);
+        $('#Album2Cost').val(totCost).change();
+        $('#Album2Price').val(totPrice).change();
 
         if (setPages) {
             if (isNaN(pagesLimit)) {
@@ -193,8 +227,8 @@ function setAlbumCost(album, setPages) {
     }
 
     if (album == "3") {
-        $('#Album3Cost').val(totCost);
-        $('#Album3Price').val(totPrice);
+        $('#Album3Cost').val(totCost).change();
+        $('#Album3Price').val(totPrice).change();
 
         if (setPages) {
             if (isNaN(pagesLimit)) {
