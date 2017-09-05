@@ -369,8 +369,8 @@
 			<br><br><br>
 			<p>
 				<label id="Designers" class="input-pageCount">Designer Cost       </label>
-				<input id='DesignerPrice' type="number"  class="input-price-enabled w3-input" placeholder="Price"> </input>
-				<input id='DesignerCost' type="number"  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
+				<input id='DesignerPrice' type="number"  class="input-price w3-input" placeholder="Price"> </input>
+				<input id='DesignerCost' type="number"  class="input-cost w3-input" placeholder="Cost"> </input>
 			</p>
 		 <br><br><br>
 			<div>
@@ -379,8 +379,8 @@
 				<br><br><br>
 				
 				<textarea id="PrivateComments" placeholder="Private Comments For Additional Costs" style="width:100%;height:150px;"></textarea>
-				<input id='PrivateCommentsPrice'  class="input-price-enabled w3-input" placeholder="Price"> </input>
-				<input id='PrivateCommentsCost'  class="input-cost-enabled w3-input" placeholder="Cost"> </input>
+				<input id='PrivateCommentsPrice' type="number"  class="input-price-enabled w3-input" placeholder="Price"> </input>
+				<input id='PrivateCommentsCost' type="number" class="input-cost-enabled w3-input" placeholder="Cost"> </input>
 				<br><br>
 				<p>
 				<input id='Advance1'  type="number" placeholder="Advance1" class="w3-input" onChange="showRemainingBal()" style="margin:5px;width: 30%; float: left;"> </input>

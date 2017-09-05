@@ -3,7 +3,7 @@ function calcTotalPrice() {
     var album2Price = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
     var album3Price = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
     var miniAlbPrice = isNaN(document.getElementById("MiniAlbPrice").value) ? 0 : Number(document.getElementById("MiniAlbPrice").value);
-    var sigBoardPrice = isNaN(document.getElementById("SigBoard").value) ? 0 : Number(document.getElementById("sigBoardPrice").value);
+    var sigBoardPrice = isNaN(document.getElementById("SigboardPrice").value) ? 0 : Number(document.getElementById("SigboardPrice").value);
     var EnlPrice = isNaN(document.getElementById("EnlargePrice").value) ? 0 : Number(document.getElementById("EnlargePrice").value);
     var wedThankPrice = isNaN(document.getElementById("WedThankPrice").value) ? 0 : Number(document.getElementById("WedThankPrice").value);
     var homeThankPrice = isNaN(document.getElementById("HomThankPrice").value) ? 0 : Number(document.getElementById("HomThankPrice").value);
@@ -687,7 +687,7 @@ function savePDF() {
     if (datePrinted) {
         line = line + 25;
     }
-
+    // doc.line(20, line-5, 190, line-5);
     var albumsPrinted = false;
     if ($('#CAQuality').val() != "N/A") {
         shift = 0;
