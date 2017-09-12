@@ -115,7 +115,7 @@
 					<input id='name' class="w3-input" placeholder="Customer/Groom Name"> </input>
 					<br>
 					
-					<input id='email' class="w3-input" placeholder="Customer/Groom Email" maxlength="30" onchange="setEmailButton()" > </input>
+					<input id='email' class="w3-input" placeholder="Customer/Groom Email" maxlength="45" onchange="setEmailButton()" > </input>
 					<br>
 					<input id='phone' type="number" class="w3-input" placeholder="Customer/Groom Phone" maxlength="10"> </input>
 					<br>
@@ -123,7 +123,7 @@
 					<input id='NameG' class="w3-input" onfocusout="showhideQ7()" onkeyup="showhideQ7()" onchange="showhideQ7()" placeholder="Bride Name" maxlength="30"  > </input>
 					<br> 
 					<div id="Q7" style="display:none;">
-						<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="30"> </input>
+						<input id='EmailG' class="w3-input" placeholder="Bride Email" maxlength="45"> </input>
 						<br>
 						<input id='PhoneG' type="number" class="w3-input" placeholder="Bride Phone" maxlength="10" > </input>
 						<br>
