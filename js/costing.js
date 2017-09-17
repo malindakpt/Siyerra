@@ -1,8 +1,8 @@
-function setMiniAlbCost() {
-    var cost = cm.get($('#IncludeFA').val() + ":Mini Album Cost");
-    var price = cm.get($('#IncludeFA').val() + ":Mini Album Price");
-    $('#MiniAlbCost').val(cost).change();
-    $('#MiniAlbPrice').val(price).change();
+function setFamilyAlbCost() {
+    var cost = cm.get($('#IncludeFA').val() + ":Family Album Cost");
+    var price = cm.get($('#IncludeFA').val() + ":Family Album Price");
+    $('#FamilyAlbCost').val(cost).change();
+    $('#FamilyAlbPrice').val(price).change();
 }
 
 function setSigBoardCost() {
@@ -113,7 +113,7 @@ function setEnlargementCost() {
 }
 
 function setDesignCost() {
-    // console.log("MINI");
+    // console.log("Family");
     var total1 = 0;
     var total2 = 0;
 
@@ -130,12 +130,12 @@ function setDesignCost() {
     var cost1 = Number(cm.get("Design Cost For 1 Large Album")) * total1;
     var price1 = Number(cm.get("Design Price For 1 Large Album")) * total1;
 
-    if (Number($('#MiniAlbCost').val()) > 0) {
+    if (Number($('#FamilyAlbCost').val()) > 0) {
         total2++;
     }
 
-    var cost2 = Number(cm.get("Design Cost For 1 Mini Album")) * total2;
-    var price2 = Number(cm.get("Design Price For 1 Mini Album")) * total2;
+    var cost2 = Number(cm.get("Design Cost For 1 Family Album")) * total2;
+    var price2 = Number(cm.get("Design Price For 1 Family Album")) * total2;
 
     var totDeCost = cost1 + cost2;
     var totDePrice = price1 + price2;

@@ -86,8 +86,8 @@ $Album2Cost = $_POST['Album2Cost'];
 $Album2Price = $_POST['Album2Price'];
 $Album3Cost = $_POST['Album3Cost'];
 $Album3Price = $_POST['Album3Price'];
-$MiniAlbCost = $_POST['MiniAlbCost'];
-$MiniAlbPrice = $_POST['MiniAlbPrice'];
+$FamilyAlbCost = $_POST['FamilyAlbCost'];
+$FamilyAlbPrice = $_POST['FamilyAlbPrice'];
 $SigboardCost = $_POST['SigboardCost'];
 $SigboardPrice = $_POST['SigboardPrice'];
 $EnlargeCost = $_POST['EnlargeCost'];
@@ -116,7 +116,7 @@ $sql = "INSERT INTO $DBTableName (dateW,name,  timeW, placeW, CASize, CAPages, C
 , Advance6, Total, Comments,IncludeFA, Address, IncludeDrone, NameG, EmailG, PhoneG,ThankCardSizeH
 ,ThankCardQualityH,Transport,Album1Type,Album2Type,Enlarge1Size,Enlarge2Size,Enlarge3Size,Enlarge1Count,Enlarge2Count,Enlarge3Count
 ,PrivateComments,PrivateCommentsCost,PrivateCommentsPrice
-,Album1Cost,Album1Price,Album2Cost,Album2Price,Album3Cost,Album3Price,MiniAlbCost,MiniAlbPrice, SigboardCost
+,Album1Cost,Album1Price,Album2Cost,Album2Price,Album3Cost,Album3Price,FamilyAlbCost,FamilyAlbPrice, SigboardCost
 ,SigboardPrice, EnlargeCost, EnlargePrice, WedThankCost, WedThankPrice, HomThankCost, HomThankPrice, VidCost
 ,VidPrice, DroneCost, DronePrice, HelperCost, HelperPrice, DesignerCost, DesignerPrice
 ,SigBoard,CostVersion, HelperCount ) 
@@ -134,7 +134,7 @@ VALUES ('$dateW','$name' , '$timeW','$placeW','$CASize','$CAPages','$CAQuality',
 ,'$PrivateComments','$PrivateCommentsCost','$PrivateCommentsPrice'
 
 ,'$Album1Cost','$Album1Price','$Album2Cost','$Album2Price','$Album3Cost','$Album3Price'
-,'$MiniAlbCost','$MiniAlbPrice', '$SigboardCost'
+,'$FamilyAlbCost','$FamilyAlbPrice', '$SigboardCost'
 ,'$SigboardPrice', '$EnlargeCost', '$EnlargePrice', '$WedThankCost', '$WedThankPrice', '$HomThankCost'
 , '$HomThankPrice', '$VidCost'
 ,'$VidPrice', '$DroneCost', '$DronePrice', '$HelperCost', '$HelperPrice', '$DesignerCost', '$DesignerPrice'

@@ -2,7 +2,7 @@ function calcTotalPrice() {
     var album1Price = isNaN(document.getElementById("Album1Price").value) ? 0 : Number(document.getElementById("Album1Price").value);
     var album2Price = isNaN(document.getElementById("Album2Price").value) ? 0 : Number(document.getElementById("Album2Price").value);
     var album3Price = isNaN(document.getElementById("Album3Price").value) ? 0 : Number(document.getElementById("Album3Price").value);
-    var miniAlbPrice = isNaN(document.getElementById("MiniAlbPrice").value) ? 0 : Number(document.getElementById("MiniAlbPrice").value);
+    var FamilyAlbPrice = isNaN(document.getElementById("FamilyAlbPrice").value) ? 0 : Number(document.getElementById("FamilyAlbPrice").value);
     var sigBoardPrice = isNaN(document.getElementById("SigboardPrice").value) ? 0 : Number(document.getElementById("SigboardPrice").value);
     var EnlPrice = isNaN(document.getElementById("EnlargePrice").value) ? 0 : Number(document.getElementById("EnlargePrice").value);
     var wedThankPrice = isNaN(document.getElementById("WedThankPrice").value) ? 0 : Number(document.getElementById("WedThankPrice").value);
@@ -14,7 +14,7 @@ function calcTotalPrice() {
     var DesignerPrice = isNaN(document.getElementById("DesignerPrice").value) ? 0 : Number(document.getElementById("DesignerPrice").value);
 
 
-    var totalPrice = album1Price + album2Price + album3Price + miniAlbPrice + sigBoardPrice +
+    var totalPrice = album1Price + album2Price + album3Price + FamilyAlbPrice + sigBoardPrice +
         EnlPrice + wedThankPrice + homeThankPrice + vidPrice + dronePrice + helperPrice + PrivateCommentsPrice + DesignerPrice;
 
     if (totalPrice == 0) {
@@ -29,7 +29,7 @@ function calcTotalCost() {
     var album1Cost = isNaN(document.getElementById("Album1Cost").value) ? 0 : Number(document.getElementById("Album1Cost").value);
     var album2Cost = isNaN(document.getElementById("Album2Cost").value) ? 0 : Number(document.getElementById("Album2Cost").value);
     var album3Cost = isNaN(document.getElementById("Album3Cost").value) ? 0 : Number(document.getElementById("Album3Cost").value);
-    var miniAlbCost = isNaN(document.getElementById("MiniAlbCost").value) ? 0 : Number(document.getElementById("MiniAlbCost").value);
+    var FamilyAlbCost = isNaN(document.getElementById("FamilyAlbCost").value) ? 0 : Number(document.getElementById("FamilyAlbCost").value);
     var sigBoardCost = isNaN(document.getElementById("SigboardCost").value) ? 0 : Number(document.getElementById("SigboardCost").value);
     var EnlCost = isNaN(document.getElementById("EnlargeCost").value) ? 0 : Number(document.getElementById("EnlargeCost").value);
     var wedThankCost = isNaN(document.getElementById("WedThankCost").value) ? 0 : Number(document.getElementById("WedThankCost").value);
@@ -41,7 +41,7 @@ function calcTotalCost() {
     var DesignerCost = isNaN(document.getElementById("DesignerCost").value) ? 0 : Number(document.getElementById("DesignerCost").value);
 
 
-    var totalCost = album1Cost + album2Cost + album3Cost + miniAlbCost + sigBoardCost +
+    var totalCost = album1Cost + album2Cost + album3Cost + FamilyAlbCost + sigBoardCost +
         EnlCost + wedThankCost + homeThankCost + vidCost + droneCost + helperCost + PrivateCommentsCost + DesignerCost;
 
     if (totalCost == 0) {
@@ -75,7 +75,7 @@ function showCostBoxes() {
         $('#Album1Cost').show();
         $('#Album2Cost').show();
         $('#Album3Cost').show();
-        $('#MiniAlbCost').show();
+        $('#FamilyAlbCost').show();
         $('#SigboardCost').show();
         $('#EnlargeCost').show();
         $('#wedThankCost').show();
@@ -93,7 +93,7 @@ function showCostBoxes() {
         $('#Album1Cost').hide();
         $('#Album2Cost').hide();
         $('#Album3Cost').hide();
-        $('#MiniAlbCost').hide();
+        $('#FamilyAlbCost').hide();
         $('#SigboardCost').hide();
         $('#EnlargeCost').hide();
         $('#wedThankCost').hide();
@@ -228,8 +228,8 @@ function getWedding(event) {
             $('#Album3Cost').val(obj.Album3Cost);
             $('#Album3Price').val(obj.Album3Price);
 
-            $('#MiniAlbCost').val(obj.MiniAlbCost);
-            $('#MiniAlbPrice').val(obj.MiniAlbPrice);
+            $('#FamilyAlbCost').val(obj.FamilyAlbCost);
+            $('#FamilyAlbPrice').val(obj.FamilyAlbPrice);
             $('#SigboardCost').val(obj.SigboardCost);
             $('#SigboardPrice').val(obj.SigboardPrice);
             $('#EnlargeCost').val(obj.EnlargeCost);
@@ -254,7 +254,7 @@ function getWedding(event) {
 
             if (cm.get('CostVersion') != obj.CostVersion) {
                 // alert("Version mismatch");
-                swal("Old Cost Settings", "This event is saved with old cost values. If you change any component, it will be affected by new cost values as per " + cm.get('CostVersion'), "error");
+                swal("Old Cost Settings", "This event contains old cost values. If you change/update/save, it will be affected by new costs as per " + cm.get('CostVersion'), "error");
             }
 
 
@@ -381,8 +381,8 @@ function clearAll() {
     $('#Album3Cost').val("");
     $('#Album3Price').val("");
 
-    $('#MiniAlbCost').val("");
-    $('#MiniAlbPrice').val("");
+    $('#FamilyAlbCost').val("");
+    $('#FamilyAlbPrice').val("");
     $('#SigboardCost').val("");
     $('#SigboardPrice').val("");
     $('#EnlargeCost').val("");
@@ -518,8 +518,8 @@ function getDataObj() {
         Album3Cost: $('#Album3Cost').val(),
         Album3Price: $('#Album3Price').val(),
 
-        MiniAlbCost: $('#MiniAlbCost').val(),
-        MiniAlbPrice: $('#MiniAlbPrice').val(),
+        FamilyAlbCost: $('#FamilyAlbCost').val(),
+        FamilyAlbPrice: $('#FamilyAlbPrice').val(),
         SigboardCost: $('#SigboardCost').val(),
         SigboardPrice: $('#SigboardPrice').val(),
         EnlargeCost: $('#EnlargeCost').val(),
@@ -727,7 +727,7 @@ function savePDF() {
 
     doc.setFontSize(10);
     if ($('#IncludeFA').val() != "N/A") {
-        doc.text(25, line, "Mini Album of size " + $('#IncludeFA').val() + " included");
+        doc.text(25, line, "Family Album of size " + $('#IncludeFA').val() + " included");
         line = line + 10;
     }
 
@@ -747,7 +747,7 @@ function savePDF() {
         doc.setFontSize(10);
         doc.text(30, line + 5, "Quality : " + $('#thankCardQuality').val());
         doc.text(30, line + 10, "Size : " + $('#thankCardSize').val());
-        doc.text(30, line + 15, "No. Thanking Cards : " + $('#wedThankCardCount').val());
+        doc.text(30, line + 15, "Thanking Cards Count : " + $('#wedThankCardCount').val());
         shift = 80;
         thankCardPrinted = true;
     }
@@ -759,7 +759,7 @@ function savePDF() {
         doc.setFontSize(10);
         doc.text(30 + shift, line + 5, "Quality : " + $('#ThankCardQualityH').val());
         doc.text(30 + shift, line + 10, "Size : " + $('#ThankCardSizeH').val());
-        doc.text(30 + shift, line + 15, "No. Thanking Cards : " + $('#homeThankCardCount').val());
+        doc.text(30 + shift, line + 15, "Thanking Cards Count : " + $('#homeThankCardCount').val());
         thankCardPrinted = true;
     }
     if (thankCardPrinted) {

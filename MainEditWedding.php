@@ -93,8 +93,8 @@ $Album2Cost = $_POST['Album2Cost'];
 $Album2Price = $_POST['Album2Price'];
 $Album3Cost = $_POST['Album3Cost'];
 $Album3Price = $_POST['Album3Price'];
-$MiniAlbCost = $_POST['MiniAlbCost'];
-$MiniAlbPrice = $_POST['MiniAlbPrice'];
+$FamilyAlbCost = $_POST['FamilyAlbCost'];
+$FamilyAlbPrice = $_POST['FamilyAlbPrice'];
 $SigboardCost = $_POST['SigboardCost'];
 $SigboardPrice = $_POST['SigboardPrice'];
 $EnlargeCost = $_POST['EnlargeCost'];
@@ -131,7 +131,7 @@ $sql = "UPDATE $DBTableName SET name='$name', dateW='$dateW', timeW='$timeW', pl
 
 ,SigBoard= '$SigBoard'
 
-,Album1Cost='$Album1Cost',Album1Price='$Album1Price',Album2Cost='$Album2Cost',Album2Price='$Album2Price',Album3Cost='$Album3Cost',Album3Price='$Album3Price', MiniAlbCost='$MiniAlbCost', MiniAlbPrice='$MiniAlbPrice', SigboardCost='$SigboardCost'
+,Album1Cost='$Album1Cost',Album1Price='$Album1Price',Album2Cost='$Album2Cost',Album2Price='$Album2Price',Album3Cost='$Album3Cost',Album3Price='$Album3Price', FamilyAlbCost='$FamilyAlbCost', FamilyAlbPrice='$FamilyAlbPrice', SigboardCost='$SigboardCost'
 ,SigboardPrice='$SigboardPrice', EnlargeCost='$EnlargeCost', EnlargePrice='$EnlargePrice', WedThankCost='$WedThankCost', WedThankPrice='$WedThankPrice', HomThankCost='$HomThankCost', HomThankPrice='$HomThankPrice', VidCost='$VidCost'
 ,VidPrice='$VidPrice', DroneCost='$DroneCost', DronePrice='$DronePrice', HelperCost='$HelperCost', HelperPrice='$HelperPrice', DesignerCost='$DesignerCost'
 , DesignerPrice='$DesignerPrice'

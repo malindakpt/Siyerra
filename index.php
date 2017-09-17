@@ -232,14 +232,14 @@
 			</div>
 
 		<div class="w3-panel  w3-leftbar w3-rightbar w3-border-green">
-			<label><b>Mini Album Details</b></label>
-			<!-- FA Family ALbum is the mini Album -->
-			<select id='IncludeFA' class="w3-select" onchange="setMiniAlbCost();"> 
-				<option value="N/A">-Select Mini Album-</option> 
-				<?php echo getProperty("MiniAlbumSizes"); ?>
+			<label><b>Family Album Details</b></label>
+			<!-- FA Family ALbum is the Family Album -->
+			<select id='IncludeFA' class="w3-select" onchange="setFamilyAlbCost();"> 
+				<option value="N/A">-Select Family Album-</option> 
+				<?php echo getProperty("FamilyAlbumSizes"); ?>
 			</select>
-			<input id='MiniAlbPrice'  class="input-price w3-input" placeholder="Price"  onchange="setDesignCost()"> </input>
-			<input id='MiniAlbCost'  class="input-cost w3-input" placeholder="Cost"  onchange="setDesignCost()"> </input>
+			<input id='FamilyAlbPrice'  class="input-price w3-input" placeholder="Price"  onchange="setDesignCost()"> </input>
+			<input id='FamilyAlbCost'  class="input-cost w3-input" placeholder="Cost"  onchange="setDesignCost()"> </input>
  <br><br>
 			<label><b>Signature Board Details</b></label>
 			<select id='SigBoard' class="w3-select" onchange="setSigBoardCost();"> 
@@ -463,8 +463,8 @@
 			echo "document.getElementById('CostVersion').innerHTML = '".$version."';";
 		?>
  	</script>
-	<script src="js/costing.js?1.3" ></script>
-	<script src="js/main.js?1.3"></script> 
+	<script src="js/costing.js?1.5" ></script>
+	<script src="js/main.js?1.6"></script> 
 </body>
 
 

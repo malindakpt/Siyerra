@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
 		,'Album1Cost' => $row["Album1Cost"]	,'Album1Price' => $row["Album1Price"]
 		,'Album2Cost' => $row["Album2Cost"]	,'Album2Price' => $row["Album2Price"]
 		,'Album3Cost' => $row["Album3Cost"]	,'Album3Price' => $row["Album3Price"]
-		,'MiniAlbCost' => $row["MiniAlbCost"]	,'MiniAlbPrice' => $row["MiniAlbPrice"]
+		,'FamilyAlbCost' => $row["FamilyAlbCost"]	,'FamilyAlbPrice' => $row["FamilyAlbPrice"]
 		,'SigboardCost' => $row["SigboardCost"]	,'SigboardPrice' => $row["SigboardPrice"]
 		,'EnlargeCost' => $row["EnlargeCost"]	,'EnlargePrice' => $row["EnlargePrice"]
 		,'WedThankCost' => $row["WedThankCost"]	,'WedThankPrice' => $row["WedThankPrice"]

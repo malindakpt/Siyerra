@@ -145,15 +145,15 @@ function openCat(cityName) {
 	
 
 	<?php  
-	$MiniAlbumSizes = explode("value", getProperty("MiniAlbumSizes"));
+	$FamilyAlbumSizes = explode("value", getProperty("FamilyAlbumSizes"));
 
-	echo "<h4>MiniAlbum Cost and Price</h4>";
-	echo "<ul id='MiniAlbumCost'>";
+	echo "<h4>FamilyAlbum Cost and Price</h4>";
+	echo "<ul id='FamilyAlbumCost'>";
 	
-		for ($y = 1; $y < sizeof($MiniAlbumSizes); $y++) {
-			$v2 = explode("\"",$MiniAlbumSizes[$y])[1];
-			echo '<li class="lbl-settings">'.$v2.':Mini Album Cost</li><input  type="number"  value="'.$resMap[$v2.':Mini Album Cost'].'"  class="w3-input input-get-cost"/>';
-			echo '<li class="lbl-settings">'.$v2.':Mini Album Price</li><input type="number"  value="'.$resMap[$v2.':Mini Album Price'].'"  class="w3-input input-get-cost"/>';		
+		for ($y = 1; $y < sizeof($FamilyAlbumSizes); $y++) {
+			$v2 = explode("\"",$FamilyAlbumSizes[$y])[1];
+			echo '<li class="lbl-settings">'.$v2.':Family Album Cost</li><input  type="number"  value="'.$resMap[$v2.':Family Album Cost'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">'.$v2.':Family Album Price</li><input type="number"  value="'.$resMap[$v2.':Family Album Price'].'"  class="w3-input input-get-cost"/>';		
 		}
 	echo "</ul>"
 ?>
@@ -167,10 +167,10 @@ function openCat(cityName) {
 	?>
 
 <?php 
-		echo "<br><br><h4>Design Cost For Mini Album</h4>";
+		echo "<br><br><h4>Design Cost For Family Album</h4>";
 		echo "<ul id='helperCost'>";
-			echo '<li class="lbl-settings">Design Cost For 1 Mini Album</li><input  type="number" value="'.$resMap['Design Cost For 1 Mini Album'].'"  class="w3-input input-get-cost"/>';
-			echo '<li class="lbl-settings">Design Price For 1 Mini Album</li><input  type="number" value="'.$resMap['Design Price For 1 Mini Album'].'"  class="w3-input input-get-cost"/>';		
+			echo '<li class="lbl-settings">Design Cost For 1 Family Album</li><input  type="number" value="'.$resMap['Design Cost For 1 Family Album'].'"  class="w3-input input-get-cost"/>';
+			echo '<li class="lbl-settings">Design Price For 1 Family Album</li><input  type="number" value="'.$resMap['Design Price For 1 Family Album'].'"  class="w3-input input-get-cost"/>';		
 		echo "</ul>"
 	?>
 
