@@ -19,6 +19,31 @@
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css"> 
 
 	<link rel="stylesheet" type="text/css" href="css/main.css?1.3">
+
+	<meta name="description" content=
+"You can use Photography DIARY to record the photography events as a professional photographer. 
+Create Events
+Create Invoices
+Create Quotations
+Email Invoices
+Android, iOS, Windows supported
+
+Additional features:
+Multiple Album Types are supported
+You can select Album Quality, Number of Pages and Price
+Add separate dates for wedding, home coming and engagement
+Select Thank You card details
+Signature Board and Family Album details
+Enlargement details and Pre-shoot details
+Video shoot details / including drone camera
+You can add the design cost and helper cost for the album
+Finally you can find your profit and cost of the album
+Email or download details as PDF
+" />
+
+<meta name="keywords" content="Photography Diary Album Types Photographer Record events Wedding Homecoming Preshoot Thank You Cards
+Enlargements Video Quality Family Album Signature Board Search Events Studio Management Handle"/>
+
 </head>
 
 <body>
