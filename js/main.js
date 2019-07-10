@@ -116,10 +116,10 @@ function validateData() {
     } else if ($('#dateW').val() == "" && $('#dateH').val() == "") {
         swal("Invalid Inputs", "You have to add atleast 1 date", "error");
         return false;
-    } else if ($('#dateW').val() != "" && Number($('#year').children()[0].value) > Number($('#dateW').val().split("-")[0])) {
+    } else if ($('#dateW').val() != "" && new Date().getFullYear() <= Number($('#dateW').val().split("-")[0])) {
         swal("Invalid Inputs", "Main/Wedding date should not be in past", "error");
         return false;
-    } else if ($('#dateH').val() != "" && Number($('#year').children()[0].value) > Number($('#dateH').val().split("-")[0])) {
+    } else if ($('#dateH').val() != "" && new Date().getFullYear() <= Number($('#dateH').val().split("-")[0])) {
         swal("Invalid Inputs", "Engage./Homecom. date should not be in past", "error");
         return false;
     }
