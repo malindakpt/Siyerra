@@ -62,7 +62,7 @@ Enlargements Video Quality Family Album Signature Board Search Events Studio Man
 			echo '<script>function loadFooter(){ 	loadScript("js/footer/'.$result[1].'F.js",function(){console.log("footer loaded");});}</script>'; 
 
 			if((int)$result[4] < 30){
-				echo '<script>alert("'.$result[4].' Days To Expire Your Account !      Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com");
+				echo '<script>alert("'.$result[4].' Days To Expire Your Account !");
 				</script>';
 
 				// echo '<script>setTimeout(swal("'.$result[4].' Days To Expire Your Account !", "Please deposite '.$result[3].'/= to account of P.K.M.M.Kumarasinghe, BOC 70588880 and send a copy of slip to malindakpt@gmail.com", "warning"), 3000);
@@ -97,10 +97,11 @@ Enlargements Video Quality Family Album Signature Board Search Events Studio Man
 
 			<div >
 				<select id='year'  class="w3-select" style="width:21% ;	 float:left;  margin:2px" >
-					<option value="2017">2017</option>
-					<option value="2018">2018</option>
+					<option value="2021">2021</option>
+					<option value="2020">2020</option>
 					<option value="2019">2019</option>
-					<option value="2020">2020</option> 
+					<option value="2018">2018</option>
+					<option value="2017">2017</option>	 
 				</select>
 				<select id='months'  class="w3-select" style="width:34% ;	 float:left;  margin:2px" >
 					<option value="N/A">All Months</option>
